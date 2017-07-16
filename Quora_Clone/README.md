@@ -1,24 +1,70 @@
-# README
+# FresherNote
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Heroku link][heroku] **Note:** This should be a link to your production site
 
-Things you may want to cover:
+[Trello link][trello]
 
-* Ruby version
+[heroku]: http://www.herokuapp.com
+[trello]: https://trello.com/b/ITnI2qMK
 
-* System dependencies
+## Minimum Viable Product
 
-* Configuration
+FresherNote is a web application inspired by Evernote built using Ruby on Rails
+and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the
+following criteria with smooth, bug-free navigation, adequate seed data and
+sufficient CSS styling:
 
-* Database creation
+- [ ] Hosting on Heroku
+- [ ] New account creation, login, and guest/demo login
+- [ ] Notes
+- [ ] Notebooks for organizing notes
+- [ ] Tags
+- [ ] Rich Text Editing
+- [ ] Infinite Scroll
+- [ ] Production README [sample](docs/production_readme.md)
 
-* Database initialization
+## Design Docs
+* [View Wireframes][wireframes]
+* [React Components][components]
+* [API endpoints][api-endpoints]
+* [DB schema][schema]
+* [Sample State][sample-state]
 
-* How to run the test suite
+[wireframes]: docs/wireframes
+[components]: docs/component-hierarchy.md
+[sample-state]: docs/sample-state.md
+[api-endpoints]: docs/api-endpoints.md
+[schema]: docs/schema.md
 
-* Services (job queues, cache servers, search engines, etc.)
+## Implementation Timeline
 
-* Deployment instructions
+### Phase 1: Backend setup and Front End User Authentication (2 days)
 
-* ...
+**Objective:** Functioning rails project with front-end Authentication
+
+### Phase 2: Questions Model, API, and components (2 days)
+
+**Objective:** Questions can be created, read, edited and destroyed through
+the API.
+
+### Phase 3: Answers (2 days)
+
+**Objective:** Answers belong to Questions. Answers can be created, read, edited and destroyed through the API.
+
+### Phase 4: Tags (1 day)
+
+**Objective:** Questions can be tagged with multiple tags, and tags are searchable.
+
+### Phase 5: Allow Complex Styling in Questions (1 day, W2 Th 6pm)
+
+**Objective:** Allow rich text editing of Questions.
+
+### Phase 6: infinite scroll for Notes Index (1 day, W2 F 6pm)
+<!-- - Pagination /  -->
+**Objective:** Add infinite scroll to Notes Index
+
+### Bonus Features (TBD)
+- [ ] Search notes by content
+- [ ] Set reminders on notes
+- [ ] Changelogs for Notes
+- [ ] Multiple sessions

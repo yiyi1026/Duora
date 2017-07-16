@@ -22,3 +22,6 @@ bundle.js.map
 .DS_Store
 npm-debug.log
 ../.DS_Store
+
+#git_workflow
+/git_workflow.md

@@ -1,4 +1,4 @@
-# 1. Select Technology 
+# 1. Select Technology
  + ruby
  + javascript
  + sql
@@ -8,7 +8,7 @@
  + sqlite3 (progresql)
  + redux
  + jbuilder
- + jquery
+ <!-- + jquery -->
  + etc..
 # 3. Tables
  + user
@@ -29,7 +29,7 @@
    - answer content
  + vote
    - id
-   - answer id 
+   - answer id
    - up vote
    - down vote
  + (bonus of bonus) question_comment
@@ -46,7 +46,7 @@
    - id
    - topic name
    - (bonus of bonus) parent topic id
- + (bonus) comment_reply 
+ + (bonus) comment_reply
    - id
    - comment id
    - reply author
