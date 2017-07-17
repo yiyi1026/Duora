@@ -1,11 +1,15 @@
 {
-  currentUser: {
-    id: 1,
-    username: "app-academy",
-    asked_questions: {[]},
-    answers: {[]},
-    subscribed_topics: {[]}
-  },
+  session: {
+    currentUser: {
+      id: 1,
+      username: "app-academy",
+      email: abc@gmail.com,
+      asked_questions: {[]},
+      answers: {[]},
+      subscribed_topics: {[]}
+    },
+    errors:[]
+  }
   forms: {
     AuthForm:{
       signUpForm: {errors: []},
@@ -15,7 +19,16 @@
     AnswerForm: {errors: ["body can't be blank"]},
     CommentForm: {errors: ["body can't be blank"]}    
   },
-  topics: {[]},
+  topics: {
+    1: {
+      id: 1,
+      name: "maths"
+    },
+    4: {
+      id: 4,
+      name: 'ruby'
+    }
+  },
   questions: {
     5: {
       id: 5,
@@ -38,6 +51,22 @@
       questionId: 1,
       body: "body",
       authorId: 2
+    }
+  }
+  users: {
+    user1: {
+      id: 1,
+      username: "Someone",
+      asked_questions: {[]},
+      answers: {[]},
+      subscribed_topics: {[]}
+    },
+    user2: {
+      id: 1,
+      username: "Someone",
+      asked_questions: {[]},
+      answers: {[]},
+      subscribed_topics: {[]}
     }
   }
 }
