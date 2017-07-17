@@ -62,5 +62,4 @@
 | "/users/:userId"  (bonus)                                       | "UserViewContainer"         |
 | "/questions/:questionId"                                        | "QuestionViewContainer"     |
 | "/questions/:questionId/answers/:answerId"                      | "AnswerViewContainer"       |
-| "/questions/:questionId/answers/:answerId/comments/:commentId"  | "CommentViewContainer"      |
 | "/new-question"                                                 | "AskaQuestion"              |

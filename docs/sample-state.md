@@ -1,4 +1,4 @@
-{
+```{
   session: {
     currentUser: {
       id: 1,
@@ -69,4 +69,4 @@
       subscribed_topics: {[]}
     }
   }
-}
+}```
