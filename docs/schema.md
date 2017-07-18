@@ -39,21 +39,6 @@ body        | text      | not null
 answer_id   | integer   | not null, foreign key (references answers), indexed
 author_id   | integer   | not null, foreign key (references users), indexed
 
-
-## asked_questions (JOIN table)
-column name        | data type | details
--------------------|-----------|-----------------------
-id                 | integer   | not null, primary key
-author_id          | string    | not null, foreign key (references users), indexed
-question_id        | string    | not null, foreign key (references questions), indexed
-
-## user_answers (JOIN table)
-column name        | data type | details
--------------------|-----------|-----------------------
-id                 | integer   | not null, primary key
-user_id            | string    | not null, foreign key (references users), indexed
-answer_id          | string    | not null, foreign key (references answers), indexed
-
 ## user_subscribed_topics (JOIN table)
 column name        | data type | details
 -------------------|-----------|-----------------------
@@ -61,20 +46,12 @@ id                 | integer   | not null, primary key
 user_id            | string    | not null, foreign key (references users), indexed
 topic_id           | string    | not null, foreign key (references topics), indexed
 
-
 ## topic_questions (JOIN table)
 column name        | data type | details
 -------------------|-----------|-----------------------
 id                 | integer   | not null, primary key
 topic_id           | string    | not null, foreign key (references topics), indexed
 question_id        | string    | not null, foreign key (references questions), indexed
-
-## question_answers (JOIN table)
-column name        | data type | details
--------------------|-----------|-----------------------
-id                 | integer   | not null, primary key
-question_id        | string    | not null, foreign key (references questions), indexed
-answer_id          | string    | not null, foreign key (references answers), indexed
 
 ## answer_comments
 column name | data type | details
