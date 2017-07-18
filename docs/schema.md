@@ -6,6 +6,8 @@ column name     | data type | details
 id              | integer   | not null, primary key
 username        | string    | not null, indexed
 email           | string    | not null, indexed, unique
+description     | string    |
+avatar          | string    |
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
@@ -32,12 +34,13 @@ topic_id           | integer   | not null, foreign key (references topics), inde
 question_id        | integer   | not null, foreign key (references questions), indexed
 
 ## answers
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-body        | text      | not null
-author_id   | integer   | not null, foreign key (references users), indexed
-commentsIds | integer   | array
+column name        | data type | details
+-------------------|-----------|-----------------------
+id                 | integer   | not null, primary key
+body               | integer   | not null, foreign key (references users), indexed
+commentsIds        | integer   | array
+upvoteUsersIds     | integer   | array
+downvoteUsersIds   | integer   | array
 
 ## comments
 column name | data type | details

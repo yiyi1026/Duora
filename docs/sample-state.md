@@ -3,20 +3,13 @@
   session: {
     currentUser: {
       id: 'userId1',
-      username: 'app-academy',
-      email: abc@gmail.com,
-      subscribed_topics: {[]}
+      username: 'Someone',
+      email: 'abc@gmail.com',
+      description: 'coding day and night',
+      avatar: 'image_url3',
+      subscribedTopicsIds: ['topicId4']
     },
     errors:[]
-  }
-  forms: {
-    AuthForm:{
-      signUpForm: {errors: []},
-      signInForm: {errors: []}
-    }
-    AskQuestionForm: {errors: ['body can't be blank']},
-    AnswerForm: {errors: ['body can't be blank']},
-    CommentForm: {errors: ['body can't be blank']}    
   },
   topics: {
     'topicId1': {
@@ -70,27 +63,37 @@
         id: 'answerId1',
         body: 'answerId1body',
         author_id: 'authorId1',
-        commentsIds: ['commentId1', 'commentId10']
+        commentsIds: ['commentId1', 'commentId10'],
+        upvoteUsersIds: ['userId1'],
+        downvoteUsersIds: ['userId5','userId4']
       },
       'answerId7': {
         id: 'answerId7',
         body: 'answerId7body',
-        author_id: 'authorId4'
+        author_id: 'authorId4',
+        commentsIds: ['commentId3', 'commentId2'],
+        upvoteUsersIds: ['userId5','userId6'],
+        downvoteUsersIds: ['userId1','userId9']
       }
 
     },
     allIds: ['answerId5', 'answerId7'],
-    popularityIds: ['answerId1', 'answerId5']
+    popularityIds: ['answerId7', 'answerId5']
   },
   comments: {
     byId: {    
       'commentId1': {
         id: 'commentId1',
-        body: 'body',
+        body: 'body1',
         author_id: 'authorId4'
+      },
+      'commentId6': {
+        id: 'commentId6',
+        body: 'body6',
+        author_id: 'authorId1'
       }
     },
-    allIds: ['commentId1']
+    allIds: ['commentId1','commentId6']
   }
   users: {
     byId: {      
@@ -98,13 +101,17 @@
         id: 'userId1',
         username: 'Someone',
         email: 'abc@gmail.com',
-        topicsIds: {['topicId4']}
+        description: 'coding day and night',
+        avatar: 'image_url3',
+        subscribedTopicsIds: ['topicId4']
       },
       'userId6': {
         id: 'userId6',
         username: 'Another',
         email: 'xyz@gmail.com',
-        topicsIds: {['topicId1']}
+        description: 'coding geek',
+        avatar: 'image_url2',
+        subscribedTopicsIds: ['topicId1']
       }
     },
     allIds: ['userId6', 'userId1']
