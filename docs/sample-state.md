@@ -34,14 +34,14 @@
         id: 'questionId5',
         title: 'title5',
         body: 'body5',
-        author_Id: 'authorId1',
+        author_id: 'authorId1',
         answerIds:['answerId1', 'answerId9']
       },
       'questionId9': {
         id: 'questionId9',
         title: 'title9',
         body: 'body9',
-        author_Id: 'authorId2',
+        author_id: 'authorId2',
         answerIds:['answerId6', 'answerId4'],
       }
     },
@@ -69,13 +69,13 @@
       'answerId1': {
         id: 'answerId1',
         body: 'answerId1body',
-        author_Id: 'authorId1',
+        author_id: 'authorId1',
         commentsIds: ['commentId1', 'commentId10']
       },
       'answerId7': {
         id: 'answerId7',
         body: 'answerId7body',
-        author_Id: 'authorId4'
+        author_id: 'authorId4'
       }
 
     },
@@ -87,7 +87,7 @@
       'commentId1': {
         id: 'commentId1',
         body: 'body',
-        author_Id: 'authorId4'
+        author_id: 'authorId4'
       }
     },
     allIds: ['commentId1']
