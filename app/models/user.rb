@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # do we need index username?? should it be unique???
 	validates :username, :password_digest, :session_token, presence: true
-	validates :username, uniqueness: true
+	validates :email, uniqueness: true
   # or this format?? {minimum: 6, allow_nil: true}
 	validates :password, length: {minimum: 6}, allow_nil: :true
 
@@ -17,9 +17,9 @@ class User < ApplicationRecord
 		self.password_digest = BCrypt::Password.create(password)
 	end
 
-	def self.find_by_credentials(username, password)
-		user = User.find_by(username: username)
-		user & user.is_password?(password) ? user : nil
+	def self.find_by_credentials(email, password)
+		user = User.find_by(email: email)
+		user && user.is_password?(password) ? user : nil
 	end
 
 	def is_password?(password)
@@ -27,7 +27,7 @@ class User < ApplicationRecord
 	end
 
 	def reset_session_token!
-		self.session_token = new_session_token
+		self.session_token = SecureRandom.base64
 		ensure_session_token_uniqueness
 		self.save
 		self.session_token
