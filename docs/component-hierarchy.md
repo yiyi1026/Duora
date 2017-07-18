@@ -58,8 +58,7 @@
 |-----------------------------------------------------------------|-----------------------------|
 | "/"                                                             | "App"                       |
 | "/signup"                                                       | "AuthFormContainer"         |
-| "/signin"                                                        | "AuthFormContainer"         |
+| "/signin"                                                       | "AuthFormContainer"         |
 | "/users/:userId"  (bonus)                                       | "UserViewContainer"         |
 | "/questions/:questionId"                                        | "QuestionViewContainer"     |
-| "/questions/:questionId/answers/:answerId"                      | "AnswerViewContainer"       |
 | "/new-question"                                                 | "AskaQuestion"              |

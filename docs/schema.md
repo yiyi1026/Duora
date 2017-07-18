@@ -24,7 +24,7 @@ body        | text      |
 author_id   | integer   | not null, foreign key (references users), indexed
 answerIds   | integer   | array
 
-## topic_questions (JOIN table)
+## topic_questions(JOIN table)
 column name        | data type | details
 -------------------|-----------|-----------------------
 id                 | integer   | not null, primary key
@@ -46,7 +46,7 @@ id          | integer   | not null, primary key
 body        | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
 
-## user_subscribed_topics (JOIN table)
+## user_subscribed_topics(JOIN table)
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
