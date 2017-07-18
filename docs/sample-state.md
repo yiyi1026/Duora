@@ -1,4 +1,5 @@
-```{
+```
+{
   session: {
     currentUser: {
       id: 'userId1',
