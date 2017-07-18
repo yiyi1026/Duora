@@ -39,8 +39,8 @@ column name        | data type | details
 id                 | integer   | not null, primary key
 body               | integer   | not null, foreign key (references users), indexed
 commentsIds        | integer   | array
-upvoteUsersIds     | integer   | array
-downvoteUsersIds   | integer   | array
+upvoteUsersIds     | integer   | array (join_table may be better)
+downvoteUsersIds   | integer   | array (join_table may be better)
 
 ## comments
 column name | data type | details
