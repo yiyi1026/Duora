@@ -48,6 +48,22 @@
     allIds: ['questionId5','questionId9'],
     popularityIds: ['questionId9','questionId5']
   },
+  topic_question: {
+    byId: {
+      'join1': {
+        id: 'join1',
+        topic_id: 'topicId1',
+        question_id: 'questionId9'
+      },
+      'join3': {
+        id: 'join3',
+        topic_id: 'topicId5',
+        question_id: 'questionId7'
+      }
+    },
+    allIds: ['join1', 'join3'],
+    popularityIds: ['join3', 'join1']
+  }
   answers: {
     byId: {
       'answerId1': {
@@ -63,6 +79,7 @@
       }
 
     },
+    allIds: ['answerId5', 'answerId7'],
     popularityIds: ['answerId1', 'answerId5']
   },
   comments: {
@@ -72,7 +89,8 @@
         body: 'body',
         author_Id: 'authorId4'
       }
-    }
+    },
+    allIds: ['commentId1']
   }
   users: {
     byId: {      
@@ -80,15 +98,16 @@
         id: 'userId1',
         username: 'Someone',
         email: 'abc@gmail.com',
-        subscribed_topics: {[]}
+        topicsIds: {['topicId4']}
       },
       'userId6': {
         id: 'userId6',
         username: 'Another',
         email: 'xyz@gmail.com',
-        subscribed_topics: {[]}
+        topicsIds: {['topicId1']}
       }
-    }
+    },
+    allIds: ['userId6', 'userId1']
   }
 }
 ```

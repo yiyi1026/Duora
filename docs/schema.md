@@ -20,8 +20,16 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
-body        | string    |
+body        | text      |
 author_id   | integer   | not null, foreign key (references users), indexed
+answerIds   | integer   | array
+
+## topic_questions (JOIN table)
+column name        | data type | details
+-------------------|-----------|-----------------------
+id                 | integer   | not null, primary key
+topic_id           | integer   | not null, foreign key (references topics), indexed
+question_id        | integer   | not null, foreign key (references questions), indexed
 
 ## answers
 column name | data type | details
@@ -29,34 +37,18 @@ column name | data type | details
 id          | integer   | not null, primary key
 body        | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
-question_id | integer   | not null, foreign key (references questions), indexed
+commentsIds | integer   | array
 
 ## comments
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 body        | text      | not null
-answer_id   | integer   | not null, foreign key (references answers), indexed
 author_id   | integer   | not null, foreign key (references users), indexed
 
 ## user_subscribed_topics (JOIN table)
-column name        | data type | details
--------------------|-----------|-----------------------
-id                 | integer   | not null, primary key
-user_id            | string    | not null, foreign key (references users), indexed
-topic_id           | string    | not null, foreign key (references topics), indexed
-
-## topic_questions (JOIN table)
-column name        | data type | details
--------------------|-----------|-----------------------
-id                 | integer   | not null, primary key
-topic_id           | string    | not null, foreign key (references topics), indexed
-question_id        | string    | not null, foreign key (references questions), indexed
-
-## answer_comments
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-answer_id   | integer   | not null, foreign key (references answers), indexed
-author_id   | integer   | not null, foreign key (references users), indexed
-body        | string    | not null
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+user_id         | integer   | not null, foreign key (references users), indexed
+topic_id        | integer   | not null, foreign key (references topics), indexed
