@@ -1,15 +1,15 @@
-# Arouquora
+# Duora
 
 [Heroku link][heroku] **Note:** This should be a link to your production site
 
 [Trello link][trello]
 
-[heroku]: https://arouquora.herokuapp.com/
+[heroku]: https://duora.herokuapp.com/
 [trello]: https://trello.com/b/ITnI2qMK
 
 ## Minimum Viable Product
 
-Arouquora is a web application inspired by Quora built using Ruby on Rails
+Duora is a web application inspired by Quora built using Ruby on Rails
 and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the
 following criteria with smooth, bug-free navigation, adequate seed data and
 sufficient CSS styling:
