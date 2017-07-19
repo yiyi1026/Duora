@@ -28,6 +28,7 @@ const App = () => (
 
       <div className='jumbotron'>
         <AuthRoute path="/" component={SignUpFormContainer} />
+        <br />
         <AuthRoute path="/" component={SessionFormContainer} />
       </div>
     </div>
