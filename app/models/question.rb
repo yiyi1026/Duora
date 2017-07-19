@@ -13,14 +13,14 @@
 
 class Question < ApplicationRecord
   validates :title, :author_id, presence: true
+  validates :author, presence: true  #no anonymous answers for now
 
   #associations
   belongs_to :author,
     foreign_key: :author_id,
     primary_key: :id,
     class_name: :User
-    
-  # has_many :answers
+
   # has_many :comments, through: :answers
 
   # has_many :topics, through: :topic_taggings, source: topics???
