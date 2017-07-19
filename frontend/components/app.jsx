@@ -35,6 +35,7 @@ const App = () => (
   </div>
 );
 
+// <AuthRoute exact path="/" component={SessionFormContainer} />
 
 // <Route exact path="/" component={SearchContainer} />
 export default App;
