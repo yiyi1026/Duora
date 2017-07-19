@@ -17,7 +17,7 @@ export const receiveErrors = errors => ({
   errors
 });
 
-export const signup = (user) => (
+export const signup = (user) => dispatch => (
   APIUtil.signup(user).then(user => (
     dispatch(receiveCurrentUser(user))
   ), error => (
@@ -33,7 +33,7 @@ export const login = user => dispatch => (
   ))
 );
 //do we need raising error for logout when not logged in? I doubt that
-export const logout = () => (
+export const logout = () => dispatch => (
   APIUtil.logout().then(user => (
     dispatch(receiveCurrentUser(null))
   ))

@@ -6,6 +6,14 @@ import thunk from 'redux-thunk';
 const composeEnhancers = composeWithDevTools({
   // Specify name here, actionsBlacklist, actionsCreators and other options if needed
 });
+const initialStore = {
+  session:{
+    currentUser: {
+
+    },
+    errors:[]
+  }
+};
 const configureStore = (preloadedStore = {}) => (
   createStore(
     rootReducer,
