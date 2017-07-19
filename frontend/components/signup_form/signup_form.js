@@ -108,12 +108,11 @@ class SignupForm extends React.Component {
 
      );
 
+    //  Please {this.props.formType} or {this.navLink()}
      let original_html= (
        <div className="login-form-container">
           <form onSubmit={this.handleSubmit} className="login-form-box">
-            Welcome to Duora
-            <br/>
-            Please {this.props.formType} or {this.navLink()}
+            Sign Up
             {this.renderErrors()}
             <div className="login-form">
               <br/>

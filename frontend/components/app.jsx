@@ -27,10 +27,8 @@ const App = () => (
       </header>
 
       <div className='jumbotron'>
-        <Switch>
-          <AuthRoute path="/" component={SessionFormContainer} />
-          <AuthRoute path="/" component={SignUpFormContainer} />
-        </Switch>
+        <AuthRoute path="/" component={SignUpFormContainer} />
+        <AuthRoute path="/" component={SessionFormContainer} />
       </div>
     </div>
   </div>

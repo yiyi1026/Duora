@@ -111,9 +111,8 @@ class SessionForm extends React.Component {
      let original_html= (
        <div className="login-form-container">
           <form onSubmit={this.handleSubmit} className="login-form-box">
-            Welcome to Duora
             <br/>
-            Please {this.props.formType} or {this.navLink()}
+            Sign In
             {this.renderErrors()}
             <div className="login-form">
               <br/>
@@ -125,14 +124,7 @@ class SessionForm extends React.Component {
                 />
               </label>
               <br/>
-                <label>Username:
-                  <input type="text"
-                    value={this.state.username}
-                    onChange={this.update('username')}
-                    className="login-input"
-                  />
-                </label>
-                <br/>
+
               <label>Password:
                 <input type="password"
                   value={this.state.password}
@@ -147,14 +139,16 @@ class SessionForm extends React.Component {
         </div>
      )
 
-    // if (this.props.formType === 'login'){
-    //   return(
-    //     <div>{login_html}</div>
-    //
-    //     );
-    // } else {
-    //   return ( <div>{signup_html}</div> );
-    // }
+    //  no user need for logging in
+    //  <label>Username:
+    //    <input type="text"
+    //      value={this.state.username}
+    //      onChange={this.update('username')}
+    //      className="login-input"
+    //    />
+    //  </label>
+    //  <br/>
+
     return original_html;
   }
 }
