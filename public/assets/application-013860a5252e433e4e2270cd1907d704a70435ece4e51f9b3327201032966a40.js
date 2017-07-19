@@ -42922,10 +42922,10 @@ var SessionForm = function (_React$Component) {
 
       var original_html = _react2.default.createElement(
         'div',
-        { classNameName: 'login-form-container' },
+        { className: 'login-form-container' },
         _react2.default.createElement(
           'form',
-          { onSubmit: this.handleSubmit, classNameName: 'login-form-box' },
+          { onSubmit: this.handleSubmit, className: 'login-form-box' },
           'Welcome to Duora',
           _react2.default.createElement('br', null),
           'Please ',
@@ -42935,7 +42935,7 @@ var SessionForm = function (_React$Component) {
           this.renderErrors(),
           _react2.default.createElement(
             'div',
-            { classNameName: 'login-form' },
+            { className: 'login-form' },
             _react2.default.createElement('br', null),
             _react2.default.createElement(
               'label',
@@ -42944,7 +42944,7 @@ var SessionForm = function (_React$Component) {
               _react2.default.createElement('input', { type: 'text',
                 value: this.state.email,
                 onChange: this.update('email'),
-                classNameName: 'login-input'
+                className: 'login-input'
               })
             ),
             _react2.default.createElement('br', null),
@@ -42955,7 +42955,7 @@ var SessionForm = function (_React$Component) {
               _react2.default.createElement('input', { type: 'text',
                 value: this.state.username,
                 onChange: this.update('username'),
-                classNameName: 'login-input'
+                className: 'login-input'
               })
             ),
             _react2.default.createElement('br', null),
@@ -42966,7 +42966,7 @@ var SessionForm = function (_React$Component) {
               _react2.default.createElement('input', { type: 'password',
                 value: this.state.password,
                 onChange: this.update('password'),
-                classNameName: 'login-input'
+                className: 'login-input'
               })
             ),
             _react2.default.createElement('br', null),

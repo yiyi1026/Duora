@@ -109,19 +109,19 @@ class SessionForm extends React.Component {
      );
 
      let original_html= (
-       <div classNameName="login-form-container">
-          <form onSubmit={this.handleSubmit} classNameName="login-form-box">
+       <div className="login-form-container">
+          <form onSubmit={this.handleSubmit} className="login-form-box">
             Welcome to Duora
             <br/>
             Please {this.props.formType} or {this.navLink()}
             {this.renderErrors()}
-            <div classNameName="login-form">
+            <div className="login-form">
               <br/>
               <label>Email:
                 <input type="text"
                   value={this.state.email}
                   onChange={this.update('email')}
-                  classNameName="login-input"
+                  className="login-input"
                 />
               </label>
               <br/>
@@ -129,7 +129,7 @@ class SessionForm extends React.Component {
                   <input type="text"
                     value={this.state.username}
                     onChange={this.update('username')}
-                    classNameName="login-input"
+                    className="login-input"
                   />
                 </label>
                 <br/>
@@ -137,7 +137,7 @@ class SessionForm extends React.Component {
                 <input type="password"
                   value={this.state.password}
                   onChange={this.update('password')}
-                  classNameName="login-input"
+                  className="login-input"
                 />
               </label>
               <br/>
@@ -147,14 +147,15 @@ class SessionForm extends React.Component {
         </div>
      )
 
-    if (this.props.formType === 'login'){
-      return(
-        <div>{login_html}</div>
-
-        );
-    } else {
-      return ( <div>{signup_html}</div> );
-    }
+    // if (this.props.formType === 'login'){
+    //   return(
+    //     <div>{login_html}</div>
+    //
+    //     );
+    // } else {
+    //   return ( <div>{signup_html}</div> );
+    // }
+    return original_html;
   }
 }
 
