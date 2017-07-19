@@ -12,7 +12,7 @@
     font-weight: 900;
     font-style: normal;
     font-size: 22px;
-    
+
 }
 
 .active{
@@ -36,7 +36,8 @@
 }
 
 .rootDiv{
-    background-image: url(image_path('login_bkg.jpeg'));
-    background-size:     inherit;                     
-    background-repeat:   no-repeat;
+  height: 750px;
+  background-image: url(image_path('login_bkg.jpeg'));
+  background-size:     cover;
+  background-repeat:   no-repeat;
 }
