@@ -1,3 +1,42 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn, .form-control, .a{
+    font-size: 12px !important;
+}
+
+.brand {
+    color: #b92b27;
+    font-family: 'Spectral';
+    font-weight: 900;
+    font-style: normal;
+    font-size: 22px;
+    
+}
+
+.active{
+    color: #b92b27 !important;
+}
+
+.centered {
+    text-align: center;
+    font-size: 0;
+}
+
+.centered > div {
+    float: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 13px;
+}
+
+.brand{
+  font-size: 40px;
+}
+
+.rootDiv{
+    background-image: url(image_path('login_bkg.jpeg'));
+    background-size:     inherit;                     
+    background-repeat:   no-repeat;
+}

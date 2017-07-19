@@ -16,17 +16,22 @@ import SessionFormContainer from './session_form/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
-  <div>
+  <div className='rootDiv'>
+    <div className='container'>
     <header>
       <Link to="/" className="header-link">
         <h1>Duora</h1>
       </Link>
       <GreetingContainer />
     </header>
+    
+      <div className='jumbotron'>
     <Switch>
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
     </Switch>
+    </div>
+    </div>
   </div>
 );
 
