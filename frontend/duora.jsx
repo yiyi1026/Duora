@@ -11,8 +11,6 @@ import { login, logout, signup}  from './actions/session_actions';
 window.login = login;
 window.logout = logout;
 window.signup = signup;
-// window.getState = store.getState;
-// window.dispatch = store.dispatch;
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
@@ -21,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 } else {
   store = configureStore();
 }
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });

@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-     let signup_html = ( 
+     let signup_html = (
       <div>
         123
       </div>
@@ -149,8 +149,8 @@ class SessionForm extends React.Component {
 
     if (this.props.formType === 'login'){
       return(
-        login_html
-      
+        <div>{login_html}</div>
+
         );
     } else {
       return ( <div>{signup_html}</div> );
