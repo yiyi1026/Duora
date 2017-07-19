@@ -63,17 +63,13 @@
         id: 'answerId1',
         body: 'answerId1body',
         author_id: 'authorId1',
-        commentsIds: ['commentId1', 'commentId10'],
-        upvoteUsersIds: ['userId1'],
-        downvoteUsersIds: ['userId5','userId4']
+        commentsIds: ['commentId1', 'commentId10']
       },
       'answerId7': {
         id: 'answerId7',
         body: 'answerId7body',
         author_id: 'authorId4',
-        commentsIds: ['commentId3', 'commentId2'],
-        upvoteUsersIds: ['userId5','userId6'],
-        downvoteUsersIds: ['userId1','userId9']
+        commentsIds: ['commentId3', 'commentId2']
       }
 
     },

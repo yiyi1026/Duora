@@ -24,7 +24,7 @@ id          | integer   | not null, primary key
 title       | string    | not null
 body        | text      |
 author_id   | integer   | not null, foreign key (references users), indexed
-answerIds   | integer   | array
+answersIds   | integer   | array
 
 ## topic_questions(JOIN table)
 column name        | data type | details
@@ -37,10 +37,9 @@ question_id        | integer   | not null, foreign key (references questions), i
 column name        | data type | details
 -------------------|-----------|-----------------------
 id                 | integer   | not null, primary key
-body               | integer   | not null, foreign key (references users), indexed
+body               | text      | not null
 commentsIds        | integer   | array
-upvoteUsersIds     | integer   | array (join_table may be better)
-downvoteUsersIds   | integer   | array (join_table may be better)
+author_id          | integer   | not null, foreign key (references users), indexed
 
 ## comments
 column name | data type | details
