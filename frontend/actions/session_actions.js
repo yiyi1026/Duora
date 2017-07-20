@@ -21,20 +21,40 @@ export const signup = (user) => dispatch => (
   APIUtil.signup(user).then(user => (
     dispatch(receiveCurrentUser(user))
   ), error => (
-    dispatch(receiveErrors(error.responseJSON))
+    dispatch(receiveErrors({signup: error.responseJSON}))
   ))
 );
+
+// export const signup = (user) => dispatch => (
+//   APIUtil.signup(user).then(user => (
+//     dispatch(receiveCurrentUser(user))
+//   ), error => (
+//     dispatch(receiveErrors(error.responseJSON))
+//   ))
+// );
 
 export const login = user => dispatch => (
   APIUtil.login(user).then(user => (
     dispatch(receiveCurrentUser(user))
   ),error => (
-    dispatch(receiveErrors(error.responseJSON))
+    dispatch(receiveErrors({login: error.responseJSON}))
   ))
 );
-//do we need raising error for logout when not logged in? I doubt that
+
+// export const login = user => dispatch => (
+//   APIUtil.login(user).then(user => (
+//     dispatch(receiveCurrentUser(user))
+//   ),error => (
+//     dispatch(receiveErrors(error.responseJSON))
+//   ))
+// );
+//do we need raising error for logout when not logged in? yes for now
 export const logout = () => dispatch => (
   APIUtil.logout().then(user => (
     dispatch(receiveCurrentUser(null))
+  ), error => (
+    dispatch(receiveErrors(error.responseJSON))
   ))
 );
+
+// export const updateUser

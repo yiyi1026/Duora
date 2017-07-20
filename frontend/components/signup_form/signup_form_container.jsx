@@ -7,7 +7,7 @@ import SignupForm from './signup_form';
 const mapStateToProps = ({ session }) => {
   return {
     loggedIn: Boolean(session.currentUser),
-    errors: session.errors
+    errors: session.errors.signup||[]
   }
   //loggedIn: false????
 };
@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch, { location }) => {
   const processForm = signup;
   return {
     processForm: user => dispatch(signup(user)),
-    // formType
+    formType: 'signup'
   };
 };
 
