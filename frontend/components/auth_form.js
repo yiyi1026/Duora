@@ -60,6 +60,7 @@ const AuthForm = () => (
         </div>
         <div className="container">
            <div className="row signup_login">
+            
 
              <AuthRoute exact path="/" component={SignUpFormContainer} />
              <div className="divider-vertical col-md-1"></div>

@@ -19,7 +19,7 @@ import AuthForm from './auth_form';
 
 
 const App = () => {
-  console.log(window.currentUser);
+  // console.log(window.currentUser);
     return (
         <div className='rootDiv'>
           <div className='loginbackground'>
@@ -29,7 +29,7 @@ const App = () => {
                   <h1>Duora</h1>
                 </Link>
               </header>
-
+               <GreetingContainer />
               <AuthRoute exact path='/' component={AuthForm} />
             </div>
           </div>
