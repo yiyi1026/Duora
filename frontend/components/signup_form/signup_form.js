@@ -28,19 +28,21 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     if (this.props.formType === 'signup'){
-      this.props.processForm({user});
+      this.props.processForm({user}).then((currentUser) => (
+        this.props.history.push(`questions/`)
+      ));
     }else{
       return;
     }
   }
 
-  navLink() {
-    if (this.props.formType === 'login') {
-      return <Link to="/signup">sign up </Link>;
-    } else {
-      return <Link to="/login">log in </Link>;
-    }
-  }
+  // navLink() {
+  //   if (this.props.formType === 'login') {
+  //     return <Link to="/signup">sign up </Link>;
+  //   } else {
+  //     return <Link to="/login">log in </Link>;
+  //   }
+  // }
 
   renderErrors() {
     return(

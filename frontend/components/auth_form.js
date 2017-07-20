@@ -1,10 +1,12 @@
 import React from 'react';
 // import { Provider } from 'react-redux';
+
 import {
   Route,
+  withRouter
   // Redirect,
   // Switch,
-  Link,
+  // Link,
   // HashRouter
 } from 'react-router-dom';
 
@@ -132,4 +134,4 @@ const AuthForm = () => (
 //   <br />
 //   <AuthRoute exact path="/" component={SessionFormContainer} />
 // </div>
-export default AuthForm;
+export default withRouter(AuthForm);

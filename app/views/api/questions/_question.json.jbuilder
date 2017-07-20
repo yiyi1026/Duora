@@ -1,6 +1,6 @@
-json.extract! question, :id, :title, :body, :author, :answersIds, :author_id, :create_at
-json.extract! author, :username
+json.extract! question, :title, :id, :body, :author_id, :answersIds
+
 
 # json.answers question.answersIds
 
-# json.answers 
+# json.answers

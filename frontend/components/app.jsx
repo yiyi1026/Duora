@@ -18,19 +18,29 @@ import SignUpFormContainer from './signup_form/signup_form_container';
 import AuthForm from './auth_form';
 
 
-const App = () => (
-  <div className='rootDiv'>
-    <div className='container loginbackground'>
-      <header>
-        <Link to="/" className="header-link">
-          <h1>Duora</h1>
-        </Link>
-      </header>
-      <GreetingContainer />
-      <Route exact path='/' component={AuthForm} />
-    </div>
-  </div>
-);
+const App = () => {
+  console.log(window.currentUser);
+  if (!window.currentUser){
+    return (
+        <div className='rootDiv'>
+          <div className='loginbackground'>
+            <div className='container'>
+              <header>
+                <Link to="/" className="header-link">
+                  <h1>Duora</h1>
+                </Link>
+              </header>
+
+              <Route exact path='/' component={AuthForm} />
+            </div>
+          </div>
+        </div>
+      )
+    }
+    else{
+      return (<div className='nobackground'><GreetingContainer /></div>)
+    }
+};
 
 // <AuthRoute exact path="/" component={SignUpFormContainer} />
 // <br />

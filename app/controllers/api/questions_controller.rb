@@ -19,10 +19,11 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
-  def edit
+  def update
     @question = current_user.questions.find_by(params[:id])
-    if @question
-      render "/api/questions/edit"    #?????
+    if @question.update_attributes(question_params)
+      render "/api/questions/show"    #?????
+      # render "/api/questions/#{question.id}edit"
     else
       render json: @question.errors.full_messages, status: 422
       #no   “You do not have permissions to edit this question”
@@ -44,5 +45,6 @@ class Api::QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :body)
+    params.require(:question).permit(:title, :body, :id)
+  end
 end

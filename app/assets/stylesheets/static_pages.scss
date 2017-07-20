@@ -42,9 +42,9 @@
 }
 
 .loginbackground{
-  height: 750px;
-  width: 100% auto;
-  // position: fixed;
+  height: 100%;
+  width: 100%;
+  position: fixed;
   background-image: url(image_path('login_bkg.png'));
   background-size:     cover;
   background-repeat:   no-repeat;
@@ -89,3 +89,20 @@ div.login {
 // .form-group span{
 //   font-size: 16px;
 // }
+.demo-login {
+  margin-top: 15px;
+}
+
+div h4 p {
+  font-size: 16px;
+}
+
+.header-name {
+  display: flex;
+  background-color: #fafafa;
+
+}
+
+.nobackground {
+  background-color: #fafafa;
+}

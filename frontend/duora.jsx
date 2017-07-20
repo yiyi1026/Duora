@@ -24,3 +24,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });
+// ReactDOM.render(<div>entry file</div>, root);
