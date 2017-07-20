@@ -56,8 +56,6 @@ const AuthForm = () => (
       <div className="centered slogan">
         <div>
           <h4><p>A place to share knowledge and better understand the world</p></h4>
-
-          <p> </p>
         </div>
         </div>
         <div className="container">

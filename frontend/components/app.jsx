@@ -20,7 +20,6 @@ import AuthForm from './auth_form';
 
 const App = () => {
   console.log(window.currentUser);
-  if (!window.currentUser){
     return (
         <div className='rootDiv'>
           <div className='loginbackground'>
@@ -31,15 +30,13 @@ const App = () => {
                 </Link>
               </header>
 
-              <Route exact path='/' component={AuthForm} />
+              <AuthRoute exact path='/' component={AuthForm} />
             </div>
           </div>
         </div>
-      )
-    }
-    else{
-      return (<div className='nobackground'><GreetingContainer /></div>)
-    }
+      );
+
+
 };
 
 // <AuthRoute exact path="/" component={SignUpFormContainer} />
