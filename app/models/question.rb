@@ -21,10 +21,20 @@ class Question < ApplicationRecord
     primary_key: :id,
     class_name: :User
 
-  # has_many :comments, through: :answers
+  has_many :answers
+  has_many :comments, through: :answers
+
+  # has_many :topic_taggings
+  # has_many :topics, through: :topic_taggings, source: :topic
 
   # has_many :topics, through: :topic_taggings, source: topics???
   # has_many :topic_taggings
 
+  #customize topic names???
+  # def topic_name=(topic_names)
+  #   self.topics = topic_names.map do |topic_name|
+  #     Topic.find_or_create_by(name: topic_name)
+  #   end
+  # end
 
 end

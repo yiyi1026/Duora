@@ -19,14 +19,12 @@ import AuthForm from './auth_form';
 
 
 const App = () => {
-  // console.log(window.currentUser);
     return (
         <div className='rootDiv'>
-          <div className='loginbackground'>
+          <div >
             <div className='container'>
               <header>
                 <Link to="/" className="header-link">
-                  <h1>Duora</h1>
                 </Link>
               </header>
                <GreetingContainer />

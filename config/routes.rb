@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy, :show]
-    resources :questions
+    resources :questions   #, except: [:create, :update, :destroy]
     resources :answers
 end
+
+#chaos
   root "static_pages#root"
 
 end

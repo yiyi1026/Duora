@@ -3,9 +3,18 @@ class Api::QuestionsController < ApplicationController
   #could question author delete answers not written by the author?
   before_action :require_logged_in, only: [:new, :create, :edit, :update, :destroy]
 
-  def new
-    @question = Question.new
-    render :new
+  # def new
+  #   @question = Question.new
+  #   render :new
+  # end
+
+  def index
+    render json: Question.all, include: :answers
+    # render "api/questions/index"
+  end
+
+  def show
+    render json: Question.find(params[:id]), include: :answers
   end
 
   def create
@@ -13,16 +22,17 @@ class Api::QuestionsController < ApplicationController
 
     if @question.save
       # render question show
-      render "api/questions/show"
+      render json: @question, include: :answers
+      # render :show
     else
-      render json: @question.errors.full_messages, status: 422 #which status error??
+      render json: @question.errors.full_messages, status: 422
     end
   end
 
   def update
-    @question = current_user.questions.find_by(params[:id])
+    @question = Question.find(params[:id])
     if @question.update_attributes(question_params)
-      render "/api/questions/show"    #?????
+      render json: @question, include: :answers    #?????
       # render "/api/questions/#{question.id}edit"
     else
       render json: @question.errors.full_messages, status: 422
@@ -30,21 +40,17 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
-
-  def index
-    @questions = Question.all
-    render "api/questions/index"
-  end
-
-  def show
-    # @question = Question.includes(answers:[:comments])
-    @question = Question.find(params[:id])
-    render :show
+  def destroy
+    @question = current_user.questions.find(params[:id])
+    @question.destroy
+    #render :show
+    # render json: @question
+    render json: @question, include: :answers
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:title, :body, :id)
+    params.require(:question).permit(:title, :body, :id, :author_id, :answers)
   end
 end

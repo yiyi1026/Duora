@@ -27,6 +27,10 @@ class User < ApplicationRecord
 		class_name: :Question
 
 	# has_many :answers,  #author has written many answers
+	# 	through: :questions,
+	# 	source: :answer
+	has_many :topic_taggings
+	# has_many :subscribed_topics, through: :topic_taggings, source: :topic
 
 	after_initialize :ensure_session_token
 
