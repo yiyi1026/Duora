@@ -1,5 +1,5 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 import {
   Route,
   Redirect,
@@ -15,6 +15,8 @@ import SessionFormContainer from './session_form/session_form_container';
 // import BenchFormContainer from './bench_form/bench_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SignUpFormContainer from './signup_form/signup_form_container';
+import AuthForm from './auth_form';
+
 
 const App = () => (
   <div className='rootDiv'>
@@ -25,16 +27,13 @@ const App = () => (
         </Link>
         <GreetingContainer />
       </header>
-
-      <div className='jumbotron'>
-        <AuthRoute path="/" component={SignUpFormContainer} />
-        <br />
-        <AuthRoute path="/" component={SessionFormContainer} />
-      </div>
+      <Route exact path='/' component={AuthForm} />
     </div>
   </div>
 );
 
+// <AuthRoute exact path="/" component={SignUpFormContainer} />
+// <br />
 // <AuthRoute exact path="/" component={SessionFormContainer} />
 
 // <Route exact path="/" component={SearchContainer} />

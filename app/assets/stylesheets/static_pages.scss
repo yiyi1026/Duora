@@ -11,7 +11,8 @@
     font-family: 'Spectral';
     font-weight: 900;
     font-style: normal;
-    font-size: 22px;
+    // font-size: 22px;
+    font-size: 40px;
 
 }
 
@@ -31,13 +32,26 @@
     font-size: 13px;
 }
 
-.brand{
-  font-size: 40px;
-}
-
 .rootDiv{
   height: 750px;
   background-image: url(image_path('login_bkg.jpeg'));
   background-size:     cover;
   background-repeat:   no-repeat;
+}
+
+.divider-vertical {
+    height: 150px;                   /* any height */
+    border-left: 1px solid gray;     /* right or left is the same */
+    float: left;                     /* so BS grid doesn't break */
+    opacity: 0.5;                    /* optional */
+    margin: 0 15px;                  /* optional */
+}
+
+.slogan{
+  height: 50px;
+  margin: 20px 0;
+}
+
+.log_in_up_container{
+  width: 100px;
 }

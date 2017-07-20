@@ -60,61 +60,42 @@ class SessionForm extends React.Component {
      );
 
      let login_html = (
-        <div className="container ">
-          <div className="row centered">
-              <div className="logo">
-                <a className="navbar-brand brand" href="#">
-                    <span className="brand">Duora</span>
-                </a>
-              </div>
-          </div>
-          <div className="row centered">
-              <div>A place to share knowledge and better understand the world</div>
-          </div>
-          <div className="container">
-              <div className="row signup_login">
-                <div className="signup col-md-6">
-                    <div className="row">
-                      <a href="#" className="btn btn-danger btn-lg">
-                          <span className="glyphicon glyphicon-edit" />
-                          <span>Continue with Google</span>
-                      </a>
-                    </div>
-                    <div className="row">
-                      <a href="#" className="btn btn-primary btn-lg">
-                          <span className="glyphicon glyphicon-edit" />
-                          <span>Continue with Facebook</span>
-                      </a>
-                    </div>
-                </div>
-                <div className="login col-md-6">
-                    <form>
-                      <div className="form-group ">
-                          <span>
-                            <b>Login</b>
-                          </span>
-                          <input id="email" className="form-control" placeholder="Email" />
-                      </div>
-                      <div className="form-group">
-                          <span />
-                          <input id="password" type="password" className="form-control" placeholder="Password" />
-                      </div>
-                      <button className="btn btn-primary col-lg-offset-9 col-md-offset-9">Login</button>
-                    </form>
-                </div>
-              </div>
-          </div>
-        </div>
+       <div className='login col-md-5 pull-right'>
+         <div className='col-md-8'>
+         <form >
+         <div className='form-group '>
+           <span ><b>Sign In</b></span>
+           <input
+             id = 'email'
+             className='form-control'
+             placeholder='Email'
+             />
+         </div>
 
+         <div className='form-group'>
+           <span ></span>
+           <input
+             id = 'password'
+             type='password'
+             className='form-control'
+             placeholder='Password' />
+
+         </div>
+         <input type="submit" value="Sign In" className='btn btn-primary col-lg-offset-9 col-md-offset-9'></input>
+       </form>
+     </div>
+   </div>
 
 
      );
+    //  <input className='btn btn-primary col-lg-offset-9 col-md-offset-9' type="submit" value="Sign In" />
 
      let original_html= (
        <div className="login-form-container">
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <br/>
             Sign In
+            <br/>
             {this.renderErrors()}
             <div className="login-form">
               <br/>
@@ -151,7 +132,7 @@ class SessionForm extends React.Component {
     //  </label>
     //  <br/>
 
-    return original_html;
+    return login_html;
   }
 }
 

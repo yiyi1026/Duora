@@ -55,62 +55,74 @@ class SignupForm extends React.Component {
   }
 
   render() {
-     let signup_html = (
-      <div >
-        123
-      </div>
-     );
 
      let login_html = (
-        <div className="container ">
-          <div className="row centered">
-              <div className="logo">
-                <a className="navbar-brand brand" href="#">
-                    <span className="brand">Duora</span>
-                </a>
+
+             <div className='login col-md-5'>
+               <div className='col-md-8'>
+               <form onSubmit={this.handleSubmit} className="login-form-box">
+                 {this.renderErrors()}
+               <div className='form-group'>
+                 <br/>
+                 <span ><b>Sign up</b></span>
+                 <input type="text"
+                   value={this.state.email}
+                   onChange={this.update('email')}
+                   className="form-control"
+                   placeholder="Email"
+                 />
+               </div>
+               <div className='form-group '>
+                 <input type="text"
+                   value={this.state.username}
+                   onChange={this.update('username')}
+                   className="form-control"
+                   placeholder="Username"
+                 />
+               </div>
+
+               <div className='form-group'>
+                 <span ></span>
+                 <input type="password"
+                   value={this.state.password}
+                   onChange={this.update('password')}
+                   className="form-control"
+                   placeholder="Password"
+                 />
+               </div>
+               <input className='btn btn-primary col-lg-offset-9 col-md-offset-9' type="submit" value="Sign Up" />
+             </form>
               </div>
-          </div>
-          <div className="row centered">
-              <div>A place to share knowledge and better understand the world</div>
-          </div>
-          <div className="container">
-              <div className="row signup_login">
-                <div className="signup col-md-6">
-                    <div className="row">
-                      <a href="#" className="btn btn-danger btn-lg">
-                          <span className="glyphicon glyphicon-edit" />
-                          <span>Continue with Google</span>
-                      </a>
-                    </div>
-                    <div className="row">
-                      <a href="#" className="btn btn-primary btn-lg">
-                          <span className="glyphicon glyphicon-edit" />
-                          <span>Continue with Facebook</span>
-                      </a>
-                    </div>
-                </div>
-                <div className="login col-md-6">
-                    <form>
-                      <div className="form-group ">
-                          <span>
-                            <b>Login</b>
-                          </span>
-                          <input id="email" className="form-control" placeholder="Email" />
-                      </div>
-                      <div className="form-group">
-                          <span />
-                          <input id="password" type="password" className="form-control" placeholder="Password" />
-                      </div>
-                      <button className="btn btn-primary col-lg-offset-9 col-md-offset-9">Login</button>
-                    </form>
-                </div>
-              </div>
-          </div>
-        </div>
-
-
-
+             </div>
      );
+    //  <button className='btn btn-primary col-lg-offset-9 col-md-offset-9'>Sign Up</button>
+    //  signinForm
+    //  <div className='login col-md-5 pull-right'>
+    //    <div className='col-md-8'>
+    //      <form >
+    //        <div className='form-group '>
+    //          <span ><b>Login</b></span>
+    //          <input
+    //            id = 'email'
+    //            className='form-control'
+    //            placeholder='Email'
+    //            />
+    //        </div>
+    //
+    //        <div className='form-group'>
+    //          <span ></span>
+    //          <input
+    //            id = 'password'
+    //            type='password'
+    //            className='form-control'
+    //            placeholder='Password' />
+    //
+    //        </div>
+    //        <button className='btn btn-primary col-lg-offset-9 col-md-offset-9'>Login</button>
+    //      </form>
+    //    </div>
+    //  </div>
+
 
     //  Please {this.props.formType} or {this.navLink()}
      let original_html= (
@@ -158,7 +170,7 @@ class SignupForm extends React.Component {
     // } else {
     //   return ( <div>{signup_html}</div> );
     // }
-    return original_html;
+    return login_html;
   }
 }
 
