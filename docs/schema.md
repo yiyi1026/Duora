@@ -24,9 +24,8 @@ id          | integer   | not null, primary key
 title       | string    | not null
 body        | text      |
 author_id   | integer   | not null, foreign key (references users), indexed
-answersIds   | integer   | array
 
-## topic_questions(JOIN table)
+## topics_questions(JOIN table)
 column name        | data type | details
 -------------------|-----------|-----------------------
 id                 | integer   | not null, primary key
@@ -38,7 +37,7 @@ column name        | data type | details
 -------------------|-----------|-----------------------
 id                 | integer   | not null, primary key
 body               | text      | not null
-commentsIds        | integer   | array
+question_id        | integer   | not null, foreign key (references questions), indexed
 author_id          | integer   | not null, foreign key (references users), indexed
 
 ## comments
@@ -47,6 +46,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 body        | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
+answer_id   | integer   | not null, foreign key (references questions), indexed
 
 ## user_subscribed_topics(JOIN table)
 column name     | data type | details
