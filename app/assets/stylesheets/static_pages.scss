@@ -3,26 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .btn, .form-control, .a{
-    font-size: 12px !important;
+    font-size: 12px;
+    // !important
 }
 
 .brand {
-    color: #b92b27;
-    font-family: 'Spectral';
-    font-weight: 900;
-    font-style: normal;
-    // font-size: 22px;
-    font-size: 40px;
+  display: block;
+  color: #b92b27;
+  font-family: 'Spectral';
+  font-weight: 900;
+  font-style: normal;
+  // font-size: 22px;
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center;
 
 }
 
 .active{
-    color: #b92b27 !important;
+    color: #b92b27;
+    // !important
 }
 
 .centered {
     text-align: center;
+    margin: 0 auto;
     font-size: 0;
+    background-color: #fafafa;
+    max-width: 750px;
+
 }
 
 .centered > div {
@@ -32,9 +41,11 @@
     font-size: 13px;
 }
 
-.rootDiv{
+.loginbackground{
   height: 750px;
-  background-image: url(image_path('login_bkg.jpeg'));
+  width: 100% auto;
+  // position: fixed;
+  background-image: url(image_path('login_bkg.png'));
   background-size:     cover;
   background-repeat:   no-repeat;
 }
@@ -42,16 +53,39 @@
 .divider-vertical {
     height: 150px;                   /* any height */
     border-left: 1px solid gray;     /* right or left is the same */
-    float: left;                     /* so BS grid doesn't break */
+    // float: right;                     /* so BS grid doesn't break */
     opacity: 0.5;                    /* optional */
-    margin: 0 15px;                  /* optional */
+    // padding-left: 15px;                  /* optional */
+    text-align: center;
+    // margin: 0 auto;
+
 }
 
 .slogan{
   height: 50px;
-  margin: 20px 0;
+  margin: 20px 0px;
 }
 
 .log_in_up_container{
   width: 100px;
 }
+
+.logo {
+  margin: 10px;
+}
+
+div.login {
+  text-align: center;
+  // float: none;
+}
+
+.login.col-md-3 {
+  margin-bottom: 15px;
+}
+// .jumbotron{
+//   background-color: #fafafa !important;
+// }
+
+// .form-group span{
+//   font-size: 16px;
+// }

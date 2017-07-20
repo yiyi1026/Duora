@@ -20,13 +20,13 @@ import AuthForm from './auth_form';
 
 const App = () => (
   <div className='rootDiv'>
-    <div className='container'>
+    <div className='container loginbackground'>
       <header>
         <Link to="/" className="header-link">
           <h1>Duora</h1>
         </Link>
-        <GreetingContainer />
       </header>
+      <GreetingContainer />
       <Route exact path='/' component={AuthForm} />
     </div>
   </div>

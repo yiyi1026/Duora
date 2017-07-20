@@ -58,13 +58,12 @@ class SignupForm extends React.Component {
 
      let login_html = (
 
-             <div className='login col-md-5'>
-               <div className='col-md-8'>
+             <div className='login'>
+               <div className='login col-md-3'>
                <form onSubmit={this.handleSubmit} className="login-form-box">
                  {this.renderErrors()}
                <div className='form-group'>
-                 <br/>
-                 <span ><b>Sign up</b></span>
+                 <h4 ><b>Sign up</b></h4>
                  <input type="text"
                    value={this.state.email}
                    onChange={this.update('email')}
@@ -90,7 +89,7 @@ class SignupForm extends React.Component {
                    placeholder="Password"
                  />
                </div>
-               <input className='btn btn-primary col-lg-offset-9 col-md-offset-9' type="submit" value="Sign Up" />
+               <input className='btn btn-primary' type="submit" value="Sign Up" />
              </form>
               </div>
              </div>

@@ -5,11 +5,12 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      // username: '',
       password: '',
       email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -27,6 +28,15 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
+    if (this.props.formType === 'login'){
+      this.props.processForm({user});
+    }
+  }
+
+  handleDemoSubmit(e) {
+    e.preventDefault();
+    // const user = this.state;
+    let user = {email: "guest1@guest.com", password:'guest1'};
     if (this.props.formType === 'login'){
       this.props.processForm({user});
     }
@@ -60,11 +70,13 @@ class SessionForm extends React.Component {
      );
 
      let login_html = (
-       <div className='login col-md-5 pull-right'>
-         <div className='col-md-8'>
-         <form >
+       <div className='login'>
+         <div className='col-md-3'>
+         <form onSubmit={this.handleSubmit} className="login-form-box">
+           {this.renderErrors()}
          <div className='form-group '>
-           <span ><b>Sign In</b></span>
+           <h4 ><b>Sign In</b></h4>
+
            <input
              id = 'email'
              className='form-control'
@@ -81,7 +93,11 @@ class SessionForm extends React.Component {
              placeholder='Password' />
 
          </div>
-         <input type="submit" value="Sign In" className='btn btn-primary col-lg-offset-9 col-md-offset-9'></input>
+         <input type="submit" value="Sign In" className='btn btn-primary col-lg-offset-7 col-md-offset-7'></input>
+
+       </form>
+       <form onSubmit={this.handleDemoSubmit} className="login-form-box">
+         <input type="submit" value="Demo Sign In" className='btn btn-primary col-lg-offset-7 col-md-offset-7'></input>
        </form>
      </div>
    </div>

@@ -44,26 +44,29 @@ import { AuthRoute } from '../util/route_util';
 // );
 const AuthForm = () => (
     <div className="container">
-      <div className='row centered'>
-      <div className='logo'>
-        <a className="navbar-brand brand" href="#"><span className='brand'>Duora</span></a>
+      <div className="centered">
+      <div className='centered'>
+      <div className='logo centered'>
+        <a className="navbar-brand brand" href="#"><p className='brand'>Duora</p></a>
         </div>
       </div>
-      <div className="row centered slogan">
+      <br/>
+      <div className="centered slogan">
         <div>
-          <p> </p>
-          <h4>A place to share knowledge and better understand the world</h4>
+          <h4><p>A place to share knowledge and better understand the world</p></h4>
+
           <p> </p>
         </div>
         </div>
         <div className="container">
            <div className="row signup_login">
 
-                <AuthRoute exact path="/" component={SignUpFormContainer} />
-             <div className="divider-vertical"></div>
-               <AuthRoute exact path="/" component={SessionFormContainer} />
+             <AuthRoute exact path="/" component={SignUpFormContainer} />
+             <div className="divider-vertical col-md-1"></div>
+             <AuthRoute exact path="/" component={SessionFormContainer} />
            </div>
          </div>
+       </div>
       </div>
     );
 //loginForm
