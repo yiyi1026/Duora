@@ -16,7 +16,7 @@
 class User < ApplicationRecord
   # do we need index username?? should it be unique???
 	validates :username, :password_digest, :session_token, presence: true
-	validates :email, uniqueness: true
+	validates :email, uniqueness: true, presence: true
 	# validates :email, email_format: { message: "doesn't look like an email address" }
   # or this format?? {minimum: 6, allow_nil: true}
 	validates :password, length: {minimum: 6}, allow_nil: :true
@@ -54,7 +54,7 @@ class User < ApplicationRecord
 	end
 
 	def reset_session_token!
-		self.session_token = SecureRandom.base64
+		# self.session_token = SecureRandom.base64
 		ensure_session_token_uniqueness
 		self.save
 		self.session_token
@@ -63,13 +63,14 @@ class User < ApplicationRecord
 	private
 
 	def ensure_session_token
-		self.session_token ||= SecureRandom.base64
+		self.session_token ||= SecureRandom.urlsafe_base64
 	end
 
 	def ensure_session_token_uniqueness
 		while User.find_by(session_token: self.session_token)
-			self.session_token = SecureRandom.base64
+			self.session_token = SecureRandom.urlsafe_base64
 		end
+		self.session_token
 	end
 
 end
