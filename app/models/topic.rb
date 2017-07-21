@@ -10,4 +10,7 @@
 
 class Topic < ApplicationRecord
   # has_many :questions
+  validates :name, presence: true
+
+  has_many :questions
 end

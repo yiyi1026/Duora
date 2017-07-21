@@ -5,9 +5,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :questions   #, except: [:create, :update, :destroy]
     resources :answers
-    resources :topics do
-      resources :questions
-    end
+    resources :topics
+    resources :questions
 end
 
 #chaos
