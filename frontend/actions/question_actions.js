@@ -35,15 +35,6 @@ export const requestSingleQuestion = id => dispatch => (
   )
 )
 
-
-export const signup = (user) => dispatch => (
-  APIUtil.signup(user).then(user => (
-    dispatch(receiveSingleQuestion(user))
-  ), error => (
-    dispatch(receiveErrors({signup: error.responseJSON}))
-  ))
-);
-
 export const fetchQuestions = (topic_id) => dispatch => (
   APIUtil.fetchQuestions(topic_id).then(
     questions => (dispatch(receiveQuestions(questions))

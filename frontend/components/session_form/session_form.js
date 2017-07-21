@@ -77,6 +77,8 @@ class SessionForm extends React.Component {
                  id = 'email'
                  className='form-control'
                  placeholder='Email'
+                 value={this.state.email}
+                 onChange={this.update('email')}
                  />
              </div>
 
@@ -86,6 +88,8 @@ class SessionForm extends React.Component {
                  id = 'password'
                  type='password'
                  className='form-control'
+                 value={this.state.password}
+                 onChange={this.update('password')}
                  placeholder='Password' />
 
              </div>
@@ -99,39 +103,6 @@ class SessionForm extends React.Component {
        </div>
 
      );
-
-     let original_html= (
-       <div className="login-form-container">
-          <form onSubmit={this.handleSubmit} className="login-form-box">
-            <br/>
-            Sign In
-            <br/>
-            {this.renderErrors()}
-            <div className="login-form">
-              <br/>
-              <label>Email:
-                <input type="text"
-                  value={this.state.email}
-                  onChange={this.update('email')}
-                  className="login-input"
-                />
-              </label>
-              <br/>
-
-              <label>Password:
-                <input type="password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  className="login-input"
-                />
-              </label>
-              <br/>
-              <input type="submit" value="Submit" />
-            </div>
-          </form>
-        </div>
-     )
-
     return login_html;
   }
 }

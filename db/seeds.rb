@@ -6,13 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
+Topic.delete_all
 Question.delete_all
 Answer.delete_all
+Comment.delete_all
+
 
 #guest = {user:{username: 'guest', email: 'guest@guest.com', password:'123456'}}
 guest1 = User.create!({username: 'guest1', email: 'guest1@guest.com', password: 'guest1'})
 guest2 = User.create!({username: 'guest2', email: 'guest2@guest.com', password: 'guest2'})
 guest3 = User.create!({username: 'guest3', email: 'guest3@guest.com', password: 'guest3'})
+duora = User.create!({username: 'duora', email: 'duora@guest.com', password: '123456'})
+
 
 topic1 = Topic.create!({name:'Time Travel'})
 topic2 = Topic.create!({name:'Physics'})
