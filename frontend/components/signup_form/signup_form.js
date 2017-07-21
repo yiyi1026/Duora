@@ -61,7 +61,7 @@ class SignupForm extends React.Component {
      let login_html = (
 
              <div className='login'>
-               <div className='login col-md-3'>
+               <div className='login col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 col-lg-3'>
                <form onSubmit={this.handleSubmit} className="login-form-box">
                  {this.renderErrors()}
                <div className='form-group'>
@@ -91,7 +91,7 @@ class SignupForm extends React.Component {
                    placeholder="Password"
                  />
                </div>
-               <input className='btn btn-primary' type="submit" value="Sign Up" />
+               <input className='btn wonderful-button pull-right' type="submit" value="Sign Up" />
              </form>
               </div>
              </div>

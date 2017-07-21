@@ -14,13 +14,22 @@
   font-weight: 900;
   font-style: normal;
   // font-size: 22px;
-  font-size: 40px;
+  font-size: 60px;
   margin-bottom: 10px;
   text-align: center;
 
 }
 
-.active{
+.brand-sm {
+    color: #b92b27;
+    font-family: 'Spectral';
+    font-weight: 900;
+    font-style: normal;
+    font-size: 22px;
+    
+}
+
+ul.red-text > li.active > a.active{
     color: #b92b27;
     // !important
 }
@@ -57,13 +66,13 @@
 
 .divider-vertical {
     height: 150px;                   /* any height */
-    border-left: 1px solid gray;     /* right or left is the same */
+    border-right: 1px solid gray;     /* right or left is the same */
     // float: right;                     /* so BS grid doesn't break */
     opacity: 0.5;                    /* optional */
     // padding-left: 15px;                  /* optional */
     text-align: center;
     // margin: 0 auto;
-
+    transform: translateX(-50%);
 }
 
 .slogan{
@@ -110,4 +119,19 @@ div h4 p {
 
 .nobackground {
   background-color: #fafafa;
+}
+
+.top-margin-80{
+  margin-top: 80px;
+}
+
+.top-margin-30{
+  margin-top: 30px;
+}
+
+.wonderful-button{
+  background: #3e78ad;
+  color: #fff;
+  border: 1px solid #3a66ad;
+
 }

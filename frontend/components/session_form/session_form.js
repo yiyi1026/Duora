@@ -67,8 +67,8 @@ class SessionForm extends React.Component {
   render() {
      let login_html = (
            <div className='login'>
-             <div className='col-md-3'>
-             <form onSubmit={this.handleSubmit} className="login-form-box">
+             <div className='col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 col-lg-3'>
+             <form onSubmit={this.handleSubmit} className="login-form-box row">
                {this.renderErrors()}
              <div className='form-group '>
                <h4 ><b>Sign In</b></h4>
@@ -89,11 +89,11 @@ class SessionForm extends React.Component {
                  placeholder='Password' />
 
              </div>
-             <input type="submit" value="Sign In" className='btn btn-primary'></input>
+             <input type="submit" value="Sign In" className='btn wonderful-button pull-right'></input>
 
            </form>
-           <form onSubmit={this.handleDemoSubmit} className="login-form-box demo-login">
-             <input type="submit" value="Demo Sign In" className='btn btn-primary'></input>
+           <form onSubmit={this.handleDemoSubmit} className="login-form-box row demo-login ">
+             <input type="submit" value="Demo Sign In" className='btn wonderful-button pull-right'></input>
            </form>
          </div>
        </div>
