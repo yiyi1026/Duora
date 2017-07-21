@@ -28,3 +28,8 @@ answer1 = Answer.create!({body:'answer1bodytoquestion2', author_id: guest2.id, q
 answer2 = Answer.create!({body:'answer2bodytoquestion1', author_id: guest3.id, question_id: question2.id})
 answer3 = Answer.create!({body:'answer3bodytoquestion3', author_id: guest1.id, question_id: question3.id})
 answer4 = Answer.create!({body:'answer4bodytoquestion3', author_id: guest2.id, question_id: question1.id})
+
+
+comment1 = Comment.create!({body: 'commentbody1', answer_id: answer1.id, author_id: guest1.id})
+comment2 = Comment.create!({body: 'commentbody1', answer_id: answer3.id, author_id: guest2.id})
+comment3 = Comment.create!({body: 'commentbody1', answer_id: answer2.id, author_id: guest3.id})

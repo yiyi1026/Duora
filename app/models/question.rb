@@ -6,9 +6,9 @@
 #  title      :string           not null
 #  body       :text
 #  author_id  :integer          not null
-#  answersIds :integer          default([]), is an Array
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  topic_id   :integer
 #
 
 class Question < ApplicationRecord

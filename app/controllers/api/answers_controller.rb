@@ -1,17 +1,17 @@
 class Api::AnswersController < ApplicationController
   def create
-    answer = Answer.new(answer_params)
+    @answer = Answer.new(answer_params)
 
-    if answer.save
-      render json: answer
+    if @answer.save
+      render json: @answer
     else
-      render json: answer.errors.full_messages, status: 422
+      render json: @answer.errors.full_messages, status: 422
     end
   end
 
   def index
-    answers = Answer.find(params[:question_id]).answers
-    render json: answers
+    @answers = Answer.find(params[:question_id]).answers
+    render json: @answers
   end
 
   # def destroy
@@ -31,5 +31,6 @@ class Api::AnswersController < ApplicationController
   end
 
   def answer_params
-    params.require(:answer).permit(:body, :question_id)
+    params.require(:answer).permit(:body, :question_id, :id, :author)
+  end
 end
