@@ -14,9 +14,15 @@ guest1 = User.create!({username: 'guest1', email: 'guest1@guest.com', password: 
 guest2 = User.create!({username: 'guest2', email: 'guest2@guest.com', password: 'guest2'})
 guest3 = User.create!({username: 'guest3', email: 'guest3@guest.com', password: 'guest3'})
 
-question1 = Question.create!({title: 'quesTitle1', body: 'quesBody1', author_id: guest3.id})
-question2 = Question.create!({title: 'quesTitle2', body: 'quesBody2', author_id: guest1.id})
-question3 = Question.create!({title: 'quesTitle3', body: 'quesBody3', author_id: guest2.id})
+topic1 = Topic.create!({name:'Time Travel'})
+topic2 = Topic.create!({name:'Physics'})
+topic3 = Topic.create!({name:'Music'})
+# topic4 = Topic.create!({name:'Art'})
+# topic5 = Topic.create!({name:'Movie'})
+
+question1 = Question.create!({title: 'quesTitle1', body: 'quesBody1', author_id: guest3.id, topic_id: topic1.id})
+question2 = Question.create!({title: 'quesTitle2', body: 'quesBody2', author_id: guest1.id, topic_id: topic2.id})
+question3 = Question.create!({title: 'quesTitle3', body: 'quesBody3', author_id: guest2.id, topic_id: topic3.id})
 
 answer1 = Answer.create!({body:'answer1bodytoquestion2', author_id: guest2.id, question_id: question1.id})
 answer2 = Answer.create!({body:'answer2bodytoquestion1', author_id: guest3.id, question_id: question2.id})

@@ -12,8 +12,8 @@
 #
 
 class Question < ApplicationRecord
-  validates :title, :author_id, presence: true
-  validates :author, presence: true  #no anonymous answers for now
+  validates :title, :author_id, :topic_id, presence: true
+  validates :author, :topic, presence: true  #no anonymous answers for now
 
   #associations
   belongs_to :author,
@@ -24,13 +24,12 @@ class Question < ApplicationRecord
   has_many :answers
   has_many :comments, through: :answers
 
-  # has_many :topic_taggings
-  # has_many :topics, through: :topic_taggings, source: :topic
+  belongs_to :topic
 
-  # has_many :topics, through: :topic_taggings, source: topics???
   # has_many :topic_taggings
+  # has_many :subscribed_topics, through: :topic_taggings, source: :topic
 
-  #customize topic names???
+  # multiple topics???
   # def topic_name=(topic_names)
   #   self.topics = topic_names.map do |topic_name|
   #     Topic.find_or_create_by(name: topic_name)
