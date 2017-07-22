@@ -22,6 +22,8 @@ class Answer < ApplicationRecord
   belongs_to :question,
     class_name: :Question
 
+  has_many :comments
+
   #belongs to question ???? question has an array of answersIds, how to
   #use that ??
 end

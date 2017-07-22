@@ -18,7 +18,9 @@ class Api::QuestionsController < ApplicationController
   end
 
   def show
-    render json: Question.find(params[:id]), include: :answers
+    @question = Question.includes(answers: [:comments]).find(params[:id])
+    render :show
+    # render json: Question.find(params[:id]), include: :answers
   end
 
   def create
@@ -34,7 +36,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
+    @question = Question.includes(answers: [:comments]).find(params[:id])
     if @question.update_attributes(question_params)
       render json: @question, include: :answers    #?????
       # render "/api/questions/#{question.id}edit"
