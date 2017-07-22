@@ -1,33 +1,35 @@
 import React from 'react'
-import {Route} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import QuestionIndexContainer from './question/question_index_container';
+import QuestionDetailContainer from './question/question_detail_container';
 
 class MainFrame extends React.Component{
-    constructor(props){
-        super(props)
-    }
+  constructor(props){
+      super(props)
+  }
 
-    render(){
-        return(
-        <div className="main-frame ">
-            
-            <Route path='/' component={GreetingContainer} />
-             <div className="jumbotron"> 
-                <div className="col-md-2 col-lg-2">
-                    Feeds
-                </div>  
-                <div className="col-md-8 col-lg-6">
-                    <Route path="/" component={QuestionIndexContainer} />
-                </div>
-                <div className="col-md-2 col-lg-2">
-                    Subscriptions
-                </div>
-            </div>
-        </div>
-
-        )
-    }
+  render(){
+    return(
+    <div className="main-frame ">
+      <Route path='/' component={GreetingContainer} />
+       <div className="jumbotron">
+          <div className="col-md-2 col-lg-2">
+              Feeds
+          </div>
+          <div className="col-md-8 col-lg-6">
+            <Switch>
+              <Route path={`/questions/#{question_id}`} component={QuestionDetailContainer} />
+              <Route path="/" component={QuestionIndexContainer} />
+            </Switch>
+          </div>
+          <div className="col-md-2 col-lg-2">
+              Subscriptions
+          </div>
+      </div>
+    </div>
+    )
+  }
 }
 
 export default MainFrame

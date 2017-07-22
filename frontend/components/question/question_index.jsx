@@ -9,13 +9,6 @@ class QuestionIndex extends React.Component{
   render(){
     const { questions, createQuestion, updateQuestion, errors } = this.props;
     console.log(this.props);
-    // const questionItems = questions.map(question => (
-    //     <QuestionIndexItem
-    //       key={ `questions${question.id}` }
-    //       question={ question }
-    //       updateQuestion={ updateQuestion } />
-    //   )
-    // );
 
     const questionItems = questions.map((question, idx) => (
       <QuestionIndexItem
@@ -25,6 +18,7 @@ class QuestionIndex extends React.Component{
       )
     );
     // const questionItems = {a:3};
+    // console.log(questionItems);
     // console.log(questionItems);
     return (
       <div>

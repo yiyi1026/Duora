@@ -18,7 +18,7 @@ const initialState = {
 const byIdReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = merge({}, state);
-    console.log(newState);
+    // console.log(newState);
     switch(action.type) {
       case RECEIVE_ALL_QUESTIONS:
       // case TOGGLE_TODO:
@@ -65,14 +65,14 @@ const byIdReducer = (state = {}, action) => {
 
 const allIdsReducer = (state = [], action) => {
   Object.freeze(state);
-  console.log(action);
+  // console.log(action);
   let newState = merge([], state);
   switch (action.type) {
     case RECEIVE_SINGLE_QUESTION:
       return [...state, action.question.id];
     case RECEIVE_ALL_QUESTIONS:
       action.questions.forEach(question => newState = [...newState, question.id]);
-      console.log(newState);
+      // console.log(newState);
       return newState;
     default:
       return state;

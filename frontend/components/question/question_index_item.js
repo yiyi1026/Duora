@@ -39,9 +39,14 @@ class QuestionIndexItem extends React.Component {
   // }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props.question);
     const { question , updateQuestion} = this.props;
     const answers = question.answers;
+    // console.log(question);
+    const question_detail = {question};
+
+    // console.log(question_detail);
+    // console.log(question);
     // // const { title, body, author} = question;
     // let detail;
     // console.log(question.title);
@@ -108,7 +113,7 @@ class QuestionIndexItem extends React.Component {
           <div className="row">
             <div className=" accordion-heading">
               <span className="left-margin-10  ">
-                <a className="Answer accordion-toggle" 
+                <a className="Answer accordion-toggle"
                 data-toggle="collapse"
                 data-parent="#accordion2"
                 href= {"#collapse" + question.id }
