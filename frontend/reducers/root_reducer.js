@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 
 import sessionReducer from './session_reducer';
-import questionReducer from './question_reducer';
+import questionsReducer from './questions_reducer';
 
 const rootReducer = combineReducers({
-  session: sessionReducer
+  session: sessionReducer,
+  // errors: errorsReducer,
+  questions: questionsReducer
   // ,
-  // questions: questionReducer
+  // questions: questionsReducer
   // errors:[]
 });
 

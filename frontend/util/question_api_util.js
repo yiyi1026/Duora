@@ -12,14 +12,6 @@ export const fetchSingleQuestion = id => (
   })
 );
 
-//fetch questions for one specific topic
-export const fetchQuestions = (topic_id) => {
-  return $.ajax({
-    method: 'GET',
-    url: `/api/topics/${topic_id}/questions`
-  });
-}
-
 export const createQuestion = question => (
   $.ajax({
     method: 'POST',
@@ -28,8 +20,7 @@ export const createQuestion = question => (
   })
 );
 
-//for edit question
-export const updatequestion = question => (
+export const updateQuestion = question => (
   $.ajax({
     method: 'PATCH',
     url: `/api/questions/${question.id}`,

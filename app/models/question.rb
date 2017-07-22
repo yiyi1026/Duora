@@ -22,6 +22,7 @@ class Question < ApplicationRecord
     class_name: :User
 
   has_many :answers
+  # , dependent: :destroy
   has_many :comments, through: :answers
 
   belongs_to :topic
@@ -35,5 +36,9 @@ class Question < ApplicationRecord
   #     Topic.find_or_create_by(name: topic_name)
   #   end
   # end
+
+  def self.search_by_word(word)
+
+  end
 
 end

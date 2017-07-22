@@ -1,4 +1,7 @@
-json.partial! "api/questions/question", question: @question
+# json.set! question
+#   json.partial! "api/questions/question", question: @question
+# end
+  json.partial! "api/questions/question", question: @question
 
 # json.name @question.name
 
