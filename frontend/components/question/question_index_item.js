@@ -1,6 +1,7 @@
 import React from 'react';
 // import QuestionDetailViewContainer from './question_detail_view_container';
 import merge from 'lodash/merge';
+import AnserItem from '../answer/answer_item';
 
 class QuestionIndexItem extends React.Component {
   constructor(props) {
@@ -10,6 +11,18 @@ class QuestionIndexItem extends React.Component {
     // this.toggleQuestion = this.toggleQuestion.bind(this);
   }
 
+  handleClickAnswer(e){
+    console.log(e.target);
+    let $this = $(e.target);
+    console.log($this.hasClass("Answer"));
+    if(!$this.hasClass('panel-collapsed')) {
+      $this.parents('.panel').find('.panel-body').slideUp();
+      $this.addClass('panel-collapsed');
+    } else {
+		  $this.parents('.panel').find('.panel-body').slideDown();
+		  $this.removeClass('panel-collapsed');
+	  }
+  }
   // toggleDetail(e) {
   //   e.preventDefault();
   //   this.setState({
@@ -35,14 +48,6 @@ class QuestionIndexItem extends React.Component {
     // console.log('index item');
     // console.log(question);
     // console.log('jhere');
-    let answerList = answers.map(answer => (
-        <li key={`answer${answer.id}`}>
-          <br/>
-          {answer.author_id}
-          <br/>
-          {answer.body}
-        </li>
-      ));
 
     // if (this.state.detail) {
     //   detail = <QuestionDetailViewContainer question={question} />;
@@ -61,16 +66,6 @@ class QuestionIndexItem extends React.Component {
       //   {detail}
       // </li>
     // );
-
-    let original_html = (
-      <ul key={`questionItem${question.title}`}>
-        {question.title}
-        <li key={`question${question.id}`}>{question.body}</li>
-        <ul key={`answer${question.id}`}>
-          {answerList}
-        </ul>
-      </ul>
-    );
 
     let html = (
       <li>
@@ -111,17 +106,34 @@ class QuestionIndexItem extends React.Component {
           </div>
 
           <div className="row">
-            <div className=" ">
-              <a className="Upvote btn" href="#" >
+            <div className=" accordion-heading">
+              <span className="left-margin-10  ">
+                <a className="Answer accordion-toggle" 
+                data-toggle="collapse"
+                data-parent="#accordion2"
+                href= {"#collapse" + question.id }
+                role="button" >
+                  <span className="glyphicon glyphicon-pencil"></span>Answer
+                </a>
+              </span>
+              <span className="left-margin-10">
+              <a className="Upvote" href="#" >
                 <span>Upvote</span>
                 <span className="divider-vertical-15px"></span>
                 <span className=" ">95</span>
               </a>
+              </span>
               <span className="left-margin-10">
                 <a className="Downvote grey" href="#">
                   <span className=" ">Downvote</span>
                 </a>
               </span>
+            </div>
+            <div  id={"collapse" + question.id } className="accordion-body collapse">
+              <AnserItem />
+              <a className="PerfectColdButton left-margin-10" href="#" >
+                <span>Submit</span>
+              </a>
             </div>
           </div>
 
