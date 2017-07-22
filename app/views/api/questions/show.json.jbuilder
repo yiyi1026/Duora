@@ -3,21 +3,17 @@
 # end
 json.partial! "api/questions/question", question: @question
 
-# json.answers do
-  # json.array! question.answers, :id, :author_id, :body
-  # json.answer do
-  json.answers @question.answers do |answer|
-    # json.(answer, :id, :body)
-    # json.id answer.id
-    # json.body answer.body
-    # json.(answer, :id, :body, :author_id)
-    json.extract! answer, :id, :body, :author_id
-    json.author answer.author, :id, :username, :description, :avatar
-  end
-# end
-# json.name @question.name
+json.answers @question.answers do |answer|
+  json.extract! answer, :id, :body, :author_id
+  json.author answer.author, :id, :username, :description, :avatar
+end
 
-# json.answers @question.answers do |answer|
-#   json.body answer.body
-#   # json.comments answer.comments, :body
+
+
+#{answers:{byId:[{id:1,..},{id:2,...}]}}
+# json.answers do
+#   json.byId @question.answers do |answer|
+#     json.extract! answer, :id, :body, :author_id
+#     json.author answer.author, :id, :username, :description, :avatar
+#   end
 # end
