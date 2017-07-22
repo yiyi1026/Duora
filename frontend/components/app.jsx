@@ -1,49 +1,17 @@
 import React from 'react';
-// import { Provider } from 'react-redux';
-import {
-  Route,
-  Redirect,
-  Switch,
-  Link,
-  HashRouter
-} from 'react-router-dom';
-
-import GreetingContainer from './greeting/greeting_container';
-import SessionFormContainer from './session_form/session_form_container';
-// import SearchContainer from './search/search_container';
-// import BenchShowContainer from './bench_show/bench_show_container';
-// import BenchFormContainer from './bench_form/bench_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import SignUpFormContainer from './signup_form/signup_form_container';
-import QuestionIndexContainer from './question/question_index_container';
 import AuthForm from './auth_form';
+import MainFrame from './main_frame';
 
 const App = () => {
     return (
-        // <div className='rootDiv'>
-        //   <div >
-        //     <div className='container'>
-        //       <header>
-        //         <Link to="/" className="header-link">
-        //         </Link>
-        //       </header>
             <div>
-              <ProtectedRoute path='/' component={GreetingContainer} />
-              <Route path="/" component={QuestionIndexContainer} />
+              <ProtectedRoute path='/' component={MainFrame} />
               <AuthRoute exact path='/login' component={AuthForm} />
             </div>
-            // </div>
-            // <ProtectedRoute path='/' component={QuestionIndexContainer} />
-          // </div>
-        // </div>
       );
 
 
 };
 
-// <AuthRoute exact path="/" component={SignUpFormContainer} />
-// <br />
-// <AuthRoute exact path="/" component={SessionFormContainer} />
-
-// <Route exact path="/" component={SearchContainer} />
 export default App;

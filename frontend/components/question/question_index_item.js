@@ -59,7 +59,8 @@ class QuestionIndexItem extends React.Component {
       //   {detail}
       // </li>
     // );
-    return (
+
+    let original_html = (
       <ul key={`questionItem${question.title}`}>
         {question.title}
         <li key={`question${question.id}`}>{question.body}</li>
@@ -67,6 +68,67 @@ class QuestionIndexItem extends React.Component {
           {answerList}
         </ul>
       </ul>
+    );
+
+    let html = (
+      <li>
+        <div className='container well'>
+          <div className="row">
+            <div className="reason_main">
+              Answer<span className="bullet"> · </span>
+              <a className="grey" href="#" ><span >Interpersonal Interaction</span></a>
+              <span className="bullet"> · </span>Topic you might like
+            </div>
+          </div>
+          <div className="row all-margin-10">
+            <div className="">
+              <a className="black bold" href="#" target="_blank" ><span className="">{question.title}</span></a>
+            </div>
+          </div>
+          <div className="row">
+            <div className="">
+              <a href="#"><img className="img-circle pull-left" src="https://avatars3.githubusercontent.com/u/22781373?v=4&amp;s=40" width="50" height="50" /></a>
+            </div>
+            <div className="left-margin-60">
+              <div className="">
+                <span><a className="user black" href="#">Vivian</a></span>
+                <span >, </span><span>Time traveler, artificial sweetener</span>
+              </div>
+              <div className=""><span><a className="grey" href="#" target="_blank">Answered 8h ago</a></span></div>
+            </div>
+          </div>
+
+
+          <div className="row">
+            <div className="all-margin-10">
+              <span className="rendered_qtext">
+                <p>{question.body}</p>
+              </span>
+              {/* <span id=""><a className="" href="#" target="_blank">(more)</a></span> */}
+            </div>
+          </div>
+
+          <div className="row">
+            <div className=" ">
+              <a className="Upvote btn" href="#" >
+                <span>Upvote</span>
+                <span className="divider-vertical-15px"></span>
+                <span className=" ">95</span>
+              </a>
+              <span className="left-margin-10">
+                <a className="Downvote grey" href="#">
+                  <span className=" ">Downvote</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </li>
+    );
+
+    return (
+      html
     );
   }
 }

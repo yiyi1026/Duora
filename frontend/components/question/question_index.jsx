@@ -18,7 +18,7 @@ class QuestionIndex extends React.Component{
     );
     return (
       <div>
-        <ul className="question-list">
+        <ul className="question-list list-unstyled">
           { questionItems }
         </ul>
       </div>

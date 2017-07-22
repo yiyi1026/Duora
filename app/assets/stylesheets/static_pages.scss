@@ -75,6 +75,12 @@ ul.red-text > li.active > a.active{
     transform: translateX(-50%);
 }
 
+.divider-vertical-15px {
+    height: 14.5px;                   /* any height */
+    border-left: 2px solid #bbcadc; 
+    margin: 5px;
+}
+
 .slogan{
   height: 50px;
   margin: 20px 0px;
@@ -96,13 +102,7 @@ div.login {
 .login.col-md-3 {
   margin-bottom: 15px;
 }
-// .jumbotron{
-//   background-color: #fafafa !important;
-// }
 
-// .form-group span{
-//   font-size: 16px;
-// }
 .demo-login {
   margin-top: 15px;
 }
@@ -129,9 +129,65 @@ div h4 p {
   margin-top: 30px;
 }
 
+.all-margin-10{
+  margin: 10px;
+}
+
+.left-margin-60{
+  margin-left: 60px;
+}
+
+.left-margin-10{
+  margin-left: 10px;
+}
+
 .wonderful-button{
   background: #3e78ad;
   color: #fff;
   border: 1px solid #3a66ad;
 
+}
+
+.main-frame{
+    // text-align: center;
+    margin: 0 auto;
+    // background-color: #fafafa;
+    max-width: 1250px;
+
+}
+
+.main-frame .jumbotron{
+  display: block;
+  background-color: #fafafa;
+}
+
+.btn, .form-control, .a{
+    font-size: 12px ;
+}
+
+.reason_main{
+  color: #999;
+  font-size: 13px;
+}
+
+.grey{
+  color: #999;
+}
+
+.black{
+  color: #000;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.Upvote{
+  background: #f1f8fb;
+  color: #2b6dad;
+  border: 1px solid #bbcadc;
+}
+
+.jumbotron .rendered_qtext p{
+  font-size: 14px;
 }
