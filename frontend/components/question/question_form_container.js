@@ -5,10 +5,10 @@ import {
   updateQuestion,
   deleteQuestion
 } from '../../actions/question_actions';
-// import { selectAllQuestions }from '../../reducers/selectors';
+import { selectAllQuestions }from '../../reducers/selectors';
 
 const  mapStateToProps = () => (
-  questions: selectAllQuestions
+  {questions: selectAllQuestions()}
 );
 
 
