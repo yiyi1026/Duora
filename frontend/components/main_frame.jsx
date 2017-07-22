@@ -17,7 +17,7 @@ class MainFrame extends React.Component{
                 <div className="col-md-2 col-lg-2">
                     Feeds
                 </div>  
-                <div className="col-md-8 col-md-8">
+                <div className="col-md-8 col-lg-6">
                     <Route path="/" component={QuestionIndexContainer} />
                 </div>
                 <div className="col-md-2 col-lg-2">
