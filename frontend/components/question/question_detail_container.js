@@ -3,9 +3,10 @@ import QuestionIndex from './question_index';
 import { requestSingleQuestions } from '../../actions/question_actions';
 import {selectAllQuestions } from '../../reducers/selectors';
 
-const  mapStateToProps = (state) => (
-  {questions: selectAllQuestions(state)}
-);
+const  mapStateToProps = (state) => {
+  console.log(state);
+  return {questions: selectAllQuestions(questions)};
+};
 
 
 const mapDispatchToProps = dispatch => ({

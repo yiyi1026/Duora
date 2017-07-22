@@ -8,7 +8,7 @@ class QuestionIndex extends React.Component{
   }
   render(){
     const { questions, createQuestion, updateQuestion, errors } = this.props;
-    console.log(questions);
+    console.log(this.props);
     // const questionItems = questions.map(question => (
     //     <QuestionIndexItem
     //       key={ `questions${question.id}` }
