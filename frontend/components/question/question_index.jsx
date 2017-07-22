@@ -8,23 +8,40 @@ class QuestionIndex extends React.Component{
   }
   render(){
     const { questions, createQuestion, updateQuestion, errors } = this.props;
-    console.log('questions');
-    const questionItems = questions.map(question => (
-        <QuestionIndexItem
-          key={ question.id }
-          question={ question }
+    console.log(questions);
+    // const questionItems = questions.map(question => (
+    //     <QuestionIndexItem
+    //       key={ `questions${question.id}` }
+    //       question={ question }
+    //       updateQuestion={ updateQuestion } />
+    //   )
+    // );
+
+    const questionItems = questions.map((question, idx) => (
+      <QuestionIndexItem
+          key={ `questions${idx}` }
+          question={question}
           updateQuestion={ updateQuestion } />
       )
     );
+    // const questionItems = {a:3};
+    // console.log(questionItems);
     return (
       <div>
         <ul className="question-list list-unstyled">
-          { questionItems }
+          <br />
+          <div>
+            <br />
+          {questionItems}
+          <br />
+        </div>
+        <br />
         </ul>
       </div>
 
     );
 
+    // { questionItems }
     // return(
     // );
     // <div>

@@ -5,12 +5,13 @@ export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS';
 export const RECEIVE_SINGLE_QUESTION = 'RECEIVE_SINGLE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
 
-export const receiveAllQuestions = questions => ({
-  type: RECEIVE_ALL_QUESTIONS,
-  questions
-})
+export const receiveAllQuestions = ({questions}) => ({
+    type: RECEIVE_ALL_QUESTIONS,
+    questions
+});
 
-export const receiveSingleQuestion = question => ({
+
+export const receiveSingleQuestion = ({question}) => ({
   type: RECEIVE_SINGLE_QUESTION,
   question
 });
@@ -26,7 +27,7 @@ export const requestAllQuestions = () => dispatch => (
 
 export const requestSingleQuestion = id => dispatch => (
   APIUtil.fetchSingleQuestion(id).then(
-    question => (dispatch(receiveSingleQuestion(question))
+    ({question}) => (dispatch(receiveSingleQuestion(question))
   ),errors => (dispatch(receiveErrors(errors)))
   )
 )

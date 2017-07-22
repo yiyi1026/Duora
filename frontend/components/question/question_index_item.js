@@ -26,10 +26,12 @@ class QuestionIndexItem extends React.Component {
   // }
 
   render() {
-    const { question , updateQuestion } = this.props;
-    const { title, body, author, answers } = question;
-    let detail;
-    console.log(question.title);
+    console.log(this.props);
+    const { question , updateQuestion} = this.props;
+    const answers = question.answers;
+    // // const { title, body, author} = question;
+    // let detail;
+    // console.log(question.title);
     // console.log('index item');
     // console.log(question);
     // console.log('jhere');
@@ -40,8 +42,8 @@ class QuestionIndexItem extends React.Component {
           <br/>
           {answer.body}
         </li>
-      )
-    );
+      ));
+
     // if (this.state.detail) {
     //   detail = <QuestionDetailViewContainer question={question} />;
     // }

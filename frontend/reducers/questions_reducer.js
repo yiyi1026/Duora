@@ -21,9 +21,11 @@ const questionsReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_ALL_QUESTIONS:
       nextState = merge({}, state);
+      console.log(action);
       action.questions.forEach(question => nextState[question.id] = question);
       return nextState;
     case RECEIVE_SINGLE_QUESTION:
+    // console.log(action);
       return merge({}, state, { [action.question.id]: action.question });
     case REMOVE_QUESTION:
       nextState = merge({}, state);

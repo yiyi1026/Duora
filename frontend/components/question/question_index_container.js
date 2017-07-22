@@ -9,10 +9,16 @@ import {
 //Do I need to keep this deleteQuestion????
 import {selectAllQuestions } from '../../reducers/selectors';
 
-const  mapStateToProps = state => ({
-  questions: selectAllQuestions(state),
+const  mapStateToProps = state =>
+{ console.log(state);
+
+
+return {
+  questions: selectAllQuestions(state.questions),
   errors: state.errors
-});
+};
+
+}
 
 
 const mapDispatchToProps = dispatch => ({
