@@ -39,14 +39,14 @@ export const requestSingleQuestion = id => dispatch => (
   APIUtil.fetchSingleQuestion(id).then(
     ({question}) => {
       console.log(question);
-      dispatch(receiveSingleQuestion(question)
-  );},errors => dispatch(receiveErrors(errors)))
+      dispatch(receiveSingleQuestion(question));
+    },errors => dispatch(receiveErrors(errors)))
 )
 
 export const createQuestion = question => dispatch => (
   APIUtil.createQuestion(question)
-  .then(newQuestion => {
-    dispatch(receiveSingleQuestion(newQuestion));
+  .then({question} => {
+    dispatch(receiveSingleQuestion(question));
     dispatch(clearErrors())
   },errors => dispatch(receiveErrors(errors.responseJSON))
 ))

@@ -19,7 +19,6 @@ class MainFrame extends React.Component{
           </div>
           <div className="col-md-8 col-lg-6">
             <Switch>
-              <Route path="/questions/:question_id" component={QuestionDetailContainer} />
               <Route exact path="/questions" component={QuestionIndexContainer} />
               <Route path="/" component={QuestionIndexContainer} />
             </Switch>
@@ -33,6 +32,7 @@ class MainFrame extends React.Component{
   }
 }
 
+// <Route path="/questions/:question_id" component={QuestionDetailContainer} />
 
 
 export default MainFrame
