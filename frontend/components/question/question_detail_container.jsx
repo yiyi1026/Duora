@@ -5,12 +5,12 @@ import {selectAllQuestions } from '../../reducers/selectors';
 
 const  mapStateToProps = (state) => {
   console.log(state);
-  return {questions: selectAllQuestions(questions)};
+  // return {questions: selectAllQuestions(questions)};
 };
 
 
 const mapDispatchToProps = dispatch => ({
-  requestSingleQuestions: () => dispatch(requestSingleQuestions())
+  requestSingleQuestions: (id) => dispatch(requestSingleQuestions(id))
 });
 
 
