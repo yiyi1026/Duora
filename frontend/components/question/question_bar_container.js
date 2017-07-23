@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import QuestionForm from './question_form';
+import QuestionBar from './question_bar';
 import {
   createQuestion,
   updateQuestion,
@@ -20,4 +20,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(QuestionIndex);
+)(QuestionBar);

@@ -66,6 +66,7 @@ class QuestionIndexItem extends React.Component {
       //   {detail}
       // </li>
     // );
+    // const avatar = require('./assets/images/avatar/user_1.png');
 
     let html = (
       <li>
@@ -84,7 +85,7 @@ class QuestionIndexItem extends React.Component {
           </div>
           <div className="row">
             <div className="">
-              <a href="#"><img className="img-circle pull-left" src="https://avatars3.githubusercontent.com/u/22781373?v=4&amp;s=40" width="50" height="50" /></a>
+              <a href="#"><img className="img-circle pull-left" src="TO_DO" width="50" height="50" /></a>
             </div>
             <div className="left-margin-60">
               <div className="">

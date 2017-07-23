@@ -11,7 +11,7 @@ export const receiveAllQuestions = ({questions}) => ({
 });
 
 
-export const receiveSingleQuestion = ({question}) => ({
+export const receiveSingleQuestion = question => ({
   type: RECEIVE_SINGLE_QUESTION,
   question
 });
