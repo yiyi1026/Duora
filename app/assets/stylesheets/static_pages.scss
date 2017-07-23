@@ -224,7 +224,7 @@ div h4 p {
 }
 
 .answer-editor{
-    min-height: 200px;
+  min-height: 200px;
 }
 
 .answer-editor div button,
@@ -247,9 +247,9 @@ div h4 p {
     left: 0;
     z-index: 1000;
     float: left;
-    min-width: 160px;
+    width: 500px;
     padding: 5px 0;
-    margin: 2px 0 0;
+    margin-left: 15px;
     list-style: none;
     font-size: 14px;
     text-align: left;
@@ -260,4 +260,20 @@ div h4 p {
     // -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     background-clip: padding-box;
+}
+
+.search_question_dropdown_item {
+  margin-left: 15px;
+}
+
+.search_question_dropdown_item {
+  margin-left: 10px;  
+  margin-top: 5px;
+  margin-bottom:5px;
+  // border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.matchingText{
+  color: black;
+  opacity: 0.8;
 }

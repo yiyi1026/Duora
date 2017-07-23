@@ -53,15 +53,28 @@ class QuestionBar extends React.Component{
     render(){        
         // console.log(this.props)
         // console.log(!!this.props.searchedQuestions)
-        console.log(this.props);
+        console.log(this.props.searchedQuestions);
+        console.log(!!!this.props.searchedQuestions);
+        const querystr = this.state.title;
+        let reg = new RegExp(querystr, 'gi');
+        
         let searchedQuestionsForm = ''; 
-        if(!!this.props.searchedQuestions){
-            let searchedQuestions = this.props.searchedQuestions.map((question) => (
-            <li key={question.id}><a href={"#/questions/"+ question.id } className="grey">{question.title}</a></li>)
-            );
+        let searchedQuestions = this.props.searchedQuestions.map((question) => {
+            // let final_str = question.title.replace(reg, function(str) {return (<b>{str}</b>)});
+            let final_str = question.title.replace(reg, function(str) {return '<b class="matchingText">'+str+'</b>'});
+
+            return (<li key={question.id} className="search_question_dropdown_item">
+                <a href={"#/questions/"+ question.id } className="grey">
+                    <span dangerouslySetInnerHTML={{__html: final_str}}>
+                    </span>
+                </a>
+            </li>)
+        }
+        );
+        if (searchedQuestions.length > 0){
             searchedQuestionsForm = (
                 <ul className="search_question_dropdown ">
-                  {searchedQuestions}  
+                {searchedQuestions}  
                 </ul>
             );
 
