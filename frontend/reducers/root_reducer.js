@@ -6,7 +6,8 @@ import questionsReducer from './questions_reducer';
 const rootReducer = combineReducers({
   session: sessionReducer,
   // errors: errorsReducer,
-  questions: questionsReducer
+  questions: questionsReducer,
+  searchedQuestions: questionsReducer
   // ,
   // questions: questionsReducer
   // errors:[]

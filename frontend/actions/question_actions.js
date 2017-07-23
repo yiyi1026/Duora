@@ -4,8 +4,9 @@ import { normalize } from 'normalizr';
 export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS';
 export const RECEIVE_SINGLE_QUESTION = 'RECEIVE_SINGLE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
+export const RECEIVE_SEARCHED_QUESTIONS = 'RECEIVE_SEARCHED_QUESTIONS';
 
-export const receiveAllQuestions = (questions) => {
+export const receiveAllQuestions = questions => {
   // console.log(questions);
   return {
     type: RECEIVE_ALL_QUESTIONS,
@@ -22,6 +23,19 @@ export const removeQuestion = question => ({
   type: REMOVE_QUESTION,
   question
 })
+
+export const receiveSearchedQuestions = questions => {
+  console.log(questions)  
+  console.log({
+  type: RECEIVE_SEARCHED_QUESTIONS,
+  searchedQuestions: questions
+  })  
+  return(
+  {
+  type: RECEIVE_SEARCHED_QUESTIONS,
+  searchedQuestions: questions
+  })
+};
 
 export const requestAllQuestions = () => dispatch => {
   // console.log('actions');
@@ -56,4 +70,8 @@ export const updateQuestion = question => dispatch => (
 
 export const deleteQuestion = question => dispatch => (
   APIUtil.deleteQuestion(question).then(question => dispatch(removeQuestion(question)))
+);
+
+export const searchQuestions = query => dispatch => (
+  APIUtil.searchQuestions(query).then(({questions}) => dispatch(receiveSearchedQuestions(questions)))
 );

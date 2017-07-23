@@ -74,7 +74,7 @@ class QuestionIndexItem extends React.Component {
       //   {detail}
       // </li>
     // );
-    const avatar = '/images/avatar/user_' + author.id + '.png';
+    const avatar = '/images/avatar/' + author.avatar;
     // const avatar = '<%= asset_path "images/avatar/user_1.png" %>';
     let html = (
       <li>
@@ -88,7 +88,7 @@ class QuestionIndexItem extends React.Component {
           </div>
           <div className="row all-margin-10">
             <div className="">
-              <a className="black bold" href="#" target="_blank" ><span className="">{question.title}</span></a>
+              <a className="black bold" href={'#/questions/'+ question.id} target="" ><span className="">{question.title}</span></a>
             </div>
           </div>
           <div className="row">
@@ -100,7 +100,7 @@ class QuestionIndexItem extends React.Component {
                 <span><a className="user black" href="#">{author.username}</a></span>
                 <span >, </span><span>{author.description}</span>
               </div>
-              <div className=""><span><a className="grey" href="#" target="_blank">Answered 8h ago</a></span></div>
+              <div className=""><span><a className="grey" href="#" target="">Answered 8h ago</a></span></div>
             </div>
           </div>
 
