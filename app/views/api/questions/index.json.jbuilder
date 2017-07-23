@@ -15,6 +15,7 @@ json.questions do
     json.id question.id
     json.title question.title
     json.body question.body
+    json.author question.author, :id, :username, :avatar, :description
     json.answers question.answers do |answer|
       json.extract! answer, :id, :body, :author_id
       json.author answer.author, :id, :username, :description, :avatar
