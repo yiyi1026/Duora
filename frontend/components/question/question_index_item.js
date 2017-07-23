@@ -45,7 +45,8 @@ class QuestionIndexItem extends React.Component {
     const { question , updateQuestion} = this.props;
     // const answers = question.answers;
     // console.log(question);
-    const {id, title, body, answers} = question;
+    const {id, title, body, answers, author} = question;
+
     // const answer_detail = answers
     // console.log(question_detail);
     // console.log(question);
@@ -73,8 +74,8 @@ class QuestionIndexItem extends React.Component {
       //   {detail}
       // </li>
     // );
-    // const avatar = require('./assets/images/avatar/user_1.png');
-
+    const avatar = '/images/avatar/user_' + author.id + '.png';
+    // const avatar = '<%= asset_path "images/avatar/user_1.png" %>';
     let html = (
       <li>
         <div className='container well'>
@@ -92,12 +93,12 @@ class QuestionIndexItem extends React.Component {
           </div>
           <div className="row">
             <div className="">
-              <a href="#"><img className="img-circle pull-left" src="TO_DO" width="50" height="50" /></a>
+              <a href="#"><img className="img-circle pull-left" src={avatar} width="50" height="50" /></a>
             </div>
             <div className="left-margin-60">
               <div className="">
-                <span><a className="user black" href="#">Vivian</a></span>
-                <span >, </span><span>Time traveler, artificial sweetener</span>
+                <span><a className="user black" href="#">{author.username}</a></span>
+                <span >, </span><span>{author.description}</span>
               </div>
               <div className=""><span><a className="grey" href="#" target="_blank">Answered 8h ago</a></span></div>
             </div>

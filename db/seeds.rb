@@ -13,10 +13,15 @@ Comment.delete_all
 
 
 #guest = {user:{username: 'guest', email: 'guest@guest.com', password:'123456'}}
-guest1 = User.create!({username: 'guest1', email: 'guest1@guest.com', password: 'guest1'})
-guest2 = User.create!({username: 'guest2', email: 'guest2@guest.com', password: 'guest2'})
-guest3 = User.create!({username: 'guest3', email: 'guest3@guest.com', password: 'guest3'})
-duora = User.create!({username: 'duora', email: 'duora@guest.com', password: '123456'})
+guest1 = User.create!({username: 'Mario', email: 'guest1@guest.com', password: 'guest1', description: 'the princess saver', avatar: 'user_1.png'})
+guest2 = User.create!({username: 'Deadpool', email: 'guest2@guest.com', password: 'guest2', description: 'Bad Deadpool... Good Deadpool!', avatar: 'user_2.png'})
+guest3 = User.create!({username: 'TheBigBoo', email: 'guest3@guest.com', password: 'guest3', description: "I don't feel any different", avatar: 'user_3.png'})
+guest4 = User.create!({username: 'Bowser', email: 'guest4@guest.com', password: 'guest4', description: 'Hear me! I will kidnap Peach OVER and OVER until I pull it off!', avatar: 'user_4.png'})
+guest5 = User.create!({username: 'FlyMan', email: 'guest5@guest.com', password: 'guest5', description: 'Help me...', avatar: 'user_5.png'})
+guest6 = User.create!({username: 'Goomba', email: 'guest6@guest.com', password: 'guest6', description: 'Seriously, I am not a hazelnut', avatar: 'user_6.png'})
+guest7 = User.create!({username: 'Aiming', email: 'guest7@guest.com', password: 'guest7', description: "I am a bird, I can fly.", avatar: 'user_7.png'})
+guest8 = User.create!({username: 'Bomber', email: 'guest8@guest.com', password: 'guest8', description: 'Boooooom~', avatar: 'user_8.png'})
+guest9 = User.create!({username: 'Maskman', email: 'guest9@guest.com', password: 'guest9', description: 'Go Hulk Go!', avatar: 'user_9.png'})
 
 
 topic1 = Topic.create!({name:'Time Travel'})
