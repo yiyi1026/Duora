@@ -45,7 +45,7 @@ export const requestSingleQuestion = id => dispatch => (
 
 export const createQuestion = question => dispatch => (
   APIUtil.createQuestion(question)
-  .then({question} => {
+  .then(({question}) => {
     dispatch(receiveSingleQuestion(question));
     dispatch(clearErrors())
   },errors => dispatch(receiveErrors(errors.responseJSON))

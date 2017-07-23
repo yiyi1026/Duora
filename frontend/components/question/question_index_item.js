@@ -47,17 +47,6 @@ class QuestionIndexItem extends React.Component {
     // console.log(question);
     const {id, title, body, answers} = question;
     // const answer_detail = answers
-    return (
-      <div>
-        <Link to={`/questions/${id}`}>
-          {title}
-          <br/>
-          {body}
-          <br/>
-
-        </Link>
-      </div>
-    )
     // console.log(question_detail);
     // console.log(question);
     // // const { title, body, author} = question;
@@ -148,7 +137,7 @@ class QuestionIndexItem extends React.Component {
               </span>
             </div>
             <div  id={"collapse" + question.id } className="accordion-body collapse">
-              <AnserItem />
+              <AnswerItem />
               <a className="PerfectColdButton left-margin-10" href="#" >
                 <span>Submit</span>
               </a>
