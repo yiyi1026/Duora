@@ -10,7 +10,7 @@ class Api::AnswersController < ApplicationController
   end
 
   def index
-    @answers = Answer.find(params[:question_id]).answers
+    @answers = Answer.find(params[:question_id])
     render json: @answers
   end
 
