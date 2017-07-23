@@ -12,6 +12,13 @@ export const fetchSingleQuestion = id => (
   })
 );
 
+export const searchQuestions = query => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/questions?query=${query}`,
+  })
+);
+
 export const createQuestion = question => (
   $.ajax({
     method: 'POST',

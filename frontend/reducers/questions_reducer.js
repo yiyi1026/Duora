@@ -4,7 +4,8 @@ import questionReducer from './question_reducer';
 import {
   RECEIVE_SINGLE_QUESTION,
   RECEIVE_ALL_QUESTIONS,
-  REMOVE_QUESTION
+  REMOVE_QUESTION,
+  RECEIVE_SEARCHED_QUESTIONS
 } from '../actions/question_actions';
 
 const initialState = {
@@ -30,6 +31,9 @@ const byIdReducer = (state = {}, action) => {
         // console.log(action.questions);
         action.questions.forEach(question => newState[question.id] = question);
         // console.log(newState);
+        return newState;
+      case RECEIVE_SEARCHED_QUESTIONS:
+        action.searchedQuestions.forEach(question => newState[question.id] = question);
         return newState;
       case RECEIVE_SINGLE_QUESTION:
       // console.log(action);
@@ -85,6 +89,11 @@ const allIdsReducer = (state = [], action) => {
       newState = [];
       action.questions.forEach(question => newState.push(question.id));
       return newState;
+    case RECEIVE_SEARCHED_QUESTIONS:
+      newState = [];
+      action.searchedQuestions.forEach(question => newState.push(question.id));
+      return newState;
+
     case REMOVE_QUESTION:
       idx = newState.indexOf(action.question.id);
       return newState.splice(idx, 1);
