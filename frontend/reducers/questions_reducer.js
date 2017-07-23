@@ -80,7 +80,8 @@ const allIdsReducer = (state = [], action) => {
       if(state.includes(question_id)){
         return state;
       }
-      return [...state, question_id];
+      // return [...state, question_id];
+      return [question_id];
     case RECEIVE_ALL_QUESTIONS:
       newState = [];
       action.questions.forEach(question => newState.push(question.id));

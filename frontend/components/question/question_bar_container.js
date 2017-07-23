@@ -7,7 +7,6 @@ import {
 import { selectAllQuestions }from '../../reducers/selectors';
 
 const  mapStateToProps = ({searchedQuestions}) => {
-  console.log(searchedQuestions)
   return {
     question: {},
     searchedQuestions: selectAllQuestions(searchedQuestions)
