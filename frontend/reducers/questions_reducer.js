@@ -69,20 +69,11 @@ const allIdsReducer = (state = [], action) => {
   let newState = merge([], state);
   switch (action.type) {
     case RECEIVE_SINGLE_QUESTION:
-<<<<<<< HEAD
-      console.log(action);  
-      return merge({}, state, { [action.question.id]: action.question });
-    case REMOVE_QUESTION:
-      nextState = merge({}, state);
-      delete nextState[action.question.id]
-      return nextState
-=======
       return [...state, action.question.id];
     case RECEIVE_ALL_QUESTIONS:
       action.questions.forEach(question => newState = [...newState, question.id]);
       // console.log(newState);
       return newState;
->>>>>>> 0c76f42e6bd2764a08874f01bed567e9b34cb827
     default:
       return state;
   }
