@@ -16,20 +16,20 @@ class QuestionDetail extends React.Component {
   componentDidMount() {
     console.log(this.props);
     let id = parseInt(this.props.match.params.questionId);
-    console.log(id);
+    // console.log(id);
     this.props.requestSingleQuestion(id);
-    // console.log(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
     let id = parseInt(this.props.match.params.questionId);
     let nextid = parseInt(nextProps.match.params.questionId);
-    console.log(nextProps);
     if (id !== nextid){
       this.props.requestSingleQuestion(nextid);
     }else{
+      console.log(nextProps);
       let question = nextProps.question[0];
-      // console.log(question);
+      console.log(question);
       this.setState({title: question.title, body: question.body, id: question.id});
     }
   }
@@ -40,12 +40,12 @@ class QuestionDetail extends React.Component {
       <div className='questionshow col-lg-12 col-md-12'>
         <div className='question-title center page-header'>
           <span name='title'>
-            a
+            {this.state.title}
           </span>
         </div>
         <div className='question-body well'>
         <p name='body' >
-            b
+            {this.state.body}
         </p>
         </div>
         <Link to='/#' className='btn btn-primary'>Go Back

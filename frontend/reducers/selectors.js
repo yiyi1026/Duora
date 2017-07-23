@@ -7,6 +7,11 @@ const ALL = 'ALL';
 export const selectAllQuestions = (questions) =>{
   return questions.allIds.map(id => questions.byId[id]);
 };
+
+// export const selectSingleQuestion = (questions) =>{
+//   console.log(questions);
+//   return questions.allIds.map(id => questions.byId[id]);
+// };
 //
 // export const selectVisibleQuestions = (state, filter) => {
 //   const allQuestions = selectAllQuestions(state);

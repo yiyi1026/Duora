@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import QuestionDetail from './question_detail';
 import { requestSingleQuestion } from '../../actions/question_actions';
-// import {selectAllQuestions } from '../../reducers/selectors';
+import {selectAllQuestions } from '../../reducers/selectors';
 
-const  mapStateToProps = (question) => ({
-  question: {}
-})
+const  mapStateToProps = ({questions}) => ({
+  question: selectAllQuestions(questions)
+});
+
 const mapDispatchToProps = dispatch => {
   console.log('here');
 return {

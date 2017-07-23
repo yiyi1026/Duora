@@ -17,7 +17,8 @@ const initialState = {
 
 const byIdReducer = (state = {}, action) => {
     Object.freeze(state);
-    let newState = merge({}, state);
+    let newState = {};
+    let newQuestion;
     // console.log(newState);
     switch(action.type) {
       case RECEIVE_ALL_QUESTIONS:
@@ -30,10 +31,16 @@ const byIdReducer = (state = {}, action) => {
         action.questions.forEach(question => newState[question.id] = question);
         // console.log(newState);
         return newState;
-        // return merge({}, state, { [action.id]: questionReducer(state[action.id], action)});
-      //   return state.map(t =>
-      //     question(t, action)
-      //   );
+      case RECEIVE_SINGLE_QUESTION:
+      // console.log(action);
+        // newQuestion= {[action.question.id]: action.question};
+        newState = merge({}, state);
+        newState[action.question.id] = action.question;
+        return newState;
+      case REMOVE_QUESTION:
+        nextState = merge({}, state);
+        delete nextState[action.question.id];
+        return nextState;
       default:
         return state;
     }
@@ -69,11 +76,18 @@ const allIdsReducer = (state = [], action) => {
   let newState = merge([], state);
   switch (action.type) {
     case RECEIVE_SINGLE_QUESTION:
-      return [...state, action.question.id];
+      let question_id = action.question.id;
+      if(state.includes(question_id)){
+        return state;
+      }
+      return [...state, question_id];
     case RECEIVE_ALL_QUESTIONS:
-      action.questions.forEach(question => newState = [...newState, question.id]);
-      // console.log(newState);
+      newState = [];
+      action.questions.forEach(question => newState.push(question.id));
       return newState;
+    case REMOVE_QUESTION:
+      idx = newState.indexOf(action.question.id);
+      return newState.splice(idx, 1);
     default:
       return state;
   }
