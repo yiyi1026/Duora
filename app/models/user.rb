@@ -27,9 +27,10 @@ class User < ApplicationRecord
 		primary_key: :id,
 		class_name: :Question
 
-	# has_many :answers,  #author has written many answers
-	# 	through: :questions,
-	# 	source: :answer
+	has_many :answers,  #author has written many answers
+		foreign_key: :author_id,
+		class_name: :Answer
+		
 	has_many :topic_taggings
 
 	# has_many :subscribed_topics, through: :topic_taggings, source: :topic

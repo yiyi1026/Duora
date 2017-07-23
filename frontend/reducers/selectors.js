@@ -5,6 +5,7 @@ import {values} from 'lodash';
 const ALL = 'ALL';
 
 export const selectAllQuestions = (questions) =>{
+  // console.log(questions);
   return questions.allIds.map(id => questions.byId[id]);
 };
 

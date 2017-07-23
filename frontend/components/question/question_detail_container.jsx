@@ -7,13 +7,9 @@ const  mapStateToProps = ({questions}) => ({
   question: selectAllQuestions(questions)
 });
 
-const mapDispatchToProps = dispatch => {
-  console.log('here');
-return {
+const mapDispatchToProps = dispatch => ({
   requestSingleQuestion: (id) => dispatch(requestSingleQuestion(id))
-};
-
-}
+})
 
 export default connect(
   mapStateToProps,

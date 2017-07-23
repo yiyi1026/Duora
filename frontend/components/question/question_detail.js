@@ -23,6 +23,7 @@ class QuestionDetail extends React.Component {
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
     let id = parseInt(this.props.match.params.questionId);
+    // console.log(id);
     let nextid = parseInt(nextProps.match.params.questionId);
     if (id !== nextid){
       this.props.requestSingleQuestion(nextid);

@@ -21,14 +21,14 @@ class Question < ApplicationRecord
     primary_key: :id,
     class_name: :User
 
-  has_many :answers
+  has_many :answers,
+    class_name: :Answer
   # , dependent: :destroy
   has_many :comments, through: :answers
 
   belongs_to :topic
 
   # has_many :topic_taggings
-  # has_many :subscribed_topics, through: :topic_taggings, source: :topic
 
   # multiple topics???
   def topic_name=(topic_names)

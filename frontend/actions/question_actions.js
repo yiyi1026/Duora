@@ -36,7 +36,9 @@ export const requestAllQuestions = () => dispatch => {
 
 export const requestSingleQuestion = id => dispatch => (
   APIUtil.fetchSingleQuestion(id).then(
-    ({question}) => {
+    ({question, answers}) => {
+      console.log(question);
+      console.log(answers);
       dispatch(receiveSingleQuestion(question));
     },errors => dispatch(receiveErrors(errors)))
 )
