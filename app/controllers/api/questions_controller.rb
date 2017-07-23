@@ -10,8 +10,6 @@ class Api::QuestionsController < ApplicationController
   #
   def index
     if params[:query]
-      p 'I am here'
-      p params[:query]
       @questions = Question.where('title LIKE ?', "%#{params[:query]}%")
     else
       @questions = Question.all

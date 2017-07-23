@@ -25,11 +25,6 @@ export const removeQuestion = question => ({
 })
 
 export const receiveSearchedQuestions = questions => {
-  console.log(questions)  
-  console.log({
-  type: RECEIVE_SEARCHED_QUESTIONS,
-  searchedQuestions: questions
-  })  
   return(
   {
   type: RECEIVE_SEARCHED_QUESTIONS,
