@@ -5,6 +5,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 const composeEnhancers = composeWithDevTools({
   // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+
 });
 const initialStore = {
   session:{
@@ -12,14 +13,17 @@ const initialStore = {
 
     },
     errors:[]
+  },
+  questions: {
+
   }
 };
 const configureStore = (preloadedStore = {}) => (
   createStore(
     rootReducer,
     preloadedStore,
-    applyMiddleware(thunk, logger)
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(thunk, logger),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
 

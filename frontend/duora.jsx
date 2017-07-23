@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 } else {
   store = configureStore();
 }
+  // console.log(store);
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   const root = document.getElementById('root');

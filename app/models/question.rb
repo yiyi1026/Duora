@@ -31,14 +31,14 @@ class Question < ApplicationRecord
   # has_many :subscribed_topics, through: :topic_taggings, source: :topic
 
   # multiple topics???
-  # def topic_name=(topic_names)
-  #   self.topics = topic_names.map do |topic_name|
-  #     Topic.find_or_create_by(name: topic_name)
-  #   end
-  # end
-
-  def self.search_by_word(word)
-
+  def topic_name=(topic_names)
+    self.topics = topic_names.map do |topic_name|
+      Topic.find_or_create_by(name: topic_name)
+    end
   end
+
+  # def self.search_by_word(word)
+  #
+  # end
 
 end

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AnswerItem from './answer_item';
-import { requestSingleQuestions } from '../../actions/question_actions';
+import { requestSingleQuestion } from '../../actions/question_actions';
 import {selectAllQuestions } from '../../reducers/selectors';
 
 // all these methods need to be udpated
@@ -10,7 +10,7 @@ const  mapStateToProps = () => (
 
 
 const mapDispatchToProps = dispatch => ({
-  requestSingleQuestions: () => dispatch(requestSingleQuestions())
+  requestSingleQuestion: () => dispatch(requestSingleQuestion())
 });
 
 

@@ -39,7 +39,8 @@ class Api::QuestionsController < ApplicationController
   def update
     @question = Question.includes(answers: [:comments]).find(params[:id])
     if @question.update_attributes(question_params)
-      render json: @question, include: :answers    #?????
+      render :show
+      # render json: @question, include: :answers    #?????
       # render "/api/questions/#{question.id}edit"
     else
       render json: @question.errors.full_messages, status: 422
@@ -58,6 +59,6 @@ class Api::QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :body, :id, :author_id, :answers, :topic_id)
+    params.require(:question).permit(:title, :body, :id, :author_id, :answers, :topic_id, topic_names: [])
   end
 end

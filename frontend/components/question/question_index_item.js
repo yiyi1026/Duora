@@ -1,7 +1,8 @@
 import React from 'react';
 // import QuestionDetailViewContainer from './question_detail_view_container';
 import merge from 'lodash/merge';
-import AnserItem from '../answer/answer_item';
+import { Link, Route } from 'react-router-dom';
+import AnswerItem from '../answer/answer_item';
 
 class QuestionIndexItem extends React.Component {
   constructor(props) {
@@ -40,8 +41,14 @@ class QuestionIndexItem extends React.Component {
 
   render() {
     console.log(this.props);
+    // console.log(this.props.question);
     const { question , updateQuestion} = this.props;
-    const answers = question.answers;
+    // const answers = question.answers;
+    // console.log(question);
+    const {id, title, body, answers} = question;
+    // const answer_detail = answers
+    // console.log(question_detail);
+    // console.log(question);
     // // const { title, body, author} = question;
     // let detail;
     // console.log(question.title);
@@ -109,7 +116,7 @@ class QuestionIndexItem extends React.Component {
           <div className="row">
             <div className=" accordion-heading">
               <span className="left-margin-10  ">
-                <a className="Answer accordion-toggle" 
+                <a className="Answer accordion-toggle"
                 data-toggle="collapse"
                 data-parent="#accordion2"
                 href= {"#collapse" + question.id }
@@ -131,7 +138,7 @@ class QuestionIndexItem extends React.Component {
               </span>
             </div>
             <div  id={"collapse" + question.id } className="accordion-body collapse">
-              <AnserItem />
+              <AnswerItem />
               <a className="PerfectColdButton left-margin-10" href="#" >
                 <span>Submit</span>
               </a>
