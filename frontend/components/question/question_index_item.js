@@ -2,7 +2,7 @@ import React from 'react';
 // import QuestionDetailViewContainer from './question_detail_view_container';
 import merge from 'lodash/merge';
 import { Link, Route } from 'react-router-dom';
-import AnswerItem from '../answer/answer_item';
+import AnswerFormContainer from '../answer/answer_form_container';
 
 class QuestionIndexItem extends React.Component {
   constructor(props) {
@@ -144,8 +144,8 @@ class QuestionIndexItem extends React.Component {
               </span>
             </div>
             <div  id={"collapse" + question.id } className="accordion-body collapse">
-              <AnswerItem question={question} />
-              
+              <AnswerFormContainer question={question} />
+
             </div>
           </div>
 

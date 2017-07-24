@@ -1,17 +1,17 @@
 class Api::AnswersController < ApplicationController
   def create
-    @answer = Answer.new(answer_params)
+    @answer = current_user.answers.new(answer_params)
 
     if @answer.save
-      render json: @answer
+      render json: @answer, includes: :comments
     else
       render json: @answer.errors.full_messages, status: 422
     end
   end
 
   def index
-    @answers = Answer.find(params[:question_id])
-    render json: @answers
+    @answers = Question.find(params[:question_id]).answers
+    render :show
   end
 
   # def destroy
@@ -27,10 +27,11 @@ class Api::AnswersController < ApplicationController
 
   def update
     @answer = Answer.find(params[:id])
-    if @answer.update(answer_params)
+    if @answer
+      @answer.update(answer_params)
       @question = @answer.question
       #from pokdex
-      render :show
+      render json: @answer
       # render json: question, include: [:answers]
     else
       render json: answer.errors.full_messages, status: 422

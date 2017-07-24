@@ -13,6 +13,16 @@ export const selectAllQuestions = (questions) =>{
   }
 };
 
+// export const answersByQuestionId = ({answers}, question_id) => {
+//   const answersByQuestionId = [];
+//   Object.keys(answers).forEach(answerId => {
+//     const answer = answers[answerId];
+//     if (answers[answerId].question_id === question_d=id) {
+//       answersByQuestionId.push(answer)
+//     }
+//   })
+//   return answersByQuestionId;
+// }
 // export const selectSingleQuestion = (questions) =>{
 //   console.log(questions);
 //   return questions.allIds.map(id => questions.byId[id]);

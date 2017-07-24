@@ -15,7 +15,6 @@ const initialState = {
 const byIdReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = {};
-    let newQuestion;
     // console.log(newState);
     switch(action.type) {
       case RECEIVE_SINGLE_QUESTION:

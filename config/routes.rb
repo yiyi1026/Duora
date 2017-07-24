@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :questions   #, except: [:create, :update, :destroy]
     resources :answers
     resources :topics
-    resources :questions
+    resources :comments
 end
 
 #chaos
