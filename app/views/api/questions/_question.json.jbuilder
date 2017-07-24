@@ -17,6 +17,8 @@ json.question do
   json.id question.id
   json.title question.title
   json.body question.body
+  # json.topic_id question.topic_id
+  json.topic question.topic, :name, :id
   json.author question.author, :id, :username, :avatar, :description
   json.answersIds question.answers do |answer|
     json.id answer.id

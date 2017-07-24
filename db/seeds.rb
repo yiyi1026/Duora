@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
 Topic.delete_all
+TopicTagging.delete_all
 Question.delete_all
 Answer.delete_all
 Comment.delete_all
@@ -27,8 +28,22 @@ guest9 = User.create!({username: 'Maskman', email: 'guest9@guest.com', password:
 topic1 = Topic.create!({name:'Time Travel'})
 topic2 = Topic.create!({name:'Physics'})
 topic3 = Topic.create!({name:'Music'})
-# topic4 = Topic.create!({name:'Art'})
-# topic5 = Topic.create!({name:'Movie'})
+topic4 = Topic.create!({name:'Art'})
+topic5 = Topic.create!({name:'Movie'})
+
+topic_tagging1 = TopicTagging.create!({topic_id: topic1.id, user_id: guest1.id})
+topic_tagging2 = TopicTagging.create!({topic_id: topic2.id, user_id: guest3.id})
+topic_tagging3 = TopicTagging.create!({topic_id: topic3.id, user_id: guest5.id})
+topic_tagging4 = TopicTagging.create!({topic_id: topic5.id, user_id: guest2.id})
+topic_tagging5 = TopicTagging.create!({topic_id: topic4.id, user_id: guest4.id})
+topic_tagging6 = TopicTagging.create!({topic_id: topic4.id, user_id: guest6.id})
+topic_tagging7 = TopicTagging.create!({topic_id: topic3.id, user_id: guest3.id})
+topic_tagging8 = TopicTagging.create!({topic_id: topic1.id, user_id: guest2.id})
+topic_tagging9 = TopicTagging.create!({topic_id: topic2.id, user_id: guest7.id})
+topic_tagging10 = TopicTagging.create!({topic_id: topic1.id, user_id: guest6.id})
+topic_tagging11 = TopicTagging.create!({topic_id: topic2.id, user_id: guest1.id})
+topic_tagging12 = TopicTagging.create!({topic_id: topic1.id, user_id: guest8.id})
+topic_tagging13 = TopicTagging.create!({topic_id: topic2.id, user_id: guest9.id})
 
 question1 = Question.create!({title: 'quesTitle1', body: 'quesBody1', author_id: guest3.id, topic_id: topic1.id})
 question2 = Question.create!({title: 'quesTitle2', body: 'quesBody2', author_id: guest1.id, topic_id: topic2.id})
@@ -41,5 +56,6 @@ answer4 = Answer.create!({body:'answer4bodytoquestion3', author_id: guest2.id, q
 
 
 comment1 = Comment.create!({body: 'commentbody1', answer_id: answer1.id, author_id: guest1.id})
-comment2 = Comment.create!({body: 'commentbody1', answer_id: answer3.id, author_id: guest2.id})
-comment3 = Comment.create!({body: 'commentbody1', answer_id: answer2.id, author_id: guest3.id})
+comment2 = Comment.create!({body: 'commentbody2', answer_id: answer3.id, author_id: guest2.id})
+comment3 = Comment.create!({body: 'commentbody3', answer_id: answer2.id, author_id: guest3.id})
+comment4 = Comment.create!({body: 'commentbody4', answer_id: answer4.id, author_id: guest4.id})

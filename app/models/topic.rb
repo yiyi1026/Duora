@@ -10,7 +10,12 @@
 
 class Topic < ApplicationRecord
   # has_many :questions
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
+  has_many :topic_taggings
+  has_many :subscribers,
+    through: :topic_taggings,
+    source: :user
 
-  has_many :questions
+  has_many :questions,
+    class_name: :topic
 end

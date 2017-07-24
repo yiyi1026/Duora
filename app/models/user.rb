@@ -30,10 +30,12 @@ class User < ApplicationRecord
 	has_many :answers,  #author has written many answers
 		foreign_key: :author_id,
 		class_name: :Answer
-		
-	has_many :topic_taggings
 
-	# has_many :subscribed_topics, through: :topic_taggings, source: :topic
+	has_many :topic_taggings,
+		foreign_key: :user_id,
+		class_name: :TopicTagging
+
+	has_many :topics, through: :topic_taggings, source: :topic
 
 	after_initialize :ensure_session_token
 

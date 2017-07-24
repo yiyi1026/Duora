@@ -11,6 +11,8 @@
 
 class TopicTagging < ApplicationRecord
   #this table is for user_subscribed_topics
+  validates_uniqueness_of :user_id, scope: :topic_id
+  validates_uniqueness_of :topic_id, scope: :user_id
   belongs_to :user
   belongs_to :topic
 end
