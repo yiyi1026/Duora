@@ -44,5 +44,12 @@
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.23.0"
+  },
+  "engines": {
+    "node": "6.10.1",
+    "npm": "3.10.10"
+  },
+  "scripts": {
+    "postinstall": "webpack"
   }
 }
