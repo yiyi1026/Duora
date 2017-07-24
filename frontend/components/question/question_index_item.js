@@ -3,7 +3,7 @@ import React from 'react';
 import merge from 'lodash/merge';
 import { Link, Route } from 'react-router-dom';
 import AnswerFormContainer from '../answer/answer_form_container';
-
+import QuestionBarContainer from './question_bar_container';
 class QuestionIndexItem extends React.Component {
   constructor(props) {
     super(props);

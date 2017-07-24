@@ -5,7 +5,7 @@ class QuestionBar extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            author_id: 1,
+            author_id: '',
             // id: -1,
             title: '',
             body: '',
@@ -31,7 +31,6 @@ class QuestionBar extends React.Component{
     handleQuestionFieldUpdate(){
         return e => {
             this.setState({'title': e.target.value});
-            console.log(this.props);
             // if(currentUser){
             //   this.setState({author_id: currentUser.id });
             // }

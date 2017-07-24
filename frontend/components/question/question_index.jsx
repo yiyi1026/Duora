@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import QuestionIndexItem from './question_index_item';
-
+import QuestionDetailContainer from './question_detail_container';
 class QuestionIndex extends React.Component{
   componentDidMount() {
     this.props.requestAllQuestions();
@@ -31,6 +31,7 @@ class QuestionIndex extends React.Component{
         </div>
         <br />
         </ul>
+        <Route path="/questions/:questionId" component={QuestionDetailContainer}/>
       </div>
 
     );

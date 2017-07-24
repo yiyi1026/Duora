@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import {
   RECEIVE_SINGLE_QUESTION
 } from '../actions/question_actions';
+import answersReducer from './answers_reducer';
 
 const initialState = {
   question: {
@@ -18,6 +19,7 @@ const byIdReducer = (state = {}, action) => {
     // console.log(newState);
     switch(action.type) {
       case RECEIVE_SINGLE_QUESTION:
+        console.log(action);
         newState[action.question.id] = action.question;
         return newState;
       default:
@@ -40,6 +42,8 @@ const allIdsReducer = (state = [], action) => {
 
 const questionReducer = combineReducers({
   byId: byIdReducer,
-  allIds: allIdsReducer
+  allIds: allIdsReducer,
+  answers: answersReducer
+
 });
 export default questionReducer;

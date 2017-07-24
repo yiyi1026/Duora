@@ -16,10 +16,11 @@ const initialState = {
 
 const byIdReducer = (state = {}, action) => {
     Object.freeze(state);
+    console.log(state);
     let newState = {};
     // console.log(newState);
     switch(action.type) {
-      case RECEIVE_SINGLE_QUESTION:
+      case RECEIVE_SINGLE_ANSWER:
       case CREATE_ANSWER:
         newState[action.answer.id] = action.answer;
         return newState;
