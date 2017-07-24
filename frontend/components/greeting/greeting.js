@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import QuestionBarContainer from '../question/question_bar_container';
+import {withRouter} from 'react-router';
+import { AuthRoute } from '../../util/route_util';
 
 class Greeting extends React.Component{
     constructor(props){
@@ -23,9 +25,9 @@ class Greeting extends React.Component{
                             </button>
                             <a className="navbar-brand brand-sm" href="#"><span className='brand-sm'>Duora</span></a>
                             </div>
-                            
+
                             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <QuestionBarContainer />
+                            <QuestionBarContainer/>
                             <ul className="nav navbar-nav red-text">
                                 <li className="active"><a href="#" className="active"><span className='glyphicon glyphicon-list-alt'></span>Read <span className="sr-only">(current)</span></a></li>
                                 <li><a href="#"><span className='glyphicon glyphicon-edit'></span>Answer</a></li>
@@ -43,7 +45,7 @@ class Greeting extends React.Component{
                                 </ul>
                                 </li>
                             </ul>
-                            
+
                             </div>
                         </div>
                     </nav>
@@ -55,4 +57,4 @@ class Greeting extends React.Component{
         );
     }
 }
-export default Greeting;
+export default withRouter(Greeting);

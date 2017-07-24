@@ -5,7 +5,7 @@ class QuestionBar extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            author_id: currentUser? currentUser.id : '',
+            author_id: 1,
             // id: -1,
             title: '',
             body: '',
