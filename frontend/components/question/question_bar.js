@@ -51,10 +51,6 @@ class QuestionBar extends React.Component{
     }
 
     render(){        
-        // console.log(this.props)
-        // console.log(!!this.props.searchedQuestions)
-        console.log(this.props.searchedQuestions);
-        console.log(!!!this.props.searchedQuestions);
         const querystr = this.state.title;
         let reg = new RegExp(querystr, 'gi');
         
