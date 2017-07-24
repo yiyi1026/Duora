@@ -7,11 +7,12 @@ import {
 } from '../../actions/question_actions';
 import { selectAllQuestions }from '../../reducers/selectors';
 
-const  mapStateToProps = ({question,searchedQuestions}) => {
+const  mapStateToProps = ({question,searchedQuestions, session}) => {
   return {
     question: selectAllQuestions(question),
     searchedQuestions: selectAllQuestions(searchedQuestions),
-    
+    currentUser: session.currentUser
+
   }
 };
 

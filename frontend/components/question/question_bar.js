@@ -35,7 +35,7 @@ class QuestionBar extends React.Component{
             //   this.setState({author_id: currentUser.id });
             // }
             if (!this.state.author_id){
-              this.setState({author_id: currentUser.id });
+              this.setState({author_id: this.props.currentUser.id });
             }
             // if(e.target.value){
             //     this.handleSearchQuestions(e.target.value);
