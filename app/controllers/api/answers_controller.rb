@@ -19,12 +19,19 @@ class Api::AnswersController < ApplicationController
   #   render json: answer
   # end
   #
+
+  def show
+    @answer = Answer.find(params[:id])
+    render :show
+  end
+
   def update
     @answer = Answer.find(params[:id])
     if @answer.update(answer_params)
-      question = @answer.question
+      @question = @answer.question
       #from pokdex
-      render json: question, include: [:answers]
+      render :show
+      # render json: question, include: [:answers]
     else
       render json: answer.errors.full_messages, status: 422
     end
