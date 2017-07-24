@@ -12,6 +12,12 @@ class AnswerItem extends React.Component{
         this.onChange = (value) => this.setState({value});
     }
 
+    handleAnswerSubmit(e){
+        e.preventDefault();
+        this.props.createQuestion(this.state);
+        this.setState({'navigateAfterSubmit': true});
+    }
+
     render(){
         return (
         <div className='form-group'>
@@ -22,7 +28,10 @@ class AnswerItem extends React.Component{
             onChange={this.onChange} 
             className="answer-editor"
             /> 
-            
+
+            <button className="PerfectColdButton all-margin-10" onClick={this.handleAnswerSubmit} >
+                <span>Submit</span>
+              </button>
         </div>
         )
     }

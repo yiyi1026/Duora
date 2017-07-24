@@ -42,7 +42,6 @@ class QuestionBar extends React.Component{
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
         let cur_question = this.props.question[0];
         let next_question = nextProps.question[0];
         if(cur_question)console.log(cur_question.id)

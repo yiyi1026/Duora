@@ -144,10 +144,8 @@ class QuestionIndexItem extends React.Component {
               </span>
             </div>
             <div  id={"collapse" + question.id } className="accordion-body collapse">
-              <AnswerItem />
-              <a className="PerfectColdButton left-margin-10" href="#" >
-                <span>Submit</span>
-              </a>
+              <AnswerItem question={question} />
+              
             </div>
           </div>
 
