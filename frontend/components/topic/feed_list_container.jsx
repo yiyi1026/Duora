@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import FeedList from './feed_list';
 
-import { selectAllQuestions }from '../../reducers/selectors';
+// import { selectAllQuestions }from '../../reducers/selectors';
 
 const  mapStateToProps = () => (
   {topic: {}}

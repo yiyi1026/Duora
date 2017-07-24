@@ -48,6 +48,9 @@ topic_tagging13 = TopicTagging.create!({topic_id: topic2.id, user_id: guest9.id}
 question1 = Question.create!({title: 'quesTitle1', body: 'quesBody1', author_id: guest3.id, topic_id: topic1.id})
 question2 = Question.create!({title: 'quesTitle2', body: 'quesBody2', author_id: guest1.id, topic_id: topic2.id})
 question3 = Question.create!({title: 'quesTitle3', body: 'quesBody3', author_id: guest2.id, topic_id: topic3.id})
+question4 = Question.create!({title: 'quesTitle4', body: 'quesBody4', author_id: guest4.id, topic_id: topic5.id})
+question5 = Question.create!({title: 'quesTitle5', body: 'quesBody5', author_id: guest5.id, topic_id: topic3.id})
+question6 = Question.create!({title: 'quesTitle6', body: 'quesBody6', author_id: guest6.id, topic_id: topic4.id})
 
 answer1 = Answer.create!({body:'answer1bodytoquestion2', author_id: guest2.id, question_id: question1.id})
 answer2 = Answer.create!({body:'answer2bodytoquestion1', author_id: guest3.id, question_id: question2.id})
