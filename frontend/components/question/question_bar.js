@@ -30,10 +30,10 @@ class QuestionBar extends React.Component{
 
     handleQuestionFieldUpdate(){
         return e => {
+            if(e.target.value){
+              this.handleSearchQuestions(e.target.value);
+            }
             this.setState({'title': e.target.value});
-            // if(currentUser){
-            //   this.setState({author_id: currentUser.id });
-            // }
             if (!this.state.author_id){
               this.setState({author_id: this.props.currentUser.id });
             }
@@ -44,10 +44,12 @@ class QuestionBar extends React.Component{
     }
 
     handleSearchQuestions(query){
+      console.log('searching');
         this.props.searchQuestions(query);
     }
 
     componentWillReceiveProps(nextProps) {
+      console.log(nextProps);
         let cur_question = this.props.question[0];
         let next_question = nextProps.question[0];
         if(cur_question)console.log(cur_question.id)
@@ -100,4 +102,4 @@ class QuestionBar extends React.Component{
     }
 }
 
-export default withRouter(QuestionBar)
+export default withRouter(QuestionBar);
