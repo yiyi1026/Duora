@@ -40,12 +40,14 @@ class QuestionIndexItem extends React.Component {
   // }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     // console.log(this.props.question);
     const { question , updateQuestion} = this.props;
     // const answers = question.answers;
     // console.log(question);
-    const {id, title, body, answers, author} = question;
+    const {id, title, body, answers} = question;
+
+    let author = question.author;
 
     // const answer_detail = answers
     // console.log(question_detail);
@@ -74,7 +76,10 @@ class QuestionIndexItem extends React.Component {
       //   {detail}
       // </li>
     // );
-    const avatar = '/images/avatar/' + author.avatar;
+    if(!author){
+      author = currentUser;
+    }
+    let avatar = '/images/avatar/' + author.avatar;
     // const avatar = '<%= asset_path "images/avatar/user_1.png" %>';
     let html = (
       <li>

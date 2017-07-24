@@ -3,8 +3,8 @@ import QuestionDetail from './question_detail';
 import { requestSingleQuestion } from '../../actions/question_actions';
 import {selectAllQuestions } from '../../reducers/selectors';
 
-const  mapStateToProps = ({questions}) => ({
-  question: selectAllQuestions(questions)
+const  mapStateToProps = ({question}) => ({
+  question: selectAllQuestions(question)
 });
 
 const mapDispatchToProps = dispatch => ({

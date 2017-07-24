@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {withRouter} from 'react-router';
 
 class QuestionBar extends React.Component{
     constructor(props){
@@ -14,11 +15,17 @@ class QuestionBar extends React.Component{
         this.handleQuestionFieldSubmit = this.handleQuestionFieldSubmit.bind(this);
         this.handleQuestionFieldUpdate = this.handleQuestionFieldUpdate.bind(this);
         this.handleSearchQuestions = this.handleSearchQuestions.bind(this);
+        this.navigateTo = this.navigateTo.bind(this);
+    }
+
+    navigateTo(location){
+        this.props.history.push(location);
     }
     
     handleQuestionFieldSubmit(e){
         e.preventDefault();
         this.props.createQuestion(this.state);
+        this.setState({'navigateAfterSubmit': true});
     }
 
     handleQuestionFieldUpdate(){
@@ -31,26 +38,23 @@ class QuestionBar extends React.Component{
     }
 
     handleSearchQuestions(query){
-        console.log('searching questions')
         this.props.searchQuestions(query);
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.questions);
-        // this.props.searchQuestions('que');
-        // let id = parseInt(this.props.match.params.questionId);
-        // let nextid = parseInt(nextProps.match.params.questionId);
-        // if (id !== nextid){
-        // this.props.requestSingleQuestion(nextid);
-        // }else{
-        // console.log(nextProps);
-        // let question = nextProps.question[0];
-        // console.log(question);
-        // this.setState({title: question.title, body: question.body, id: question.id});
-        // }
+        console.log(nextProps)
+        let cur_question = this.props.question[0];
+        let next_question = nextProps.question[0];
+        if(cur_question)console.log(cur_question.id)
+        if(next_question)console.log(next_question.id)
+        if(!cur_question && next_question || 
+            cur_question && cur_question.id !== next_question.id){
+            this.setState({title: ''});
+            this.navigateTo('/questions/' + next_question.id );
+        }
     }
 
-    render(){        
+    render(){
         const querystr = this.state.title;
         let reg = new RegExp(querystr, 'gi');
         
@@ -67,7 +71,7 @@ class QuestionBar extends React.Component{
             </li>)
         }
         );
-        if (searchedQuestions.length > 0){
+        if (searchedQuestions.length > 0 && this.state.title.length>0){
             searchedQuestionsForm = (
                 <ul className="search_question_dropdown ">
                 {searchedQuestions}  
@@ -91,4 +95,4 @@ class QuestionBar extends React.Component{
     }
 }
 
-export default QuestionBar
+export default withRouter(QuestionBar)

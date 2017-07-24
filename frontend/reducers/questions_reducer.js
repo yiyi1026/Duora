@@ -1,8 +1,6 @@
 import merge from 'lodash/merge';
 import { combineReducers } from 'redux';
-import questionReducer from './question_reducer';
 import {
-  RECEIVE_SINGLE_QUESTION,
   RECEIVE_ALL_QUESTIONS,
   REMOVE_QUESTION
 } from '../actions/question_actions';
@@ -30,12 +28,6 @@ const byIdReducer = (state = {}, action) => {
         // console.log(action.questions);
         action.questions.forEach(question => newState[question.id] = question);
         // console.log(newState);
-        return newState;
-      case RECEIVE_SINGLE_QUESTION:
-      // console.log(action);
-        // newQuestion= {[action.question.id]: action.question};
-        newState = merge({}, state);
-        newState[action.question.id] = action.question;
         return newState;
       case REMOVE_QUESTION:
         nextState = merge({}, state);
@@ -75,13 +67,6 @@ const allIdsReducer = (state = [], action) => {
   // console.log(action);
   let newState = merge([], state);
   switch (action.type) {
-    case RECEIVE_SINGLE_QUESTION:
-      let question_id = action.question.id;
-      if(state.includes(question_id)){
-        return state;
-      }
-      // return [...state, question_id];
-      return [question_id];
     case RECEIVE_ALL_QUESTIONS:
       newState = [];
       action.questions.forEach(question => newState.push(question.id));
