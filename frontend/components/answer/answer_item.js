@@ -24,7 +24,7 @@ class AnswerItem extends React.Component {
                 </span>
                 <span >,
                 </span>
-                <span>{author.description}</span>
+                <span className="">{author.description}</span>
               </div>
               <div className="">
                 <span>
@@ -55,15 +55,13 @@ class AnswerItem extends React.Component {
               </span>
             </div>
           </div>
-          <div className="row add-comment-form">
-            <div className=" left-margin-30">
-              <div className="left-margin-30">
-                <a href="#"><img className="img-circle pull-left" src={avatar} width="25" height="25"/></a>
-                <input placeholder="Add a comment..."/> 
-                 <button className="PerfectColdButton all-margin-10" >
-                  <span>Submit</span>
-                 </button>
-              </div>
+          <div className="row add-comment-form ">
+            <div className=" left-padding-30">
+              <a className="add-comment-form-item" href="#"><img className="img-circle pull-left" src={avatar} width="25" height="25"/></a>
+              <input className="left-margin-10 add-comment-form-item add-comment-input line-height-15" placeholder="Add a comment..."/> 
+              <button className="add-comment-form-item PerfectColdButton all-margin-10" >
+                <span>Submit</span>
+              </button>
             </div>
           </div>
       </div>
