@@ -38,12 +38,14 @@ class Api::QuestionsController < ApplicationController
 
   def update
     @question = Question.includes(answers: [:comments]).find(params[:id])
-    if @question.update_attributes(question_params)
+    if @question && @question.author.email === current_user.email
+      if @question.update_attributes(question_params)
       render :show
       # render json: @question, include: :answers    #?????
       # render "/api/questions/#{question.id}edit"
+      end
     else
-      render json: @question.errors.full_messages, status: 422
+        render json: @question.errors.full_messages, status: 422
       #no   “You do not have permissions to edit this question”
     end
   end
