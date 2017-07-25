@@ -11,9 +11,18 @@ class Api::AnswersController < ApplicationController
 
   def index
     @answers = Question.find(params[:question_id]).answers
-    render :show
+    render :index
   end
 
+  # def index
+  #   if params[:query]
+  #     @answers = Answer.where('body LIKE ?', "%#{params[:query]}%")
+  #   else
+  #     @answers = Question.all
+  #   end
+  #   render :index
+  #   # render json: @questions, include: :answers
+  # end
   # def destroy
   #   answer = Answer.find(params[:id]).destroy
   #   render json: answer
@@ -29,13 +38,18 @@ class Api::AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     if @answer
       @answer.update(answer_params)
-      @question = @answer.question
+      # @question = @answer.question
       #from pokdex
       render json: @answer
       # render json: question, include: [:answers]
     else
       render json: answer.errors.full_messages, status: 422
     end
+  end
+
+  def destroy
+    @answer = Answer.find(params[:id])
+    @answer.destroy
   end
 
   def answer_params

@@ -1,26 +1,32 @@
 class Api::CommentsController < ApplicationController
   def create
-    comment = Comment.new(comment_params)
-    comment.answer_id = comment.answer.id
-    comment.author_id = current_user.id
-    answer = comment.answer
-    if comment.save
-      render json: answer
+    @comment = current_user.comments.new(comment_params)
+    # @comment.answer_id = comment.answer.id
+    # if current_user
+    #   @comment.author_id = current_user.id
+    # end
+    if @comment.save
+      render :show
     else
-      render json: comment.errors.full_messages, status: 422
+      render json: @comment.errors.full_messages, status: 422
     end
   end
 
-  # def index
-  #   comments = Comment.find(params[:question_id]).comments
-  #   render json: comments
-  # end
+  def index
+    @comments = Question.find(params[:question_id]).comments
+    render :index
+  end
 
   # def destroy
   #   comment = Comment.find(params[:id]).destroy
   #   render json: comment
   # end
   #
+  def show
+    @comment = Comment.find(params[:id])
+    render :show
+  end
+
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
@@ -28,13 +34,18 @@ class Api::CommentsController < ApplicationController
       #from pokdex
       render json: answer, include: [:comments]
     else
-      render json: comment.errors.full_messages, status: 422
+      render json: @comment.errors.full_messages, status: 422
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    render :show
   end
 
   def comment_params
     params.require(:comment).permit(
-    :body, :question_id, :id, :author, :author_id, :answer, :answer_id,
-    :question, :question_id)
+    :body, :question_id, :id, :author_id, :answer_id)
   end
 end
