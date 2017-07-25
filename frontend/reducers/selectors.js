@@ -20,7 +20,11 @@ export const selectSearchedQuestions = (questions) => {
   console.log(questions);
   if (questions && questions.allIds) {
     // console.log(questions);
-    return questions.allIds.map(id => questions.byId[id]);
+    return questions.allIds.map(id => {
+      if (id) {
+        return questions.byId[id]
+      }});
+      return '';
     // console.log(a);
     // return a
   } else {

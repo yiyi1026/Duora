@@ -30,6 +30,7 @@ export const removeQuestion = question => ({
 })
 
 export const receiveSearchedQuestions = questions => {
+  console.log(questions);
   return(
   {
   type: RECEIVE_SEARCHED_QUESTIONS,
@@ -85,6 +86,6 @@ export const deleteQuestion = question => dispatch => (
 
 export const searchQuestions = query => dispatch => (
   APIUtil.searchQuestions(query).then((questions) => {
-    // console.log(questions);
+    console.log(questions);
     dispatch(receiveSearchedQuestions(questions))})
 );
