@@ -110,7 +110,7 @@ class QuestionDetail extends React.Component {
               </div>
             </div>
           </div>
-    
+
           <div className="row">
             <div className="all-margin-10">
               <span className="rendered_qtext">
@@ -119,7 +119,7 @@ class QuestionDetail extends React.Component {
               {/* <span id=""><a className="" href="#" target="_blank">(more)</a></span> */}
             </div>
           </div>
-    
+
           <div className="row">
             <div className=" accordion-heading">
               <span className="left-margin-10  ">
@@ -142,19 +142,19 @@ class QuestionDetail extends React.Component {
             </div>
             <div id={"collapse" + question.id} className="accordion-body collapse">
               <AnswerFormContainer question={question}/>
-    
+
             </div>
           </div>
-    
+
 
 
         </div>
-    
+
         {answers_html}
 
       </div>
     );
-    
+
   }
 }
 
