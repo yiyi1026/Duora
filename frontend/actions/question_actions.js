@@ -5,6 +5,7 @@ export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS';
 export const RECEIVE_SINGLE_QUESTION = 'RECEIVE_SINGLE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
 export const RECEIVE_SEARCHED_QUESTIONS = 'RECEIVE_SEARCHED_QUESTIONS';
+import {receiveAllAnswers} from './answer_actions'
 
 export const receiveAllQuestions = questions => {
   // console.log(questions);
@@ -14,10 +15,14 @@ export const receiveAllQuestions = questions => {
   };
 };
 
-export const receiveSingleQuestion = question => ({
+export const receiveSingleQuestion = (question) => {
+  console.log(question);
+  return ({
   type: RECEIVE_SINGLE_QUESTION,
-  question
+  questions: question,
+
 });
+};
 
 export const removeQuestion = question => ({
   type: REMOVE_QUESTION,
@@ -35,7 +40,8 @@ export const receiveSearchedQuestions = questions => {
 export const requestAllQuestions = () => dispatch => {
   // console.log('actions');
   return APIUtil.fetchAllQuestions().then(
-    ({questions}) => {
+    (questions) => {
+
       // console.log(questions);
       return dispatch(receiveAllQuestions(questions));
     }, error => console.log(error)
@@ -46,8 +52,13 @@ export const requestAllQuestions = () => dispatch => {
 export const requestSingleQuestion = id => dispatch => (
   APIUtil.fetchSingleQuestion(id).then(
 
-    ({question, answers}) => {
-      console.log(answers);
+    (response) => {
+      // const {question, answers} = response;
+      // console.log(response);
+      const {id, title, body, author, answers, topic} = response;
+      const question = {id, title, body, author, topic};
+      // console.log(question);
+      dispatch(receiveAllAnswers(answers));
       dispatch(receiveSingleQuestion(question));
     },errors => dispatch(receiveErrors(errors))
   )
@@ -57,7 +68,7 @@ export const createQuestion = question => dispatch => (
   APIUtil.createQuestion(question)
   .then(
     (question) => {
-      // console.log(question)
+      console.log(question)
     dispatch(receiveSingleQuestion(question));
     dispatch(clearErrors())
   },errors => dispatch(receiveErrors(errors.responseJSON))

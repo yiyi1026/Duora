@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -23,15 +23,13 @@ class SessionForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e => this.setState({[field]: e.currentTarget.value});
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    if (this.props.formType === 'login'){
+    if (this.props.formType === 'login') {
       this.props.processForm({user});
     }
   }
@@ -39,8 +37,11 @@ class SessionForm extends React.Component {
   handleDemoSubmit(e) {
     e.preventDefault();
     // const user = this.state;
-    let user = {email: "guest1@guest.com", password:'guest1'};
-    if (this.props.formType === 'login'){
+    let user = {
+      email: "guest1@guest.com",
+      password: 'guest1'
+    };
+    if (this.props.formType === 'login') {
       this.props.processForm({user});
     }
   }
@@ -53,7 +54,7 @@ class SessionForm extends React.Component {
   // }
 
   renderErrors() {
-    return(
+    return (
       <ul>
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
@@ -65,44 +66,34 @@ class SessionForm extends React.Component {
   }
 
   render() {
-     let login_html = (
-           <div className='login'>
-             <div className='col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 col-lg-3'>
-             <form onSubmit={this.handleSubmit} className="login-form-box row">
-               {this.renderErrors()}
-             <div className='form-group '>
-               <h4 ><b>Sign In</b></h4>
+    let login_html = (
+      <div className='login'>
+        <div className='col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 col-lg-3'>
+          <form onSubmit={this.handleSubmit} className="login-form-box row">
+            {this.renderErrors()}
+            <div className='form-group '>
+              <h4 >
+                <b>Sign In</b>
+              </h4>
 
-               <input
-                 id = 'email'
-                 className='form-control'
-                 placeholder='Email'
-                 value={this.state.email}
-                 onChange={this.update('email')}
-                 />
-             </div>
+              <input id='email' className='form-control' placeholder='Email' value={this.state.email} onChange={this.update('email')}/>
+            </div>
 
-             <div className='form-group'>
-               <span ></span>
-               <input
-                 id = 'password'
-                 type='password'
-                 className='form-control'
-                 value={this.state.password}
-                 onChange={this.update('password')}
-                 placeholder='Password' />
+            <div className='form-group'>
+              <span ></span>
+              <input id='password' type='password' className='form-control' value={this.state.password} onChange={this.update('password')} placeholder='Password'/>
 
-             </div>
-             <input type="submit" value="Sign In" className='btn wonderful-button pull-right'></input>
+            </div>
+            <input type="submit" value="Sign In" className='btn wonderful-button pull-right'></input>
 
-           </form>
-           <form onSubmit={this.handleDemoSubmit} className="login-form-box row demo-login ">
-             <input type="submit" value="Demo Sign In" className='btn wonderful-button pull-right'></input>
-           </form>
-         </div>
-       </div>
+          </form>
+          <form onSubmit={this.handleDemoSubmit} className="login-form-box row demo-login ">
+            <input type="submit" value="Demo Sign In" className='btn wonderful-button pull-right'></input>
+          </form>
+        </div>
+      </div>
 
-     );
+    );
     return login_html;
   }
 }

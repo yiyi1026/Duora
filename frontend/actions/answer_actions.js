@@ -4,6 +4,14 @@ import { normalize } from 'normalizr';
 export const RECEIVE_SINGLE_ANSWER = 'RECEIVE_SINGLE_ANSWER';
 export const CREATE_ANSWER = 'CREATE_ANSWER';
 export const REMOVE_ANSWER = 'REMOVE_ANSWER';
+export const RECEIVE_ALL_ANSWERS = 'RECEIVE_ALL_ANSWERS';
+export const receiveAllAnswers = answers => {
+  // console.log(answers);
+  return {
+    type: RECEIVE_ALL_ANSWERS,
+    answers
+  };
+};
 // export const RECEIVE_SEARCHED_ANSWERS = 'RECEIVE_SEARCHED_ANSWERS';
 
 export const receiveSingleAnswer = answer => ({
@@ -32,6 +40,20 @@ export const requestSingleAnswer = id => dispatch => (
     },errors => dispatch(receiveErrors(errors))
   )
 )
+
+export const requestAllAnswers = () => dispatch => {
+  // console.log('actions');
+  return APIUtil.fetchAllAnswers().then(
+    (state) => {
+      // console.log(state);
+      const {answers} = state;
+      // console.log(state);
+      // console.log(questions);
+      return dispatch(receiveAllAnswers(answers));
+    }, error => console.log(error)
+  );
+
+};
 
 export const createAnswer = answer => dispatch => (
   APIUtil.createAnswer(answer)

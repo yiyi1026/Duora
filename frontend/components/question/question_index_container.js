@@ -1,22 +1,15 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import QuestionIndex from './question_index';
-import {
-  requestAllQuestions,
-  createQuestion,
-  updateQuestion,
-  deleteQuestion
-} from '../../actions/question_actions';
+import {requestAllQuestions, createQuestion, updateQuestion, deleteQuestion} from '../../actions/question_actions';
 //Do I need to keep this deleteQuestion????
-import {selectAllQuestions } from '../../reducers/selectors';
+import {selectAllQuestions} from '../../reducers/selectors';
 
-const  mapStateToProps = ({questions}) =>{
-  return {
-  questions: selectAllQuestions(questions),
-  errors:[]
+const mapStateToProps = (state) => {
+  console.log(state);
+  let questions = state.questions
+  return {questions: selectAllQuestions(questions), errors: []};
+  // here questions {byId:{}, allIds:[]}
 };
-// here questions {byId:{}, allIds:[]}
-};
-
 
 const mapDispatchToProps = dispatch => ({
   requestAllQuestions: () => dispatch(requestAllQuestions()),
@@ -24,8 +17,4 @@ const mapDispatchToProps = dispatch => ({
   updateQuestion: (question) => dispatch(updateQuestion(question))
 });
 
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(QuestionIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionIndex);

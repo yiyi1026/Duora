@@ -5,39 +5,16 @@
 //   })
 // );
 
-export const fetchSingleAnswer = id => (
-  $.ajax({
-    method: 'GET',
-    url: `/api/answers/${id}`,
-  })
-);
+export const fetchSingleAnswer = id => ($.ajax({method: 'GET', url: `/api/answers/${id}`}));
 
-export const searchAnswers = query => (
-  $.ajax({
-    method: 'GET',
-    url: `/api/answers?query=${query}`,
-  })
-);
+export const searchAnswers = query => ($.ajax({method: 'GET', url: `/api/answers?query=${query}`}));
 
-export const createAnswer = (answer) => (
-  $.ajax({
-    method: 'POST',
-    url: '/api/answers/',
-    data: { answer }
-  })
-);
+export const createAnswer = (answer) => ($.ajax({method: 'POST', url: '/api/answers/', data: {
+    answer
+  }}));
 
-export const updateAnswer = answer => (
-  $.ajax({
-    method: 'PATCH',
-    url: `/api/answers/${answer.id}`,
-    data: { answer }
-  })
-)
+export const updateAnswer = answer => ($.ajax({method: 'PATCH', url: `/api/answers/${answer.id}`, data: {
+    answer
+  }}))
 
-export const deleteAnswer = answer => (
-  $.ajax({
-    method: 'DELETE',
-    url: `/api/answers/${answer.id}`
-  })
-)
+export const deleteAnswer = answer => ($.ajax({method: 'DELETE', url: `/api/answers/${answer.id}`}))
