@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
+import javascript_time_ago from 'javascript-time-ago';
 
 class AnswerItem extends React.Component {
   componentDidMount() {
@@ -10,6 +11,15 @@ class AnswerItem extends React.Component {
     
     console.log(this.props)
     let avatar = '/images/avatar/' + author.avatar;
+    
+    javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
+    require('javascript-time-ago/intl-messageformat-global');
+    require('intl-messageformat/dist/locale-data/en');
+
+    const time_ago_english = new javascript_time_ago('en-US');
+
+    let create_date = new Date(created_at);
+    let timeAgo = time_ago_english.format(create_date.getTime());
 
     return (
       <div className="container top-boader top-margin-30">
@@ -28,7 +38,7 @@ class AnswerItem extends React.Component {
               </div>
               <div className="">
                 <span>
-                  <a className="grey" href="#" target="">Answered at {created_at}</a>
+                  <a className="grey" href="#" target="">Answered {timeAgo}</a>
                 </span>
               </div>
             </div>

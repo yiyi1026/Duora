@@ -44,7 +44,6 @@ class QuestionBar extends React.Component {
   }
 
   handleSearchQuestions(query) {
-    console.log('searching');
     this.props.searchQuestions(query);
   }
 

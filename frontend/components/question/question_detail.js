@@ -3,6 +3,7 @@ import {requestSingleQuestion} from '../../actions/question_actions';
 import {Link} from 'react-router-dom';
 import AnswerFormContainer from '../answer/answer_form_container';
 import AnswerItemContainer from '../answer/answer_item_container';
+import javascript_time_ago from 'javascript-time-ago';
 
 class QuestionDetail extends React.Component {
   constructor(props) {
@@ -39,12 +40,23 @@ class QuestionDetail extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    
     const {answers} = this.props;
     const question = this.props.questions.byId;
     if(!question.author){
       return (<div></div>);
     }
+    console.log(question)
+    const {created_at} = question;
+
+    javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
+    require('javascript-time-ago/intl-messageformat-global');
+    require('intl-messageformat/dist/locale-data/en');
+
+    const time_ago_english = new javascript_time_ago('en-US');
+
+    let create_date = new Date(created_at);
+    let timeAgo = time_ago_english.format(create_date.getTime());
 
     let {description, username} = question.author;
     let avatar = '/images/avatar/' + question.author.avatar;
@@ -93,7 +105,7 @@ class QuestionDetail extends React.Component {
               </div>
               <div className="">
                 <span>
-                  <a className="grey" href="#" target="">Answered 8h ago</a>
+                  <a className="grey" href="#" target="">Answered {timeAgo}</a>
                 </span>
               </div>
             </div>

@@ -1,9 +1,10 @@
 import React from 'react';
-// import QuestionDetailViewContainer from './question_detail_view_container';
 import merge from 'lodash/merge';
 import {Link, Route} from 'react-router-dom';
 import AnswerFormContainer from '../answer/answer_form_container';
 import QuestionBarContainer from './question_bar_container';
+import javascript_time_ago from 'javascript-time-ago';
+
 class QuestionIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -27,64 +28,25 @@ class QuestionIndexItem extends React.Component {
       $this.removeClass('panel-collapsed');
     }
   }
-  // toggleDetail(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     detail: !this.state.detail
-  //   });
-  // }
-  //
-  // toggleQuestion(e) {
-  //   e.preventDefault();
-  //   const toggledQuestion = merge({}, this.props.question
-  //     // , {done: !this.props.question.done}
-  //  );
-  //    this.props.updateQuestion(toggledQuestion);
-  // }
 
   render() {
-    // console.log(this.props);
-    // console.log(this.props);
-    // console.log(this.props.question);
     const {question, updateQuestion} = this.props;
-    // const answers = question.answers;
-    // console.log(question);
-    const {id, title, body, answers} = question;
-    // console.log(this.props);
+    const {id, title, body, answers, created_at} = question;
     let author = question.author;
 
-    // const answer_detail = answers
-    // console.log(question_detail);
-    // console.log(question);
-    // // const { title, body, author} = question;
-    // let detail;
-    // console.log(question.title);
-    // console.log('index item');
-    // console.log(question);
-    // console.log('jhere');
-
-    // if (this.state.detail) {
-    //   detail = <QuestionDetailViewContainer question={question} />;
-    // }
-
-    // let ret = (
-    // <li className="question-index-item">
-    //   <div className="question-header">
-    //     <h3><a onClick={this.toggleDetail}>{title}</a></h3>
-    //     <button
-    //       className={done ? "done" : "undone"}
-    //       onClick={this.toggleQuestion}>
-    //       {done ? "Undo" : "Done"}
-    //     </button>
-    //   </div>
-    //   {detail}
-    // </li>
-    // );
     if (!author) {
       author = currentUser;
     }
     let avatar = '/images/avatar/' + author.avatar;
-    // const avatar = '<%= asset_path "images/avatar/user_1.png" %>';
+
+    javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
+    require('javascript-time-ago/intl-messageformat-global');
+    require('intl-messageformat/dist/locale-data/en');
+
+    const time_ago_english = new javascript_time_ago('en-US');
+    let create_date = new Date(created_at);
+    let timeAgo = time_ago_english.format(create_date.getTime());
+    
     let html = (
       <li>
         <div className='container well'>
@@ -123,7 +85,7 @@ class QuestionIndexItem extends React.Component {
               </div>
               <div className="">
                 <span>
-                  <a className="grey" href="#" target="">Answered 8h ago</a>
+                  <a className="grey" href="#" target="">Answered {timeAgo}</a>
                 </span>
               </div>
             </div>

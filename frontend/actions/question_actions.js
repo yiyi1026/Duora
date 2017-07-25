@@ -55,8 +55,8 @@ export const requestSingleQuestion = id => dispatch => (
     (response) => {
       // const {question, answers} = response;
       // console.log(response);
-      const {id, title, body, author, answers, topic} = response;
-      const question = {id, title, body, author, topic};
+      const {id, title, body, author, answers, topic, created_at, updated_at} = response;
+      const question = {id, title, body, author, topic, created_at, updated_at};
       // console.log(question);
       dispatch(receiveAllAnswers(answers));
       dispatch(receiveSingleQuestion(question));
