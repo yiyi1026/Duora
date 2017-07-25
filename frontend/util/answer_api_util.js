@@ -6,7 +6,7 @@
 // );
 
 export const fetchSingleAnswer = id => ($.ajax({method: 'GET', url: `/api/answers/${id}`}));
-
+// export const fetchAllAnswers
 export const searchAnswers = query => ($.ajax({method: 'GET', url: `/api/answers?query=${query}`}));
 
 export const createAnswer = (answer) => ($.ajax({method: 'POST', url: '/api/answers/', data: {

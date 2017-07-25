@@ -37,6 +37,9 @@ class Question < ApplicationRecord
     end
   end
 
+  def answersIds
+    self.answers.map{|answer| answer.id }
+  end
   # def self.search_by_word(word)
   #
   # end

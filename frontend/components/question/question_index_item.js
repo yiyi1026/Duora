@@ -43,7 +43,7 @@ class QuestionIndexItem extends React.Component {
   // }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     // console.log(this.props);
     // console.log(this.props.question);
     const {question, updateQuestion} = this.props;

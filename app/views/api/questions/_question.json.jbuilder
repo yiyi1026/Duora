@@ -17,6 +17,7 @@ json.author do
   json.extract! question.author, :id, :username, :description, :avatar
 end
 
+json.answersIds question.answersIds
 json.answers do
   json.partial! 'api/answers/answer', collection: question.answers, as: :answer
 end
