@@ -1,82 +1,77 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import AnswerIndexItem from './answer_index_item';
-import AnswerDetailContainer from './answer_detail_container';
-class AnswerIndex extends React.Component {
+
+class AnswerItem extends React.Component {
   componentDidMount() {
-    this.props.requestAllAnswers();
   }
   render() {
-    const {answers, createAnswer, updateAnswer, errors} = this.props;
-    // console.log(answers[0]);
-
-    const answerItems = answers.map(
-      (newanswer, idx) =>
-      // {console.log(answer);
-        {
-          return (<AnswerIndexItem key={`answers${idx}`} answer={newanswer} updateAnswer={updateAnswer}/>)});
-    // const answerItems = {a:3};
-    // console.log(answerItems);
-    // console.log(answerItems);
+    const {answer} = this.props;
+    const {author, body, id, question_id, created_at} = answer;
+    
+    console.log(this.props)
+    let avatar = '/images/avatar/' + author.avatar;
 
     return (
-      <div>
-        <ul className="answer-list list-unstyled">
-          <br/>
-          <div>
-            <br/> {answerItems}
-            <br/>
+      <div className="container top-boader top-margin-30">
+        <div className="row all-margin-10">
+            <div className="all-margin-10">
+              <a href="#"><img className="img-circle pull-left" src={avatar} width="40" height="40"/></a>
+            </div>
+            <div className="left-margin-10 right-margin-10">
+              <div className="">
+                <span>
+                  <a className="user black" href="#">{author.username}</a>
+                </span>
+                <span >,
+                </span>
+                <span>{author.description}</span>
+              </div>
+              <div className="">
+                <span>
+                  <a className="grey" href="#" target="">Answered at {created_at}</a>
+                </span>
+              </div>
+            </div>
           </div>
-          <br/>
-        </ul>
-        <Route path="/answers/:answerId" component={AnswerDetailContainer}/>
+
+        <span dangerouslySetInnerHTML={{
+              __html: body
+            }}></span>
+
+
+        <div className="row top-margin-10 bottom-margin-10">
+            <div className=" accordion-heading">
+              <span className="left-margin-10">
+                <a className="Upvote" href="#">
+                  <span>Upvote</span>
+                  <span className="divider-vertical-15px"></span>
+                  <span className=" ">95</span>
+                </a>
+              </span>
+              <span className="left-margin-10">
+                <a className="Downvote grey" href="#">
+                  <span className=" ">Downvote</span>
+                </a>
+              </span>
+            </div>
+          </div>
+          <div className="row add-comment-form">
+            <div className=" left-margin-30">
+              <div className="left-margin-30">
+                <a href="#"><img className="img-circle pull-left" src={avatar} width="25" height="25"/></a>
+                <input placeholder="Add a comment..."/> 
+                 <button className="PerfectColdButton all-margin-10" >
+                  <span>Submit</span>
+                 </button>
+              </div>
+            </div>
+          </div>
       </div>
 
     );
 
-    // { answerItems }
-    // return(
-    // );
-    // <div>
-    //   <AnswerForm createAnswer={ createAnswer } errors={ errors }/>
-    //   <ul className="answer-list">
-    //     { answerItems }
-    //   </ul>
-    // </div>
-    // console.log(this.props);
-    // if (this.props.answers){
-    //   answers = Object.keys(this.props.answers).map(id => (
-    //     <ul key={id}>
-    //       <AnswerIndexItem
-    //         key={id}
-    //         answer={this.props.answers[id]}
-    //         deleteAnswer={this.props.deleteAnswer} />
-    //     </ul>
-    //     )
-    //   );
-    // }
-    // <div className='row'>
-    //     <div className='col-lg-4 col-md-4 col-sm-4 colxs-4'>
-    //       <Route exact path='/' component={AnswerIndexContainer} />
-    //     </div>
-    // return(
-    //   <div>
-    //     <div className='page-header header'>
-    //      <h2 className='text-center'>All Answers</h2>
-    //     </div>
-    //     <div className='row'>
-    //       <div className="answerform col-lg-6 col-md-8 col-sm-8 col-xs-8">
-    //         {answers}
-    //       </div>
-    //
-    //       <div className='newanswer  col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-    //         <Route exact path='/' component={AnswerFormContainer}/>
-    //       </div>
-    //     </div>
-    //   </div>
-    // );
   }
 }
 
 // <AnswerForm createAnswer={this.props.createAnswer} />
-export default AnswerIndex;
+export default AnswerItem;

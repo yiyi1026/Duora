@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import AnswerIndex from './answer_index';
+import AnswerItem from './answer_item';
 import {
   requestAllAnswers,
   createAnswer,
@@ -29,4 +29,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AnswerIndex);
+)(AnswerItem);

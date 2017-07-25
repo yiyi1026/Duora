@@ -129,6 +129,10 @@ div h4 p {
   margin-top: 30px;
 }
 
+.top-margin-10{
+  margin-top: 30px;
+}
+
 .left-margin-30{
   margin-top: 30px;
 }
@@ -151,6 +155,14 @@ div h4 p {
 
 .left-margin-10{
   margin-left: 10px;
+}
+
+.right-margin-10{
+  margin-right: 10px;
+}
+
+.bottom-margin-10{
+  margin-bottom: 10px;
 }
 
 .bottom-padding-10{
@@ -309,4 +321,12 @@ div h4 p {
 
 .bottom-boader{
   border-bottom: 1px solid #ccc;
+}
+
+.top-boader{
+  border-top: 1px solid #ccc;
+}
+
+.add-comment-form{
+    background-color: #f7f7f7;
 }

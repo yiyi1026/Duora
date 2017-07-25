@@ -110,7 +110,7 @@ class QuestionIndexItem extends React.Component {
           </div>
           <div className="row">
             <div className="">
-              <a href="#"><img className="img-circle pull-left" src={avatar} width="50" height="50"/></a>
+              <a href="#"><img className="img-circle pull-left" src={avatar} width="40" height="40"/></a>
             </div>
             <div className="left-margin-60">
               <div className="">
