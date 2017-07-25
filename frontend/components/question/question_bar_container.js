@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import QuestionBar from './question_bar';
 // import { Route, Redirect, withRouter } from 'react-router-dom';
 import {createQuestion, searchQuestions} from '../../actions/question_actions';
-import {selectAllQuestions, selectSingleQuestion} from '../../reducers/selectors';
+import {selectAllQuestions, selectSingleQuestion, selectSearchedQuestions} from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
   // console.log(state);
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
   return {
     // question: selectAllQuestions(question),
     question: selectSingleQuestion(question),
-    searchedQuestions: selectAllQuestions(searchedQuestions),
+    searchedQuestions: selectSearchedQuestions(searchedQuestions),
     currentUser: session.currentUser
   }
 };

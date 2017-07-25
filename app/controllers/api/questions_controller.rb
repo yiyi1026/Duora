@@ -8,14 +8,25 @@ class Api::QuestionsController < ApplicationController
   #   render :new
   # end
   #
+  # def index
+  #   if params[:query]
+  #     @questions = Question.where('title LIKE ?', "%#{params[:query]}%")
+  #   else
+  #     @questions = Question.all
+  #   end
+  #   render :index
+  #   # render :json => @questions
+  #   # render json: @questions, include: :answers
+  # end
+
   def index
-    if params[:query]
-      @questions = Question.where('title LIKE ?', "%#{params[:query]}%")
+    if params[:query].present?
+      @questions = Question.where("title LIKE ?", "%#{params[:query]}%")
+      # render :search
     else
       @questions = Question.all
     end
     render :index
-    # render json: @questions, include: :answers
   end
 
   def show

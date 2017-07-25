@@ -16,7 +16,7 @@ export const receiveAllQuestions = questions => {
 };
 
 export const receiveSingleQuestion = (question) => {
-  console.log(question);
+  // console.log(question);
   return ({
   type: RECEIVE_SINGLE_QUESTION,
   questions: question,
@@ -84,5 +84,7 @@ export const deleteQuestion = question => dispatch => (
 );
 
 export const searchQuestions = query => dispatch => (
-  APIUtil.searchQuestions(query).then(({questions}) => dispatch(receiveSearchedQuestions(questions)))
+  APIUtil.searchQuestions(query).then((questions) => {
+    // console.log(questions);
+    dispatch(receiveSearchedQuestions(questions))})
 );

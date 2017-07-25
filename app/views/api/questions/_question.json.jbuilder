@@ -10,17 +10,17 @@
 json.extract! question, :id, :title, :body, :created_at, :updated_at
 # json.extract! answer, question.answer
 #
-json.topic do
-  json.extract! question.topic, :id, :name
-end
-json.author do
-  json.extract! question.author, :id, :username, :description, :avatar
-end
-
-json.answersIds question.answersIds
-json.answers do
-  json.partial! 'api/answers/answer', collection: question.answers, as: :answer
-end
+# json.topic do
+#   json.extract! question.topic, :id, :name
+# end
+# json.author do
+#   json.extract! question.author, :id, :username, :description, :avatar
+# end
+#
+# json.answersIds question.answersIds
+# json.answers do
+#   json.partial! 'api/answers/answer', collection: question.answers, as: :answer
+# end
 
 # json.question do
 #   json.answersIds question.answers do |answer|

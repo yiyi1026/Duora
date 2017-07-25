@@ -59,7 +59,6 @@ export const createAnswer = answer => dispatch => (
   APIUtil.createAnswer(answer)
   .then(
     (answer) => {
-      // console.log(answer)
     dispatch(receiveSingleAnswer(answer));
     dispatch(clearErrors())
   },errors => dispatch(receiveErrors(errors))
@@ -73,7 +72,3 @@ export const updateAnswer = answer => dispatch => (
 export const deleteAnswer = answer => dispatch => (
   APIUtil.deleteAnswer(answer).then(answer => dispatch(removeAnswer(answer)))
 );
-
-// export const searchAnswers = query => dispatch => (
-//   APIUtil.searchAnswers(query).then(({answers}) => dispatch(receiveSearchedAnswers(answers)))
-// );

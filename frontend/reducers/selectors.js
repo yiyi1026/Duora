@@ -16,6 +16,18 @@ export const selectAllQuestions = (questions) => {
   }
 };
 
+export const selectSearchedQuestions = (questions) => {
+  console.log(questions);
+  if (questions && questions.allIds) {
+    // console.log(questions);
+    return questions.allIds.map(id => questions.byId[id]);
+    // console.log(a);
+    // return a
+  } else {
+    return [];
+  }
+};
+
 export const selectAllAnswers = (answers) => {
   console.log(answers);
   if (answers && answers.allIds) {

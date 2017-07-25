@@ -31,6 +31,7 @@ class QuestionIndexItem extends React.Component {
 
   render() {
     const {question, updateQuestion} = this.props;
+    // console.log(question);
     const {id, title, body, answers, created_at} = question;
     let author = question.author;
 
@@ -46,7 +47,7 @@ class QuestionIndexItem extends React.Component {
     const time_ago_english = new javascript_time_ago('en-US');
     let create_date = new Date(created_at);
     let timeAgo = time_ago_english.format(create_date.getTime());
-    
+
     let html = (
       <li>
         <div className='container well'>

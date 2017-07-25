@@ -14,6 +14,12 @@ const initialStore = {
   },
   questions: {}
 };
-const configureStore = (preloadedStore = {}) => (createStore(rootReducer, preloadedStore, applyMiddleware(thunk, logger), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 
+const configureStore = (preloadedState = {}) => (
+  createStore(
+    rootReducer,
+    preloadedState,
+    composeWithDevTools(applyMiddleware(thunk, logger))
+  )
+);
 export default configureStore;
