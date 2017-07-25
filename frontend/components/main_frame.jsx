@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import QuestionIndexContainer from './question/question_index_container';
 import QuestionDetailContainer from './question/question_detail_container';
+import FeedListContainer from './topic/feed_list_container'
 
 class MainFrame extends React.Component{
   constructor(props){
@@ -15,7 +16,7 @@ class MainFrame extends React.Component{
       <Route path='/' component={GreetingContainer} />
        <div className="jumbotron">
           <div className="col-md-2 col-lg-2">
-              Feeds
+              <Route path="/" component={FeedListContainer} />
           </div>
           <div className="col-md-8 col-lg-6">
             <Switch>

@@ -129,8 +129,20 @@ div h4 p {
   margin-top: 30px;
 }
 
+.left-margin-30{
+  margin-top: 30px;
+}
+
+.left-margin-90{
+  margin-top: 30px;
+}
+
 .all-margin-10{
   margin: 10px;
+}
+
+.all-margin-30{
+  margin: 30px;
 }
 
 .left-margin-60{
@@ -139,6 +151,10 @@ div h4 p {
 
 .left-margin-10{
   margin-left: 10px;
+}
+
+.bottom-padding-10{
+  padding-bottom: 10px;
 }
 
 .wonderful-button{
@@ -276,4 +292,21 @@ div h4 p {
 .matchingText{
   color: black;
   opacity: 0.8;
+}
+
+
+.topic-list li a{
+  color: #333;
+  opacity: 0.8;
+  // background-color: #428bca;
+  // border-radius: 4px;
+  //     position: relative;
+  //   display: block;
+  //   padding: 10px 15px;
+  //   text-decoration: none;
+  //   text-align: -webkit-match-parent;
+}
+
+.bottom-boader{
+  border-bottom: 1px solid #ccc;
 }
