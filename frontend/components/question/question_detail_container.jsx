@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import QuestionDetail from './question_detail';
 import {requestSingleQuestion} from '../../actions/question_actions';
-import {selectAllQuestions, selectSingleQuestion} from '../../reducers/selectors';
-
+import {selectAllQuestions, selectSingleQuestion, selectAllAnswers} from '../../reducers/selectors';
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state.answers);
+  console.log(selectAllAnswers(state.answers));
   return ({
     answers: state.answers,
     questions: state.questions

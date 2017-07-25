@@ -31,14 +31,15 @@ class QuestionDetail extends React.Component {
     }else{
       let question = nextProps.questions.byId;
       // let title = question.title
-      let {title, body, id, author, answers} = question;
-      console.log(answers);
+      let {title, body, id, author} = question;
+
       this.setState({title, body, id, author});
     }
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.state.answers);
+    console.log(this.state.question);
     console.log(this.props);
     const {answers} = this.props;
     const question = this.props.questions.byId;
