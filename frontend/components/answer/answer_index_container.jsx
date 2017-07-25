@@ -7,11 +7,12 @@ import {
   deleteAnswer
 } from '../../actions/answer_actions';
 //Do I need to keep this deleteAnswer????
-// import {selectAllAnswers } from '../../reducers/selectors';
+import {selectAllAnswers } from '../../reducers/selectors';
 
-const  mapStateToProps = ({answers}) =>{
+const  mapStateToProps = (state) =>{
+  console.log(state);
   return {
-  answers: selectAllAnswers(answers),
+  answers: selectAllAnswers(state.answers),
   errors:[]
 };
 // here answers {byId:{}, allIds:[]}

@@ -2,34 +2,32 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import QuestionIndexItem from './question_index_item';
 import QuestionDetailContainer from './question_detail_container';
-class QuestionIndex extends React.Component{
+class QuestionIndex extends React.Component {
   componentDidMount() {
     this.props.requestAllQuestions();
   }
-  render(){
-    const { questions, createQuestion, updateQuestion, errors } = this.props;
-    console.log(this.props);
+  render() {
+    const {questions, createQuestion, updateQuestion, errors} = this.props;
+    // console.log(questions[0]);
 
-    const questionItems = questions.map((question, idx) => (
-      <QuestionIndexItem
-          key={ `questions${idx}` }
-          question={question}
-          updateQuestion={ updateQuestion } />
-      )
-    );
+    const questionItems = questions.map(
+      (newquestion, idx) =>
+      // {console.log(question);
+        {
+          return (<QuestionIndexItem key={`questions${idx}`} question={newquestion} updateQuestion={updateQuestion}/>)});
     // const questionItems = {a:3};
     // console.log(questionItems);
     // console.log(questionItems);
+
     return (
       <div>
         <ul className="question-list list-unstyled">
-          <br />
+          <br/>
           <div>
-            <br />
-          {questionItems}
-          <br />
-        </div>
-        <br />
+            <br/> {questionItems}
+            <br/>
+          </div>
+          <br/>
         </ul>
         <Route path="/questions/:questionId" component={QuestionDetailContainer}/>
       </div>
@@ -57,10 +55,10 @@ class QuestionIndex extends React.Component{
     //     )
     //   );
     // }
-      // <div className='row'>
-      //     <div className='col-lg-4 col-md-4 col-sm-4 colxs-4'>
-      //       <Route exact path='/' component={QuestionIndexContainer} />
-      //     </div>
+    // <div className='row'>
+    //     <div className='col-lg-4 col-md-4 col-sm-4 colxs-4'>
+    //       <Route exact path='/' component={QuestionIndexContainer} />
+    //     </div>
     // return(
     //   <div>
     //     <div className='page-header header'>

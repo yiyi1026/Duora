@@ -1,28 +1,31 @@
 import React from 'react';
 // import QuestionDetailViewContainer from './question_detail_view_container';
 import merge from 'lodash/merge';
-import { Link, Route } from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 import AnswerFormContainer from '../answer/answer_form_container';
 import QuestionBarContainer from './question_bar_container';
 class QuestionIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { detail: false };
+    this.state = {
+      detail: false,
+      answers: ''
+    };
     // this.toggleDetail = this.toggleDetail.bind(this);
     // this.toggleQuestion = this.toggleQuestion.bind(this);
   }
 
-  handleClickAnswer(e){
+  handleClickAnswer(e) {
     console.log(e.target);
     let $this = $(e.target);
     console.log($this.hasClass("Answer"));
-    if(!$this.hasClass('panel-collapsed')) {
+    if (!$this.hasClass('panel-collapsed')) {
       $this.parents('.panel').find('.panel-body').slideUp();
       $this.addClass('panel-collapsed');
     } else {
-		  $this.parents('.panel').find('.panel-body').slideDown();
-		  $this.removeClass('panel-collapsed');
-	  }
+      $this.parents('.panel').find('.panel-body').slideDown();
+      $this.removeClass('panel-collapsed');
+    }
   }
   // toggleDetail(e) {
   //   e.preventDefault();
@@ -40,13 +43,14 @@ class QuestionIndexItem extends React.Component {
   // }
 
   render() {
+    console.log(this.props);
     // console.log(this.props);
     // console.log(this.props.question);
-    const { question , updateQuestion} = this.props;
+    const {question, updateQuestion} = this.props;
     // const answers = question.answers;
     // console.log(question);
     const {id, title, body, answers} = question;
-
+    // console.log(this.props);
     let author = question.author;
 
     // const answer_detail = answers
@@ -64,19 +68,19 @@ class QuestionIndexItem extends React.Component {
     // }
 
     // let ret = (
-      // <li className="question-index-item">
-      //   <div className="question-header">
-      //     <h3><a onClick={this.toggleDetail}>{title}</a></h3>
-      //     <button
-      //       className={done ? "done" : "undone"}
-      //       onClick={this.toggleQuestion}>
-      //       {done ? "Undo" : "Done"}
-      //     </button>
-      //   </div>
-      //   {detail}
-      // </li>
+    // <li className="question-index-item">
+    //   <div className="question-header">
+    //     <h3><a onClick={this.toggleDetail}>{title}</a></h3>
+    //     <button
+    //       className={done ? "done" : "undone"}
+    //       onClick={this.toggleQuestion}>
+    //       {done ? "Undo" : "Done"}
+    //     </button>
+    //   </div>
+    //   {detail}
+    // </li>
     // );
-    if(!author){
+    if (!author) {
       author = currentUser;
     }
     let avatar = '/images/avatar/' + author.avatar;
@@ -86,29 +90,44 @@ class QuestionIndexItem extends React.Component {
         <div className='container well'>
           <div className="row">
             <div className="reason_main">
-              Answer<span className="bullet"> · </span>
-              <a className="grey" href="#" ><span >Interpersonal Interaction</span></a>
-              <span className="bullet"> · </span>Topic you might like
+              Answer<span className="bullet">
+                ·
+              </span>
+              <a className="grey" href="#">
+                <span >Interpersonal Interaction</span>
+              </a>
+              <span className="bullet">
+                ·
+              </span>Topic you might like
             </div>
           </div>
           <div className="row all-margin-10">
             <div className="">
-              <a className="black bold" href={'#/questions/'+ question.id} target="" ><span className="">{question.title}</span></a>
+              <a className="black bold" href={'#/questions/' + question.id} target="">
+                <span className="">{question.title}</span>
+              </a>
             </div>
           </div>
           <div className="row">
             <div className="">
-              <a href="#"><img className="img-circle pull-left" src={avatar} width="50" height="50" /></a>
+              <a href="#"><img className="img-circle pull-left" src={avatar} width="50" height="50"/></a>
             </div>
             <div className="left-margin-60">
               <div className="">
-                <span><a className="user black" href="#">{author.username}</a></span>
-                <span >, </span><span>{author.description}</span>
+                <span>
+                  <a className="user black" href="#">{author.username}</a>
+                </span>
+                <span >,
+                </span>
+                <span>{author.description}</span>
               </div>
-              <div className=""><span><a className="grey" href="#" target="">Answered 8h ago</a></span></div>
+              <div className="">
+                <span>
+                  <a className="grey" href="#" target="">Answered 8h ago</a>
+                </span>
+              </div>
             </div>
           </div>
-
 
           <div className="row">
             <div className="all-margin-10">
@@ -122,20 +141,16 @@ class QuestionIndexItem extends React.Component {
           <div className="row">
             <div className=" accordion-heading">
               <span className="left-margin-10  ">
-                <a className="Answer accordion-toggle"
-                data-toggle="collapse"
-                data-parent="#accordion2"
-                href= {"#collapse" + question.id }
-                role="button" >
+                <a className="Answer accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href={"#collapse" + question.id} role="button">
                   <span className="glyphicon glyphicon-pencil"></span>Answer
                 </a>
               </span>
               <span className="left-margin-10">
-              <a className="Upvote" href="#" >
-                <span>Upvote</span>
-                <span className="divider-vertical-15px"></span>
-                <span className=" ">95</span>
-              </a>
+                <a className="Upvote" href="#">
+                  <span>Upvote</span>
+                  <span className="divider-vertical-15px"></span>
+                  <span className=" ">95</span>
+                </a>
               </span>
               <span className="left-margin-10">
                 <a className="Downvote grey" href="#">
@@ -143,8 +158,8 @@ class QuestionIndexItem extends React.Component {
                 </a>
               </span>
             </div>
-            <div  id={"collapse" + question.id } className="accordion-body collapse">
-              <AnswerFormContainer question={question} />
+            <div id={"collapse" + question.id} className="accordion-body collapse">
+              <AnswerFormContainer question={question}/>
 
             </div>
           </div>
@@ -153,9 +168,7 @@ class QuestionIndexItem extends React.Component {
       </li>
     );
 
-    return (
-      html
-    );
+    return (html);
   }
 }
 
