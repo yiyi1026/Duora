@@ -18,7 +18,7 @@ const byIdReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SEARCHED_QUESTIONS:
       console.log(action.searchedQuestions);
-      action.searchedQuestions.forEach(question => newState[question.id] = question);
+      // action.searchedQuestions.forEach(question => newState[question.id] = question);
       return newState;
     default:
       return state;
@@ -32,7 +32,8 @@ const allIdsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_SEARCHED_QUESTIONS:
       newState = [];
-      action.searchedQuestions.forEach(question => newState.push(question.id));
+      console.log(action);
+      // action.searchedQuestions.forEach(question => newState.push(question.id));
       return newState;
     default:
       return state;

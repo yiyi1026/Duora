@@ -37,7 +37,7 @@ export const requestSingleAnswer = id => dispatch => (
     ({answer, comments}) => {
       // console.log(answers);
       dispatch(receiveSingleAnswer(answer));
-    },errors => dispatch(receiveErrors(errors))
+    }, errors => dispatch(receiveErrors(errors))
   )
 )
 
@@ -50,7 +50,7 @@ export const requestAllAnswers = () => dispatch => {
       // console.log(state);
       // console.log(questions);
       return dispatch(receiveAllAnswers(answers));
-    }, error => console.log(error)
+    }, errors => dispatch(receiveErrors(errors))
   );
 
 };
@@ -62,7 +62,7 @@ export const createAnswer = answer => dispatch => (
       // console.log(answer)
     dispatch(receiveSingleAnswer(answer));
     dispatch(clearErrors())
-  },errors => dispatch(receiveErrors(errors.responseJSON))
+  },errors => dispatch(receiveErrors(errors))
 ))
 
 export const updateAnswer = answer => dispatch => (

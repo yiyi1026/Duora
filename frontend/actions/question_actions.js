@@ -44,7 +44,7 @@ export const requestAllQuestions = () => dispatch => {
 
       // console.log(questions);
       return dispatch(receiveAllQuestions(questions));
-    }, error => console.log(error)
+    }, errors => dispatch(receiveErrors(errors))
   );
 
 };
@@ -71,7 +71,7 @@ export const createQuestion = question => dispatch => (
       console.log(question)
     dispatch(receiveSingleQuestion(question));
     dispatch(clearErrors())
-  },errors => dispatch(receiveErrors(errors.responseJSON))
+  },errors => dispatch(receiveErrors(errors))
 ))
 
 export const updateQuestion = question => dispatch => (
