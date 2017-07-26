@@ -26,7 +26,7 @@ class AnswerForm extends React.Component {
       author_id: currentUser.id,
       question_id
     }
-    this.props.createAnswer(answer).then(this.setState({rte: RichTextEditor.createEmptyValue()}));
+    this.props.createAnswer(answer).then(() => this.setState({rte: RichTextEditor.createEmptyValue()}));
     // history.pushState(null, '/');
     //how to make this page refresh
     // .then(this.props.history.push(null, `/questions/${this.props.question.id}`));

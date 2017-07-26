@@ -3,7 +3,8 @@ import {combineReducers} from 'redux';
 import {
   RECEIVE_SINGLE_QUESTION,
   RECEIVE_ALL_QUESTIONS,
-  REMOVE_QUESTION
+  REMOVE_QUESTION,
+  RECEIVE_SEARCHED_QUESTIONS
 } from '../actions/question_actions';
 import questionReducer from './question_reducer';
 
@@ -71,10 +72,21 @@ const allIdsReducer = (state = [], action) => {
   }
 };
 
+const searchIdsReducer = (state = [], action) => {
+  Object.freeze(state);
+  switch (action.type) {
+    case RECEIVE_SEARCHED_QUESTIONS:
+      return action.searchedQuestions.searchIds;
+    default:
+      return state;
+  }
+};
+
 const questionsReducer = combineReducers({
   // bySearch: bySearchReducer
   byId: byIdReducer,
   allIds: allIdsReducer,
-  currentQuestion: questionReducer
+  currentQuestion: questionReducer,
+  searchIds: searchIdsReducer
 });
 export default questionsReducer;
