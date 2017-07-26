@@ -11,11 +11,13 @@ const defaultState = {
 
 const byIdReducer = (state = {}, action) => {
   Object.freeze(state);
-
+  let id;
   switch (action.type) {
     case RECEIVE_ALL_COMMENTS:
+      // return action.comments.byId;
       return action.comments;
     case RECEIVE_SINGLE_COMMENT:
+      // return merge({}, state.comments.byId, {[action.comment.id]: action.comment})
       return merge({}, state, {[action.comment.id]: action.comment})
     case REMOVE_COMMENT:
       let nextState = merge({}, state);

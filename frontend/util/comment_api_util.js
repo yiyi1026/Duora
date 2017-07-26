@@ -1,4 +1,5 @@
-export const fetchSingleComment = id => ($.ajax({method: 'GET', url: `/api/comments/${id}`}));
+export const fetchSingleComment = id => (
+  $.ajax({method: 'GET', url: `/api/comments/${id}`}));
 // export const fetchAllComments
 // export const searchComments = query => ($.ajax({method: 'GET', url: `/api/comments?query=${query}`}));
 
@@ -22,9 +23,9 @@ export const deleteComment = comment => (
   })
 );
 
-export const fetchAllComments = (question_id) => (
+export const fetchAllComments = (answer_id) => (
   $.ajax({
     method: 'GET',
-    url: `/api/comments?question_id=${question_id}`,
+    url: `/api/comments?answer_id=${answer_id}`,
   })
 );

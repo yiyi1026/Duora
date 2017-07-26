@@ -33,13 +33,13 @@ class QuestionBar extends React.Component {
   handleFocusout(e){
     // document.getElementById('bottom').classList.remove("in");
     // document.getElementById('bottom').classList.remove("modal-backdrop");
-    // this.setState({showSearch: false});
+    this.setState({showSearch: false});
   }
 
   handleOnFocus(e){
     // document.getElementById('bottom').classList.add("in");
     // document.getElementById('bottom').classList.add("modal-backdrop");
-    // this.setState({showSearch: true});
+    this.setState({showSearch: true});
   }
 
   handleQuestionFieldSubmit(e) {

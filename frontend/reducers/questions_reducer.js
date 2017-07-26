@@ -17,20 +17,16 @@ const defaultState = {
 
 const byIdReducer = (state = defaultState, action) => {
   Object.freeze(state);
-  let newState = {};
-  let newQuestion;
+  let nextState = merge({}, state);
   // console.log(action);
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS:
     case RECEIVE_SEARCHED_QUESTIONS:
-    // console.log(action.questions.byId);
-      return action.questions;
+    // console.log(action.questions);
+      return merge(nextState, action.questions);
     case RECEIVE_SINGLE_QUESTION:
-      newState = merge({}, state);
-      console.log(action.question);
       return merge({}, state, {[action.question.id]: action.question})
     case REMOVE_QUESTION:
-      nextState = merge({}, state);
       delete nextState[action.question.id];
       return nextState;
     default:
@@ -45,9 +41,13 @@ const allIdsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_SEARCHED_QUESTIONS:
     case RECEIVE_ALL_QUESTIONS:
-    // console.log(Object.keys(action.questions));
       allIds = [];
-      Object.keys(action.questions).forEach( (id) => allIds.push(id));
+      Object.keys(action.questions).forEach(
+        (id) => {
+          if (!allIds.includes(id)){
+            allIds.push(id);}
+          });
+      // console.log(allIds);
       return allIds;
     case RECEIVE_SINGLE_QUESTION:
       let id = action.question.id;
@@ -93,7 +93,6 @@ const questionReducer = (state = null, action) => {
 };
 
 const questionsReducer = combineReducers({
-  // bySearch: bySearchReducer
   byId: byIdReducer,
   allIds: allIdsReducer,
   currentQuestion: questionReducer,
