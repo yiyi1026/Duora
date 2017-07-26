@@ -4,8 +4,8 @@ import {requestSingleQuestion} from '../../actions/question_actions';
 import {selectAllQuestions, selectSingleQuestion, selectAllAnswers} from '../../reducers/selectors';
 const mapStateToProps = (state, {match}) => {
   // console.log(state);
-  console.log(state.questions);
-  console.log(match);
+  // console.log(state.questions);
+  // console.log(match);
   return {
     // answers: state.answers,
     question:   state.questions.byId[match.params.questionId],

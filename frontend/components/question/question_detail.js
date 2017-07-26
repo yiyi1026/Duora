@@ -19,12 +19,13 @@ class QuestionDetail extends React.Component {
 
   componentDidMount() {
     // console.log(this.props);
-    console.log(this.props);
+    // console.log(this.props);
     let id = parseInt(this.props.match.params.questionId);
     // console.log(this.props);
     // let question = this.props.question;
     // if (!question){
       this.props.requestSingleQuestion(id).then(() => this.setState({waiting: false}));
+
     // }else{
     //   this.setState({waiting: true});
     // }
@@ -49,9 +50,12 @@ class QuestionDetail extends React.Component {
 
   render() {
     const question = this.props.question;
-    if (this.state.waiting ){
+    if (this.state.waiting|| (!question) ){
       return(<div></div>);
     }
+    else{
+
+
     console.log(this.props);
     // console.log(this.state);
     // const {answers} = this.props;
@@ -63,7 +67,8 @@ class QuestionDetail extends React.Component {
     // if(!question.author){
       // return (<div><div><div>what</div></div></div>);
     // }
-    // console.log(question)
+    console.log(question)
+
     const {created_at} = question;
 
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
@@ -83,7 +88,7 @@ class QuestionDetail extends React.Component {
       (answerId, idx) =>
         {
           // answer={answer}
-          return (<AnswerItemContainer key={`answerId${answerId}`} question_id={parseInt(this.props.currentQuestion)} answerId={answerId} />)
+          return (<AnswerItemContainer key={`answerId${answerId}`} question_id={this.props.currentQuestion} answerId={answerId} />)
       });
 
     return (
@@ -173,7 +178,7 @@ class QuestionDetail extends React.Component {
 
       </div>
     );
-
+    }
   }
 }
 

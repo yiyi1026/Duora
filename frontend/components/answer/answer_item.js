@@ -1,6 +1,8 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import javascript_time_ago from 'javascript-time-ago';
+import {requestSingleAnswer} from '../../actions/answer_actions';
+
 
 class AnswerItem extends React.Component {
   constructor(props){
@@ -12,30 +14,25 @@ class AnswerItem extends React.Component {
   componentDidMount() {
     let answer = this.props.answer;
     if (!answer){
-      this.props.requestSingleAnswer(this.props.answerId)
-      .then(() => this.setState({waiting: false}));
+      // this.props.requestAllAnswers(parseInt(this.props.questionId));
+      this.props.requestSingleAnswer(parseInt(this.props.answerId))
+      .then(() => {
+        return this.setState({waiting: false});});
     }
     this.setState({waiting: false})
   }
   render() {
+
     const {answer} = this.props;
     if (this.state.waiting|| (!answer)){
       return (<div></div>)
     }
-    if (answer){
-      let { body, id, question_id, created_at} = answer;
 
-    }
-    console.log(this.props);
-    let author = this.props.currentUser;
-    // let author, body, ;
-    // if (!answer.author){
-    //   author = this.props.currentUser;
-    // }else{
-    //   author = answer.author;
-    // }
+    let { body, id, question_id, created_at, author} = answer;
+    // console.log(answer.author);
+    // console.log(author);
 
-    // author = this.props.currentUser;
+    // comment for debugging
     let avatar = '/images/avatar/' + author.avatar;
 
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
@@ -47,7 +44,7 @@ class AnswerItem extends React.Component {
     let create_date = new Date(created_at);
     let timeAgo = time_ago_english.format(create_date.getTime());
 
-    return (
+   return (
       <div className="container top-boader top-margin-30">
         <div className="row all-margin-10">
             <div className="all-margin-10">
