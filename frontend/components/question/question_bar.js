@@ -34,7 +34,7 @@ class QuestionBar extends React.Component {
     // e.preventDefault();
     document.getElementById('bottom').classList.remove("in");
     document.getElementById('bottom').classList.remove("modal-backdrop");
-    function sleep(ms) {
+    const sleep = (ms) => {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
     // setTimeout(() => )
