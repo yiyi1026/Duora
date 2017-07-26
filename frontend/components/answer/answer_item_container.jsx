@@ -13,7 +13,7 @@ import {selectAllAnswers } from '../../reducers/selectors';
 const  mapStateToProps = ({answers, session}) =>{
   return {
   answers: selectAllAnswers(answers),
-  currentUser: session.currentUser ? session.currentUser,
+  currentUser: session.currentUser ? session.currentUser : null
   errors:[]
   };
 };
