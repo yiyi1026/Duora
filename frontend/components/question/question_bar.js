@@ -116,7 +116,8 @@ class QuestionBar extends React.Component {
       // id: -1,
       title: '',
       body: '',
-      topic_id: 1
+      topic_id: 1,
+      waiting: true
     };
 
     this.handleQuestionFieldSubmit = this.handleQuestionFieldSubmit.bind(this);
@@ -138,11 +139,11 @@ class QuestionBar extends React.Component {
 
   handleQuestionFieldSubmit(e) {
     e.preventDefault();
-    this.props.createQuestion(this.state);
-    this.setState({'navigateAfterSubmit': true});
+    this.props.createQuestion(this.state).then(() => this.setState({'navigateAfterSubmit': true}));
   }
 
-  handleQuestionFieldUpdate() {
+  handleQuestionFieldUpdate(e) {
+    // e.preventDefault();
     return e => {
       if (e.target.value) {
         this.handleSearchQuestions(e.target.value);
@@ -176,6 +177,7 @@ class QuestionBar extends React.Component {
   }
 
   render() {
+
     const querystr = this.state.title;
     let reg = new RegExp(querystr, 'gi');
 

@@ -6,12 +6,21 @@ class AnswerItem extends React.Component {
   componentDidMount() {
   }
   render() {
+    console.log(this.props);
     const {answer} = this.props;
-    const {author, body, id, question_id, created_at} = answer;
-    
+    if (answer){
+      let { author, body, id, question_id, created_at} = answer;
+
+    }
+    // let author, body, ;
+    if (!answer.author){
+      author = window.currentUser;
+    }else{
+      author = answer.author;
+    }
     console.log(this.props)
     let avatar = '/images/avatar/' + author.avatar;
-    
+
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
     require('javascript-time-ago/intl-messageformat-global');
     require('intl-messageformat/dist/locale-data/en');
@@ -68,7 +77,7 @@ class AnswerItem extends React.Component {
           <div className="row add-comment-form ">
             <div className=" left-padding-30">
               <a className="add-comment-form-item" href="#"><img className="img-circle pull-left" src={avatar} width="25" height="25"/></a>
-              <input className="left-margin-10 add-comment-form-item add-comment-input line-height-15" placeholder="Add a comment..."/> 
+              <input className="left-margin-10 add-comment-form-item add-comment-input line-height-15" placeholder="Add a comment..."/>
               <button className="add-comment-form-item PerfectColdButton all-margin-10" >
                 <span>Submit</span>
               </button>

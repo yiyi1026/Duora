@@ -25,9 +25,10 @@ class Answer < ApplicationRecord
   has_many :comments
 
   #user write all the answers
-  
 
-
+  def commentsIds
+    self.comments.map{|comment| comment.id }
+  end
   #belongs to question ???? question has an array of answersIds, how to
   #use that ??
 end

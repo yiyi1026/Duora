@@ -4,12 +4,26 @@ import {requestAllQuestions, createQuestion, updateQuestion, deleteQuestion} fro
 //Do I need to keep this deleteQuestion????
 import {selectAllQuestions} from '../../reducers/selectors';
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  let questions = state.questions
-  return {questions: selectAllQuestions(questions), errors: []};
+// const mapStateToProps = (state) => {
+//   console.log(state);
+//   let questions = state.questions.byIds;
+//   return {
+//     questions,
+//     currentQuestion: state.questions.currentQuestion,
+//     errors: []
+//   };
+//   // return {questions: selectAllQuestions(questions), errors: []};
+//   // here questions {byId:{}, allIds:[]}
+// };
+
+const mapStateToProps = (state) => ({
+    questions: state.questions.byId,
+    allQuestionsIds: state.questions.allIds,
+    currentQuestion: state.questions.currentQuestion,
+    errors: []
+  // return {questions: selectAllQuestions(questions), errors: []};
   // here questions {byId:{}, allIds:[]}
-};
+});
 
 const mapDispatchToProps = dispatch => ({
   requestAllQuestions: () => dispatch(requestAllQuestions()),

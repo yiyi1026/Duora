@@ -53,7 +53,7 @@ export const logout = () => dispatch => (
   APIUtil.logout().then(user => (
     dispatch(receiveCurrentUser(null))
   ), error => (
-    dispatch(receiveErrors(error.responseJSON))
+    dispatch(receiveErrors(error))
   ))
 );
 

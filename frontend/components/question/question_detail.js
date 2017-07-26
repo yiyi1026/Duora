@@ -11,42 +11,59 @@ class QuestionDetail extends React.Component {
     this.state = {
       title: '',
       body: '',
-      id: ''
+      id: '',
+      waiting: true
 
     };
   }
 
   componentDidMount() {
     // console.log(this.props);
+    console.log(this.props);
     let id = parseInt(this.props.match.params.questionId);
     // console.log(this.props);
-    this.props.requestSingleQuestion(id);
+    // let question = this.props.question;
+    // if (!question){
+      this.props.requestSingleQuestion(id).then(() => this.setState({waiting: false}));
+    // }else{
+    //   this.setState({waiting: true});
+    // }
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(this.props);
-    console.log(nextProps);
-    let id = parseInt(this.props.match.params.questionId);
-    let nextid = parseInt(nextProps.match.params.questionId);
-    if (id !== nextid) {
-      this.props.requestSingleQuestion(nextid);
-    }else{
-      let question = nextProps.questions.byId;
-      // let title = question.title
-      let {title, body, id, author} = question;
-
-      this.setState({title, body, id, author});
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   console.log(this.props);
+  //   console.log(nextProps);
+  //   let id = parseInt(this.props.match.params.questionId);
+  //   let nextid = parseInt(nextProps.match.params.questionId);
+  //   if (id !== nextid) {
+  //     this.props.requestSingleQuestion(nextid).then(() => this.setState({waiting: false}));
+  //   }
+    // else{
+    //   let question = nextProps.questions.byId;
+    //   // let title = question.title
+    //   let {title, body, id, author} = question;
+    //
+    //   this.setState({title, body, id, author});
+    // }
+  // }
 
   render() {
-    
-    const {answers} = this.props;
-    const question = this.props.questions.byId;
-    if(!question.author){
-      return (<div></div>);
+    if (this.state.waiting){
+      return(<div></div>);
     }
-    console.log(question)
+    console.log(this.props);
+    const question = this.props.question;
+    // console.log(this.state);
+    // const {answers} = this.props;
+    // const currentQuestionId = this.props.questions.currentQuestion;
+    // console.log(this.props.questions.byId);
+    // const question = this.props.questions.byId.currentQuestionId;
+    // console.log(question);
+    // console.log(this.props);
+    // if(!question.author){
+      // return (<div><div><div>what</div></div></div>);
+    // }
+    // console.log(question)
     const {created_at} = question;
 
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
@@ -57,14 +74,16 @@ class QuestionDetail extends React.Component {
 
     let create_date = new Date(created_at);
     let timeAgo = time_ago_english.format(create_date.getTime());
-
+    // console.log(question);
     let {description, username} = question.author;
     let avatar = '/images/avatar/' + question.author.avatar;
-
-    let answers_html = answers.byId.map(
-      (answer, idx) =>
+    let {answersIds} = question;
+    // console.log(answersIds);
+    let answers_html = answersIds.map(
+      (answerId, idx) =>
         {
-          return (<AnswerItemContainer key={`answer${idx}`} answer={answer} />)
+          // answer={answer}
+          // return (<AnswerItemContainer key={`answerId${answerId}`} question_id={this.props.currentQuestion} answerId={answerId} />)
       });
 
     return (

@@ -3,22 +3,42 @@ import {Route} from 'react-router-dom';
 import QuestionIndexItem from './question_index_item';
 import QuestionDetailContainer from './question_detail_container';
 class QuestionIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // questions: this.props.questions,
+      waiting: true
+    };
+      this.setState = this.setState.bind(this);
+    }
   componentDidMount() {
-    this.props.requestAllQuestions();
+    this.props.requestAllQuestions()
+    .then(
+      () => this.setState({waiting: false})
+    );
   }
   render() {
-    const {questions, createQuestion, updateQuestion, errors} = this.props;
-    // console.log(questions[0]);
-
-    const questionItems = questions.map(
-      (newquestion, idx) =>
+    // console.log(getState());
+    // console.log(this.props);
+    if (this.state.waiting){
+      // console.log(this.props);
+      return (<div></div>);
+    }
+    // console.log(this.props);
+    const {questions, createQuestion, updateQuestion, errors, allQuestionsIds} = this.props;
+    // console.log(questions);
+    // console.log(allQuestionsIds);
+    // const i = allQuestionsIds[0];
+    // console.log(questions.i);
+    const questionItems = allQuestionsIds.map(
+      (id, idx) =>
       // {console.log(question);
-        {
-          return (<QuestionIndexItem key={`questions${idx}`} question={newquestion} updateQuestion={updateQuestion}/>)});
-    // const questionItems = {a:3};
+        { let question = questions[id];
+          return (<QuestionIndexItem key={`questions${id}`} question={question} updateQuestion={updateQuestion}/>);
+  });  // const questionItems = {a:3};
     // console.log(questionItems);
     // console.log(questionItems);
-
+    // let questonItem = <div><div><div>'it doesnot show'</div></div></div>;
     return (
       <div>
         <ul className="question-list list-unstyled">

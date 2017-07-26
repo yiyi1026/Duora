@@ -1,15 +1,22 @@
 import merge from 'lodash/merge';
 import {combineReducers} from 'redux';
-import {RECEIVE_ALL_QUESTIONS, REMOVE_QUESTION, RECEIVE_SINGLE_QUESTION} from '../actions/question_actions';
+import {
+  RECEIVE_SINGLE_QUESTION,
+  RECEIVE_ALL_QUESTIONS,
+  REMOVE_QUESTION
+} from '../actions/question_actions';
+import questionReducer from './question_reducer';
 
 const initialState = {
-  questions: {
-    answersIds: []
-
-  },
+  byId: {},
+  allIds: [],
+  // questions: {
+  //   answersIds: []
+  //
+  // },
   errors: []
 };
-
+// const byIdReducer = (state = {initialState}, action) => {
 const byIdReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = {};
@@ -17,21 +24,18 @@ const byIdReducer = (state = {}, action) => {
   // console.log(action);
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS:
-    // console.log(action);
-      // case TOGGLE_TODO:
-      // return {
-      //   ...state,
-      //   [action.id]: question(state[action.id], action),
-      // };
-
-      // console.log(newState);
       return action.questions;
     case RECEIVE_SINGLE_QUESTION:
+      newState = merge({}, state);
+      // console.log(state);
+      // console.log(newState);
+      // nestState[action.question.id]
+      return merge({}, state, {[action.question.id]: action.question})
       // console.log(action);
-        return action.questions;
+      //action here should be {id: question} type
+      // return action.question;
     case REMOVE_QUESTION:
       nextState = merge({}, state);
-
       delete nextState[action.question.id];
       return nextState;
     default:
@@ -46,26 +50,31 @@ const allIdsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS:
       let allIds = [];
+      // Object.keys(action.questions).forEach(id => allIds.push(id));
       Object.keys(action.questions).forEach(id => allIds.push(parseInt(id)));
-      // console.log(allIds);
-      // action.questions.forEach(question => newState.push(question.id));
       return allIds;
     case RECEIVE_SINGLE_QUESTION:
       // console.log(action);
-      return [action.questions.id];
-      // console.log('single');
+      let id = action.question.id;
+      if (newState.includes(id)){
+        return state;
+      }
+      console.log('single');
+      return [action.question.id];
     case REMOVE_QUESTION:
     // needs modification;
-      return state;
-      // idx = newState.indexOf(action.id);
-      // return newState.splice(idx, 1);
+      idx = newState.indexOf(action.question.id);
+      newState.splice(idx, 1);
+      return newState;
     default:
       return state;
   }
 };
 
 const questionsReducer = combineReducers({
+  // bySearch: bySearchReducer
   byId: byIdReducer,
-  allIds: allIdsReducer
+  allIds: allIdsReducer,
+  currentQuestion: questionReducer
 });
 export default questionsReducer;

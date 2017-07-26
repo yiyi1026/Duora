@@ -36,14 +36,15 @@ export const requestSingleAnswer = id => dispatch => (
   APIUtil.fetchSingleAnswer(id).then(
     ({answer, comments}) => {
       // console.log(answers);
+      // dispatch(receiveAllComments(comments));
       dispatch(receiveSingleAnswer(answer));
     }, errors => dispatch(receiveErrors(errors))
   )
 )
 
-export const requestAllAnswers = () => dispatch => {
+export const requestAllAnswers = (questionId) => dispatch => {
   // console.log('actions');
-  return APIUtil.fetchAllAnswers().then(
+  return APIUtil.fetchAllAnswers(questionId).then(
     (state) => {
       // console.log(state);
       const {answers} = state;

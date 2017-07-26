@@ -52,6 +52,16 @@ export const selectSingleQuestion = (question) => {
     return [];
   }
 };
+
+export const selectSingleAnswer = (answer) => {
+  // console.log(answer);
+  if (answer && answer.allIds) {
+    // console.log(answer);
+    return answer.allIds.map(id => answer.byId[id]);
+  } else {
+    return [];
+  }
+};
 // export const answersByQuestionId = ({answers}, question_id) => {
 //   const answersByQuestionId = [];
 //   Object.keys(answers).forEach(answerId => {

@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
 import AnswerForm from './answer_form';
-// import { requestSingleQuestion } from '../../actions/question_actions';
+import { requestSingleQuestion } from '../../actions/question_actions';
 import {createAnswer } from '../../actions/answer_actions';
 
 // all these methods need to be udpated
-const  mapStateToProps = () => (
-  {}
-);
+const  mapStateToProps = (state) => {
+  // console.log(state);
+  return {};
+}
 
 
 const mapDispatchToProps = dispatch => ({
-  createAnswer: (answer) => dispatch(createAnswer(answer))
+  createAnswer: (answer) => dispatch(createAnswer(answer)),
+  // requestSingleQuestion: (id) => dispatch(requestSingleQuestion(id)),
 });
 
 

@@ -10,7 +10,7 @@ import {
 import {selectAllAnswers } from '../../reducers/selectors';
 
 const  mapStateToProps = (state) =>{
-  console.log(state);
+  console.log(state.answers);
   return {
   answers: selectAllAnswers(state.answers),
   errors:[]
