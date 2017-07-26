@@ -34,18 +34,15 @@ class QuestionIndex extends React.Component {
       (id, idx) =>
       // {console.log(question);
         { let question = questions[id];
-          return (<QuestionIndexItem key={`questions${id}`} question={question} updateQuestion={updateQuestion}/>);
-  });  // const questionItems = {a:3};
-    // console.log(questionItems);
-    // console.log(questionItems);
-    // let questonItem = <div><div><div>'it doesnot show'</div></div></div>;
-    return (
+          return (<QuestionIndexItem key={`indexquestions${id}`} question={question} updateQuestion={updateQuestion}/>);
+  });
+      return (
       <div>
         <ul className="question-list list-unstyled">
           <br/>
           <div>
-            <br/> {questionItems}
-            <br/>
+            {questionItems}
+
           </div>
           <br/>
         </ul>

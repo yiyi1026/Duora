@@ -32,8 +32,8 @@ class QuestionBar extends React.Component {
 
   async handleFocusout(e){
     // e.preventDefault();
-    // document.getElementById('bottom').classList.remove("in");
-    // document.getElementById('bottom').classList.remove("modal-backdrop");
+    document.getElementById('bottom').classList.remove("in");
+    document.getElementById('bottom').classList.remove("modal-backdrop");
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -46,7 +46,7 @@ class QuestionBar extends React.Component {
     // e.preventDefault();
 
     document.getElementById('bottom').classList.add("in");
-    // document.getElementById('bottom').classList.add("modal-backdrop");
+    document.getElementById('bottom').classList.add("modal-backdrop");
     this.setState({showSearch: true});
   }
 
