@@ -25,7 +25,7 @@ class AnswerItem extends React.Component {
 
     const {answer} = this.props;
     if (this.state.waiting|| (!answer)){
-      return (<div></div>)
+      return (<div></div>);
     }
 
     let { body, id, question_id, created_at, author} = answer;

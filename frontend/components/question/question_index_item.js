@@ -50,7 +50,7 @@ class QuestionIndexItem extends React.Component {
     let timeAgo = time_ago_english.format(create_date.getTime());
 
     let html = (
-      <li>
+      <li key={`questiondetail${id}`}>
         <div className='container well'>
           <div className="row">
             <div className="reason_main">

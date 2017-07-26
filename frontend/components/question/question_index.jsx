@@ -26,21 +26,19 @@ class QuestionIndex extends React.Component {
     }
     // console.log(this.props);
     const {questions, createQuestion, updateQuestion, errors, allQuestionsIds} = this.props;
-    // console.log(questions);
-    // console.log(allQuestionsIds);
-    // const i = allQuestionsIds[0];
-    // console.log(questions.i);
+
     const questionItems = allQuestionsIds.map(
       (id, idx) =>
       // {console.log(question);
         { let question = questions[id];
           return (<QuestionIndexItem key={`indexquestions${id}`} question={question} updateQuestion={updateQuestion}/>);
-  });
-      return (
+  });  // const questionItems = {a:3};
+
+    return (
       <div>
         <ul className="question-list list-unstyled">
           <br/>
-          <div>
+          <div className='indexquestions'>
             {questionItems}
 
           </div>

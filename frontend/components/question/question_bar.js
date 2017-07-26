@@ -100,8 +100,8 @@ class QuestionBar extends React.Component {
         });
 
         return (
-          <li key={id} className="search_question_dropdown_item">
-            <a href={"#/questions/" + id} className="grey">
+          <li key={`search${id}`} className="search_question_dropdown_item">
+            <a href={"#/questions/" + `${id}`} className="grey">
               <span dangerouslySetInnerHTML={{
                 __html: final_str
               }}></span>
