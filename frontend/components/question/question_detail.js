@@ -55,20 +55,6 @@ class QuestionDetail extends React.Component {
     }
     else{
 
-
-    console.log(this.props);
-    // console.log(this.state);
-    // const {answers} = this.props;
-    // const currentQuestionId = this.props.questions.currentQuestion;
-    // console.log(this.props.questions.byId);
-    // const question = this.props.questions.byId.currentQuestionId;
-    // console.log(question);
-    // console.log(this.props);
-    // if(!question.author){
-      // return (<div><div><div>what</div></div></div>);
-    // }
-    console.log(question)
-
     const {created_at} = question;
 
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));

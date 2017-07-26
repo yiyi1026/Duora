@@ -23,7 +23,7 @@ const byIdReducer = (state = defaultState, action) => {
     case RECEIVE_ALL_QUESTIONS:
     case RECEIVE_SEARCHED_QUESTIONS:
     // console.log(action.questions);
-      return merge(nextState, action.questions);
+      return merge({}, state, action.questions);
     case RECEIVE_SINGLE_QUESTION:
       return merge({}, state, {[action.question.id]: action.question})
     case REMOVE_QUESTION:
@@ -41,7 +41,6 @@ const allIdsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_SEARCHED_QUESTIONS:
     case RECEIVE_ALL_QUESTIONS:
-      allIds = [];
       Object.keys(action.questions).forEach(
         (id) => {
           if (!allIds.includes(id)){

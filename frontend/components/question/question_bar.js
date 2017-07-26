@@ -30,14 +30,22 @@ class QuestionBar extends React.Component {
     this.props.history.push(location);
   }
 
-  handleFocusout(e){
+  async handleFocusout(e){
+    // e.preventDefault();
     // document.getElementById('bottom').classList.remove("in");
     // document.getElementById('bottom').classList.remove("modal-backdrop");
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    // setTimeout(() => )
+    await sleep(150);
     this.setState({showSearch: false});
   }
 
   handleOnFocus(e){
-    // document.getElementById('bottom').classList.add("in");
+    // e.preventDefault();
+
+    document.getElementById('bottom').classList.add("in");
     // document.getElementById('bottom').classList.add("modal-backdrop");
     this.setState({showSearch: true});
   }
@@ -81,7 +89,7 @@ class QuestionBar extends React.Component {
     const querystr = this.state.title;
     let reg = new RegExp(querystr, 'gi');
     let questions = this.props.questions;
-    console.log(this.props);
+    // console.log(this.props);
     let searchIds = this.props.questions.searchIds;
     let searchedQuestionsForm = '';
     let searchedQuestions = '';
@@ -104,7 +112,7 @@ class QuestionBar extends React.Component {
 
       if (searchIds && searchIds.length > 0 && this.state.title.length > 0) {
         searchedQuestionsForm = (
-          <ul className="search_question_dropdown ">
+          <ul className="search_question_dropdown">
             {searchedQuestions}
           </ul>
         );
