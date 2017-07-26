@@ -3,9 +3,7 @@ import merge from 'lodash/merge';
 import {RECEIVE_SINGLE_QUESTION, DELETE_QUESTION} from '../actions/question_actions';
 // import answersReducer from './answers_reducer';
 
-const defaultState = {
-  currentQuestion: null
-};
+const defaultState = null;
 
 // const byIdReducer = (state = {}, action) => {
 //   Object.freeze(state);
@@ -30,7 +28,7 @@ const questionReducer = (state = defaultState, action) => {
     case RECEIVE_SINGLE_QUESTION:
       // console.log(action);
       // console.log(state);
-      return merge({}, state, {currentQuestion: action.question.id});
+      return action.question.id;
     case DELETE_QUESTION:
       // newState = merge({}, state, {currentQuestion: null});
       // return newState;
