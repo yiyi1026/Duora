@@ -12,7 +12,7 @@
 
 class Answer < ApplicationRecord
   validates :body, :author_id, :question_id, presence: true
-  validates :author, :question, presence: true
+  validates :author, presence: true
 
   belongs_to :author,
     foreign_key: :author_id,

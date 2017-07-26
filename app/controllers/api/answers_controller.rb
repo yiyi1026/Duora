@@ -1,7 +1,7 @@
 class Api::AnswersController < ApplicationController
   def create
     @answer = current_user.answers.new(answer_params)
-
+    # @answer.author_id = current_user.id
     if @answer.save
       render json: @answer, includes: :comments
     else
