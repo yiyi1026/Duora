@@ -16,3 +16,4 @@ json.author do
 end
 # json.comments answer.comments do |comment|
 # end
+# json.commentsIds answer.commentsIds

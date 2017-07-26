@@ -30,9 +30,7 @@ export const removeAnswer = answer => ({
 
 export const requestSingleAnswer = id => dispatch => (
   APIUtil.fetchSingleAnswer(id).then(
-    ({answer, comments}) => {
-      // console.log(answers);
-      // dispatch(receiveAllComments(comments));
+    (answer) => {
       dispatch(receiveSingleAnswer(answer));
     }, errors => dispatch(receiveErrors(errors))
   )

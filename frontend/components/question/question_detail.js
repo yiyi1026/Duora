@@ -48,11 +48,11 @@ class QuestionDetail extends React.Component {
   // }
 
   render() {
-    if (this.state.waiting){
+    const question = this.props.question;
+    if (this.state.waiting ){
       return(<div></div>);
     }
     console.log(this.props);
-    const question = this.props.question;
     // console.log(this.state);
     // const {answers} = this.props;
     // const currentQuestionId = this.props.questions.currentQuestion;
@@ -83,7 +83,7 @@ class QuestionDetail extends React.Component {
       (answerId, idx) =>
         {
           // answer={answer}
-          // return (<AnswerItemContainer key={`answerId${answerId}`} question_id={this.props.currentQuestion} answerId={answerId} />)
+          return (<AnswerItemContainer key={`answerId${answerId}`} question_id={parseInt(this.props.currentQuestion)} answerId={answerId} />)
       });
 
     return (

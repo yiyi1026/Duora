@@ -8,11 +8,13 @@ import {
   deleteAnswer
 } from '../../actions/answer_actions';
 
-import {selectAllAnswers } from '../../reducers/selectors';
+import {selectAllAnswers, selectSingleAnswer } from '../../reducers/selectors';
 
-const  mapStateToProps = ({answers, session}) =>{
+const  mapStateToProps = (state) =>{
+  const {answers, session} = state;
+  console.log(state);
   return {
-  answers: selectAllAnswers(answers),
+  answer: selectSingleAnswer(answers),
   currentUser: session.currentUser ? session.currentUser : null,
   errors:[]
   };

@@ -3,22 +3,39 @@ import {Route} from 'react-router-dom';
 import javascript_time_ago from 'javascript-time-ago';
 
 class AnswerItem extends React.Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      waiting: true
+    };
+  }
   componentDidMount() {
+    let answer = this.props.answer;
+    if (!answer){
+      this.props.requestSingleAnswer(this.props.answerId)
+      .then(() => this.setState({waiting: false}));
+    }
+    this.setState({waiting: false})
   }
   render() {
-    console.log(this.props);
     const {answer} = this.props;
+    if (this.state.waiting|| (!answer)){
+      return (<div></div>)
+    }
     if (answer){
-      let { author, body, id, question_id, created_at} = answer;
+      let { body, id, question_id, created_at} = answer;
 
     }
+    console.log(this.props);
+    let author = this.props.currentUser;
     // let author, body, ;
-    if (!answer.author){
-      author = window.currentUser;
-    }else{
-      author = answer.author;
-    }
-    console.log(this.props)
+    // if (!answer.author){
+    //   author = this.props.currentUser;
+    // }else{
+    //   author = answer.author;
+    // }
+
+    // author = this.props.currentUser;
     let avatar = '/images/avatar/' + author.avatar;
 
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));

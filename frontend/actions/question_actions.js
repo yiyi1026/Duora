@@ -25,7 +25,7 @@ export const removeQuestion = question => ({
 
 export const receiveSearchedQuestions = questions => ({
   type: RECEIVE_SEARCHED_QUESTIONS,
-  searchedQuestions: questions
+  questions: questions
 });
 
 export const requestAllQuestions = () => dispatch => (
@@ -56,6 +56,7 @@ export const createQuestion = question => dispatch => (
 export const updateQuestion = question => dispatch => (
   APIUtil.updateQuestion(question)
   .then(question => dispatch(receiveSingleQuestion(question))
+  ,errors => dispatch(receiveErrors(errors))
   )
 );
 
@@ -67,7 +68,7 @@ export const deleteQuestion = question => dispatch => (
 
 export const searchQuestions = query => dispatch => (
   APIUtil.searchQuestions(query)
-  .then((questions) => 
+  .then((questions) =>
     dispatch(receiveSearchedQuestions(questions))
   )
 );

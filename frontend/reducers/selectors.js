@@ -10,11 +10,7 @@ export const selectAllQuestions = (questions) => {
 
 export const selectSearchedQuestions = (questions) => {
   if (questions && questions.allIds) {
-    return questions.allIds.map(id => {
-      if (id) {
-        return questions.byId[id];
-      }});
-      return '';
+    return questions.allIds.map(id => questions.byId[id]);
   } else {
     return [];
   }

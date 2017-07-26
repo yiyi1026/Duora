@@ -81,6 +81,7 @@ class QuestionBar extends React.Component {
     const querystr = this.state.title;
     let reg = new RegExp(querystr, 'gi');
     let questions = this.props.questions;
+    console.log(this.props);
     let searchIds = this.props.questions.searchIds;
     let searchedQuestionsForm = '';
     let searchedQuestions = '';
@@ -100,7 +101,7 @@ class QuestionBar extends React.Component {
           </li>
         )
       });
-   
+
       if (searchIds && searchIds.length > 0 && this.state.title.length > 0) {
         searchedQuestionsForm = (
           <ul className="search_question_dropdown ">
@@ -108,7 +109,7 @@ class QuestionBar extends React.Component {
           </ul>
         );
 
-      }  
+      }
     } else {
       searchedQuestions = '';
       searchedQuestionsForm = '';
@@ -117,11 +118,11 @@ class QuestionBar extends React.Component {
     return (
       <form className="navbar-form navbar-left dropdown">
          <div className="form-group">
-          <input type="text" onFocus={this.handleOnFocus} onBlur={this.handleFocusout} onChange={this.handleQuestionFieldUpdate()} value={this.state.title} id="question_field" className="form-control dropdown-toggle" placeholder="Ask or Search Duora"/> 
-           {searchedQuestionsForm} 
+          <input type="text" onFocus={this.handleOnFocus} onBlur={this.handleFocusout} onChange={this.handleQuestionFieldUpdate()} value={this.state.title} id="question_field" className="form-control dropdown-toggle" placeholder="Ask or Search Duora"/>
+           {searchedQuestionsForm}
         </div>
-        <button type="submit" className="btn btn-default" onClick={this.handleQuestionFieldSubmit}>Ask Question</button> 
-        
+        <button type="submit" className="btn btn-default" onClick={this.handleQuestionFieldSubmit}>Ask Question</button>
+
       </form>
     )
   }

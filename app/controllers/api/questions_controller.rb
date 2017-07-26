@@ -26,13 +26,13 @@ class Api::QuestionsController < ApplicationController
     else
       @questions = Question.all
     end
-    render :search
+    render :index
   end
 
   def index
     if params[:query].present?
       @questions = Question.where("title LIKE ?", "%#{params[:query]}%").limit(10)
-      render :search
+      render :index
     else
       @questions = Question.all
       render :index

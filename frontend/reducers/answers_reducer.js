@@ -1,6 +1,9 @@
 import merge from 'lodash/merge';
 import {combineReducers} from 'redux';
-import {RECEIVE_SINGLE_ANSWER, REMOVE_ANSWER, RECEIVE_ALL_ANSWERS} from '../actions/answer_actions';
+import {
+  RECEIVE_SINGLE_ANSWER,
+  REMOVE_ANSWER, RECEIVE_ALL_ANSWERS
+} from '../actions/answer_actions';
 
 const defaultState = {
   byId: {},
@@ -9,7 +12,7 @@ const defaultState = {
   errors: []
 };
 
-const byIdReducer = (state = {}, action) => {
+const byIdReducer = (state = defaultState, action) => {
   Object.freeze(state);
 
   switch (action.type) {
@@ -28,10 +31,13 @@ const byIdReducer = (state = {}, action) => {
 
 const allIdsReducer = (state = [], action) => {
   Object.freeze(state);
+
   let allIds = merge([], state);
   switch (action.type) {
     case RECEIVE_ALL_ANSWERS:
-      return Object.keys(action.answers).map(id => allIds.push(parseInt(id)));
+      allIds = [];
+      Object.keys(action.answers).forEach( (id) => allIds.push(id));
+      return allIds;
     case RECEIVE_SINGLE_ANSWER:
       let id = action.answer.id;
       if (allIds.includes(id)){
@@ -49,7 +55,7 @@ const allIdsReducer = (state = [], action) => {
 
 const answerReducer = (state = null, action) => {
   Object.freeze(state);
-  
+
   switch(action.type){
     case RECEIVE_SINGLE_ANSWER:
       return action.answer.id;

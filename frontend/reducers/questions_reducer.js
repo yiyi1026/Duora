@@ -10,6 +10,7 @@ import {
 const defaultState = {
   byId: {},
   allIds: [],
+  searchIds: [],
   errors: [],
   currentQuestion: null
 };
@@ -21,9 +22,12 @@ const byIdReducer = (state = defaultState, action) => {
   // console.log(action);
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS:
+    case RECEIVE_SEARCHED_QUESTIONS:
+    // console.log(action.questions.byId);
       return action.questions;
     case RECEIVE_SINGLE_QUESTION:
       newState = merge({}, state);
+      console.log(action.question);
       return merge({}, state, {[action.question.id]: action.question})
     case REMOVE_QUESTION:
       nextState = merge({}, state);
@@ -39,8 +43,12 @@ const allIdsReducer = (state = [], action) => {
 
   let allIds = merge([], state);
   switch (action.type) {
+    case RECEIVE_SEARCHED_QUESTIONS:
     case RECEIVE_ALL_QUESTIONS:
-      return Object.keys(action.questions).map(id => parseInt(id));
+    // console.log(Object.keys(action.questions));
+      allIds = [];
+      Object.keys(action.questions).forEach( (id) => allIds.push(id));
+      return allIds;
     case RECEIVE_SINGLE_QUESTION:
       let id = action.question.id;
       if (allIds.includes(id)){
@@ -63,7 +71,9 @@ const searchIdsReducer = (state = [], action) => {
 
   switch (action.type) {
     case RECEIVE_SEARCHED_QUESTIONS:
-      return action.searchedQuestions.searchIds;
+      let searchIds = [];
+      Object.keys(action.questions).forEach( (id) => searchIds.push(id));
+      return searchIds;
     default:
       return state;
   }
