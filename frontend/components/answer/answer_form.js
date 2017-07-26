@@ -9,24 +9,28 @@ class AnswerForm extends React.Component {
     this.state = {
       // body: 'text',
       rte: RichTextEditor.createEmptyValue(),
-      finished: false
+      waiting: true
     }
-    // this.update = (rte_value) => this.setState({rte_value});
+    this.update = (rte) => this.setState({rte});
     this.handleAnswerSubmit = this.handleAnswerSubmit.bind(this);
+    // this.update = this.update.bind(this);
   }
 
-  update(rte) {
-    this.setState({rte});
-  }
+  // update(rte) {
+  //   console.log(this.props);
+  //   this.setState({rte});
+  // }
 
   handleAnswerSubmit(e) {
-    let question_id = this.props.question_id;
+    e.preventDefault();
+    console.log(this.props);
+    let question_id = this.props.question.id;
     let answer = {
       body: this.state.rte.toString('html'),
-      author_id: currentUser.id,
+      author_id: this.props.currentUser.id,
       question_id
     }
-    this.props.createAnswer(answer).then(this.setState({rte: RichTextEditor.createEmptyValue()}));
+    this.props.createAnswer(answer).then(() => this.setState({rte: RichTextEditor.createEmptyValue()}));
     // history.pushState(null, '/');
     //how to make this page refresh
     // .then(this.props.history.push(null, `/questions/${this.props.question.id}`));
@@ -34,10 +38,11 @@ class AnswerForm extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className='form-group'>
 
-        <RichTextEditor id='rte' value={this.state.rte} onChange={this.update.bind(this)} className="answer-editor"/>
+        <RichTextEditor id='rte' value={this.state.rte} onChange={this.update} className="answer-editor"/>
 
         <button className="PerfectColdButton all-margin-10" onClick={this.handleAnswerSubmit}>
           <span>Submit</span>

@@ -7,7 +7,7 @@ class CommentItem extends React.Component {
   	this.state = {
       body: ''
     };
-    this.handleSubmit = this.handleSubmit.bind(this;
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
     this.props.requestAllComments(this.props.answerId)
