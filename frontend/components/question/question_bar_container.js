@@ -6,11 +6,10 @@ import {selectAllQuestions, selectSingleQuestion, selectSearchedQuestions} from 
 
 const mapStateToProps = (state) => {
   // console.log(state);
-  const {question, searchedQuestions, session} = state;
+  const {questions, session} = state;
   return {
     // question: selectAllQuestions(question),
-    question: selectSingleQuestion(question),
-    searchedQuestions: selectSearchedQuestions(searchedQuestions),
+    questions: questions,
     currentUser: session.currentUser
   }
 };

@@ -31,7 +31,7 @@ class Api::QuestionsController < ApplicationController
 
   def index
     if params[:query].present?
-      @questions = Question.where("title LIKE ?", "%#{params[:query]}%")
+      @questions = Question.where("title LIKE ?", "%#{params[:query]}%").limit(10)
       render :search
     else
       @questions = Question.all
