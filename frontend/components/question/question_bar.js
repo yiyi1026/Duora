@@ -95,7 +95,7 @@ class QuestionBar extends React.Component {
     let searchedQuestions = '';
     if(this.state.showSearch && searchIds){
       searchedQuestions = searchIds.map((id) => {
-        let final_str = questions.byId[id].title.replace(reg, function(str) {
+        let final_str = questions.byId[id].title.replace(reg, (str) => {
           return '<b class="matchingText">' + str + '</b>'
         });
 
