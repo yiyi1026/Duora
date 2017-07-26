@@ -357,3 +357,13 @@ div h4 p {
     background-color: #fff;
     border-radius: 3px;
 }
+
+.modal-backdrop.in{
+  z-index: 0;
+}
+
+
+html body.modal-open{
+  overflow: auto;
+  padding-right: 0 !important;
+}

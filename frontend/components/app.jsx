@@ -8,6 +8,7 @@ const App = () => {
     <div>
       <ProtectedRoute path='/' component={MainFrame}/>
       <AuthRoute exact path='/login' component={AuthForm}/>
+      <div id="bottom"></div>
     </div>
   );
 
