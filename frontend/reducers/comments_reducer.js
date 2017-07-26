@@ -2,33 +2,23 @@ import merge from 'lodash/merge';
 import {combineReducers} from 'redux';
 import {RECEIVE_SINGLE_COMMENT, CREATE_COMMENT, REMOVE_COMMENT, RECEIVE_ALL_COMMENTS} from '../actions/comment_actions';
 
-const initialState = {
-  comments: {
-
-
-  },
+const defaultState = {
+  byId:{},
+  allIds: [],
+  currentComment: null,
   errors: []
 };
 
 const byIdReducer = (state = {}, action) => {
   Object.freeze(state);
-  // console.log(state);
-  let newState = {};
-  // console.log(newState);
+
   switch (action.type) {
     case RECEIVE_ALL_COMMENTS:
-      // console.log(action.comments);
-      action.comments.forEach(comment => newState[comment.id] = comment);
-      // console.log(newState);
       return action.comments;
-
     case RECEIVE_SINGLE_COMMENT:
-    case CREATE_COMMENT:
-      newState = merge({}, state);
-      newState[action.comment.id] = action.comment;
-      return newState;
+      return merge({}, state, {[action.comment.id]: action.comment})
     case REMOVE_COMMENT:
-      nextState = merge({}, state);
+      let nextState = merge({}, state);
       delete nextState[action.comment.id];
       return nextState;
     default:
@@ -38,27 +28,36 @@ const byIdReducer = (state = {}, action) => {
 
 const allIdsReducer = (state = [], action) => {
   Object.freeze(state);
-  let newState = merge([], state);
+  let allIds = merge([], state);
   switch (action.type) {
     case RECEIVE_ALL_COMMENTS:
-      // console.log(action);
-      action.comments.forEach( comment => (newState.push(comment.id)));
-      // console.log(newState);
-      return newState;
+      return Object.keys(action.comments).map(id => allIds.push(parseInt(id)));
     case RECEIVE_SINGLE_COMMENT:
-      return [action.comment.id];
-    case CREATE_COMMENT:
-      return [
-        ...state,
-        action.comment.id
-      ];
+      let id = action.comment.id;
+      if (allIds.includes(id)){
+        return state;
+      }
+      return [...state, action.comment.id];
     case REMOVE_COMMENT:
-      idx = newState.indexOf(action.comment.id);
-      return newState.splice(idx, 1);
+      idx = allIds.indexOf(action.comment.id);
+      return allIds.splice(idx, 1);
     default:
       return state;
   }
 };
+
+// const commentReducer = (state = null, action) => {
+//   Object.freeze(state);
+//
+//   switch(action.type){
+//     case RECEIVE_SINGLE_ANSWER:
+//       return action.comment.id;
+//     case REMOVE_ANSWER:
+//       return null;
+//     default:
+//       return state;
+//   }
+// };
 
 const commentsReducer = combineReducers({byId: byIdReducer, allIds: allIdsReducer});
 export default commentsReducer;

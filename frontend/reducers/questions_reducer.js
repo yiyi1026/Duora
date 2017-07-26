@@ -6,19 +6,15 @@ import {
   REMOVE_QUESTION,
   RECEIVE_SEARCHED_QUESTIONS
 } from '../actions/question_actions';
-import questionReducer from './question_reducer';
 
-const initialState = {
+const defaultState = {
   byId: {},
   allIds: [],
-  // questions: {
-  //   answersIds: []
-  //
-  // },
-  errors: []
+  errors: [],
+  currentQuestion: null
 };
-// const byIdReducer = (state = {initialState}, action) => {
-const byIdReducer = (state = {}, action) => {
+
+const byIdReducer = (state = defaultState, action) => {
   Object.freeze(state);
   let newState = {};
   let newQuestion;
@@ -28,13 +24,7 @@ const byIdReducer = (state = {}, action) => {
       return action.questions;
     case RECEIVE_SINGLE_QUESTION:
       newState = merge({}, state);
-      // console.log(state);
-      // console.log(newState);
-      // nestState[action.question.id]
       return merge({}, state, {[action.question.id]: action.question})
-      // console.log(action);
-      //action here should be {id: question} type
-      // return action.question;
     case REMOVE_QUESTION:
       nextState = merge({}, state);
       delete nextState[action.question.id];
@@ -46,27 +36,23 @@ const byIdReducer = (state = {}, action) => {
 
 const allIdsReducer = (state = [], action) => {
   Object.freeze(state);
-  // console.log(action);
-  let newState = merge([], state);
+
+  let allIds = merge([], state);
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS:
-      let allIds = [];
-      // Object.keys(action.questions).forEach(id => allIds.push(id));
-      Object.keys(action.questions).forEach(id => allIds.push(parseInt(id)));
-      return allIds;
+      return Object.keys(action.questions).map(id => parseInt(id));
     case RECEIVE_SINGLE_QUESTION:
-      // console.log(action);
       let id = action.question.id;
-      if (newState.includes(id)){
+      if (allIds.includes(id)){
         return state;
+      }else{
+        return [...state, action.question.id];
       }
-      console.log('single');
-      return [action.question.id];
     case REMOVE_QUESTION:
     // needs modification;
-      idx = newState.indexOf(action.question.id);
-      newState.splice(idx, 1);
-      return newState;
+      idx = allIds.indexOf(action.question.id);
+      allIds.splice(idx, 1);
+      return allIds;
     default:
       return state;
   }
@@ -74,9 +60,23 @@ const allIdsReducer = (state = [], action) => {
 
 const searchIdsReducer = (state = [], action) => {
   Object.freeze(state);
+
   switch (action.type) {
     case RECEIVE_SEARCHED_QUESTIONS:
       return action.searchedQuestions.searchIds;
+    default:
+      return state;
+  }
+};
+
+const questionReducer = (state = null, action) => {
+  Object.freeze(state);
+
+  switch(action.type){
+    case RECEIVE_SINGLE_QUESTION:
+      return action.question.id;
+    case REMOVE_QUESTION:
+      return null;
     default:
       return state;
   }

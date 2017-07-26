@@ -2,16 +2,12 @@ import * as APIUtil from '../util/answer_api_util';
 import { receiveErrors, clearErrors } from './error_actions';
 import { normalize } from 'normalizr';
 export const RECEIVE_SINGLE_ANSWER = 'RECEIVE_SINGLE_ANSWER';
-export const CREATE_ANSWER = 'CREATE_ANSWER';
 export const REMOVE_ANSWER = 'REMOVE_ANSWER';
 export const RECEIVE_ALL_ANSWERS = 'RECEIVE_ALL_ANSWERS';
-export const receiveAllAnswers = answers => {
-  // console.log(answers);
-  return {
-    type: RECEIVE_ALL_ANSWERS,
-    answers
-  };
-};
+export const receiveAllAnswers = answers => ({
+  type: RECEIVE_ALL_ANSWERS,
+  answers
+});
 // export const RECEIVE_SEARCHED_ANSWERS = 'RECEIVE_SEARCHED_ANSWERS';
 
 export const receiveSingleAnswer = answer => ({
@@ -22,7 +18,7 @@ export const receiveSingleAnswer = answer => ({
 export const removeAnswer = answer => ({
   type: REMOVE_ANSWER,
   answer
-})
+});
 
 // export const receiveSearchedAnswers = answers => {
 //   return(
@@ -42,14 +38,10 @@ export const requestSingleAnswer = id => dispatch => (
   )
 )
 
-export const requestAllAnswers = (questionId) => dispatch => {
-  // console.log('actions');
+export const requestAllAnswers = questionId => dispatch => {
   return APIUtil.fetchAllAnswers(questionId).then(
-    (state) => {
-      // console.log(state);
-      const {answers} = state;
-      // console.log(state);
-      // console.log(questions);
+    (response) => {
+      const {answers} = response;
       return dispatch(receiveAllAnswers(answers));
     }, errors => dispatch(receiveErrors(errors))
   );
@@ -58,18 +50,25 @@ export const requestAllAnswers = (questionId) => dispatch => {
 
 export const createAnswer = answer => dispatch => (
   APIUtil.createAnswer(answer)
-  .then(
-    (answer) => {
-    dispatch(receiveSingleAnswer(answer));
-    dispatch(clearErrors())
-  },errors => dispatch(receiveErrors(errors))
-))
+  .then( answer =>
+    {
+      dispatch(receiveSingleAnswer(answer));
+      dispatch(clearErrors());
+    },errors => dispatch(receiveErrors(errors))
+  )
+)
 
 export const updateAnswer = answer => dispatch => (
   APIUtil.updateAnswer(answer)
-  .then(answer => dispatch(receiveSingleAnswer(answer)))
+  .then(
+    answer => dispatch(receiveSingleAnswer(answer)),
+    errors => dispatch(receiveErrors(errors))
+  )
 );
 
 export const deleteAnswer = answer => dispatch => (
-  APIUtil.deleteAnswer(answer).then(answer => dispatch(removeAnswer(answer)))
+  APIUtil.deleteAnswer(answer)
+  .then(
+    answer => dispatch(removeAnswer(answer))
+  )
 );

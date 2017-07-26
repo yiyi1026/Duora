@@ -1,28 +1,30 @@
 import { connect } from 'react-redux';
 import AnswerItem from './answer_item';
 import {
-  requestAllAnswers,
+  // requestAllAnswers,
+  requestSingleAnswer,
   createAnswer,
   updateAnswer,
   deleteAnswer
 } from '../../actions/answer_actions';
-//Do I need to keep this deleteAnswer????
+
 import {selectAllAnswers } from '../../reducers/selectors';
 
-const  mapStateToProps = (state) =>{
-  console.log(state.answers);
+const  mapStateToProps = ({answers, session}) =>{
   return {
-  answers: selectAllAnswers(state.answers),
+  answers: selectAllAnswers(answers),
+  currentUser: session.currentUser ? session.currentUser,
   errors:[]
-};
-// here answers {byId:{}, allIds:[]}
+  };
 };
 
 
 const mapDispatchToProps = dispatch => ({
-  createAnswer: (answer) => dispatch(createAnswer(answer)),
-  updateAnswer: (answer) => dispatch(updateAnswer(answer))
-  // deleteAnswer: (answer) => dispatch(deleteAnswer(answer))
+  requestSingleAnswer: (id) => dispatch(requestSingleAnswer(id)),
+  requestAllAnswers: (questionId) => dispatch(requestAllAnswers(questionId)),
+  updateAnswer: (answer) => dispatch(updateAnswer(answer)),
+  deleteAnswer: (answer) => dispatch(deleteAnswer(answer))
+  // createAnswer: (answer) => dispatch(createAnswer(answer)),
 });
 
 

@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
   // console.log(state);
   const {questions, session} = state;
   return {
-    // question: selectAllQuestions(question),
+    // question: selectAllQuestions(question) to grab question out of byId,
     questions: questions,
     currentUser: session.currentUser
   }
