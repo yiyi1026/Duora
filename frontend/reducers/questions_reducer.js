@@ -48,11 +48,6 @@ const allIdsReducer = (state = [], action) => {
       }else{
         return [...state, action.question.id];
       }
-<<<<<<< HEAD
-=======
-      console.log('single');
-      return [...state, action.question.id];
->>>>>>> ae2a4b6372f54eec504909d692cb97e9731be2f4
     case REMOVE_QUESTION:
     // needs modification;
       idx = allIds.indexOf(action.question.id);
