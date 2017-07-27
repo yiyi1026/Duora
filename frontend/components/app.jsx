@@ -5,7 +5,7 @@ import MainFrame from './main_frame';
 
 const App = () => {
   return (
-    <div>
+    <div >
       <ProtectedRoute path='/' component={MainFrame}/>
       <AuthRoute exact path='/login' component={AuthForm}/>
       <div id="bottom"></div>
