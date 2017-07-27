@@ -112,7 +112,7 @@ answer9 = Answer.create!({body:'answer5bodytoquestion3', author_id: guest2.id, q
 answer10 = Answer.create!({body:'answer5bodytoquestion3', author_id: guest2.id, question_id: question5.id})
 
 
-comment1 = Comment.create!({body: 'commentbody1', answer_id: answer1.id, author_id: guest1.id})
+comment1 = Comment.create!({body: 'commentbody1', answer_id: answer4.id, author_id: guest1.id})
 comment2 = Comment.create!({body: 'commentbody2', answer_id: answer3.id, author_id: guest2.id})
 comment3 = Comment.create!({body: 'commentbody3', answer_id: answer2.id, author_id: guest3.id})
 comment4 = Comment.create!({body: 'commentbody4', answer_id: answer4.id, author_id: guest4.id})

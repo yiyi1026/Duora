@@ -4,6 +4,7 @@ import {createComment } from '../../actions/answer_actions';
 
 // all these methods need to be udpated
 const  mapStateToProps = (state) => {
+  console.log(state);
   return {
 
     currentUser: state.session.currentUser

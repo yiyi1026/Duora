@@ -4,7 +4,7 @@ import javascript_time_ago from 'javascript-time-ago';
 import {requestSingleAnswer} from '../../actions/answer_actions';
 import * as SESSIONUTIL from '../../util/session_api_util';
 import CommentIndexContainer from '../comment/comment_index_container';
-// import CommentFormContainer from '../comment/comment_form_container';
+import CommentFormContainer from '../comment/comment_form_container';
 
 class AnswerItem extends React.Component {
   constructor(props){
@@ -82,7 +82,7 @@ class AnswerItem extends React.Component {
           </div>
         </div>
 
-         <CommentIndexContainer answer_id={answer.id}/>
+         <CommentIndexContainer answerId={answer.id} questionId={question_id}/>
     </div>
 
   );

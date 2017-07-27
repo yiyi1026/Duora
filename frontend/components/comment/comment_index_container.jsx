@@ -4,7 +4,7 @@ import {selectAllComments} from '../../reducers/selectors';
 import CommentIndex from './comment_index';
 
 const mapStateToProps = (state) => {
-  let comments = state.comments
+  let comments = state.comments;
   return {
     comments: selectAllComments(comments),
     allCommentsIds: comments.allIds,
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestAllComments: (answer_id) => dispatch(requestAllComments(answer_id)),
+  requestAllComments: (answerId) => dispatch(requestAllComments(answerId)),
   createComment: (comment) => dispatch(createComment(comment)),
   updateComment: (comment) => dispatch(updateComment(comment)),
   deleteComment: (commentId) => dispatch(deleteComment(comment))

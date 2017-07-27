@@ -27,10 +27,10 @@ export const requestSingleComment = id => dispatch => (
   )
 );
 
-export const requestAllComments = (questionId) => dispatch => {
-  // console.log('actions');
-  return APIUtil.fetchCommentsByAnswerId(questionId).then(
-    (comments) => dispatch(receiveAllComments(comments))
+export const requestAllComments = (answerId) => dispatch => {
+  return APIUtil.fetchCommentsByAnswerId(answerId).then(
+    (comments) => {
+      dispatch(receiveAllComments(comments))}
     , errors => dispatch(receiveErrors(errors))
   );
 };

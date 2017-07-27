@@ -16,6 +16,7 @@ const byIdReducer = (state = {}, action) => {
   Object.freeze(state);
     switch (action.type) {
     case RECEIVE_ALL_COMMENTS:
+      
       return merge({}, state, action.comments);
     case RECEIVE_SINGLE_COMMENT:
       return merge({}, state, {[action.comment.id]: action.comment})

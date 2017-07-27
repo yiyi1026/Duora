@@ -1,8 +1,8 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import CommentFormContainer from '../comment/comment_form_container';
-
-
+import {requestAllComments} from '../../actions/comment_actions'
+import CommentIndexItem from './comment_index_item';
 class CommentIndex extends React.Component {
   constructor(props){
   	super(props);
@@ -11,7 +11,7 @@ class CommentIndex extends React.Component {
     };
   }
   componentDidMount() {
-    this.props.requestAllComments(5)
+    this.props.requestAllComments(4)
     .then(() => this.setState({waiting: false}));
   }
 
@@ -25,12 +25,17 @@ class CommentIndex extends React.Component {
 
     let commentItems =  comments.map(
       (comment, idx) =>
-      // {console.log(comment);
+      // {;
         {
-          let {id, body, author:{username, avatar}} = comment;
-          return (<li key={`comments${id}`} >{body}</li>);
-  }
-);
+          let {id} = comment;
+        return (
+          <CommentIndexItem
+          key={`comments${id}`}
+          comment={comment}
+          questionId={this.props.questionId}
+          />);
+        }
+      );
 
     return (
       <div>
@@ -39,7 +44,6 @@ class CommentIndex extends React.Component {
 
           <div className='indexcomments'>
             {commentItems}
-            commentsItemsComes here
           </div>
           <br/>
         </ul>

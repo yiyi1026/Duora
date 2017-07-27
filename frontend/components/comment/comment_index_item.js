@@ -15,25 +15,29 @@ class CommentIndexItem extends React.Component {
     // this.toggleComment = this.toggleComment.bind(this);
   }
 
-  handleClickComment(e) {
-    console.log(e.target);
-    let $this = $(e.target);
-    console.log($this.hasClass("Comment"));
-    if (!$this.hasClass('panel-collapsed')) {
-      $this.parents('.panel').find('.panel-body').slideUp();
-      $this.addClass('panel-collapsed');
-    } else {
-      $this.parents('.panel').find('.panel-body').slideDown();
-      $this.removeClass('panel-collapsed');
-    }
+  componentDidMount() {
+    // this.props.requestAllComments(comment_id);
   }
 
+  // handleClickComment(e) {
+  //   // console.log(e.target);
+  //   let $this = $(e.target);
+  //   // console.log($this.hasClass("Comment"));
+  //   if (!$this.hasClass('panel-collapsed')) {
+  //     $this.parents('.panel').find('.panel-body').slideUp();
+  //     $this.addClass('panel-collapsed');
+  //   } else {
+  //     $this.parents('.panel').find('.panel-body').slideDown();
+  //     $this.removeClass('panel-collapsed');
+  //   }
+  // }
+
   render() {
-    // console.log(this.props);
-    const {answer, updateComment} = this.props;
-    // console.log(answer);
-    const {id, title, body, comments, created_at} = answer;
-    let author = answer.author;
+    console.log(this.props);
+    const {comment} = this.props;
+    // console.log(comment);
+    const {id, body, created_at} = comment;
+    let author = comment.author;
 
     if (!author) {
       author = currentUser;
@@ -49,7 +53,7 @@ class CommentIndexItem extends React.Component {
     let timeAgo = time_ago_english.format(create_date.getTime());
 
     let html = (
-      <li key={`answerdetail${id}`}>
+      <li key={`commentdetail${id}`}>
         <div className='container well'>
           <div className="row">
             <div className="reason_main">
@@ -62,13 +66,6 @@ class CommentIndexItem extends React.Component {
               <span className="bullet">
                 ·
               </span>Topic you might like
-            </div>
-          </div>
-          <div className="row all-margin-10">
-            <div className="">
-              <a className="black bold" href={'#/answers/' + answer.id} target="">
-                <span className="">{answer.title}</span>
-              </a>
             </div>
           </div>
           <div className="row">
@@ -86,7 +83,7 @@ class CommentIndexItem extends React.Component {
               </div>
               <div className="">
                 <span>
-                  <a className="grey" href="#" target="">Asked {timeAgo}</a>
+                  <a className="grey" href="#" target="">Commented {timeAgo}</a>
                 </span>
               </div>
             </div>
@@ -95,7 +92,7 @@ class CommentIndexItem extends React.Component {
           <div className="row">
             <div className="all-margin-10">
               <span className="rendered_qtext">
-                <p>{answer.body}</p>
+                <p>{comment.body}</p>
               </span>
               {/* <span id=""><a className="" href="#" target="_blank">(more)</a></span> */}
             </div>
@@ -104,8 +101,8 @@ class CommentIndexItem extends React.Component {
           <div className="row">
             <div className=" accordion-heading">
               <span className="left-margin-10  ">
-                <a className="Comment accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href={"#collapse" + answer.id} role="button">
-                  <span className="glyphicon glyphicon-pencil"></span>Comment
+                <a className="Comment accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href={"#collapse" + comment.id} role="button">
+                  <span className="glyphicon glyphicon-pencil"></span>Comment on this comment
                 </a>
               </span>
               <span className="left-margin-10">
@@ -121,7 +118,7 @@ class CommentIndexItem extends React.Component {
                 </a>
               </span>
             </div>
-            <div id={"collapse" + answer.id} className="accordion-body collapse">
+            <div id={"collapse" + comment.id} className="accordion-body collapse">
 
             </div>
           </div>
