@@ -14,7 +14,7 @@ class MainFrame extends React.Component {
     return (
       <div className="main-frame ">
         <Route path='/' component={GreetingContainer}/>
-        <div className="jumbotron">
+        <div className="container jumbotron">
           <div className="col-md-2 col-lg-2">
               <Route path="/" component={FeedListContainer} />
           </div>

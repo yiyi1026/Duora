@@ -9,8 +9,8 @@ import CommentIndexContainer from '../comment/comment_index_container';
 class AnswerItem extends React.Component {
   constructor(props){
     super(props);
-
   }
+
 
   render() {
     const answer = this.props.answer;
@@ -19,6 +19,9 @@ class AnswerItem extends React.Component {
       return <div></div>;
     }
     let { body, id, question_id, created_at, author} = answer;
+    if (!author){
+      author = this.props.currentUser;
+    }
 
     let avatar = SESSIONUTIL.getAvatarUrl(author);
 

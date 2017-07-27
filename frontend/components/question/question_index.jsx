@@ -18,13 +18,9 @@ class QuestionIndex extends React.Component {
     );
   }
   render() {
-    // console.log(getState());
-    // console.log(this.props);
     if (this.state.waiting){
-      // console.log(this.props);
       return (<div></div>);
     }
-    // console.log(this.props);
     const {questions, createQuestion, updateQuestion, errors, allQuestionsIds} = this.props;
 
     const questionItems = allQuestionsIds.map(
