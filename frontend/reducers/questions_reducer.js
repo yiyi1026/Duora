@@ -51,8 +51,9 @@ const allIdsReducer = (state = [], action) => {
     console.log(action);
       Object.keys(action.questions).forEach(
         (id) => {
-          if (!allIds.includes(id)){
-            allIds.push(id);}
+          const intid = parseInt(id);
+          if (!allIds.includes(intid)){
+            allIds.push(intid);}
           });
       // console.log(allIds);
       return allIds;
