@@ -75,7 +75,7 @@ class QuestionDetail extends React.Component {
               </div>
               <div className="">
                 <span>
-                  <a className="grey" href="#" target="">Answered {timeAgo}</a>
+                  <a className="grey" href="#" target="">Asked {timeAgo}</a>
                 </span>
               </div>
             </div>

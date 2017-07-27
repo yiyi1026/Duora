@@ -55,7 +55,7 @@ class QuestionIndexItem extends React.Component {
         <div className='container well'>
           <div className="row">
             <div className="reason_main">
-              Answer<span className="bullet">
+              Question<span className="bullet">
                 ·
               </span>
               <a className="grey" href="#">
@@ -88,7 +88,7 @@ class QuestionIndexItem extends React.Component {
               </div>
               <div className="">
                 <span>
-                  <a className="grey" href="#" target="">Answered {timeAgo}</a>
+                  <a className="grey" href="#" target="">Asked {timeAgo}</a>
                 </span>
               </div>
             </div>
@@ -107,7 +107,7 @@ class QuestionIndexItem extends React.Component {
             <div className=" accordion-heading">
               <span className="left-margin-10  ">
                 <a className="Answer accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href={"#collapse" + question.id} role="button">
-                  <span className="glyphicon glyphicon-pencil"></span>Answer
+                  <span className="glyphicon glyphicon-pencil"></span>Question
                 </a>
               </span>
               <span className="left-margin-10">
