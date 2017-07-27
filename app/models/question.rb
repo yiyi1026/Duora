@@ -13,7 +13,8 @@
 
 class Question < ApplicationRecord
   validates :title, :author_id, :topic_id, presence: true
-  validates :author, :topic, presence: true  #no anonymous answers for now
+  validates :author, presence: true  #no anonymous answers for now
+  # validates :topic, presence: true
 
   #associations
   belongs_to :author,

@@ -30,7 +30,6 @@ class AnswerItem extends React.Component {
 
     let create_date = new Date(created_at);
     let timeAgo = time_ago_english.format(create_date.getTime());
-    debugger
     return (<div key={`answers${answer.id}`} className="container top-boader top-margin-30">
       <div className="row all-margin-10">
           <div className="all-margin-10">
