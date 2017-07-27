@@ -1,5 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
+import CommentFormContainer from '../comment/comment_form_container';
+
 
 class CommentIndex extends React.Component {
   constructor(props){
@@ -15,7 +17,7 @@ class CommentIndex extends React.Component {
 
   render() {
     // console.log(getState());
-    // console.log(this.props);
+    console.log(this.props);
     const {comments, errors } = this.props;
     if (this.state.waiting || !comments){
       return (<div></div>);
@@ -34,9 +36,10 @@ class CommentIndex extends React.Component {
       <div>
         <ul className="comment-list list-unstyled">
           <br/>
+
           <div className='indexcomments'>
             {commentItems}
-
+            commentsItemsComes here
           </div>
           <br/>
         </ul>

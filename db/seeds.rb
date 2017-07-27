@@ -77,6 +77,7 @@ question20 = Question.create!({title: 'Why do you choose Apple products?', body:
 question21 = Question.create!({title: 'What is your favorite food?', body: '', author_id: guest7.id, topic_id: topic11.id})
 
 
+answer1 = Answer.create!({body:"Software development is an extremely broad field. You can easily be highly qualified for one aspect of software development but highly unqualified for another. It’s important to learn the fundamentals and principles and then learn specifics as needed to address specific needs. Unfortunately, too many employers of software developers only judge them on application-specific knowledge and skills and, as a result, they only employ them for a few years and then they are obsolete.", author_id: guest2.id, question_id: question7.id})
 answer2 = Answer.create!({body:'answer2bodytoquestion1', author_id: guest3.id, question_id: question1.id})
 answer3 = Answer.create!({body:"It looks like a headache with countless notes on how it should or should not behave that will probably one day be erased and replaced because said code did not fulfill its function.
 It also probably has a gigantic list of variables, depending on how complex it is and. Probably some unused variables that the programmer forgot about and/or multiple variables supposed to serve the same purpose but that got repeated as the. Programmer forgot about their existence.
@@ -89,7 +90,6 @@ answer4 = Answer.create!({body:"i would suggest, you should checkout popular Mac
 Google Cloud
 Amazon ML etc
 These are popular providers who charge as you use with high end computing resources.Hope this helps.", author_id: guest2.id, question_id: question3.id})
-answer1 = Answer.create!({body:"Software development is an extremely broad field. You can easily be highly qualified for one aspect of software development but highly unqualified for another. It’s important to learn the fundamentals and principles and then learn specifics as needed to address specific needs. Unfortunately, too many employers of software developers only judge them on application-specific knowledge and skills and, as a result, they only employ them for a few years and then they are obsolete.", author_id: guest2.id, question_id: question7.id})
 answer5 = Answer.create!({body:"For small datasets (and in some circumstances also for larger ones) you might often be better off with Random Forests or the Bayesian equivalent, BART. Besides the error, deep networks might take hours to train whereas random forests are almost instantly trained. Bayesian trees usually work better than their frequentist counterpart but take much longer to train as they rely on MCMC sampling.", author_id: guest5.id, question_id: question5.id})
 answer6 = Answer.create!({body:'Pure pork fat is LARD. Thick, white, greasy, just the thing for excellent pie pastry, but how on earth could you “accidentally” eat a quarter-pound (110 grams) of pure lard???
 

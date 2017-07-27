@@ -4,7 +4,6 @@ import {selectAllComments} from '../../reducers/selectors';
 import CommentIndex from './comment_index';
 
 const mapStateToProps = (state) => {
-  // console.log(state);
   let comments = state.comments
   return {
     comments: selectAllComments(comments),

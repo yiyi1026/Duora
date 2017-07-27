@@ -11,6 +11,11 @@ class AnswerItem extends React.Component {
     super(props);
   }
 
+  componentWillReceiveProps(newProps){
+    if (!this.props.answer.author){
+      this.props.requestSingleAnswer(this.props.answer.id);
+    }
+  }
 
   render() {
     const answer = this.props.answer;
@@ -76,9 +81,8 @@ class AnswerItem extends React.Component {
             </span>
           </div>
         </div>
-        <div className="row add-comment-form ">
 
-        </div>
+         <CommentIndexContainer answer_id={answer.id}/>
     </div>
 
   );

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CommentForm from './answer_form';
+import CommentForm from './comment_form';
 import {createComment } from '../../actions/answer_actions';
 
 // all these methods need to be udpated
