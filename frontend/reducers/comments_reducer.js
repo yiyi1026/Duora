@@ -1,6 +1,9 @@
 import merge from 'lodash/merge';
 import {combineReducers} from 'redux';
-import {RECEIVE_SINGLE_COMMENT, CREATE_COMMENT, REMOVE_COMMENT, RECEIVE_ALL_COMMENTS} from '../actions/comment_actions';
+import {
+  RECEIVE_SINGLE_COMMENT,
+  REMOVE_COMMENT,
+  RECEIVE_ALL_COMMENTS} from '../actions/comment_actions';
 
 const defaultState = {
   byId:{},
@@ -11,13 +14,10 @@ const defaultState = {
 
 const byIdReducer = (state = {}, action) => {
   Object.freeze(state);
-  let id;
-  switch (action.type) {
+    switch (action.type) {
     case RECEIVE_ALL_COMMENTS:
-      // return action.comments.byId;
-      return action.comments;
+      return merge({}, state, action.comments);
     case RECEIVE_SINGLE_COMMENT:
-      // return merge({}, state.comments.byId, {[action.comment.id]: action.comment})
       return merge({}, state, {[action.comment.id]: action.comment})
     case REMOVE_COMMENT:
       let nextState = merge({}, state);
@@ -30,10 +30,18 @@ const byIdReducer = (state = {}, action) => {
 
 const allIdsReducer = (state = [], action) => {
   Object.freeze(state);
+
   let allIds = merge([], state);
   switch (action.type) {
     case RECEIVE_ALL_COMMENTS:
-      return Object.keys(action.comments).map(id => allIds.push(parseInt(id)));
+      Object.keys(action.comments.allIds).forEach(
+        id => {
+          if (!allIds.includes(id)){
+            allIds.push(id);
+          }
+        }
+      );
+      return allIds;
     case RECEIVE_SINGLE_COMMENT:
       let id = action.comment.id;
       if (allIds.includes(id)){
@@ -42,24 +50,29 @@ const allIdsReducer = (state = [], action) => {
       return [...state, action.comment.id];
     case REMOVE_COMMENT:
       idx = allIds.indexOf(action.comment.id);
-      return allIds.splice(idx, 1);
+      allIds.splice(idx, 1);
+      return allIds;
     default:
       return state;
   }
 };
 
-// const commentReducer = (state = null, action) => {
-//   Object.freeze(state);
-//
-//   switch(action.type){
-//     case RECEIVE_SINGLE_ANSWER:
-//       return action.comment.id;
-//     case REMOVE_ANSWER:
-//       return null;
-//     default:
-//       return state;
-//   }
-// };
+const commentReducer = (state = null, action) => {
+  Object.freeze(state);
 
-const commentsReducer = combineReducers({byId: byIdReducer, allIds: allIdsReducer});
+  switch(action.type){
+    case RECEIVE_SINGLE_COMMENT:
+      return action.comment.id;
+    case REMOVE_ANSWER:
+      return null;
+    default:
+      return state;
+  }
+};
+
+const commentsReducer = combineReducers({
+  byId: byIdReducer,
+  allIds: allIdsReducer,
+  currentComment: commentReducer
+});
 export default commentsReducer;

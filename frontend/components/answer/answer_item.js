@@ -24,7 +24,7 @@ class AnswerItem extends React.Component {
     this.setState({waiting: false})
   }
   render() {
-
+    console.log(this.props);
     const {answer} = this.props;
     if (this.state.waiting|| (!answer)){
       return (<div></div>);

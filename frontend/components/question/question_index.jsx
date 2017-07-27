@@ -7,7 +7,6 @@ class QuestionIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // questions: this.props.questions,
       waiting: true
     };
       this.setState = this.setState.bind(this);
