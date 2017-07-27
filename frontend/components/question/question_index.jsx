@@ -2,6 +2,7 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import QuestionIndexItem from './question_index_item';
 import QuestionDetailContainer from './question_detail_container';
+
 class QuestionIndex extends React.Component {
   constructor(props) {
     super(props);

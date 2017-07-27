@@ -80,19 +80,7 @@ class QuestionDetail extends React.Component {
     return (
       <div>
         <div className='container well'>
-          <div className="row">
-            <div className="reason_main">
-              Answer<span className="bullet">
-                ·
-              </span>
-              <a className="grey" href="#">
-                <span >Interpersonal Interaction</span>
-              </a>
-              <span className="bullet">
-                ·
-              </span>Topic you might like
-            </div>
-          </div>
+          
           <div className="row all-margin-10">
             <div className="">
               <a className="black bold" href={'#/questions/' + question.id} target="">
