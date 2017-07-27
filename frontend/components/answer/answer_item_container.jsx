@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AnswerItem from './answer_item';
 import {
-  // requestAllAnswers,
+  requestAllAnswers,
   requestSingleAnswer,
   createAnswer,
   updateAnswer,
@@ -12,10 +12,10 @@ import {selectAllAnswers, selectSingleAnswer } from '../../reducers/selectors';
 
 const  mapStateToProps = (state) =>{
   // console.log(state);
-  // const {session} = state;
+  const {session, answers} = state;
   return {
     // answers: state.answers.byId,
-    answer: selectSingleAnswer(answer),
+    answers: selectAllAnswers(answers),
     currentUser: session.currentUser ? session.currentUser : null,
     errors:[]
 

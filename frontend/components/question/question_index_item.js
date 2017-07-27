@@ -4,6 +4,7 @@ import {Link, Route} from 'react-router-dom';
 import AnswerFormContainer from '../answer/answer_form_container';
 import QuestionBarContainer from './question_bar_container';
 import javascript_time_ago from 'javascript-time-ago';
+import * as SESSIONUTIL from '../../util/session_api_util';
 
 class QuestionIndexItem extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class QuestionIndexItem extends React.Component {
     if (!author) {
       author = currentUser;
     }
-    let avatar = '/images/avatar/' + author.avatar;
+    let avatar = SESSIONUTIL.getAvatarUrl(author);
 
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
     require('javascript-time-ago/intl-messageformat-global');

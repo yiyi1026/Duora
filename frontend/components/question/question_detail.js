@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import AnswerFormContainer from '../answer/answer_form_container';
 import AnswerItemContainer from '../answer/answer_item_container';
 import javascript_time_ago from 'javascript-time-ago';
+import * as SESSIONUTIL from '../../util/session_api_util';
 
 class QuestionDetail extends React.Component {
   constructor(props) {
@@ -18,35 +19,9 @@ class QuestionDetail extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this.props);
-    // console.log(this.props);
     let id = parseInt(this.props.match.params.questionId);
-    // console.log(this.props);
-    // let question = this.props.question;
-    // if (!question){
-      this.props.requestSingleQuestion(id).then(() => this.setState({waiting: false}));
-
-    // }else{
-    //   this.setState({waiting: true});
-    // }
+    this.props.requestSingleQuestion(id).then(() => this.setState({waiting: false}));
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   console.log(this.props);
-  //   console.log(nextProps);
-  //   let id = parseInt(this.props.match.params.questionId);
-  //   let nextid = parseInt(nextProps.match.params.questionId);
-  //   if (id !== nextid) {
-  //     this.props.requestSingleQuestion(nextid).then(() => this.setState({waiting: false}));
-  //   }
-    // else{
-    //   let question = nextProps.questions.byId;
-    //   // let title = question.title
-    //   let {title, body, id, author} = question;
-    //
-    //   this.setState({title, body, id, author});
-    // }
-  // }
 
   render() {
     const question = this.props.question;
@@ -67,15 +42,9 @@ class QuestionDetail extends React.Component {
     let timeAgo = time_ago_english.format(create_date.getTime());
     // console.log(question);
     let {description, username} = question.author;
-    let avatar = '/images/avatar/' + question.author.avatar;
+    let avatar = SESSIONUTIL.getAvatarUrl(question.author);
     let {answersIds} = question;
-    // console.log(answersIds);
-    let answers_html = answersIds.map(
-      (answerId, idx) =>
-        {
-          // answer={answer}
-          return (<AnswerItemContainer key={`answerId${answerId}`} question_id={this.props.currentQuestion} answerId={answerId} />)
-      });
+    let answers_html = (<AnswerItemContainer question_id={this.props.currentQuestion}/>)
 
     return (
       <div>
@@ -114,7 +83,6 @@ class QuestionDetail extends React.Component {
               <span className="rendered_qtext">
                 <p>{question.body}</p>
               </span>
-              {/* <span id=""><a className="" href="#" target="_blank">(more)</a></span> */}
             </div>
           </div>
 
