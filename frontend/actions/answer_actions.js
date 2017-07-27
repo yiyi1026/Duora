@@ -29,7 +29,7 @@ export const requestSingleAnswer = id => dispatch => (
 
 //this method is for request all answers for one question(question_id)
 export const requestAllAnswers = questionId => dispatch => {
-  return APIUtil.fetchAllAnswers(questionId).then(
+  return APIUtil.fetchAnswersByQuestionId(questionId).then(
     answers => dispatch(receiveAllAnswers(answers))
     , errors => dispatch(receiveErrors(errors))
   );
