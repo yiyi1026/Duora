@@ -23,10 +23,9 @@ export const logout = () => (
 
 
 export const getAvatarUrl = (user) => {
-  if(!user.avatar){
+  if(!user || !user.avatar){
     return '/images/avatar/user_null.png'
   } else{
     return '/images/avatar/' + user.avatar;
   }
 };
-

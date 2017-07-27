@@ -3,6 +3,8 @@ import {requestSingleQuestion} from '../../actions/question_actions';
 import {Link} from 'react-router-dom';
 import AnswerFormContainer from '../answer/answer_form_container';
 import AnswerItemContainer from '../answer/answer_item_container';
+import AnswerIndexContainer from '../answer/answer_index_container';
+
 import javascript_time_ago from 'javascript-time-ago';
 import * as SESSIONUTIL from '../../util/session_api_util';
 
@@ -20,7 +22,9 @@ class QuestionDetail extends React.Component {
 
   componentDidMount() {
     let id = parseInt(this.props.match.params.questionId);
-    this.props.requestSingleQuestion(id).then(() => this.setState({waiting: false}));
+    this.props.requestSingleQuestion(id)
+    .then(setTimeout(() => this.setState({waiting: false}), 100));
+    // .then(() => this.setState({waiting: false}));
   }
 
   render() {
@@ -29,7 +33,6 @@ class QuestionDetail extends React.Component {
       return(<div></div>);
     }
     else{
-
     const {created_at} = question;
 
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
@@ -44,12 +47,12 @@ class QuestionDetail extends React.Component {
     let {description, username} = question.author;
     let avatar = SESSIONUTIL.getAvatarUrl(question.author);
     let {answersIds} = question;
-    let answers_html = (<AnswerItemContainer question_id={this.props.currentQuestion}/>)
+    let answers_html = (<AnswerIndexContainer question_id={question.id}/>)
 
     return (
       <div>
         <div className='container well'>
-          
+
           <div className="row all-margin-10">
             <div className="">
               <a className="black bold" href={'#/questions/' + question.id} target="">
@@ -108,14 +111,13 @@ class QuestionDetail extends React.Component {
             </div>
             <div id={"collapse" + question.id} className="accordion-body collapse">
               <AnswerFormContainer question={question}/>
-
             </div>
+
           </div>
 
 
 
         </div>
-
         {answers_html}
 
       </div>

@@ -13,13 +13,7 @@ class AnswerForm extends React.Component {
     }
     this.update = (rte) => this.setState({rte});
     this.handleAnswerSubmit = this.handleAnswerSubmit.bind(this);
-    // this.update = this.update.bind(this);
   }
-
-  // update(rte) {
-  //   console.log(this.props);
-  //   this.setState({rte});
-  // }
 
   handleAnswerSubmit(e) {
     e.preventDefault();
@@ -30,14 +24,18 @@ class AnswerForm extends React.Component {
       author_id: this.props.currentUser.id,
       question_id
     }
-    this.props.createAnswer(answer).then(() => this.setState({rte: RichTextEditor.createEmptyValue()}));
+    this.props.createAnswer(answer).then(
+      () => this.setState({rte: RichTextEditor.createEmptyValue()}))
+      // .then(this.props.history.push(null, `/questions/${this.props.question.id}`));
     // history.pushState(null, '/');
     //how to make this page refresh
-    // .then(this.props.history.push(null, `/questions/${this.props.question.id}`));
   // );
   }
 
   render() {
+    // if (this.state.waiting){
+    //   return <div></div>;
+    // }
     return (
       <div className='form-group'>
 
@@ -47,7 +45,7 @@ class AnswerForm extends React.Component {
           <span>Submit</span>
         </button>
       </div>
-    )
+    );
   }
 }
 

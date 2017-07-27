@@ -38,7 +38,6 @@ const allIdsReducer = (state = [], action) => {
   let allIds = merge([], state);
   switch (action.type) {
     case RECEIVE_ALL_ANSWERS:
-      console.log(action.answers);
       Object.keys(action.answers).forEach(
         (id) => {
           if (!allIds.includes(id)){

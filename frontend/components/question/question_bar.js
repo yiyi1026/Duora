@@ -31,27 +31,15 @@ class QuestionBar extends React.Component {
   }
 
   handleFocusout(e){
-    // e.preventDefault();
+    e.preventDefault();
     document.getElementById('bottom').classList.remove("in");
     document.getElementById('bottom').classList.remove("modal-backdrop");
-    // const sleep = (ms) => {
-    //   return new Promise(resolve => setTimeout(resolve, ms));
-    // }
-    // // setTimeout(() => )
-    // await sleep(150);
-    // this.setState({showSearch: false});
+
     setTimeout(() => this.setState({showSearch: false}), 200);
-    // function sleep (fn, par) {
-    //   return new Promise((resolve) => {
-    //     // wait 3s before calling fn(par)
-    //     setTimeout(() => resolve(fn(par)), 3000)
-    //   })
-    // }
   }
 
   handleOnFocus(e){
     // e.preventDefault();
-
     document.getElementById('bottom').classList.add("in");
     document.getElementById('bottom').classList.add("modal-backdrop");
     this.setState({showSearch: true});
