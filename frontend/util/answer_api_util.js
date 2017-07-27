@@ -1,7 +1,7 @@
 export const fetchAnswersByQuestionId = (question_id) => (
   $.ajax({
     method: 'GET',
-    url: `/api/answers?query=${query}`,
+    url: `/api/answers?question_id=${question_id}`,
   })
 );
 
