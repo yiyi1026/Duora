@@ -27,8 +27,8 @@ class Question < ApplicationRecord
   # , dependent: :destroy
   has_many :comments, through: :answers
 
-  belongs_to :topic
-
+  belongs_to :topic,
+    optional: true
   # has_many :topic_taggings
 
   # multiple topics???
