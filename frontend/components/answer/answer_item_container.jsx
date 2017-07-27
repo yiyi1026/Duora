@@ -11,10 +11,11 @@ import {
 import {selectAllAnswers, selectSingleAnswer } from '../../reducers/selectors';
 
 const  mapStateToProps = (state) =>{
-  console.log(state);
+  // console.log(state);
+  // const {session} = state;
   return {
-    answers: state.answers.byId,
-    // answer: selectSingleAnswer(answer),
+    // answers: state.answers.byId,
+    answer: selectSingleAnswer(answer),
     currentUser: session.currentUser ? session.currentUser : null,
     errors:[]
 

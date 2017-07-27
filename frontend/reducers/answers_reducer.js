@@ -13,23 +13,23 @@ const defaultState = {
   errors: []
 };
 
-const byIdReducer = (state = defaultState, action) => {
+const byIdReducer = (state = {}, action) => {
   Object.freeze(state);
 
   let nextState = merge({}, state);
 
   switch (action.type) {
     case RECEIVE_ALL_ANSWERS:
-      return merge({}, nextState, action.answers).byId;
+      return merge({}, nextState, action.answers);
       return action.answers;
     case RECEIVE_SINGLE_ANSWER:
-      return merge({}, nextState, {[action.answer.id]: action.answer}).byId;
+      return merge({}, nextState, {[action.answer.id]: action.answer});
     case REMOVE_ANSWER:
-      let nextState = merge({}, nextState).byId;
-      delete nextState.byId[action.answer.id];
-      return nextState.byId;
+      let nextState = merge({}, nextState);
+      delete nextState[action.answer.id];
+      return nextState;
     default:
-      return state.byId;
+      return state;
   }
 };
 
@@ -51,7 +51,7 @@ const allIdsReducer = (state = [], action) => {
       if (allIds.includes(id)){
         return state;
       }
-      return [...state.allIds, action.answer.id];
+      return [...state, action.answer.id];
     case REMOVE_ANSWER:
       idx = allIds.indexOf(action.answer.id);
       allIds.splice(idx, 1);

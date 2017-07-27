@@ -34,7 +34,18 @@ class Api::QuestionsController < ApplicationController
       #no   “You do not have permissions to edit this question”
     end
   end
-  
+
+  def search
+    if params[:query].present?
+      @questions = Question.where("title LIKE ?", "%#{params[:query]}%").limit(10)
+      render :search
+    else
+      @questions = Question.all
+      render :search
+    end
+  end
+
+
   def index
     if params[:query].present?
       @questions = Question.where("title LIKE ?", "%#{params[:query]}%").limit(10)

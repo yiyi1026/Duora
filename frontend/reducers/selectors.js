@@ -28,6 +28,7 @@ export const selectAllAnswers = (answers) => {
 };
 export const selectSingleQuestion = (question) => {
   console.log('selector');
+  console.log(question);
   if (question && question.allIds) {
     return question.allIds.map(id => question.byId[id]);
   } else {

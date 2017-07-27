@@ -31,7 +31,7 @@ class QuestionIndex extends React.Component {
     const questionItems = allQuestionsIds.map(
       (id, idx) =>
       // {console.log(question);
-        { let question = questions[id];
+        { let question = questions[idx];
           return (<QuestionIndexItem key={`indexquestions${id}`} question={question} updateQuestion={updateQuestion}/>);
   });  // const questionItems = {a:3};
 

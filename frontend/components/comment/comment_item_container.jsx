@@ -6,10 +6,11 @@ import {selectAllComments} from '../../reducers/selectors';
 import CommentItem from './comment_item';
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  return {}
+  // console.log(state);
   let comments = state.comments
   return {comments: selectAllComments(comments), errors: []};
-  // here comments {byId:{}, allIds:[]}
+  // // here comments {byId:{}, allIds:[]}
 };
 
 const mapDispatchToProps = dispatch => ({

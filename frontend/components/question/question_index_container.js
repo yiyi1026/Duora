@@ -19,9 +19,9 @@ import {selectAllQuestions} from '../../reducers/selectors';
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    // questions: selectAllQuestions(state.questions),
-    // allQuestionsIds: state.questions.allIds,
-    // currentQuestion: state.questions.currentQuestion,
+    questions: selectAllQuestions(state.questions),
+    allQuestionsIds: state.questions.allIds,
+    currentQuestion: state.questions.currentQuestion,
     errors: []
   // return {questions: selectAllQuestions(questions), errors: []};
   // here questions {byId:{}, allIds:[]}
