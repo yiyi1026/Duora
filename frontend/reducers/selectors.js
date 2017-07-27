@@ -2,6 +2,7 @@ import {values} from 'lodash';
 
 export const selectAllQuestions = (questions) => {
   if (questions && questions.allIds) {
+    console.log(questions);
     return questions.allIds.map(id => questions.byId[id]);
   } else {
     return [];
@@ -19,6 +20,7 @@ export const selectSearchedQuestions = (questions) => {
 export const selectAllAnswers = (answers) => {
   console.log(answers);
   if (answers && answers.allIds) {
+    console.log(answers.allIds.map(id => answers.byId[id]));
     return answers.allIds.map(id => answers.byId[id]);
   } else {
     return [];

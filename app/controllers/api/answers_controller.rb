@@ -1,4 +1,6 @@
 class Api::AnswersController < ApplicationController
+  before_action :require_logged_in, only: [:new, :create, :edit, :update, :destroy]
+
   def create
     @answer = current_user.answers.new(answer_params)
     # @answer.author_id = current_user.id
@@ -34,6 +36,7 @@ class Api::AnswersController < ApplicationController
     render :show
   end
 
+  #havn't tested update part
   def update
     @answer = Answer.find(params[:id])
     if @answer
@@ -48,7 +51,7 @@ class Api::AnswersController < ApplicationController
   end
 
   def destroy
-    @answer = Answer.find(params[:id])
+    @answer = current_user.answers.find(params[:id])
     @answer.destroy
   end
 

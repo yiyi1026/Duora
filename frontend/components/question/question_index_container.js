@@ -16,14 +16,16 @@ import {selectAllQuestions} from '../../reducers/selectors';
 //   // here questions {byId:{}, allIds:[]}
 // };
 
-const mapStateToProps = (state) => ({
-    questions: state.questions.byId,
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    // questions: selectAllQuestions(state.questions),
     allQuestionsIds: state.questions.allIds,
     currentQuestion: state.questions.currentQuestion,
     errors: []
   // return {questions: selectAllQuestions(questions), errors: []};
   // here questions {byId:{}, allIds:[]}
-});
+}};
 
 const mapDispatchToProps = dispatch => ({
   requestAllQuestions: () => dispatch(requestAllQuestions()),

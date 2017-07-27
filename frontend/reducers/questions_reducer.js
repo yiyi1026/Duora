@@ -17,17 +17,23 @@ const defaultState = {
 
 const byIdReducer = (state = defaultState, action) => {
   Object.freeze(state);
-  let nextState = merge({}, state);
+  let nextState = merge({}, state.byId);
+  // console.log(action);
   // console.log(action);
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS:
     case RECEIVE_SEARCHED_QUESTIONS:
-    // console.log(action.questions);
-      return merge({}, state, action.questions);
+      //return {id:object}
+      let a = merge({}, nextState, action.questions);
+      return a;
     case RECEIVE_SINGLE_QUESTION:
-      return merge({}, state, {[action.question.id]: action.question})
+      //return {id:object}
+      console.log(state);
+      console.log({byId: {[action.question.id]: action.question}});
+      return merge({}, state, {byId: {[action.question.id]: action.question}});
     case REMOVE_QUESTION:
-      delete nextState[action.question.id];
+    // is this right?
+      delete nextState.byId[action.question.id];
       return nextState;
     default:
       return state;
@@ -41,6 +47,8 @@ const allIdsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_SEARCHED_QUESTIONS:
     case RECEIVE_ALL_QUESTIONS:
+    console.log(state);
+    console.log(action);
       Object.keys(action.questions).forEach(
         (id) => {
           if (!allIds.includes(id)){
@@ -57,7 +65,7 @@ const allIdsReducer = (state = [], action) => {
       }
     case REMOVE_QUESTION:
     // needs modification;
-      idx = allIds.indexOf(action.question.id);
+      let idx = allIds.indexOf(action.question.id);
       allIds.splice(idx, 1);
       return allIds;
     default:
@@ -68,9 +76,9 @@ const allIdsReducer = (state = [], action) => {
 const searchIdsReducer = (state = [], action) => {
   Object.freeze(state);
 
+  let searchIds = [];
   switch (action.type) {
     case RECEIVE_SEARCHED_QUESTIONS:
-      let searchIds = [];
       Object.keys(action.questions).forEach( (id) => searchIds.push(id));
       return searchIds;
     default:

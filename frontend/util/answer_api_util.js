@@ -1,4 +1,4 @@
-export const fetchAllAnswers = (question_id) => (
+export const fetchAnswersByQuestionId = (question_id) => (
   $.ajax({
     method: 'GET',
     url: `/api/answers?query=${query}`,
@@ -11,7 +11,6 @@ export const fetchSingleAnswer = id => (
     url: `/api/answers/${id}`
   })
 );
-// export const searchAnswers = query => ($.ajax({method: 'GET', url: `/api/answers?query=${query}`}));
 
 export const createAnswer = answer => (
   $.ajax({

@@ -3,48 +3,6 @@ class Api::QuestionsController < ApplicationController
   #could question author delete answers not written by the author?
   before_action :require_logged_in, only: [:new, :create, :edit, :update, :destroy]
 
-  # def new
-  #   @question = Question.new
-  #   render :new
-  # end
-  #
-  # def index
-  #   if params[:query]
-  #     @questions = Question.where('title LIKE ?', "%#{params[:query]}%")
-  #   else
-  #     @questions = Question.all
-  #   end
-  #   render :index
-  #   # render :json => @questions
-  #   # render json: @questions, include: :answers
-  # end
-
-  def search
-    if params[:query].present?
-      @questions = Question.where("title LIKE ?", "%#{params[:query]}%")
-      # render :search
-    else
-      @questions = Question.all
-    end
-    render :index
-  end
-
-  def index
-    if params[:query].present?
-      @questions = Question.where("title LIKE ?", "%#{params[:query]}%").limit(10)
-      render :index
-    else
-      @questions = Question.all
-      render :index
-    end
-  end
-
-  def show
-    @question = Question.includes(answers: [:comments]).find(params[:id])
-    render :show
-    # render json: Question.find(params[:id]), include: :answers
-  end
-
   def create
     @question = current_user.questions.new(question_params)
 
@@ -55,6 +13,12 @@ class Api::QuestionsController < ApplicationController
     else
       render json: @question.errors.full_messages, status: 422
     end
+  end
+
+  def show
+    @question = Question.includes(answers: [:comments]).find(params[:id])
+    render :show
+    # render json: Question.find(params[:id]), include: :answers
   end
 
   def update
@@ -68,6 +32,16 @@ class Api::QuestionsController < ApplicationController
     else
         render json: @question.errors.full_messages, status: 422
       #no   “You do not have permissions to edit this question”
+    end
+  end
+  
+  def index
+    if params[:query].present?
+      @questions = Question.where("title LIKE ?", "%#{params[:query]}%").limit(10)
+      render :index
+    else
+      @questions = Question.all
+      render :index
     end
   end
 

@@ -5,7 +5,6 @@ export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS';
 export const RECEIVE_SINGLE_QUESTION = 'RECEIVE_SINGLE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
 export const RECEIVE_SEARCHED_QUESTIONS = 'RECEIVE_SEARCHED_QUESTIONS';
-import {receiveAllAnswers} from './answer_actions'
 
 export const receiveAllQuestions = questions => ({
   type: RECEIVE_ALL_QUESTIONS,

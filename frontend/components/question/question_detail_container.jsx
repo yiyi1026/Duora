@@ -8,7 +8,7 @@ const mapStateToProps = (state, {match}) => {
   // console.log(match);
   return {
     // answers: state.answers,
-    question:   state.questions.byId[match.params.questionId],
+    // question:   state.questions.byId[match.params.questionId],
     // questions: state.questions,
     currentQuestion: match.params.questionId
   }

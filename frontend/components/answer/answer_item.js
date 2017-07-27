@@ -12,12 +12,14 @@ class AnswerItem extends React.Component {
     };
   }
   componentDidMount() {
-    let answer = this.props.answer;
+    let answers = this.props.answers;
     if (!answer){
-      // this.props.requestAllAnswers(parseInt(this.props.questionId));
-      this.props.requestSingleAnswer(parseInt(this.props.answerId))
-      .then(() => {
-        return this.setState({waiting: false});});
+      // this.props.requestSingleAnswer(parseInt(this.props.answerId))
+      // .then(() => {
+      //   return this.setState({waiting: false});});
+        this.props.requestSingleAnswer(parseInt(this.props.answerId))
+        .then(() => {
+          return this.setState({waiting: false});});
     }
     this.setState({waiting: false})
   }

@@ -2,7 +2,8 @@ import merge from 'lodash/merge';
 import {combineReducers} from 'redux';
 import {
   RECEIVE_SINGLE_ANSWER,
-  REMOVE_ANSWER, RECEIVE_ALL_ANSWERS
+  RECEIVE_ALL_ANSWERS,
+  REMOVE_ANSWER
 } from '../actions/answer_actions';
 
 const defaultState = {
@@ -15,17 +16,20 @@ const defaultState = {
 const byIdReducer = (state = defaultState, action) => {
   Object.freeze(state);
 
+  let nextState = merge({}, state);
+
   switch (action.type) {
     case RECEIVE_ALL_ANSWERS:
+      return merge({}, nextState, action.answers).byId;
       return action.answers;
     case RECEIVE_SINGLE_ANSWER:
-      return merge({}, state, {[action.answer.id]: action.answer})
+      return merge({}, nextState, {[action.answer.id]: action.answer}).byId;
     case REMOVE_ANSWER:
-      let nextState = merge({}, state);
-      delete nextState[action.answer.id];
-      return nextState;
+      let nextState = merge({}, nextState).byId;
+      delete nextState.byId[action.answer.id];
+      return nextState.byId;
     default:
-      return state;
+      return state.byId;
   }
 };
 
@@ -35,15 +39,19 @@ const allIdsReducer = (state = [], action) => {
   let allIds = merge([], state);
   switch (action.type) {
     case RECEIVE_ALL_ANSWERS:
-      allIds = [];
-      Object.keys(action.answers).forEach( (id) => allIds.push(id));
+      Object.keys(action.answers.allIds).forEach(
+        (id) => {
+          if (!allIds.includes(id)){
+            allIds.push(id);
+          }
+        });
       return allIds;
     case RECEIVE_SINGLE_ANSWER:
       let id = action.answer.id;
       if (allIds.includes(id)){
         return state;
       }
-      return [...state, action.answer.id];
+      return [...state.allIds, action.answer.id];
     case REMOVE_ANSWER:
       idx = allIds.indexOf(action.answer.id);
       allIds.splice(idx, 1);
