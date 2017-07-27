@@ -7,33 +7,34 @@ import {
   RECEIVE_SEARCHED_QUESTIONS
 } from '../actions/question_actions';
 
-const defaultState = {
+const defaultState =
+{
   byId: {},
   allIds: [],
   searchIds: [],
   errors: [],
   currentQuestion: null
+
 };
 
 const byIdReducer = (state = defaultState, action) => {
   Object.freeze(state);
-  let nextState = merge({}, state.byId);
+  let nextState = merge({}, state);
   // console.log(action);
   // console.log(action);
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS:
+      console.log(state);
+      return merge({}, state, action.questions);
     case RECEIVE_SEARCHED_QUESTIONS:
       //return {id:object}
-      let a = merge({}, nextState, action.questions);
-      return a;
+      return merge({}, state, action.questions);
     case RECEIVE_SINGLE_QUESTION:
       //return {id:object}
-      console.log(state);
-      console.log({byId: {[action.question.id]: action.question}});
-      return merge({}, state, {byId: {[action.question.id]: action.question}});
+      return (merge({}, nextState, {byId:{[action.question.id]: action.question}}));
     case REMOVE_QUESTION:
     // is this right?
-      delete nextState.byId[action.question.id];
+      delete nextState[action.question.id];
       return nextState;
     default:
       return state;
@@ -47,8 +48,6 @@ const allIdsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_SEARCHED_QUESTIONS:
     case RECEIVE_ALL_QUESTIONS:
-    console.log(state);
-    console.log(action);
       Object.keys(action.questions).forEach(
         (id) => {
           const intid = parseInt(id);
