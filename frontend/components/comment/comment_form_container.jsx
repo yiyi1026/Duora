@@ -1,12 +1,10 @@
 import { connect } from 'react-redux';
 import CommentForm from './comment_form';
-import {createComment } from '../../actions/answer_actions';
+import {createComment } from '../../actions/comment_actions';
 
 // all these methods need to be udpated
 const  mapStateToProps = (state) => {
-  console.log(state);
   return {
-
     currentUser: state.session.currentUser
   };
 }

@@ -31,7 +31,7 @@ class QuestionBar extends React.Component {
   }
 
   handleFocusout(e){
-    e.preventDefault();
+    // e.preventDefault();
     document.getElementById('bottom').classList.remove("in");
     document.getElementById('bottom').classList.remove("modal-backdrop");
 

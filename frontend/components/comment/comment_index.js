@@ -16,13 +16,10 @@ class CommentIndex extends React.Component {
   }
 
   render() {
-    // console.log(getState());
-    console.log(this.props);
-    const {comments, errors } = this.props;
+    const {comments, errors, answerId} = this.props;
     if (this.state.waiting || !comments){
       return (<div></div>);
     }
-
     let commentItems =  comments.map(
       (comment, idx) =>
       // {;
@@ -32,7 +29,7 @@ class CommentIndex extends React.Component {
           <CommentIndexItem
           key={`comments${id}`}
           comment={comment}
-          questionId={this.props.questionId}
+          answerId={answerId}
           />);
         }
       );

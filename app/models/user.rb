@@ -31,6 +31,10 @@ class User < ApplicationRecord
 		foreign_key: :author_id,
 		class_name: :Answer
 
+	has_many :comments,  #author has written many answers
+		foreign_key: :author_id,
+		class_name: :Comment
+
 	has_many :topic_taggings,
 		foreign_key: :user_id,
 		class_name: :TopicTagging

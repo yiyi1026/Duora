@@ -15,30 +15,11 @@ class CommentIndexItem extends React.Component {
     // this.toggleComment = this.toggleComment.bind(this);
   }
 
-  componentDidMount() {
-    // this.props.requestAllComments(comment_id);
-  }
-
-  // handleClickComment(e) {
-  //   // console.log(e.target);
-  //   let $this = $(e.target);
-  //   // console.log($this.hasClass("Comment"));
-  //   if (!$this.hasClass('panel-collapsed')) {
-  //     $this.parents('.panel').find('.panel-body').slideUp();
-  //     $this.addClass('panel-collapsed');
-  //   } else {
-  //     $this.parents('.panel').find('.panel-body').slideDown();
-  //     $this.removeClass('panel-collapsed');
-  //   }
-  // }
-
   render() {
-    console.log(this.props);
     const {comment} = this.props;
-    // console.log(comment);
     const {id, body, created_at} = comment;
     let author = comment.author;
-
+    const answerId = comment.answer_id;
     if (!author) {
       author = currentUser;
     }
@@ -119,7 +100,6 @@ class CommentIndexItem extends React.Component {
               </span>
             </div>
             <div id={"collapse" + comment.id} className="accordion-body collapse">
-
             </div>
           </div>
 
