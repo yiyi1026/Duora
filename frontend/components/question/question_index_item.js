@@ -107,7 +107,7 @@ class QuestionIndexItem extends React.Component {
             <div className=" accordion-heading">
               <span className="left-margin-10  ">
                 <a className="Answer accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href={"#collapse" + question.id} role="button">
-                  <span className="glyphicon glyphicon-pencil"></span>Question
+                  <span className="glyphicon glyphicon-pencil"></span>Answer
                 </a>
               </span>
               <span className="left-margin-10">
