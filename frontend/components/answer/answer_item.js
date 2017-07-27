@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import javascript_time_ago from 'javascript-time-ago';
 import {requestSingleAnswer} from '../../actions/answer_actions';
 import * as SESSIONUTIL from '../../util/session_api_util';
-
+import CommentIndexContainer from '../comment/comment_index_container';
 
 class AnswerItem extends React.Component {
   constructor(props){
@@ -91,6 +91,7 @@ class AnswerItem extends React.Component {
                 </button>
               </div>
             </div>
+            <CommentIndexContainer answer_id={answer.id}/>
         </div>
 
       );

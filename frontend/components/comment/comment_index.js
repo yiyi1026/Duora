@@ -1,13 +1,12 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 
-class CommentItem extends React.Component {
+class CommentIndex extends React.Component {
   constructor(props){
   	super(props);
   	this.state = {
       waiting: true
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
     this.props.requestAllComments(5)
@@ -17,17 +16,19 @@ class CommentItem extends React.Component {
   render() {
     // console.log(getState());
     // console.log(this.props);
-    if (this.state.waiting){
+    const {comments, errors } = this.props;
+    if (this.state.waiting || !comments){
       return (<div></div>);
     }
-    const {comments, errors } = this.props;
 
-    const commentItems = allCommentsIds.map(
-      (id, idx) =>
+    let commentItems =  comments.map(
+      (comment, idx) =>
       // {console.log(comment);
-        { let comment = comments[idx];
-          return (<QuestionIndexItem key={`indexcomments${id}`} comment={comment} updateQuestion={updateQuestion}/>);
-  });  // const commentItems = {a:3};
+        {
+          let {id, body, author:{username, avatar}} = comment;
+          return (<li key={`comments${id}`} >{body}</li>);
+  }
+);
 
     return (
       <div>
@@ -47,4 +48,4 @@ class CommentItem extends React.Component {
 }
 
 // <CommentForm createComment={this.props.createComment} />
-export default CommentItem;
+export default CommentIndex;

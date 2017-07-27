@@ -34,7 +34,7 @@ const allIdsReducer = (state = [], action) => {
   let allIds = merge([], state);
   switch (action.type) {
     case RECEIVE_ALL_COMMENTS:
-      Object.keys(action.comments.allIds).forEach(
+      Object.keys(action.comments).forEach(
         id => {
           if (!allIds.includes(id)){
             allIds.push(id);
@@ -63,7 +63,7 @@ const commentReducer = (state = null, action) => {
   switch(action.type){
     case RECEIVE_SINGLE_COMMENT:
       return action.comment.id;
-    case REMOVE_ANSWER:
+    case REMOVE_COMMENT:
       return null;
     default:
       return state;

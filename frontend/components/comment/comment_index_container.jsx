@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
   // console.log(state);
   let comments = state.comments
   return {
-    comments: comments.byId,
+    comments: selectAllComments(comments),
     allCommentsIds: comments.allIds,
     errors: []
   };

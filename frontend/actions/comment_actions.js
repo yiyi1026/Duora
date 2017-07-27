@@ -22,7 +22,7 @@ export const removeComment = comment => ({
 export const requestSingleComment = id => dispatch => (
   APIUtil.fetchSingleComment(id).then(
     (comment) => {
-      dispatch(receiveSingleComment(comment));
+      dispatch(receiveSingleComment(comment))
     },errors => dispatch(receiveErrors(errors))
   )
 );
@@ -30,7 +30,7 @@ export const requestSingleComment = id => dispatch => (
 export const requestAllComments = (questionId) => dispatch => {
   // console.log('actions');
   return APIUtil.fetchCommentsByAnswerId(questionId).then(
-    (comments) => dispatch(receiveAllComments(comments));
+    (comments) => dispatch(receiveAllComments(comments))
     , errors => dispatch(receiveErrors(errors))
   );
 };

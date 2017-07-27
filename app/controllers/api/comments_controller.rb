@@ -13,7 +13,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    @comments = Question.find(params[:question_id]).comments
+    @comments = Answer.find(params[:answer_id]).comments
     render :index
   end
 

@@ -26,6 +26,7 @@ export const selectAllAnswers = (answers) => {
     return [];
   }
 };
+
 export const selectSingleQuestion = (question) => {
   console.log('selector');
   console.log(question);
@@ -44,18 +45,12 @@ export const selectSingleAnswer = (answer) => {
   }
 };
 
-
-// export const selectSingleQuestion = (questions) =>{
-//   console.log(questions);
-//   return questions.allIds.map(id => questions.byId[id]);
-// };
-//
-// export const selectVisibleQuestions = (state, filter) => {
-//   const allQuestions = selectAllQuestions(state);
-//   switch(filter) {
-//     case ALL:
-//       return allQuestions;
-//     default:
-//       throw new Error(`Unknow filter ${filter}.`);
-//   }
-// };
+export const selectAllComments = (comments) => {
+  // console.log(comments);
+  if (comments && comments.allIds) {
+    console.log(comments.allIds.map(id => comments.byId[id]));
+    return comments.allIds.map(id => comments.byId[id]);
+  } else {
+    return [];
+  }
+};
