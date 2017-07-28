@@ -4,11 +4,13 @@ class Api::TopicsController < ApplicationController
   # end
 
   def index
-    @topics = Topic.includes(:question_topic_taggings)
-    # @topics = Topic.includes(:question_topic_taggings).where("topic.name = ?", "%#{params[:query]}%")
-    # @topics = QuestionTopicTagging.includes(:topic).where("topic.name = ?", "%#{params[:query]}%")
-    # @topics = Topic.includes(question_topic_taggings: [:questions]).where("name = ?", "%#{params[:query]}%")
-    # @topics = Topic.all
+    if params[:query].present?
+      @topics = Topic.where("name LIKE ?", "%#{params[:query]}%").limit(10)
+    elsif params[:question_id].present?
+      @topics = Topic.joins(:questions).where(questions: {id: params[:question_id]})
+    else
+      @topics = Topic.all
+    end
     render :index
   end
 
