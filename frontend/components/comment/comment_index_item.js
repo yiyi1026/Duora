@@ -17,7 +17,7 @@ class CommentIndexItem extends React.Component {
 
   render() {
     const {comment} = this.props;
-    const {id, body, created_at} = comment;
+    const {id, body, updated_at} = comment;
     let author = comment.author;
     const answerId = comment.answer_id;
     if (!author) {
@@ -30,24 +30,21 @@ class CommentIndexItem extends React.Component {
     require('intl-messageformat/dist/locale-data/en');
 
     const time_ago_english = new javascript_time_ago('en-US');
-    let create_date = new Date(created_at);
+    let create_date = new Date(updated_at);
     let timeAgo = time_ago_english.format(create_date.getTime());
 
     let html = (
-      <li key={`commentdetail${id}`}>
-        <div className='container well'>
+      <li className="top-boader all-margin-10 top-padding-10 " key={`commentdetail${id}`}>
+        <div className='container '>
           <div className="row">
             <div className="">
               <a href="#"><img className="img-circle pull-left" src={avatar} width="25" height="25"/></a>
             </div>
-            <div className="left-margin-60">
+            <div className="left-margin-30">
               <div className="">
                 <span>
                   <a className="user black" href="#">{author.username}</a>
                 </span>
-                <span >,
-                </span>
-                <span>{author.description}</span>
               </div>
               <div className="">
                 <span>
