@@ -94,7 +94,7 @@ question_topic_tagging12 = QuestionTopicTagging.create!({topic_id: topic1.id, qu
 question_topic_tagging13 = QuestionTopicTagging.create!({topic_id: topic2.id, question_id: question9.id})
 
 answer1 = Answer.create!({body:"Software development is an extremely broad field. You can easily be highly qualified for one aspect of software development but highly unqualified for another. It’s important to learn the fundamentals and principles and then learn specifics as needed to address specific needs. Unfortunately, too many employers of software developers only judge them on application-specific knowledge and skills and, as a result, they only employ them for a few years and then they are obsolete.", author_id: guest2.id, question_id: question7.id})
-answer2 = Answer.create!({body:'answer2bodytoquestion1', author_id: guest3.id, question_id: question1.id})
+answer2 = Answer.create!({body:'Why?', author_id: guest3.id, question_id: question1.id})
 answer3 = Answer.create!({body:"It looks like a headache with countless notes on how it should or should not behave that will probably one day be erased and replaced because said code did not fulfill its function.
 It also probably has a gigantic list of variables, depending on how complex it is and. Probably some unused variables that the programmer forgot about and/or multiple variables supposed to serve the same purpose but that got repeated as the. Programmer forgot about their existence.
 
@@ -129,8 +129,8 @@ answer10 = Answer.create!({body:'answer10bodytoquestion7', author_id: guest2.id,
 
 
 comment1 = Comment.create!({body: 'You can find anything on the internet', answer_id: answer4.id, author_id: guest1.id})
-comment2 = Comment.create!({body: 'commentbody2', answer_id: answer3.id, author_id: guest2.id})
-comment3 = Comment.create!({body: 'commentbody3', answer_id: answer2.id, author_id: guest3.id})
+comment2 = Comment.create!({body: 'So much fun here', answer_id: answer3.id, author_id: guest2.id})
+comment3 = Comment.create!({body: 'So much fun here', answer_id: answer2.id, author_id: guest3.id})
 comment4 = Comment.create!({body: 'Let me help you find that', answer_id: answer4.id, author_id: guest4.id})
 comment5 = Comment.create!({body: "It's really interesting", answer_id: answer5.id, author_id: guest5.id})
 comment6 = Comment.create!({body: "It's really interesting", answer_id: answer6.id, author_id: guest6.id})
@@ -139,8 +139,8 @@ comment8 = Comment.create!({body: 'You can find anything on the internet', answe
 comment9 = Comment.create!({body: 'So much fun here', answer_id: answer9.id, author_id: guest7.id})
 comment10 = Comment.create!({body: "It's really interesting", answer_id: answer10.id, author_id: guest6.id})
 comment11 = Comment.create!({body: 'Have fun surfing on internet', answer_id: answer1.id, author_id: guest1.id})
-comment12 = Comment.create!({body: 'Have fun surfing on internet', answer_id: answer2.id, author_id: guest2.id})
-comment13 = Comment.create!({body: 'So much fun here', answer_id: answer3.id, author_id: guest3.id})
+comment12 = Comment.create!({body: 'Have fun surfing on internet', answer_id: answer6.id, author_id: guest3.id})
+comment13 = Comment.create!({body: 'So much fun here', answer_id: answer7.id, author_id: guest3.id})
 comment14 = Comment.create!({body: 'You can find anything on the internet', answer_id: answer6.id, author_id: guest4.id})
 comment15 = Comment.create!({body: "It's really interesting", answer_id: answer5.id, author_id: guest5.id})
 comment16 = Comment.create!({body: 'commentbody4', answer_id: answer3.id, author_id: guest7.id})
