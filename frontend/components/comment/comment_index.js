@@ -37,15 +37,26 @@ class CommentIndex extends React.Component {
       );
 
     return (
-      <div>
-        <ul className="comment-list list-unstyled">
-          <br/>
+      // <div className="row add-comment-form">
+      //   <div className="left-padding-30">
+      //     <a className="add-comment-form-item" href="#"><img className="img-circle pull-left" src={SESSIONUTIL.getAvatarUrl(currentUser)} width="25" height="25"/></a>
+      //     <input type="text" className="form-control" id="comment_field" onChange={this.handleCommentUpdate()} value={this.state.body} id="question_field" className="left-margin-10 add-comment-form-item add-comment-input line-height-15" placeholder="Add a comment..."/>
+      //     <button type="submit" onClick={this.handleCommentSubmit} className="add-comment-form-item PerfectColdButton all-margin-10" >
+      //       <span>Submit</span>
+      //     </button>
+      //   </div>
+      // </div>
+      <div className="row add-comment-form">
+        <div className="left-padding-30">
+          <ul className="comment-list list-unstyled">
+            <br/>
 
-          <div className='indexcomments'>
-            {commentItems}
-          </div>
-          <br/>
-        </ul>
+            <div className='indexcomments'>
+              {commentItems}
+            </div>
+            <br/>
+          </ul>
+        </div>
       </div>
 
     );

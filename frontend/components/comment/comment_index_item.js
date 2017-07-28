@@ -37,21 +37,8 @@ class CommentIndexItem extends React.Component {
       <li key={`commentdetail${id}`}>
         <div className='container well'>
           <div className="row">
-            <div className="reason_main">
-              Comment<span className="bullet">
-                ·
-              </span>
-              <a className="grey" href="#">
-                <span >Interpersonal Interaction</span>
-              </a>
-              <span className="bullet">
-                ·
-              </span>Topic you might like
-            </div>
-          </div>
-          <div className="row">
             <div className="">
-              <a href="#"><img className="img-circle pull-left" src={avatar} width="40" height="40"/></a>
+              <a href="#"><img className="img-circle pull-left" src={avatar} width="25" height="25"/></a>
             </div>
             <div className="left-margin-60">
               <div className="">

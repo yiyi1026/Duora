@@ -32,7 +32,7 @@ class QuestionDetail extends React.Component {
     const question = this.props.question;
     if (this.state.loading|| (!question) ){
       return(<div className='sweet-loading'>
-        <PropagateLoader
+        <RingLoader
           color={'#123abc'}
           loading={this.state.loading}
         />

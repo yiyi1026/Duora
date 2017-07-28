@@ -21,10 +21,10 @@ class QuestionIndex extends React.Component {
   render() {
     if (this.state.loading){
       return (<div className='sweet-loading'>
-        <PropagateLoader
+         <RingLoader
           color={'#123abc'}
           loading={this.state.loading}
-        />
+        /> 
       </div>);
     }
     const {questions, createQuestion, updateQuestion, errors, allQuestionsIds} = this.props;

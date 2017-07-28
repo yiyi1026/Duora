@@ -82,7 +82,7 @@ class AnswerItem extends React.Component {
           </div>
         </div>
         <CommentFormContainer answerId={answer.id}/>
-         <CommentIndexContainer answerId={answer.id} questionId={question_id}/>
+        <CommentIndexContainer answerId={answer.id} questionId={question_id}/>
     </div>
 
   );
