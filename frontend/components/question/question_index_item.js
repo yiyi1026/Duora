@@ -40,7 +40,14 @@ class QuestionIndexItem extends React.Component {
     }
     let avatar = SESSIONUTIL.getAvatarUrl(author);
 
-    let topicName = topic ? topic.name : 'Movie';
+    let topicName;
+    if (topic ){
+      topicName = topic.name;
+    }else if (question.topic){
+      topicName = question.topic.name;
+    }else{
+      topicName = 'Movie';
+    }
 
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
     require('javascript-time-ago/intl-messageformat-global');
