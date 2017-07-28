@@ -40,8 +40,6 @@ topic12 = Topic.create!({name:'Study'})
 topic13 = Topic.create!({name:'Video'})
 topic14 = Topic.create!({name:'Sports'})
 
-
-
 topic_tagging1 = TopicTagging.create!({topic_id: topic1.id, user_id: guest1.id})
 topic_tagging2 = TopicTagging.create!({topic_id: topic2.id, user_id: guest3.id})
 topic_tagging3 = TopicTagging.create!({topic_id: topic3.id, user_id: guest5.id})

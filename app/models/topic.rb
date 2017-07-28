@@ -17,8 +17,12 @@ class Topic < ApplicationRecord
   #   source: :user
 
   has_many :question_topic_taggings
-  has_many :questions, 
+  has_many :questions,
     through: :question_topic_taggings,
     source: :question
+
+  def questionsIds
+    self.question_topic_taggings.map{|question_topic_tagging| question_topic_tagging.question_id }
+  end
 
 end

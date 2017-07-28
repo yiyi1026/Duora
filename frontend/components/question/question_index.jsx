@@ -62,7 +62,7 @@ class QuestionIndex extends React.Component {
          <RingLoader
           color={'#123abc'}
           loading={this.state.loading}
-        /> 
+        />
       </div>);
     }
     const {questions, createQuestion, updateQuestion, errors, allQuestionsIds} = this.props;
@@ -84,7 +84,7 @@ class QuestionIndex extends React.Component {
               <a className="user grey" href="#">{currentUser.username}</a>
             </span>
             <div>
-              <a className="askquestion grey font-size-18 bold" 
+              <a className="askquestion grey font-size-18 bold"
                 onClick={this.open}>
               What is your question?
               </a>
@@ -100,8 +100,8 @@ class QuestionIndex extends React.Component {
                     <a className="user grey" href="#">{currentUser.username}</a>
                   </span>
                   <div>
-                    <input type="text" onChange={this.handleQuestionFieldUpdate()} value={this.state.title} 
-                      className="askquestion font-size-18 bold no-border top-margin-10" 
+                    <input type="text" onChange={this.handleQuestionFieldUpdate()} value={this.state.title}
+                      className="askquestion font-size-18 bold no-border top-margin-10"
                       placeholder='What is your question?'/>
                   </div>
                 </Modal.Body>
