@@ -11,7 +11,7 @@ class QuestionBar extends React.Component {
       body: '',
       topic_id: 1,
       showSearch: false,
-      waiting: true
+      loading: true
     };
 
     this.handleQuestionFieldSubmit = this.handleQuestionFieldSubmit.bind(this);
@@ -23,7 +23,7 @@ class QuestionBar extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({'waiting': false});
+    this.setState({'loading': false});
   }
 
   navigateTo(location) {
@@ -77,7 +77,7 @@ class QuestionBar extends React.Component {
   }
 
   render() {
-    if (this.state.waiting){
+    if (this.state.loading){
       return(<div></div>);
     }
 

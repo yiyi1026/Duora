@@ -7,6 +7,7 @@ import AnswerIndexContainer from '../answer/answer_index_container';
 
 import javascript_time_ago from 'javascript-time-ago';
 import * as SESSIONUTIL from '../../util/session_api_util';
+import { RingLoader } from 'react-spinners';
 
 class QuestionDetail extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class QuestionDetail extends React.Component {
       title: '',
       body: '',
       id: '',
-      waiting: true
+      loading: true
 
     };
   }
@@ -23,14 +24,19 @@ class QuestionDetail extends React.Component {
   componentDidMount() {
     let id = parseInt(this.props.match.params.questionId);
     this.props.requestSingleQuestion(id)
-    .then(setTimeout(() => this.setState({waiting: false}), 100));
-    // .then(() => this.setState({waiting: false}));
+    .then(setTimeout(() => this.setState({loading: false}), 100));
+    // .then(() => this.setState({loading: false}));
   }
 
   render() {
     const question = this.props.question;
-    if (this.state.waiting|| (!question) ){
-      return(<div></div>);
+    if (this.state.loading|| (!question) ){
+      return(<div className='sweet-loading'>
+        <PropagateLoader
+          color={'#123abc'}
+          loading={this.state.loading}
+        />
+      </div>);
     }
     else{
     const {created_at} = question;

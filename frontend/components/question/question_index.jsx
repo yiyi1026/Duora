@@ -2,24 +2,30 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import QuestionIndexItem from './question_index_item';
 import QuestionDetailContainer from './question_detail_container';
+import { RingLoader } from 'react-spinners';
 
 class QuestionIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      waiting: true
+      loading: true
     };
       this.setState = this.setState.bind(this);
     }
   componentDidMount() {
     this.props.requestAllQuestions()
     .then(
-      () => this.setState({waiting: false})
+      () => this.setState({loading: false})
     );
   }
   render() {
-    if (this.state.waiting){
-      return (<div></div>);
+    if (this.state.loading){
+      return (<div className='sweet-loading'>
+        <PropagateLoader
+          color={'#123abc'}
+          loading={this.state.loading}
+        />
+      </div>);
     }
     const {questions, createQuestion, updateQuestion, errors, allQuestionsIds} = this.props;
 

@@ -9,7 +9,7 @@ class AnswerForm extends React.Component {
     this.state = {
       // body: 'text',
       rte: RichTextEditor.createEmptyValue(),
-      waiting: true
+      loading: true
     }
     this.update = (rte) => this.setState({rte});
     this.handleAnswerSubmit = this.handleAnswerSubmit.bind(this);
@@ -33,7 +33,7 @@ class AnswerForm extends React.Component {
   }
 
   render() {
-    // if (this.state.waiting){
+    // if (this.state.loading){
     //   return <div></div>;
     // }
     return (

@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 import QuestionIndex from './question_index';
 import {requestAllQuestions, createQuestion, updateQuestion, deleteQuestion} from '../../actions/question_actions';
-//Do I need to keep this deleteQuestion????
 import {selectAllQuestions} from '../../reducers/selectors';
+import { RingLoader } from 'react-spinners';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,8 +10,6 @@ const mapStateToProps = (state) => {
     allQuestionsIds: state.questions.allIds,
     currentQuestion: state.questions.currentQuestion,
     errors: []
-  // return {questions: selectAllQuestions(questions), errors: []};
-  // here questions {byId:{}, allIds:[]}
 }};
 
 const mapDispatchToProps = dispatch => ({

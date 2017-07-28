@@ -8,6 +8,7 @@ import {
   deleteAnswer
 } from '../../actions/answer_actions';
 
+
 import {selectAllAnswers, selectSingleAnswer } from '../../reducers/selectors';
 
 const  mapStateToProps = (state) =>{

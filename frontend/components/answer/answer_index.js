@@ -5,25 +5,30 @@ import {requestSingleAnswer} from '../../actions/answer_actions';
 import * as SESSIONUTIL from '../../util/session_api_util';
 import CommentIndexContainer from '../comment/comment_index_container';
 import AnswerItemContainer from './answer_item_container';
-// import CommentFormContainer from '../comment/comment_form_container';
+import { RingLoader } from 'react-spinners';
 
 class AnswerIndex extends React.Component {
   constructor(props){
     super(props);
     this.state ={
-      waiting: true
+      loading: true
     };
     this.setState = this.setState.bind(this);
   }
   componentDidMount() {
     this.props.requestAllAnswers(this.props.question_id).then(
-      () => this.setState({waiting: false})
+      () => this.setState({loading: false})
     );
   }
   render() {
     const {answers} = this.props;
-    if (this.state.waiting|| (!answers)){
-      return (<div></div>);
+    if (this.state.loading|| (!answers)){
+      return (<div className='sweet-loading'>
+        <RingLoader
+          color={'#123abc'}
+          loading={this.state.loading}
+        />
+      </div>);
     }else{
 
 

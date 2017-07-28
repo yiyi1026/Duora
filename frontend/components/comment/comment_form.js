@@ -7,8 +7,8 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      body: 'Add a Comment',
-      waiting: true,
+      body: '',
+      loading: true,
       author_id: this.props.currentUser.id,
       answer_id: this.props.answer_id
     }
@@ -39,7 +39,7 @@ class CommentForm extends React.Component {
       answer_id
     }
     this.props.createComment(comment).then(
-      () => this.setState({waiting: false}))
+      () => this.setState({loading: false}))
       // .then(this.props.history.push(null, `/answers/${this.props.answer.id}`));
     // history.pushState(null, '/');
     //how to make this page refresh
@@ -48,15 +48,15 @@ class CommentForm extends React.Component {
 
   render() {
     console.log(this.props);
-    if (this.props.waiting){
+    if (this.props.loading){
       return (<div></div>);
     }
     console.log(this.props);
     return (
-      <div className="row add-comment-form ">
-        <div className=" left-padding-30">
+      <div className="row add-comment-form">
+        <div className="left-padding-30">
           <a className="add-comment-form-item" href="#"><img className="img-circle pull-left" src={SESSIONUTIL.getAvatarUrl(currentUser)} width="25" height="25"/></a>
-          <input onChange={this.handleCommentUpdate()} value={this.state.body} id="question_field" className="left-margin-10 add-comment-form-item add-comment-input line-height-15" placeholder="Add a comment..."/>
+          <input type="text" className="form-control" id="comment_field" onChange={this.handleCommentUpdate()} value={this.state.body} id="question_field" className="left-margin-10 add-comment-form-item add-comment-input line-height-15" placeholder="Add a comment..."/>
           <button type="submit" onClick={this.handleCommentSubmit} className="add-comment-form-item PerfectColdButton all-margin-10" >
             <span>Submit</span>
           </button>
