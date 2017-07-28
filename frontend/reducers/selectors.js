@@ -63,3 +63,11 @@ export const CommentsByAnswerId = (comments, answerId) => {
   );
   return commentsByAnswerId;
 };
+
+export const selectAllTopics = (topics) => {
+  if (topics && topics.allIds) {
+    return topics.allIds.map(id => topics.byId[id]);
+  } else {
+    return [];
+  }
+};

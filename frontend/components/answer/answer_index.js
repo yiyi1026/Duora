@@ -38,6 +38,7 @@ class AnswerIndex extends React.Component {
           return <div id='answerIndexplaceholder'></div>;
         }
         let {id} = answer;
+        return (<AnswerItemContainer key={`answer${id}`} answer={answer} />);
 
         // let { body, id, question_id, created_at, author} = answer;
 
@@ -53,7 +54,6 @@ class AnswerIndex extends React.Component {
         // let create_date = new Date(created_at);
         // let timeAgo = time_ago_english.format(create_date.getTime());
         // console.log('inside answerindex');
-        return (<AnswerItemContainer key={`answer${id}`} answer={answer} />);
 
       //   <div key={`answers${answer.id}`} className="container top-boader top-margin-30">
       //     <div className="row all-margin-10">

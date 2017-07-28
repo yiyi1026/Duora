@@ -12,10 +12,10 @@ export const fetchSingleTopic = id => (
   })
 );
 
-export const searchTopics = query => (
+export const searchTopics = question_id => (
   $.ajax({
     method: 'GET',
-    url: `/api/topics?query=${query}`,
+    url: `/api/topics?question_id=${question_id}`,
   })
 );
 
