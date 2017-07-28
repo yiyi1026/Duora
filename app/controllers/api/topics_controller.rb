@@ -4,11 +4,18 @@ class Api::TopicsController < ApplicationController
   # end
 
   def index
-    @topics = Topic.all
+    if params[:query].present?
+      @topics = Topic.where("title LIKE ?", "%#{params[:query]}%").limit(10)
+    elsif params[:question_id].present?
+      @topics = Question.find(params[:question_id]).topics
+    else
+      @topics = Topic.all
+    end
+    render :index
   end
 
   def show
-    @topic = Topic.find_by(topic_params)
+    @topic = Topic.find(params[:id])
     #maybe created_at?? newest questions come first???
     @topic_questions = @topic.questions.order(id: :desc)
   end
@@ -19,6 +26,6 @@ class Api::TopicsController < ApplicationController
   # end
 
   def topic_params
-    params.require(:topic).permit(:id, :name, :questions)
+    params.require(:topic).permit(:id, :name, :questions, :question_id)
   end
 end
