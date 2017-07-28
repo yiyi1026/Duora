@@ -27,8 +27,8 @@ class MainFrame extends React.Component {
               <Route path="/" component={QuestionIndexContainer}/>
             </Switch>
           </div>
-          <div className="col-md-2 col-lg-2">
-            Subscriptions
+          <div className="col-md-2 col-lg-2 subscriptions">
+
           </div>
         </div>
       </div>
