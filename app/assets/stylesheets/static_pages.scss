@@ -287,6 +287,27 @@ div h4 p {
   margin-right: 4px;
 }
 
+.search_topic_dropdown{
+  position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    width: 200px;
+    padding: 5px 0;
+    margin-left: 15px;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    // border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    // -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+}
+
 .search_question_dropdown{
   position: absolute;
     top: 100%;
@@ -294,7 +315,8 @@ div h4 p {
     z-index: 1000;
     float: left;
     width: 500px;
-    padding: 5px 0;
+    margin-top: -15px;
+    padding-top: -15px;
     margin-left: 15px;
     list-style: none;
     font-size: 14px;
@@ -413,4 +435,22 @@ body .modal{
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+.topic-pill{
+    color: #808393;
+    text-decoration: none;
+    position: relative;
+    font-size: 13px;
+    padding: 4px 8px;
+    background: #e4e4e4;
+    font-weight: 500;
+    line-height: 1.2em;
+    border-radius: 12px;
+    cursor: pointer;
+  word-wrap: break-word;
+}
+
+.search-topic-bar{
+  width: 200px;
 }

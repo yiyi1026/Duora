@@ -5,6 +5,7 @@ import QuestionIndexItem from './question_index_item';
 import QuestionDetailContainer from './question_detail_container';
 import { RingLoader } from 'react-spinners';
 import * as SESSIONUTIL from '../../util/session_api_util';
+import TopicEditFormContainer from '../topic/topic_edit_form_container';
 
 class QuestionIndex extends React.Component {
   constructor(props) {
@@ -89,7 +90,7 @@ class QuestionIndex extends React.Component {
               What is your question?
               </a>
 
-              <Modal show={this.state.showModal} onHide={this.close} >
+              <Modal id="askQuestionModal" show={this.state.showModal} onHide={this.close} >
                 <Modal.Header closeButton>
                 </Modal.Header>
                 <Modal.Body>
@@ -104,6 +105,8 @@ class QuestionIndex extends React.Component {
                       className="askquestion font-size-18 bold no-border top-margin-10"
                       placeholder='What is your question?'/>
                   </div>
+
+                  <TopicEditFormContainer />
                 </Modal.Body>
                 <Modal.Footer>
                   <button type="button" className="PerfectColdButton" onClick={this.handleQuestionFieldSubmit}>Ask Question</button>
