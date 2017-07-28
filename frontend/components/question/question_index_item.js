@@ -40,6 +40,8 @@ class QuestionIndexItem extends React.Component {
     }
     let avatar = SESSIONUTIL.getAvatarUrl(author);
 
+    let topicName = topic ? topic.name : 'Movie';
+
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
     require('javascript-time-ago/intl-messageformat-global');
     require('intl-messageformat/dist/locale-data/en');
@@ -57,7 +59,7 @@ class QuestionIndexItem extends React.Component {
                 ·
               </span>
               <a className="grey" href="#">
-                <span >{topic.name}</span>
+                <span >{topicName}</span>
               </a>
               <span className="bullet">
                 ·
