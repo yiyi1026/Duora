@@ -5,9 +5,9 @@ class Api::TopicsController < ApplicationController
 
   def index
     if params[:query].present?
-      @topics = Topic.where("title LIKE ?", "%#{params[:query]}%").limit(10)
+      @topics = Topic.where("name LIKE ?", "%#{params[:query]}%").limit(10)
     elsif params[:question_id].present?
-      @topics = Question.find(params[:question_id]).topics
+      @topics = Topic.joins(:questions).where(questions: {id: params[:question_id]})
     else
       @topics = Topic.all
     end
