@@ -38,7 +38,8 @@ class CommentForm extends React.Component {
       answer_id
     }
     this.props.createComment(comment).then(
-      () => this.setState({loading: false}))
+      () => this.setState({loading: false, 
+        body: ''}))
       // .then(this.props.history.push(null, `/answers/${this.props.answer.id}`));
     // history.pushState(null, '/');
     //how to make this page refresh
