@@ -47,6 +47,7 @@ class CommentForm extends React.Component {
   }
 
   render() {
+    let currentUser = this.props.currentUser;
     console.log(this.props);
     if (this.props.loading){
       return (<div></div>);

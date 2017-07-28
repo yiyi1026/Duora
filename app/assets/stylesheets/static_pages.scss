@@ -369,8 +369,36 @@ div h4 p {
   z-index: 0;
 }
 
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+padding-right: 13px;
+}
 
-html body.modal-open{
-  overflow: auto;
-  padding-right: 0 !important;
+.font-size-18{
+  font-size: 18px;
+}
+
+.askquestion{
+  width: 100%;
+  cursor: pointer;
+}
+
+a.askquestion:hover{
+  text-decoration: none;
+}
+
+.no-border{
+  border: 0;
+}
+
+#askQuestionModal {
+  top:15%;
+}
+
+#askQuestionModal input:focus{
+  outline: none;
+}
+
+body .modal{ 
+  display: block; 
 }

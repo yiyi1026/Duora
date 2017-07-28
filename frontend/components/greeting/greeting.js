@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import QuestionBarContainer from '../question/question_bar_container';
 import {withRouter} from 'react-router';
 import {AuthRoute} from '../../util/route_util';
+import * as SESSIONUTIL from '../../util/session_api_util';
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class Greeting extends React.Component {
   }
 
   render() {
+    
     const {currentUser, logout} = this.props;
+    let avatar = SESSIONUTIL.getAvatarUrl(currentUser);
 
     const personalGreeting = (
       <div className='col-lg-offset-4'>
@@ -49,7 +52,8 @@ class Greeting extends React.Component {
                 </li>
                 <li className="dropdown ">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span className='glyphicon glyphicon-user'></span>{currentUser.username}
+                    <a href="#"><img className="img-circle pull-left" src={avatar} width="25" height="25"/></a>
+                    {currentUser.username}
                   </a>
                   <ul className="dropdown-menu">
                     <li>

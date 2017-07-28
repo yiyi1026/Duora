@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
     questions: selectAllQuestions(state.questions),
     allQuestionsIds: state.questions.allIds,
     currentQuestion: state.questions.currentQuestion,
+    currentUser: state.session.currentUser,
     errors: []
 }};
 
