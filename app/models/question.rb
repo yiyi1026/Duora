@@ -45,7 +45,7 @@ class Question < ApplicationRecord
   end
 
   def topicsIds
-    self.topics.map{|topic| topic.id }
+    self.question_topic_taggings.map{|question_topic_tagging| question_topic_tagging.topic_id }
   end
 
 end
