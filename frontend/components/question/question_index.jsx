@@ -24,6 +24,7 @@ class QuestionIndex extends React.Component {
       this.handleQuestionFieldSubmit = this.handleQuestionFieldSubmit.bind(this);
       this.handleQuestionFieldUpdate = this.handleQuestionFieldUpdate.bind(this);
       this.handleStateChange = this.handleStateChange.bind(this);
+      this.handleQuestionTopicsUpdate = this.handleQuestionTopicsUpdate.bind(this);
     }
 
     
@@ -32,10 +33,9 @@ class QuestionIndex extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
-    let topicId = console.log(this.props.match.params.topicId);
+    let topicId = this.props.match.params.topicId;
     if (topicId){
-      this.props.requestSingleTopic(topicId).then((topic) => console.log(topic)).then(
+      this.props.requestSingleTopic(topicId).then(
         () => this.setState({loading: false})
       );
     }else{
@@ -48,23 +48,13 @@ class QuestionIndex extends React.Component {
   }
 
   handleQuestionTopicsUpdate(topics){
-    /// check here , looks like i've got the stage but setState added to child stage 
-    console.log('nice!!!! i get it ')
-    console.log(topics)
-    // this.handleStateChange({topics: topics});
-    this.setState({topics: topics})
     let firstTopicId = topics[0].id
-    // this.handleStateChange({topic_id: firstTopicId});
-    this.setState({topic_id: firstTopicId})
-
-    console.log(this.state.topics);
-    console.log(this.state.topic_id);
+    this.setState({topic_id: firstTopicId, topics: topics})
   }
 
   handleQuestionFieldSubmit(e) {
     e.preventDefault();
     if(this.state.title){
-      console.log(this.state)
       this.props.createQuestion(this.state)
         .then(() => this.setState({title: '', showModal: false}));
     }
@@ -88,8 +78,6 @@ class QuestionIndex extends React.Component {
   }
 
   render() {
-    console.log(this.state);
-    console.log(this.props);
     let currentUser = this.props.currentUser;
     if (this.state.loading){
       return (<div className='sweet-loading'>
@@ -103,7 +91,6 @@ class QuestionIndex extends React.Component {
 
     const questionItems = allQuestionsIds.map(
       (id, idx) =>
-      // {console.log(question);
         { let question = questions[idx];
           return (<QuestionIndexItem key={`indexquestions${id}`} question={question} updateQuestion={updateQuestion}/>);
   });  // const questionItems = {a:3};

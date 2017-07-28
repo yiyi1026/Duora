@@ -7,7 +7,7 @@
 #   end
 # end
 
-json.extract! question, :id, :title, :body, :created_at, :updated_at
+json.extract! question, :id, :title, :body, :created_at, :updated_at, :topic_id
 # json.extract! answer, question.answer
 #
 
