@@ -36,7 +36,7 @@ class QuestionIndexItem extends React.Component {
     let author = question.author;
 
     if (!author) {
-      author = currentUser;
+      author = this.props.currentUser;
     }
     let avatar = SESSIONUTIL.getAvatarUrl(author);
 

@@ -3,15 +3,13 @@ Duora
 [Duora live][heroku]
 [heroku]: https://duora.herokuapp.com/
 
-Duora is a full-stack web application inspired by Quora. It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.
+Duora is a full-stack web application inspired by Quora. It utilizes React.js with a Redux architectural framework on the frontend, a PostgreSQL database Ruby on Rails on the backend.
 
 Features & Implementation
 
-NB: don't copy and paste any of this. Many folks will implement similar features, and many employers will see the READMEs of a lot of a/A grads. You must write in a way that distinguishes your README from that of other students', but use this as a guide for what topics to cover.
+Questions Searching and Rendering
 
-Question Searching and Rendering
-
-On the database side, questions are stored in one table in the database, which contains id, user_id, title, body, and updated_at. Upon login, an API call is made to the database which joins the user table and the question table on user_id and filters by the current user's id. These questions are held in the QuestionStore until the user's session is destroyed.
+On the database side, each question is stored in one table in the database, which contains attributes to id, user_id, title, body, created_at and updated_at. Upon login, an API call is made to the database to fetch the user information. All questions are held in the QuestionStore until the user's session is destroyed or redirect to other urls.
 
 Questions are rendered in two different components: the CondensedQuestion components, which show the title and first few words of the question content, and the ExpandedQuestion components, which are editable and show all question text. The QuestionIndex renders all of the questions as subcomponents, as well as one ExpandedQuestion component, which renders based on QuestionStore.selectedQuestion(). The UI of the QuestionIndex is taken directly from Quora for a professional, clean look:
 
@@ -19,8 +17,9 @@ image of question index
 
 Question editing is implemented using the Quill.js library, allowing for a Word-processor-like user experience.
 
-Questions
+Answers
 
+Each answer, which contains attributes to id, question_id, author_id, body, is referenced to a specific question.
 Implementing Questions started with a question table in the database. The Question table contains two columns: title and id. Additionally, a question_id column was added to the Question table.
 
 The React component structure for questions mirrored that of questions: the QuestionIndex component renders a list of CondensedQuestions as subcomponents, along with one ExpandedQuestion, kept track of by QuestionStore.selectedQuestion().
