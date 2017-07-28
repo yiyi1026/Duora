@@ -23,7 +23,13 @@ class QuestionIndex extends React.Component {
       this.close = this.close.bind(this);
       this.handleQuestionFieldSubmit = this.handleQuestionFieldSubmit.bind(this);
       this.handleQuestionFieldUpdate = this.handleQuestionFieldUpdate.bind(this);
+      this.handleStateChange = this.handleStateChange.bind(this);
     }
+
+    
+  handleStateChange(newvalue) {
+    this.setState(newvalue)
+  };
 
   componentDidMount() {
     console.log(this.props);
@@ -42,15 +48,23 @@ class QuestionIndex extends React.Component {
   }
 
   handleQuestionTopicsUpdate(topics){
+    /// check here , looks like i've got the stage but setState added to child stage 
     console.log('nice!!!! i get it ')
     console.log(topics)
-    this.setState({topics: topics});
-    console.log(this.state.topics)
+    // this.handleStateChange({topics: topics});
+    this.setState({topics: topics})
+    let firstTopicId = topics[0].id
+    // this.handleStateChange({topic_id: firstTopicId});
+    this.setState({topic_id: firstTopicId})
+
+    console.log(this.state.topics);
+    console.log(this.state.topic_id);
   }
 
   handleQuestionFieldSubmit(e) {
     e.preventDefault();
     if(this.state.title){
+      console.log(this.state)
       this.props.createQuestion(this.state)
         .then(() => this.setState({title: '', showModal: false}));
     }

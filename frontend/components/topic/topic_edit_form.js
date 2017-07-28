@@ -12,14 +12,13 @@ class TopicEditForm extends React.Component{
         this.handleSearchTopics = this.handleSearchTopics.bind(this);
         this.handleTopicFieldUpdate = this.handleTopicFieldUpdate.bind(this);
         this.handleAddTopic = this.handleAddTopic.bind(this);
-        this.triggerQuestionTopicsUpdate = this.props.triggerQuestionTopicsUpdate.bind(this);
     }
 
     handleAddTopic(e){
         console.log(e.currentTarget.id)
         let newTopics = [...this.state.topics_p, this.props.topics.byId[e.currentTarget.id]];
         this.setState({topics_p: newTopics, name: ''});
-        this.triggerQuestionTopicsUpdate(newTopics);
+        this.props.triggerQuestionTopicsUpdate(newTopics);
     }
 
     handleSearchTopics(query) {
