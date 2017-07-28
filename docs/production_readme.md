@@ -46,7 +46,7 @@ In addition to the features already implemented, I plan to continue work on this
 
 Search
 
-Searching questions is a standard feature of Quora. I plan to utilize the Fuse.js library to create a fuzzy search of questions and questions. This search will look go through tags, question titles, question titles, and question content.
+Searching questions is a standard feature of Quora. I use ActiveRecord query method to create a fuzzy search of questions and questions. This search will look go through titles of all questions for matching result, which is case insensitive.
 
 Direct Messaging
 
