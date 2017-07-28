@@ -18,9 +18,7 @@ class QuestionIndexItem extends React.Component {
   }
 
   handleClickAnswer(e) {
-    console.log(e.target);
     let $this = $(e.target);
-    console.log($this.hasClass("Answer"));
     if (!$this.hasClass('panel-collapsed')) {
       $this.parents('.panel').find('.panel-body').slideUp();
       $this.addClass('panel-collapsed');
@@ -34,7 +32,6 @@ class QuestionIndexItem extends React.Component {
     // console.log(this.props);
     const {question, updateQuestion} = this.props;
     // console.log(question);
-    console.log(question);
     const {id, title, body, answers, created_at} = question;
     let author = question.author;
 

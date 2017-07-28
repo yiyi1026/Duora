@@ -5,8 +5,6 @@ import {selectAllQuestions, selectQuestionsByTopicId} from '../../reducers/selec
 import { RingLoader } from 'react-spinners';
 
 const mapStateToProps = (state, {match}) => {
-  console.log(state);
-  // console.log(this.props);
   const topicId = match.params.topicId? match.params.topicId : null;
   let q = selectQuestionsByTopicId(state.questions, topicId);
   return {
