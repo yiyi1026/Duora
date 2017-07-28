@@ -36,6 +36,10 @@ topic8 = Topic.create!({name:'Comic'})
 topic9 = Topic.create!({name:'Travel'})
 topic10 = Topic.create!({name:'Life'})
 topic11 = Topic.create!({name:'Food'})
+topic11 = Topic.create!({name:'Study'})
+topic11 = Topic.create!({name:'Video'})
+topic11 = Topic.create!({name:'Food'})
+
 
 
 topic_tagging1 = TopicTagging.create!({topic_id: topic1.id, user_id: guest1.id})
@@ -75,6 +79,7 @@ question18 = Question.create!({title: 'Which is your favorite coding language?',
 question19 = Question.create!({title: 'Which song do you like most?', body: '', author_id: guest7.id, topic_id: topic3.id})
 question20 = Question.create!({title: 'Why do you choose Apple products?', body: '', author_id: guest7.id, topic_id: topic10.id})
 question21 = Question.create!({title: 'What is your favorite food?', body: '', author_id: guest7.id, topic_id: topic11.id})
+question21 = Question.create!({title: "What is one website article you would recommend people to read?", body: '', author_id: guest7.id, topic_id: topic6.id})
 
 
 answer1 = Answer.create!({body:"Software development is an extremely broad field. You can easily be highly qualified for one aspect of software development but highly unqualified for another. It’s important to learn the fundamentals and principles and then learn specifics as needed to address specific needs. Unfortunately, too many employers of software developers only judge them on application-specific knowledge and skills and, as a result, they only employ them for a few years and then they are obsolete.", author_id: guest2.id, question_id: question7.id})
