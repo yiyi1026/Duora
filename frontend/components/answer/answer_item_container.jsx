@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AnswerItem from './answer_item';
-import {requestSingleAnswer} from '../../actions/answer_actions';
+import {requestAllComments} from '../../actions/comment_actions';
 import {
   createAnswer,
   updateAnswer,
@@ -19,10 +19,10 @@ const  mapStateToProps = (state) =>{
 };
 
 
-const mapDispatchToProps = dispatch => ({
-  requestSingleAnswer: (answerid) => dispatch(requestSingleAnswer(answerid)),
-  updateAnswer: (answer) => dispatch(updateAnswer(answer)),
-  deleteAnswer: (answer) => dispatch(deleteAnswer(answer))
+const mapDispatchToProps = (dispatch, {answer} )=> ({
+  requestAllComments: (answerid) => dispatch(requestAllComments(answer.id)),
+  updateAnswer: () => dispatch(updateAnswer(answer)),
+  deleteAnswer: () => dispatch(deleteAnswer(answer))
 });
 
 

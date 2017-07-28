@@ -25,7 +25,6 @@ export const selectAllAnswers = (answers) => {
 };
 
 export const selectSingleQuestion = (question) => {
-
   if (question && question.allIds) {
     return question.allIds.map(id => question.byId[id]);
   } else {
@@ -47,4 +46,20 @@ export const selectAllComments = (comments) => {
   } else {
     return [];
   }
+};
+
+export const CommentsByAnswerId = (comments, answerId) => {
+  const commentsByAnswerId = [];
+  if (!comments.allIds){
+    return commentsByAnswerId;
+  }
+  comments.allIds.forEach(
+    commentId => {
+      const comment = comments.byId[commentId];
+      if (comment.answer_id === answerId) {
+        commentsByAnswerId.push(comment);
+      }
+    }
+  );
+  return commentsByAnswerId;
 };

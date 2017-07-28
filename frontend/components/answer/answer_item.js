@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import javascript_time_ago from 'javascript-time-ago';
-import {requestSingleAnswer} from '../../actions/answer_actions';
+import {requestAllComments} from '../../actions/comment_actions';
 import * as SESSIONUTIL from '../../util/session_api_util';
 import CommentIndexContainer from '../comment/comment_index_container';
 import CommentFormContainer from '../comment/comment_form_container';
@@ -9,17 +9,16 @@ import CommentFormContainer from '../comment/comment_form_container';
 class AnswerItem extends React.Component {
   constructor(props){
     super(props);
+
   }
 
-  componentWillReceiveProps(newProps){
-    if (!this.props.answer.author){
-      this.props.requestSingleAnswer(this.props.answer.id);
-    }
+  componentDidMount() {
+    this.props.requestAllComments();
   }
 
   render() {
-    const answer = this.props.answer;
-    // console.log(this.state.answer);
+    const {answer} = this.props;
+    // console.log(this.props.answer);
     if(!answer){
       return <div></div>;
     }
@@ -81,8 +80,8 @@ class AnswerItem extends React.Component {
             </span>
           </div>
         </div>
-        <CommentFormContainer answerId={answer.id}/>
-        <CommentIndexContainer answerId={answer.id} questionId={question_id}/>
+        <CommentFormContainer answerId={answer.id} />
+        <CommentIndexContainer answerId={answer.id} />
     </div>
 
   );
