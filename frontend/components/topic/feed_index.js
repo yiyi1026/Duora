@@ -22,7 +22,7 @@ class FeedIndex extends React.Component{
   // }
 
   render(){
-    if (this.setState.loading){
+    if (this.state.loading){
       return (<div className='sweet-loading'>
         <RingLoader
           color={'#123abc'}

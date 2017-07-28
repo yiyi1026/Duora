@@ -1,13 +1,18 @@
 import {connect} from 'react-redux';
 import QuestionIndex from './question_index';
 import {requestAllQuestions, createQuestion, updateQuestion, deleteQuestion} from '../../actions/question_actions';
-import {selectAllQuestions} from '../../reducers/selectors';
+import {selectAllQuestions, selectQuestionsByTopicId} from '../../reducers/selectors';
 import { RingLoader } from 'react-spinners';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, {match}) => {
+  console.log(state);
+  // console.log(this.props);
+  const topicId = match.params.topicId? match.params.topicId : null;
   return {
-    questions: selectAllQuestions(state.questions),
+    questions: selectQuestionsByTopicId(state.questions, topicId),
+    // questions: selectAllQuestions(state.questions),
     allQuestionsIds: state.questions.allIds,
+    // TopicQuestionIds: state.questions.topicQuestionIds,
     currentQuestion: state.questions.currentQuestion,
     currentUser: state.session.currentUser,
     errors: []

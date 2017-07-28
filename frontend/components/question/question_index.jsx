@@ -57,6 +57,7 @@ class QuestionIndex extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     let currentUser = this.props.currentUser;
     if (this.state.loading){
       return (<div className='sweet-loading'>

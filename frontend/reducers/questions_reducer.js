@@ -83,6 +83,19 @@ const searchIdsReducer = (state = [], action) => {
   }
 };
 
+const byCurrentTopicReducer = (state = [], action) => {
+  Object.freeze(state);
+
+  let searchIds = [];
+  switch (action.type) {
+    case RECEIVE_SEARCHED_QUESTIONS:
+      Object.keys(action.questions).forEach( (id) => searchIds.push(id));
+      return searchIds;
+    default:
+      return state;
+  }
+};
+
 const questionReducer = (state = null, action) => {
   Object.freeze(state);
 
@@ -100,6 +113,7 @@ const questionsReducer = combineReducers({
   byId: byIdReducer,
   allIds: allIdsReducer,
   currentQuestion: questionReducer,
+  // byCurrentTopic: byCurrentTopicReducer,
   searchIds: searchIdsReducer
 });
 export default questionsReducer;

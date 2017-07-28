@@ -8,6 +8,29 @@ export const selectAllQuestions = (questions) => {
   }
 };
 
+export const selectQuestionsByTopicId = (questions, topicId) => {
+  const questionsByTopicId = [];
+  if (!questions.allIds){
+    return questionsByTopicId;
+  }
+  if (!topicId){
+    return selectAllQuestions(questions);
+  }
+  questions.allIds.forEach(
+    questionId => {
+      const question = questions.byId[questionId];
+      if (
+        (!question.topic_id)||
+        (question.topic_id === topicId) ||
+        question.topicIds.includes(topicId)) {
+        questionsByTopicId.push(question);
+      }
+    }
+  );
+  return questionsByTopicId;
+};
+
+
 export const selectSearchedQuestions = (questions) => {
   if (questions && questions.allIds) {
     return questions.allIds.map(id => questions.byId[id]);

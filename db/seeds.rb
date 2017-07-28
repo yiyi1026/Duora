@@ -77,7 +77,7 @@ question18 = Question.create!({title: 'Which is your favorite coding language?',
 question19 = Question.create!({title: 'Which song do you like most?', body: '', author_id: guest7.id, topic_id: topic3.id})
 question20 = Question.create!({title: 'Why do you choose Apple products?', body: '', author_id: guest7.id, topic_id: topic10.id})
 question21 = Question.create!({title: 'What is your favorite food?', body: '', author_id: guest7.id, topic_id: topic11.id})
-question21 = Question.create!({title: "What is one website article you would recommend people to read?", body: '', author_id: guest7.id, topic_id: topic6.id})
+question22 = Question.create!({title: "What is one website article you would recommend people to read?", body: '', author_id: guest7.id, topic_id: topic6.id})
 
 question_topic_tagging1  = QuestionTopicTagging.create!({topic_id: topic1.id, question_id: question1.id})
 question_topic_tagging2  = QuestionTopicTagging.create!({topic_id: topic2.id, question_id: question3.id})
