@@ -24,8 +24,8 @@ class QuestionDetail extends React.Component {
   componentDidMount() {
     let id = parseInt(this.props.match.params.questionId);
     this.props.requestSingleQuestion(id)
-    .then(setTimeout(() => this.setState({loading: false}), 100));
-    // .then(() => this.setState({loading: false}));
+    // .then(setTimeout(() => this.setState({loading: false}), 100));
+    .then(() => this.setState({loading: false}));
   }
 
   render() {

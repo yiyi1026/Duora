@@ -36,9 +36,9 @@ topic8 = Topic.create!({name:'Comic'})
 topic9 = Topic.create!({name:'Travel'})
 topic10 = Topic.create!({name:'Life'})
 topic11 = Topic.create!({name:'Food'})
-topic11 = Topic.create!({name:'Study'})
-topic11 = Topic.create!({name:'Video'})
-topic11 = Topic.create!({name:'Food'})
+topic12 = Topic.create!({name:'Study'})
+topic13 = Topic.create!({name:'Video'})
+topic14 = Topic.create!({name:'Sports'})
 
 
 
@@ -56,12 +56,12 @@ topic_tagging11 = TopicTagging.create!({topic_id: topic2.id, user_id: guest1.id}
 topic_tagging12 = TopicTagging.create!({topic_id: topic1.id, user_id: guest8.id})
 topic_tagging13 = TopicTagging.create!({topic_id: topic2.id, user_id: guest9.id})
 
+question1 = Question.create!({title: 'Is there an honest evaluation out there to help me determine if I am cut out to be a programmer/developer?',  body: '', author_id: guest3.id, topic_id: topic6.id})
 question2 = Question.create!({title: 'What does AI code look like?', body: '', author_id: guest1.id, topic_id: topic6.id})
 question3 = Question.create!({title: 'How do I build a deep learning machine with $10k budget?', body: 'I could add extra $3K if necessary.
 Answer Request', author_id: guest2.id, topic_id: topic6.id})
 question4 = Question.create!({title: 'Am I an unqualified software developer if I know nothing about Linux, backend and scaling after working 6 years?', body: '', author_id: guest4.id, topic_id: topic6.id})
 question5 = Question.create!({title: 'Is deep learning better than machine learning (statistical learning), even if its data set is small?', body: '', author_id: guest5.id, topic_id: topic6.id})
-question1 = Question.create!({title: 'Is there an honest evaluation out there to help me determine if I am cut out to be a programmer/developer?',  body: '', author_id: guest3.id, topic_id: topic6.id})
 
 question6 = Question.create!({title: 'I accidentally ate 4 oz of pure pork fat, how bad is this for me?', body: '', author_id: guest6.id, topic_id: topic7.id})
 question7 = Question.create!({title: "If I eat an egg and then eat sugar, will it all get registered as fat by my stomach?", body: '', author_id: guest5.id, topic_id: topic7.id})
@@ -112,9 +112,9 @@ Sugar doesn’t need a whole lot of digestion, it gets absorbed into the bloodst
 In response to sugar consumption, your pancreas releases insulin, which triggers your body cells to increase their uptake of sugar from the blood. All of your body cells will use as much as they need for energy, and the liver converts some of the remainder into glycogen. If there is still more sugar coming in to the bloodstream from your digestive system than your body can use right now, your adipose cells will suck it up and turn it into fat. This is a survival reflex that we inherited from millions of generations of ancestors who faced periodic starvation, and we cannot avoid it now even though it serves us poorly in modern times. If you are in the habit of eating sugar every day, your body cells will eventually develop insulin resistance which means that they respond more poorly to insulin. Among other effects, this further weakens the satiety feedback response so that you need to eat even more sugar until you finally start to feel full.
 
 Protein triggers an entirely different feedback mechanism, but as you didn’t ask about it I will leave it for another answer.", author_id: guest4.id, question_id: question7.id})
-answer8 = Answer.create!({body:'answer5bodytoquestion3', author_id: guest2.id, question_id: question2.id})
-answer9 = Answer.create!({body:'answer5bodytoquestion3', author_id: guest2.id, question_id: question5.id})
-answer10 = Answer.create!({body:'answer5bodytoquestion3', author_id: guest2.id, question_id: question5.id})
+answer8 = Answer.create!({body:'I have no idea.', author_id: guest3.id, question_id: question2.id})
+answer9 = Answer.create!({body:'answer9bodytoquestion5', author_id: guest2.id, question_id: question5.id})
+answer10 = Answer.create!({body:'answer10bodytoquestion7', author_id: guest2.id, question_id: question7.id})
 
 
 comment1 = Comment.create!({body: 'commentbody1', answer_id: answer4.id, author_id: guest1.id})

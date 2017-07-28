@@ -9,7 +9,7 @@ class CommentForm extends React.Component {
     this.state = {
       body: '',
       loading: true,
-      author_id: this.props.currentUser.id,
+      author_id: this.props.currentUser? this.props.currentUser.id: null,
       answer_id: this.props.answer_id
     }
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
@@ -20,7 +20,7 @@ class CommentForm extends React.Component {
     // e.preventDefault();
     return e => {
       if (e.target.value) {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         this.setState({body: e.target.value});
       }
       if (!this.state.author_id) {
@@ -31,7 +31,6 @@ class CommentForm extends React.Component {
 
   handleCommentSubmit(e) {
     e.preventDefault();
-    console.log(this.props);
     let answer_id = this.props.answerId;
     let comment = {
       body: this.state.body,
@@ -48,11 +47,10 @@ class CommentForm extends React.Component {
 
   render() {
     let currentUser = this.props.currentUser;
-    console.log(this.props);
     if (this.props.loading){
       return (<div></div>);
     }
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="row add-comment-form">
         <div className="left-padding-30">
