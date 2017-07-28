@@ -10,6 +10,7 @@ const rootReducer = combineReducers({
   questions: questionsReducer,
   answers: answersReducer,
   // errors: errorsReducer,
+  topics: topicsReducer
   comments: commentsReducer
 });
 

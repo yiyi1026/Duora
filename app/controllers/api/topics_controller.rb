@@ -4,7 +4,11 @@ class Api::TopicsController < ApplicationController
   # end
 
   def index
-    @topics = Topic.all
+    @topics = Topic.includes(:question_topic_taggings)
+    # @topics = Topic.includes(:question_topic_taggings).where("topic.name = ?", "%#{params[:query]}%")
+    # @topics = QuestionTopicTagging.includes(:topic).where("topic.name = ?", "%#{params[:query]}%")
+    # @topics = Topic.includes(question_topic_taggings: [:questions]).where("name = ?", "%#{params[:query]}%")
+    # @topics = Topic.all
     render :index
   end
 
@@ -21,6 +25,6 @@ class Api::TopicsController < ApplicationController
   # end
 
   def topic_params
-    params.require(:topic).permit(:id, :name)
+    params.require(:topic).permit(:id, :name, :question_id)
   end
 end
