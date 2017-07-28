@@ -6,23 +6,14 @@ import * as SESSIONUTIL from '../../util/session_api_util';
 class FeedIndexItem extends React.Component {
 
   render() {
-    console.log(this.props);
-    const {feed} = this.props;
-    // console.log(question);
-
+    const {topic} = this.props;
 
     let html = (
-      <li key={`feedndetail${id}`}>
-        <div className='container well'>
-          <div className="row all-margin-10">
-            <div className="">
-              <a className="black bold" href={'#/topics/' + topic.id} target="">
-                <span className="">{topic.name}</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </li>
+      <div className="row all-margin-10 " key={`feedndetail${topic.id}`}>
+        <a className="black opacity-80 left-margin-10 " href={'#/topics/' + topic.id} target="">
+          <span className="font-size-13">{topic.name}</span>
+        </a>
+      </div>
     );
 
     return (html);

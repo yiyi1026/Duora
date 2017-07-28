@@ -1,5 +1,6 @@
 import React from 'react';
 import { RingLoader } from 'react-spinners';
+import FeedIndexItem from './feed_index_item'
 
 class FeedIndex extends React.Component{
   constructor(props){
@@ -9,7 +10,7 @@ class FeedIndex extends React.Component{
 
   componentDidMount() {
     this.props.requestAllTopics()
-    .then(setTimeout(() => this.setState({loading: false}), 0));
+    .then(() => this.setState({loading: false}));
     // setTimeout(() => this.props.requestAllTopics(), 3000) ;
   }
 
@@ -29,38 +30,24 @@ class FeedIndex extends React.Component{
         />
     </div>);
     }
-    //
-    const {topics} = this.props.topics;
-    // if (!topics || topics.length == 0) {
-    //   return <div id='topicIndexplaceholder'></div>;
-    // }
-    console.log(this.props);
-// return (<div><div><div>hihihi</div></div></div>);
-    // let all_topics_html = topics.map(
-    //   (topic) => {
-    //     if (!topic) {
-    //       return <div id='topicIndexplaceholder'></div>;
-    //     }
-    //     let {id} = topic;
-    //     return (<div><div><div>hihihi</div></div></div>);
-    //     // return (<FeedIndexItem key={`topic${id}`} topic={topic} />);
-    //   });
+    const topics = this.props.topics;
+
+    let all_topics_html = topics.map(
+      (topic) => {
+        let {id} = topic;
+        return (<FeedIndexItem key={`topic${id}`} topic={topic} />);
+      });
     return(
       <div className ="all-margin-30">
          <div className='row bottom-padding-10 bottom-boader'>
-            <span className="left-margin-30">Feeds</span>
+            <span className="left-margin-10">Feeds</span>
             <span className="pull-right right-margin-60">
             <a className="grey" href="#">
-            Edit
+              Edit
             </a>
             </span>
          </div>
-         <div className="row">
-           what is going on?
-            <ul className="nav nav-pills nav-stacked topic-list">
-               <li><a href="#">Topic 4</a></li>
-            </ul>
-         </div>
+        {all_topics_html}
       </div>
     );
   }
