@@ -30,7 +30,7 @@ class QuestionIndexItem extends React.Component {
 
   render() {
     // console.log(this.props);
-    const {question, updateQuestion} = this.props;
+    const {question, updateQuestion, topic} = this.props;
     // console.log(question);
     const {id, title, body, answers, created_at} = question;
     let author = question.author;
@@ -57,7 +57,7 @@ class QuestionIndexItem extends React.Component {
                 ·
               </span>
               <a className="grey" href="#">
-                <span >Interpersonal Interaction</span>
+                <span >{topic.name}</span>
               </a>
               <span className="bullet">
                 ·

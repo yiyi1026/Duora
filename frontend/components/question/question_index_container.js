@@ -13,6 +13,7 @@ const mapStateToProps = (state, {match}) => {
     allQuestionsIds: state.questions.allIds,
     // TopicQuestionIds: state.questions.topicQuestionIds,
     currentQuestion: state.questions.currentQuestion,
+    topics: state.topics,
     currentUser: state.session.currentUser,
     currentTopic: state.session.currentTopic,
     errors: []

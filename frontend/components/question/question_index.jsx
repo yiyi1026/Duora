@@ -79,6 +79,7 @@ class QuestionIndex extends React.Component {
 
   render() {
     let currentUser = this.props.currentUser;
+    let topics = this.props.topics;
     if (this.state.loading){
       return (<div className='sweet-loading'>
          <RingLoader
@@ -88,11 +89,11 @@ class QuestionIndex extends React.Component {
       </div>);
     }
     const {questions, createQuestion, updateQuestion, errors, allQuestionsIds} = this.props;
-
     const questionItems = allQuestionsIds.map(
       (id, idx) =>
         { let question = questions[idx];
-          return (<QuestionIndexItem key={`indexquestions${id}`} question={question} updateQuestion={updateQuestion}/>);
+          let topic = topics.byId[question.topic_id]
+          return (<QuestionIndexItem key={`indexquestions${id}`} question={question} updateQuestion={updateQuestion} topic={topic}/>);
   });  // const questionItems = {a:3};
 
     return (
