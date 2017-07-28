@@ -95,7 +95,7 @@ const topicReducer = (state = null, action) => {
 const topicsReducer = combineReducers({
   byId: byIdReducer,
   allIds: allIdsReducer,
-  // currentQuestion: topicReducer,
+  currentTopic: topicReducer,
   searchIds: searchIdsReducer
 });
 export default topicsReducer;

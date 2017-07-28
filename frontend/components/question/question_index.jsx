@@ -25,10 +25,19 @@ class QuestionIndex extends React.Component {
     }
 
   componentDidMount() {
-    this.props.requestAllQuestions()
-    .then(
-      () => this.setState({loading: false})
-    );
+    console.log(this.props);
+    let topicId = console.log(this.props.match.params.topicId);
+    if (topicId){
+      this.props.requestSingleTopic(topicId).then((topic) => console.log(topic)).then(
+        () => this.setState({loading: false})
+      );
+    }else{
+      this.props.requestAllQuestions()
+      .then(
+        () => this.setState({loading: false})
+      )
+    }
+    // );
   }
 
   handleQuestionFieldSubmit(e) {
