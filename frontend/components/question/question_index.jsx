@@ -14,6 +14,7 @@ class QuestionIndex extends React.Component {
       title: '',
       body: '',
       topic_id: 1,
+      topics: [],
       showModal: false,
       loading: true
     };
@@ -29,6 +30,13 @@ class QuestionIndex extends React.Component {
     .then(
       () => this.setState({loading: false})
     );
+  }
+
+  handleQuestionTopicsUpdate(topics){
+    console.log('nice!!!! i get it ')
+    console.log(topics)
+    this.setState({topics: topics});
+    console.log(this.state.topics)
   }
 
   handleQuestionFieldSubmit(e) {
@@ -57,6 +65,7 @@ class QuestionIndex extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     console.log(this.props);
     let currentUser = this.props.currentUser;
     if (this.state.loading){
@@ -107,7 +116,7 @@ class QuestionIndex extends React.Component {
                       placeholder='What is your question?'/>
                   </div>
 
-                  <TopicEditFormContainer />
+                  <TopicEditFormContainer triggerQuestionTopicsUpdate={this.handleQuestionTopicsUpdate}/>
                 </Modal.Body>
                 <Modal.Footer>
                   <button type="button" className="PerfectColdButton" onClick={this.handleQuestionFieldSubmit}>Ask Question</button>

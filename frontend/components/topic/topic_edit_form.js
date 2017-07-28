@@ -12,12 +12,14 @@ class TopicEditForm extends React.Component{
         this.handleSearchTopics = this.handleSearchTopics.bind(this);
         this.handleTopicFieldUpdate = this.handleTopicFieldUpdate.bind(this);
         this.handleAddTopic = this.handleAddTopic.bind(this);
+        this.triggerQuestionTopicsUpdate = this.props.triggerQuestionTopicsUpdate.bind(this);
     }
 
     handleAddTopic(e){
         console.log(e.currentTarget.id)
         let newTopics = [...this.state.topics_p, this.props.topics.byId[e.currentTarget.id]];
         this.setState({topics_p: newTopics, name: ''});
+        this.triggerQuestionTopicsUpdate(newTopics);
     }
 
     handleSearchTopics(query) {
@@ -47,8 +49,10 @@ class TopicEditForm extends React.Component{
         const querystr = this.state.name;
         let reg = new RegExp(querystr, 'gi');
         let topics = this.props.topics;
+        console.log(this.props)
         // console.log(this.props);
         let searchIds = this.props.topics.searchIds;
+        console.log(searchIds)
         let searchedTopicsForm = '';
         let searchedTopics = '';
         let topic_pills = '';
