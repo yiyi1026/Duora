@@ -42,8 +42,8 @@ class FeedIndex extends React.Component{
          <div className='row bottom-padding-10 bottom-boader'>
             <span className="left-margin-10">Feeds</span>
             <span className="pull-right right-margin-60">
-            <a className="grey" href="#">
-              Edit
+            <a className="grey edit" href="#">
+
             </a>
             </span>
          </div>

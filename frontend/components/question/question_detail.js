@@ -52,13 +52,13 @@ class QuestionDetail extends React.Component {
         topics_html = question.topicsIds.map(
         (id) => {
           let topic = topics.byId[id];
-          return (<span className="topic-pill right-margin-10" key={`questiontopics${id}`}>{topic.name}</span>);
+          return (<span className="topic-pill right-margin-10" key={`questiontopics${id}`}>Question associated with topic {topic.name}</span>);
         });
       } else if(question.topic_id){
         let topic = topics.byId[question.topic_id];
         topics_html = (<span className="topic-pill right-margin-10" key={`questiontopics${question.topic_id}`}>{topic.name}</span>);
       }
-    } 
+    }
 
 
     const time_ago_english = new javascript_time_ago('en-US');
