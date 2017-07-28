@@ -47,14 +47,19 @@ class TopicDetail extends React.Component {
 
     return(
       <div className='topicdetail'>
-        <div>
-          <div>
-            <span>{topic.name}</span>
-            <br/>
-            {questionItems}
-          </div>
+        <div className='well'>
+          <span>Questions associated with topic <span className='topic-pill'>{topic.name}</span></span>
         </div>
+        <ul className="question-list list-unstyled">
+          <div className='indexquestions'>
+            {questionItems}
+
+          </div>
+          <br/>
+        </ul>
+        
       </div>
+      
     );
   }
 }
