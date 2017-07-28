@@ -16,6 +16,9 @@ class Topic < ApplicationRecord
   #   through: :topic_taggings,
   #   source: :user
 
-  has_many :questions,
-    class_name: :topic
+  has_many :question_topic_taggings
+  has_many :questions, 
+    through: :question_topic_taggings,
+    source: :question
+
 end

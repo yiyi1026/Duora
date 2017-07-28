@@ -27,8 +27,10 @@ class Question < ApplicationRecord
   # , dependent: :destroy
   has_many :comments, through: :answers
 
-  belongs_to :topic,
-    optional: true
+  has_many :question_topic_taggings
+  has_many :topics, 
+    through: :question_topic_taggings,
+    source: :question
   # has_many :topic_taggings
 
   # multiple topics???
@@ -40,6 +42,10 @@ class Question < ApplicationRecord
 
   def answersIds
     self.answers.map{|answer| answer.id }
+  end
+
+  def topicsIds
+    self.topics.map{|topic| topic.id }
   end
 
 end
