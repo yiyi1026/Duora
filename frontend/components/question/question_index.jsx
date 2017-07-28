@@ -14,6 +14,7 @@ class QuestionIndex extends React.Component {
       title: '',
       body: '',
       topic_id: 1,
+      topics: [],
       showModal: false,
       loading: true
     };
@@ -22,7 +23,13 @@ class QuestionIndex extends React.Component {
       this.close = this.close.bind(this);
       this.handleQuestionFieldSubmit = this.handleQuestionFieldSubmit.bind(this);
       this.handleQuestionFieldUpdate = this.handleQuestionFieldUpdate.bind(this);
+      this.handleStateChange = this.handleStateChange.bind(this);
     }
+
+    
+  handleStateChange(newvalue) {
+    this.setState(newvalue)
+  };
 
   componentDidMount() {
     console.log(this.props);
@@ -40,9 +47,24 @@ class QuestionIndex extends React.Component {
     // );
   }
 
+  handleQuestionTopicsUpdate(topics){
+    /// check here , looks like i've got the stage but setState added to child stage 
+    console.log('nice!!!! i get it ')
+    console.log(topics)
+    // this.handleStateChange({topics: topics});
+    this.setState({topics: topics})
+    let firstTopicId = topics[0].id
+    // this.handleStateChange({topic_id: firstTopicId});
+    this.setState({topic_id: firstTopicId})
+
+    console.log(this.state.topics);
+    console.log(this.state.topic_id);
+  }
+
   handleQuestionFieldSubmit(e) {
     e.preventDefault();
     if(this.state.title){
+      console.log(this.state)
       this.props.createQuestion(this.state)
         .then(() => this.setState({title: '', showModal: false}));
     }
@@ -66,6 +88,7 @@ class QuestionIndex extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     console.log(this.props);
     let currentUser = this.props.currentUser;
     if (this.state.loading){
@@ -116,7 +139,7 @@ class QuestionIndex extends React.Component {
                       placeholder='What is your question?'/>
                   </div>
 
-                  <TopicEditFormContainer />
+                  <TopicEditFormContainer triggerQuestionTopicsUpdate={this.handleQuestionTopicsUpdate}/>
                 </Modal.Body>
                 <Modal.Footer>
                   <button type="button" className="PerfectColdButton" onClick={this.handleQuestionFieldSubmit}>Ask Question</button>
