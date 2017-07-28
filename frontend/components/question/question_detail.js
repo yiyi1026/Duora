@@ -30,6 +30,7 @@ class QuestionDetail extends React.Component {
 
   render() {
     const question = this.props.question;
+    const topics = this.props.topics;
     if (this.state.loading|| (!question) ){
       return(<div className='sweet-loading'>
         <RingLoader
@@ -44,6 +45,16 @@ class QuestionDetail extends React.Component {
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
     require('javascript-time-ago/intl-messageformat-global');
     require('intl-messageformat/dist/locale-data/en');
+
+    let topics_html = '';
+    if(topics.allIds.length>0){
+      topics_html = question.topicsIds.map(
+      (id) => {
+        let topic = topics.byId[id];
+        return (<span className="topic-pill right-margin-10" key={`questiontopics${id}`}>{topic.name}</span>);
+      });
+    }
+
 
     const time_ago_english = new javascript_time_ago('en-US');
 
@@ -60,6 +71,12 @@ class QuestionDetail extends React.Component {
         <div className='container well'>
 
           <div className="row all-margin-10">
+            <div className="bottom-margin-10">
+              {topics_html}
+              <a href="#" className="grey pull-right right-margin-90">
+              <span className="glyphicon glyphicon-pencil"></span>
+              </a>
+            </div>
             <div className="">
               <a className="black bold" href={'#/questions/' + question.id} target="">
                 <span className="">{question.title}</span>

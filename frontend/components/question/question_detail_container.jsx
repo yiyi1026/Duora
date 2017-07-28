@@ -10,6 +10,7 @@ const mapStateToProps = (state, {match}) => {
     // answers: state.answers,
     question:   state.questions.byId[match.params.questionId],
     // questions: state.questions,
+    topics: state.topics,
     currentQuestion: match.params.questionId
   }
 };
