@@ -53,13 +53,10 @@ class TopicDetail extends React.Component {
         <ul className="question-list list-unstyled">
           <div className='indexquestions'>
             {questionItems}
-
           </div>
           <br/>
         </ul>
-        
-      </div>
-      
+      </div>    
     );
   }
 }

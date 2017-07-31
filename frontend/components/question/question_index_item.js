@@ -41,12 +41,16 @@ class QuestionIndexItem extends React.Component {
     let avatar = SESSIONUTIL.getAvatarUrl(author);
 
     let topicName;
+    let topicId;
     if (topic ){
       topicName = topic.name;
+      topicId = topic.id;
     }else if (question.topic){
       topicName = question.topic.name;
+      topicId = question.topic.id;
     }else{
       topicName = 'Movie';
+      topicId = 5;
     }
 
     javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
@@ -65,7 +69,7 @@ class QuestionIndexItem extends React.Component {
               Question<span className="bullet">
                 ·
               </span>
-              <a className="grey" href="#">
+              <a className="grey" href={'#/topics/' + topicId}>
                 <span >{topicName}</span>
               </a>
               <span className="bullet">

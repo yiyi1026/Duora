@@ -37,8 +37,7 @@ topic9 = Topic.create!({name:'Travel'})
 topic10 = Topic.create!({name:'Life'})
 topic11 = Topic.create!({name:'Food'})
 topic12 = Topic.create!({name:'Study'})
-topic13 = Topic.create!({name:'Video'})
-topic14 = Topic.create!({name:'Sports'})
+
 
 topic_tagging1 = TopicTagging.create!({topic_id: topic1.id, user_id: guest1.id})
 topic_tagging2 = TopicTagging.create!({topic_id: topic2.id, user_id: guest3.id})
@@ -105,7 +104,7 @@ answer4 = Answer.create!({body:"i would suggest, you should checkout popular Mac
 
 Google Cloud
 Amazon ML etc
-These are popular providers who charge as you use with high end computing resources.Hope this helps.", author_id: guest2.id, question_id: question3.id})
+These are popular providers who charge as you use with high end computing resources.Hope this helps.", author_id: guest5.id, question_id: question5.id})
 answer5 = Answer.create!({body:"For small datasets (and in some circumstances also for larger ones) you might often be better off with Random Forests or the Bayesian equivalent, BART. Besides the error, deep networks might take hours to train whereas random forests are almost instantly trained. Bayesian trees usually work better than their frequentist counterpart but take much longer to train as they rely on MCMC sampling.", author_id: guest5.id, question_id: question5.id})
 answer6 = Answer.create!({body:'Pure pork fat is LARD. Thick, white, greasy, just the thing for excellent pie pastry, but how on earth could you “accidentally” eat a quarter-pound (110 grams) of pure lard???
 
@@ -123,7 +122,7 @@ Sugar doesn’t need a whole lot of digestion, it gets absorbed into the bloodst
 In response to sugar consumption, your pancreas releases insulin, which triggers your body cells to increase their uptake of sugar from the blood. All of your body cells will use as much as they need for energy, and the liver converts some of the remainder into glycogen. If there is still more sugar coming in to the bloodstream from your digestive system than your body can use right now, your adipose cells will suck it up and turn it into fat. This is a survival reflex that we inherited from millions of generations of ancestors who faced periodic starvation, and we cannot avoid it now even though it serves us poorly in modern times. If you are in the habit of eating sugar every day, your body cells will eventually develop insulin resistance which means that they respond more poorly to insulin. Among other effects, this further weakens the satiety feedback response so that you need to eat even more sugar until you finally start to feel full.
 
 Protein triggers an entirely different feedback mechanism, but as you didn’t ask about it I will leave it for another answer.", author_id: guest4.id, question_id: question7.id})
-answer8 = Answer.create!({body:'I have no idea.', author_id: guest3.id, question_id: question2.id})
+answer8 = Answer.create!({body:'<div class="inline_editor_content" id="__w2_CUiVwzp_content">   <span class="inline_editor_value">      <div id="RQnCji"></div>      <span class="rendered_qtext">         <p class="qtext_para">Thanks for the A2A. They can’t tell from a picture. Because they don’t always dress in their traditional garments. Below is a picture of Uighur people.</p>         <div class="qtext_image_wrapper"><img class="portrait qtext_image zoomable_in zoomable_in_feed lazy_loaded lazy_loading" src="https://qph.ec.quoracdn.net/main-qimg-e4c7f76f10b764ddae00c4e069c757b2.webp" master_src="https://qph.ec.quoracdn.net/main-qimg-e4c7f76f10b764ddae00c4e069c757b2-c" master_w="370" master_h="462" style="opacity: 1;"></div>         <p class="qtext_para">Not so obvious when they’re not dressed in traditional garments.</p>         <div class="qtext_image_wrapper"><img class="landscape qtext_image zoomable_in zoomable_in_feed lazy_loaded lazy_loading" src="https://qph.ec.quoracdn.net/main-qimg-95ea3c83f69b7bbf4bd6cdba784e26e7.webp" master_src="https://qph.ec.quoracdn.net/main-qimg-c88c96ae8dee0cf3378ad7dc19ddbb14-c" master_w="1024" master_h="768" style="opacity: 1;"></div>         <p class="qtext_para">If you want to find your relatives, try 23 and me. Sometimes you can discover distant cousins that way.</p>      </span>   </span></div>', author_id: guest3.id, question_id: question2.id})
 answer9 = Answer.create!({body:'answer9bodytoquestion5', author_id: guest2.id, question_id: question5.id})
 answer10 = Answer.create!({body:'answer10bodytoquestion7', author_id: guest2.id, question_id: question7.id})
 

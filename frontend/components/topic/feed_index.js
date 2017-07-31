@@ -11,15 +11,7 @@ class FeedIndex extends React.Component{
   componentDidMount() {
     this.props.requestAllTopics()
     .then(() => this.setState({loading: false}));
-    // setTimeout(() => this.props.requestAllTopics(), 3000) ;
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if(!this.props.topics.allIds ){
-  //     setTimeout(() => this.props.requestAllTopics(), 8000);
-  //   //   // this.props.requestAllTopics();
-  //   }
-  // }
 
   render(){
     if (this.state.loading){
