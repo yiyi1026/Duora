@@ -120,11 +120,11 @@ class QuestionBar extends React.Component {
           <input type="text"
             className="form-control dropdown-toggle"
             id="question_field"
-            placeholder="Ask or Search Duora"/>
+            placeholder="Ask or Search Duora"
             onFocus={this.handleOnFocus}
             onBlur={this.handleFocusout}
             onChange={this.handleQuestionFieldUpdate()}
-            value={this.state.title}
+            value={this.state.title}/>
            {searchedQuestionsForm}
         </div>
         <button type="submit"
