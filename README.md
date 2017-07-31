@@ -13,7 +13,12 @@ On the database side, each question is stored in one table in the database, whic
 
 Searching questions is a standard feature of Quora. Users could use the search bar on the navigation bar to ask or search a question, or could use the middle upper area in the main page for more detailed question creation. Search functionality is implemented with ActiveRecord query methods to search all questions. This search, which is case insensitive, will look through titles of all questions for matching results, which will be bolded.
 
-The challenge of search feature is not interfering with QuestionIndexComponent, Which at first were listen to the same piece of state. After separating searching result store as an array of searched questions ids, search result is now separated with question index component.
+The challenge of search feature is to not interfere with QuestionIndexComponents, Which at first were listened to the same piece of state. After separating searching result store as an array of searched questions Ids, each search result is now separated with QuestionIndexComponents.
+
+![wireframes](docs/wireframes/search_result.png)
+
+![wireframes](docs/wireframes/mainpage.png)
+
 
 Questions are rendered in two different components: the QuestionIndex components, which show the title, author, topic, body , and the QuestionDetail components, which are displayed in question show page will display all answers to the specific question and all comments to corresponding answers.
 
@@ -24,7 +29,7 @@ RichTestEditor is used to implemented creating answers upon clicking the toggle 
 
 The React component structure for answers is similar as that of questions: the AnswerIndex component renders a list of Answers as subcomponents.
 
-QuestionIndex render method:
+![wireframes](docs/wireframes/create_answer.png)
 
 Comments
 
