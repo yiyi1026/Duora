@@ -322,9 +322,9 @@ div h4 p {
     top: 100%;
     left: 0;
     z-index: 1000;
-    float: left;
+    float: left; 
     width: 500px;
-    margin-top: -15px;
+    margin-top: 0px;
     padding-top: -15px;
     margin-left: 15px;
     list-style: none;
@@ -434,8 +434,8 @@ a.askquestion:hover{
   outline: none;
 }
 
-body .modal{ 
-  display: block; 
+body .modal{
+  display: block;
 }
 .sweet-loading {
   position: fixed;
