@@ -27,7 +27,7 @@ class QuestionIndex extends React.Component {
       this.handleQuestionTopicsUpdate = this.handleQuestionTopicsUpdate.bind(this);
     }
 
-    
+
   handleStateChange(newvalue) {
     this.setState(newvalue)
   };
@@ -44,7 +44,6 @@ class QuestionIndex extends React.Component {
         () => this.setState({loading: false})
       )
     }
-    // );
   }
 
   handleQuestionTopicsUpdate(topics){
@@ -94,7 +93,7 @@ class QuestionIndex extends React.Component {
         { let question = questions[idx];
           let topic = topics.byId[question.topic_id]
           return (<QuestionIndexItem key={`indexquestions${id}`} question={question} updateQuestion={updateQuestion} topic={topic}/>);
-  });  // const questionItems = {a:3};
+  });
 
     return (
       <div>
@@ -145,11 +144,8 @@ class QuestionIndex extends React.Component {
         </ul>
         <Route path="/questions/:questionId" component={QuestionDetailContainer}/>
       </div>
-
     );
-
   }
 }
 
-// <QuestionForm createQuestion={this.props.createQuestion} />
 export default QuestionIndex;

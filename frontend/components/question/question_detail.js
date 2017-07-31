@@ -17,14 +17,12 @@ class QuestionDetail extends React.Component {
       body: '',
       id: '',
       loading: true
-
     };
   }
 
   componentDidMount() {
     let id = parseInt(this.props.match.params.questionId);
     this.props.requestSingleQuestion(id)
-    // .then(setTimeout(() => this.setState({loading: false}), 100));
     .then(() => this.setState({loading: false}));
   }
 
@@ -84,13 +82,13 @@ class QuestionDetail extends React.Component {
             </div>
             <div className="">
               <a className="black bold" href={'#/questions/' + question.id} target="">
-                <span className="">{question.title}</span>
+                <span className="left-margin-10">{question.title}</span>
               </a>
             </div>
           </div>
           <div className="row">
             <div className="">
-              <a href="#"><img className="img-circle pull-left" src={avatar} width="50" height="50"/></a>
+              <a href="#"><img className="img-circle pull-left left-margin-10" src={avatar} width="50" height="50"/></a>
             </div>
             <div className="left-margin-60">
               <div className="">
@@ -140,14 +138,9 @@ class QuestionDetail extends React.Component {
             <div id={"collapse" + question.id} className="accordion-body collapse">
               <AnswerFormContainer question={question}/>
             </div>
-
           </div>
-
-
-
         </div>
         {answers_html}
-
       </div>
     );
     }

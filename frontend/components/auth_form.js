@@ -1,21 +1,13 @@
 import React from 'react';
-// import { Provider } from 'react-redux';
-
 import {
   Route, withRouter
-  // Redirect,
-  // Switch,
-  // Link,
-  // HashRouter
 } from 'react-router-dom';
 
 import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
 import SignUpFormContainer from './signup_form/signup_form_container';
-// import SearchContainer from './search/search_container';
-// import BenchShowContainer from './bench_show/bench_show_container';
-// import BenchFormContainer from './bench_form/bench_form_container';
 import {AuthRoute} from '../util/route_util';
+import Footer from './footer';
 
 const AuthForm = () => (
   <div className='loginbackground'>
@@ -33,6 +25,9 @@ const AuthForm = () => (
           <div>
             <h4>
               <p>A place to share knowledge and better understand the world</p>
+              <br/>
+              <Footer />
+              <br/>
             </h4>
           </div>
         </div>
@@ -41,6 +36,7 @@ const AuthForm = () => (
             <AuthRoute exact path="/login" component={SignUpFormContainer}/>
             <div className="divider-vertical hidden-xs hidden-sm col-md-1"></div>
             <AuthRoute exact path="/login" component={SessionFormContainer}/>
+
           </div>
         </div>
         <div className="top-margin-80"></div>

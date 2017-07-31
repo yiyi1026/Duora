@@ -31,15 +31,12 @@ class QuestionBar extends React.Component {
   }
 
   handleFocusout(e){
-    // e.preventDefault();
     document.getElementById('bottom').classList.remove("in");
     document.getElementById('bottom').classList.remove("modal-backdrop");
-
     setTimeout(() => this.setState({showSearch: false}), 200);
   }
 
   handleOnFocus(e){
-    // e.preventDefault();
     document.getElementById('bottom').classList.add("in");
     document.getElementById('bottom').classList.add("modal-backdrop");
     this.setState({showSearch: true});
@@ -111,7 +108,6 @@ class QuestionBar extends React.Component {
             {searchedQuestions}
           </ul>
         );
-
       }
     } else {
       searchedQuestions = '';
@@ -121,13 +117,22 @@ class QuestionBar extends React.Component {
     return (
       <form className="navbar-form navbar-left dropdown">
          <div className="form-group">
-          <input type="text" onFocus={this.handleOnFocus} onBlur={this.handleFocusout} onChange={this.handleQuestionFieldUpdate()} value={this.state.title} id="question_field" className="form-control dropdown-toggle" placeholder="Ask or Search Duora"/>
+          <input type="text"
+            className="form-control dropdown-toggle"
+            id="question_field"
+            placeholder="Ask or Search Duora"/>
+            onFocus={this.handleOnFocus}
+            onBlur={this.handleFocusout}
+            onChange={this.handleQuestionFieldUpdate()}
+            value={this.state.title}
            {searchedQuestionsForm}
         </div>
-        <button type="submit" className="btn btn-default" onClick={this.handleQuestionFieldSubmit}>Ask Question</button>
-
+        <button type="submit"
+          className="btn btn-default"
+          onClick={this.handleQuestionFieldSubmit}
+          >Ask Question</button>
       </form>
-    )
+    );
   }
 }
 

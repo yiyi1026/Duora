@@ -5,10 +5,8 @@ import {createQuestion, searchQuestions} from '../../actions/question_actions';
 import {selectAllQuestions, selectSingleQuestion, selectSearchedQuestions} from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
-  // console.log(state);
   const {questions, session} = state;
   return {
-    // question: selectAllQuestions(question) to grab question out of byId,
     questions: questions,
     currentUser: session.currentUser
   }

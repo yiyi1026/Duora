@@ -17,10 +17,8 @@ class CommentForm extends React.Component {
   }
 
   handleCommentUpdate(e) {
-    // e.preventDefault();
     return e => {
       if (e.target.value) {
-        // console.log(e.target.value);
         this.setState({body: e.target.value});
       }
       if (!this.state.author_id) {
@@ -38,12 +36,8 @@ class CommentForm extends React.Component {
       answer_id
     }
     this.props.createComment(comment).then(
-      () => this.setState({loading: false, 
-        body: ''}))
-      // .then(this.props.history.push(null, `/answers/${this.props.answer.id}`));
-    // history.pushState(null, '/');
-    //how to make this page refresh
-  // );
+      () => this.setState({loading: false,
+        body: ''}));
   }
 
   render() {
@@ -51,7 +45,6 @@ class CommentForm extends React.Component {
     if (this.props.loading){
       return (<div></div>);
     }
-    // console.log(this.props);
     return (
       <div className="row add-comment-form">
         <div className="left-padding-30">

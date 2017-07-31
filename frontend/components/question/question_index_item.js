@@ -13,8 +13,6 @@ class QuestionIndexItem extends React.Component {
       detail: false,
       answers: ''
     };
-    // this.toggleDetail = this.toggleDetail.bind(this);
-    // this.toggleQuestion = this.toggleQuestion.bind(this);
   }
 
   handleClickAnswer(e) {
@@ -29,9 +27,7 @@ class QuestionIndexItem extends React.Component {
   }
 
   render() {
-    // console.log(this.props);
     const {question, updateQuestion, topic} = this.props;
-    // console.log(question);
     const {id, title, body, answers, created_at} = question;
     let author = question.author;
 
@@ -65,7 +61,7 @@ class QuestionIndexItem extends React.Component {
       <li key={`questiondetail${id}`}>
         <div className='container well'>
           <div className="row">
-            <div className="reason_main">
+            <div className="reason_main left-margin-10">
               Question<span className="bullet">
                 ·
               </span>
@@ -80,13 +76,13 @@ class QuestionIndexItem extends React.Component {
           <div className="row all-margin-10">
             <div className="">
               <a className="black bold" href={'#/questions/' + question.id} target="">
-                <span className="">{question.title}</span>
+                <span className="left-margin-10">{question.title}</span>
               </a>
             </div>
           </div>
           <div className="row">
             <div className="">
-              <a href="#"><img className="img-circle pull-left" src={avatar} width="40" height="40"/></a>
+              <a href="#"><img className="img-circle pull-left left-margin-10" src={avatar} width="40" height="40"/></a>
             </div>
             <div className="left-margin-60">
               <div className="">
@@ -110,7 +106,6 @@ class QuestionIndexItem extends React.Component {
               <span className="rendered_qtext">
                 <p>{question.body}</p>
               </span>
-              {/* <span id=""><a className="" href="#" target="_blank">(more)</a></span> */}
             </div>
           </div>
 
@@ -136,7 +131,6 @@ class QuestionIndexItem extends React.Component {
             </div>
             <div id={"collapse" + question.id} className="accordion-body collapse">
               <AnswerFormContainer question={question}/>
-
             </div>
           </div>
 

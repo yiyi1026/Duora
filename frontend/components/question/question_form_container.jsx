@@ -11,11 +11,9 @@ const  mapStateToProps = () => (
   {questions: selectAllQuestions(questions)}
 );
 
-
 const mapDispatchToProps = dispatch => ({
   createQuestion: (question) => dispatch(createQuestion(question))
 });
-
 
 export default connect(
   mapStateToProps,

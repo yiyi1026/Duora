@@ -9,9 +9,7 @@ const mapStateToProps = (state, {match}) => {
   let q = selectQuestionsByTopicId(state.questions, topicId);
   return {
     questions: q,
-    // questions: selectAllQuestions(state.questions),
     allQuestionsIds: state.questions.allIds,
-    // TopicQuestionIds: state.questions.topicQuestionIds,
     currentQuestion: state.questions.currentQuestion,
     topics: state.topics,
     currentUser: state.session.currentUser,
