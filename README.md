@@ -1,6 +1,7 @@
 Duora
 
-[Duora live][heroku]
+[Live link][heroku]
+
 [heroku]: https://duora.herokuapp.com/
 
 Duora is a full-stack web application inspired by Quora. It utilizes React.js with a Redux architectural framework on the frontend, styled with bootstrap CSS, a PostgreSQL database Ruby on Rails on the backend.

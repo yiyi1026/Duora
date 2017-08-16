@@ -1,11 +1,9 @@
 # Duora
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
-
-[Trello link][trello]
+[Heroku link][heroku]
 
 [heroku]: https://duora.herokuapp.com/
-[trello]: https://trello.com/b/ITnI2qMK
+
 
 ## Minimum Viable Product
 
