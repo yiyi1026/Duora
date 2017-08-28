@@ -20,6 +20,7 @@ class MainFrame extends React.Component {
               <Route path="/" component={FeedIndexContainer} />
           </div>
           <div className="col-md-8 col-lg-6">
+            <br />
             <Switch>
               <Route exact path="/topics/:topicId" component={TopicDetailContainer}/>
               <Route exact path="/questions/:questionId" component={QuestionDetailContainer}/>

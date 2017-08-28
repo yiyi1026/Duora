@@ -97,7 +97,7 @@ class QuestionIndex extends React.Component {
 
     return (
       <div>
-        <div className='container well '>
+        <div className='container well'>
             <span >
               <a className="add-comment-form-item" href="#"><img className="img-circle pull-left" src={SESSIONUTIL.getAvatarUrl(currentUser)} width="25" height="25"/></a>
             </span>
