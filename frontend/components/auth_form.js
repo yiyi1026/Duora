@@ -37,8 +37,8 @@ const AuthForm = () => (
             <AuthRoute exact path="/login" component={SessionFormContainer}/>
 
           </div>
+        <hr />
         </div>
-        <div className="top-margin-80"></div>
         <Footer />
       </div>
     </div>
