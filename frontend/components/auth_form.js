@@ -26,7 +26,6 @@ const AuthForm = () => (
             <h4>
               <p>A place to share knowledge and better understand the world</p>
               <br/>
-              <Footer />
               <br/>
             </h4>
           </div>
@@ -40,6 +39,7 @@ const AuthForm = () => (
           </div>
         </div>
         <div className="top-margin-80"></div>
+        <Footer />
       </div>
     </div>
   </div>
