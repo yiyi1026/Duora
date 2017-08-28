@@ -33,12 +33,11 @@ The React component structure for answers is similar as that of questions: the A
 
 As with questions and answers, comments are stored in the database. The tag table contains the columns id, answer_id, and author_id. Each comment is referenced to an answer. The Component structure of comments is similar as questions and answers.
 
-Future Directions for the Project
+## Future Directions for the Project
 
 In addition to the features I have already implement, I will continue to work on this project. The future steps for Duora are stated below.
 
- Comment on Comments
-
+- [ ] Comment on Comments
 - [ ] Edit and Update
 - [ ] User Profile with User Statistics
 - [ ] Upvote / Downvote
