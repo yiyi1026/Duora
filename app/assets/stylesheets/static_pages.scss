@@ -101,6 +101,7 @@ ul.red-text > li.active > a.active{
 
 div.login {
   text-align: center;
+  margin-left: 14px;
   // float: none;
 }
 
@@ -479,5 +480,11 @@ body .modal{
 
 }
 
-#git {
+.separator {
+  margin-top: 10px;
+}
+
+.policy {
+  opacity: 0.5;
+  text-align: left; 
 }

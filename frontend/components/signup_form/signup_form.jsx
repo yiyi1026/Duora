@@ -32,14 +32,6 @@ class SignupForm extends React.Component {
     }
   }
 
-  // navLink() {
-  //   if (this.props.formType === 'login') {
-  //     return <Link to="/signup">sign up </Link>;
-  //   } else {
-  //     return <Link to="/login">log in </Link>;
-  //   }
-  // }
-
   renderErrors() {
     return (
       <ul>
@@ -73,41 +65,15 @@ class SignupForm extends React.Component {
             <div className='form-group'>
               <span ></span>
               <input type="password" value={this.state.password} onChange={this.update('password')} className="form-control" placeholder="Password"/>
+              <div className='separator'></div>
+            <span className='policy'>By clicking "Sign Up" you indicate that you have read and agree to the Terms of Service and Privacy Policy.</span>
             </div>
             <input className='btn wonderful-button pull-right' type="submit" value="Sign Up"/>
           </form>
         </div>
       </div>
     );
-    //  <button className='btn btn-primary col-lg-offset-9 col-md-offset-9'>Sign Up</button>
-    //  signinForm
-    //  <div className='login col-md-5 pull-right'>
-    //    <div className='col-md-8'>
-    //      <form >
-    //        <div className='form-group '>
-    //          <span ><b>Login</b></span>
-    //          <input
-    //            id = 'email'
-    //            className='form-control'
-    //            placeholder='Email'
-    //            />
-    //        </div>
-    //
-    //        <div className='form-group'>
-    //          <span ></span>
-    //          <input
-    //            id = 'password'
-    //            type='password'
-    //            className='form-control'
-    //            placeholder='Password' />
-    //
-    //        </div>
-    //        <button className='btn btn-primary col-lg-offset-9 col-md-offset-9'>Login</button>
-    //      </form>
-    //    </div>
-    //  </div>
-
-    //  Please {this.props.formType} or {this.navLink()}
+    
     let original_html = (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -132,14 +98,6 @@ class SignupForm extends React.Component {
       </div>
     )
 
-    // if (this.props.formType === 'login'){
-    //   return(
-    //     <div>{login_html}</div>
-    //
-    //     );
-    // } else {
-    //   return ( <div>{signup_html}</div> );
-    // }
     return login_html;
   }
 }
