@@ -131,7 +131,7 @@ class QuestionDetail extends React.Component {
               </span>
               <span className="left-margin-10">
                 <a className="Downvote grey" href="#">
-                  <span className=" ">Downvote</span>
+                  <span className=" "></span>
                 </a>
               </span>
             </div>
