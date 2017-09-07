@@ -6,10 +6,8 @@ body main#root{
     background: #fafafa;
 }
 
-
 .btn, .form-control, .a{
     font-size: 12px;
-    // !important
 }
 
 .brand {
@@ -18,7 +16,6 @@ body main#root{
   font-family: 'Spectral';
   font-weight: 900;
   font-style: normal;
-  // font-size: 22px;
   font-size: 60px;
   margin-bottom: 10px;
   text-align: center;
@@ -36,7 +33,6 @@ body main#root{
 
 ul.red-text > li.active > a.active{
     color: #b92b27;
-    // !important
 }
 
 .centered {
@@ -45,7 +41,6 @@ ul.red-text > li.active > a.active{
     font-size: 0;
     background-color: #fafafa;
     max-width: 750px;
-
 }
 
 .centered > div {
@@ -217,10 +212,6 @@ div h4 p {
   // margin-bottom: 30px;
 }
 
-.btn, .form-control, .a{
-    font-size: 12px ;
-}
-
 .reason_main{
   color: #999;
   font-size: 13px;
@@ -340,9 +331,9 @@ div h4 p {
     background-clip: padding-box;
 }
 
-.search_question_dropdown_item {
-  margin-left: 15px;
-}
+// .search_question_dropdown_item {
+//   margin-left: 15px;
+// }
 
 .search_question_dropdown_item {
   margin-left: 10px;

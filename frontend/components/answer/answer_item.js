@@ -67,11 +67,11 @@ class AnswerItem extends React.Component {
       <div className="row top-margin-10 bottom-margin-10">
           <div className=" accordion-heading">
             <span className="left-margin-10">
-              <a className="Upvote" href="#">
+              {/* <a className="Upvote" href="#">
                 <span>Upvote</span>
                 <span className="divider-vertical-15px"></span>
                 <span className=" ">95</span>
-              </a>
+              </a> */}
             </span>
             <span className="left-margin-10">
               <a className="Downvote grey" href="#">

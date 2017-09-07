@@ -4,7 +4,7 @@ import {requestSingleQuestion} from '../../actions/question_actions';
 import {selectAllQuestions, selectSingleQuestion, selectAllAnswers} from '../../reducers/selectors';
 const mapStateToProps = (state, {match}) => {
   return {
-    question:   state.questions.byId[match.params.questionId],
+    question: state.questions.byId[match.params.questionId],
     topics: state.topics,
     currentQuestion: match.params.questionId
   }

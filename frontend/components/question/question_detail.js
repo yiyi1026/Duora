@@ -77,7 +77,7 @@ class QuestionDetail extends React.Component {
             <div className="bottom-margin-10">
               {topics_html}
               <a href="#" className="grey pull-right right-margin-90">
-              <span className="glyphicon glyphicon-pencil"></span>
+              {/* <span className="glyphicon glyphicon-pencil"></span> */}
               </a>
             </div>
             <div className="">
@@ -123,11 +123,11 @@ class QuestionDetail extends React.Component {
                 </a>
               </span>
               <span className="left-margin-10">
-                <a className="Upvote" href="#">
+                {/* <a className="Upvote" href="#">
                   <span>Upvote</span>
                   <span className="divider-vertical-15px"></span>
                   <span className=" ">95</span>
-                </a>
+                </a> */}
               </span>
               <span className="left-margin-10">
                 <a className="Downvote grey" href="#">

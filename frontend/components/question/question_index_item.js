@@ -68,9 +68,9 @@ class QuestionIndexItem extends React.Component {
               <a className="grey" href={'#/topics/' + topicId}>
                 <span >{topicName}</span>
               </a>
-              <span className="bullet">
+              {/* <span className="bullet">
                 ·
-              </span>Topic you might like
+              </span>Topic you might like */}
             </div>
           </div>
           <div className="row all-margin-10">
@@ -117,11 +117,11 @@ class QuestionIndexItem extends React.Component {
                 </a>
               </span>
               <span className="left-margin-10">
-                <a className="Upvote" href="#">
+                {/* <a className="Upvote" href="#">
                   <span>Upvote</span>
                   <span className="divider-vertical-15px"></span>
                   <span className=" ">95</span>
-                </a>
+                </a> */}
               </span>
               <span className="left-margin-10">
                 <a className="Downvote grey" href="#">

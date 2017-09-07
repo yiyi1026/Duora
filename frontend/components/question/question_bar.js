@@ -118,7 +118,7 @@ class QuestionBar extends React.Component {
       <form className="navbar-form navbar-left dropdown">
          <div className="form-group">
           <input type="text"
-            className="form-control dropdown-toggle"
+            className="form-control dropdown-toggle right-margin-10"
             id="question_field"
             placeholder="Ask or Search Duora"
             onFocus={this.handleOnFocus}

@@ -34,7 +34,7 @@ class Greeting extends React.Component {
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <QuestionBarContainer/>
               <ul className="nav navbar-nav red-text">
-                <li className="active">
+                {/* <li className="active">
                   <a href="#" className="active">
                     <span className='glyphicon glyphicon-list-alt'></span>Read
                     <span className="sr-only">(current)</span>
@@ -43,20 +43,21 @@ class Greeting extends React.Component {
                 <li>
                   <a href="#">
                     <span className='glyphicon glyphicon-edit'></span>Answer</a>
-                </li>
+                </li> */}
               </ul>
               <ul className="nav navbar-nav navbar-right">
-                <li>
+                {/* <li>
                   <a href="#">
                     <span className='glyphicon glyphicon-bell'></span>Notifications</a>
-                </li>
+                </li> */}
                 <li className="dropdown ">
+                  {/* need to change here for the warning */}
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <a href="#"><img className="img-circle pull-left" src={avatar} width="25" height="25"/></a>
                     {currentUser.username}
                   </a>
                   <ul className="dropdown-menu">
-                    <li>
+                    {/* <li>
                       <a href="#">Profile</a>
                     </li>
                     <li>
@@ -65,7 +66,7 @@ class Greeting extends React.Component {
                     <li>
                       <a href="#">Settings</a>
                     </li>
-                    <li role="separator" className="divider"></li>
+                    <li role="separator" className="divider"></li> */}
                     <li>
                       <a href="#" onClick={logout}>Logout</a>
                     </li>
