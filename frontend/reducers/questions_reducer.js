@@ -20,15 +20,12 @@ const defaultState =
 const byIdReducer = (state = {}, action) => {
   Object.freeze(state);
   let nextState = merge({}, state);
-  // console.log(action);
-  // console.log(action);
+
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS:
     case RECEIVE_SEARCHED_QUESTIONS:
-      //return {id:object}
       return merge({}, state, action.questions);
     case RECEIVE_SINGLE_QUESTION:
-      //return {id:object}
       return merge({}, nextState, {[action.question.id]: action.question});
     case REMOVE_QUESTION:
     // is this right?
