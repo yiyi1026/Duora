@@ -1,5 +1,7 @@
 class Api::TopicsController < ApplicationController
+
   # def create
+  #   @topic = Topic.new(topic_params)
   #
   # end
 
@@ -20,11 +22,6 @@ class Api::TopicsController < ApplicationController
     #maybe created_at?? newest questions come first???
     # @topic_questions = @topic.questions.order(id: :desc)
   end
-
-  # def create
-  #   @topic = Topic.new(topic_params)
-  #
-  # end
 
   def topic_params
     params.require(:topic).permit(:id, :name, :question_id)

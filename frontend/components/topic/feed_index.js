@@ -20,7 +20,7 @@ class FeedIndex extends React.Component{
           color={'#123abc'}
           loading={this.state.loading}
         />
-    </div>);
+      </div>);
     }
     const topics = this.props.topics;
 
@@ -29,14 +29,13 @@ class FeedIndex extends React.Component{
         let {id} = topic;
         return (<FeedIndexItem key={`topic${id}`} topic={topic} />);
       });
+
     return(
       <div className ="all-margin-30">
          <div className='row bottom-padding-10 bottom-boader'>
             <span className="left-margin-10">Feeds</span>
             <span className="pull-right right-margin-60">
-            <a className="grey edit" href="#">
-
-            </a>
+            <a className="grey edit" href="#"></a>
             </span>
          </div>
         {all_topics_html}
