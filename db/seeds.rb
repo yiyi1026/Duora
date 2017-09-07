@@ -104,7 +104,7 @@ answer4 = Answer.create!({body:"i would suggest, you should checkout popular Mac
 
 Google Cloud
 Amazon ML etc
-These are popular providers who charge as you use with high end computing resources.Hope this helps.", author_id: guest5.id, question_id: question5.id})
+These are popular providers who charge as you use with high end computing resources.Hope this helps.", author_id: guest9.id, question_id: question5.id})
 answer5 = Answer.create!({body:"For small datasets (and in some circumstances also for larger ones) you might often be better off with Random Forests or the Bayesian equivalent, BART. Besides the error, deep networks might take hours to train whereas random forests are almost instantly trained. Bayesian trees usually work better than their frequentist counterpart but take much longer to train as they rely on MCMC sampling.", author_id: guest5.id, question_id: question5.id})
 answer6 = Answer.create!({body:'Pure pork fat is LARD. Thick, white, greasy, just the thing for excellent pie pastry, but how on earth could you “accidentally” eat a quarter-pound (110 grams) of pure lard???
 
@@ -123,16 +123,15 @@ In response to sugar consumption, your pancreas releases insulin, which triggers
 
 Protein triggers an entirely different feedback mechanism, but as you didn’t ask about it I will leave it for another answer.", author_id: guest4.id, question_id: question7.id})
 answer8 = Answer.create!({body:'<div class="inline_editor_content" id="__w2_CUiVwzp_content">   <span class="inline_editor_value">      <div id="RQnCji"></div>      <span class="rendered_qtext">         <p class="qtext_para">Thanks for the A2A. They can’t tell from a picture. Because they don’t always dress in their traditional garments. Below is a picture of Uighur people.</p>         <div class="qtext_image_wrapper"><img class="portrait qtext_image zoomable_in zoomable_in_feed lazy_loaded lazy_loading" src="https://qph.ec.quoracdn.net/main-qimg-e4c7f76f10b764ddae00c4e069c757b2.webp" master_src="https://qph.ec.quoracdn.net/main-qimg-e4c7f76f10b764ddae00c4e069c757b2-c" master_w="370" master_h="462" style="opacity: 1;"></div>         <p class="qtext_para">Not so obvious when they’re not dressed in traditional garments.</p>         <div class="qtext_image_wrapper"><img class="landscape qtext_image zoomable_in zoomable_in_feed lazy_loaded lazy_loading" src="https://qph.ec.quoracdn.net/main-qimg-95ea3c83f69b7bbf4bd6cdba784e26e7.webp" master_src="https://qph.ec.quoracdn.net/main-qimg-c88c96ae8dee0cf3378ad7dc19ddbb14-c" master_w="1024" master_h="768" style="opacity: 1;"></div>         <p class="qtext_para">If you want to find your relatives, try 23 and me. Sometimes you can discover distant cousins that way.</p>      </span>   </span></div>', author_id: guest3.id, question_id: question2.id})
-answer9 = Answer.create!({body:'answer9bodytoquestion5', author_id: guest2.id, question_id: question5.id})
-answer10 = Answer.create!({body:'answer10bodytoquestion7', author_id: guest2.id, question_id: question7.id})
-
+answer9 = Answer.create!({body:'What a wonderful world', author_id: guest2.id, question_id: question5.id})
+answer10 = Answer.create!({body:'Nice day', author_id: guest2.id, question_id: question7.id})
 
 comment1 = Comment.create!({body: 'You can find anything on the internet', answer_id: answer4.id, author_id: guest1.id})
 comment2 = Comment.create!({body: 'So much fun here', answer_id: answer3.id, author_id: guest2.id})
 comment3 = Comment.create!({body: 'So much fun here', answer_id: answer2.id, author_id: guest3.id})
 comment4 = Comment.create!({body: 'Let me help you find that', answer_id: answer4.id, author_id: guest4.id})
 comment5 = Comment.create!({body: "It's really interesting", answer_id: answer5.id, author_id: guest5.id})
-comment6 = Comment.create!({body: "It's really interesting", answer_id: answer6.id, author_id: guest6.id})
+comment6 = Comment.create!({body: "It's really interesting", answer_id: answer8.id, author_id: guest6.id})
 comment7 = Comment.create!({body: 'So much fun here', answer_id: answer7.id, author_id: guest7.id})
 comment8 = Comment.create!({body: 'You can find anything on the internet', answer_id: answer8.id, author_id: guest8.id})
 comment9 = Comment.create!({body: 'So much fun here', answer_id: answer9.id, author_id: guest7.id})
