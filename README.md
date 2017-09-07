@@ -1,7 +1,7 @@
 # Duora
 
 [heroku]: https://duora.herokuapp.com/ 
-[Duora][heroku] is a full-stack web application inspired by Quora. It utilizes React.js with a Redux architectural framework on the frontend, styled with bootstrap CSS, a PostgreSQL database Ruby on Rails on the backend.
+[Duora][heroku] is a full-stack web application inspired by Quora. It utilizes React.js with a Redux architectural framework on the frontend, styled with bootstrap CSS, a PostgreSQL database and Ruby on Rails on the backend.
 
 ## Features & Implementation
 
@@ -35,11 +35,11 @@ As with questions and answers, comments are stored in the database. The tag tabl
 
 ## Future Directions for the Project
 
-In addition to the features I have already implement, I will continue to work on this project. The future steps for Duora are stated below.
+In addition to the features I have already implement, I will continue working on this project. The future steps for Duora are stated as below.
 
 - [ ] Comment on Comments
 - [ ] Edit and Update
 - [ ] User Profile with User Statistics
-- [ ] Upvote / Downvote
+- [ ] Upvote on Questions / Answers / Comments
 - [ ] Subscribe/ Unsubscribe questions
 

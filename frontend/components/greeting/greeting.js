@@ -57,9 +57,10 @@ class Greeting extends React.Component {
                     {currentUser.username}
                   </a>
                   <ul className="dropdown-menu">
-                    {/* <li>
-                      <a href="#">Profile</a>
+                    <li>
+                      <a href="#">Profile(Unfinished)</a>
                     </li>
+                    {/* 
                     <li>
                       <a href="#">Stats</a>
                     </li>

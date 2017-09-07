@@ -17,16 +17,16 @@ class AnswerForm extends React.Component {
 
   handleAnswerSubmit(e) {
     e.preventDefault();
-    console.log(this.props);
+    // console.log(this.props);
     let question_id = this.props.question.id;
     let answer = {
       body: this.state.rte.toString('html'),
       author_id: this.props.currentUser.id,
       question_id
-    }
+    };
     this.props.createAnswer(answer).then(
-      () => this.setState({rte: RichTextEditor.createEmptyValue()}))
-      // .then(this.props.history.push(null, `/questions/${this.props.question.id}`));
+      () => this.setState({rte: RichTextEditor.createEmptyValue()})
+    ).then(this.props.history.push(null, `/questions/${this.props.question.id}`));
     // history.pushState(null, '/');
     //how to make this page refresh
   // );

@@ -65,23 +65,23 @@ class CommentIndexItem extends React.Component {
 
           <div className="row">
             <div className=" accordion-heading">
-              <span className="left-margin-10  ">
+              {/* <span className="left-margin-10  ">
                 <a className="Comment accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href={"#collapse" + comment.id} role="button">
                   <span className="glyphicon glyphicon-pencil"></span>Comment on this comment
                 </a>
               </span>
               <span className="left-margin-10">
-                {/* <a className="Upvote" href="#">
+                <a className="Upvote" href="#">
                   <span>Upvote</span>
                   <span className="divider-vertical-15px"></span>
                   <span className=" ">95</span>
-                </a> */}
+                </a>
               </span>
               <span className="left-margin-10">
                 <a className="Downvote grey" href="#">
                   <span className=" ">Downvote</span>
                 </a>
-              </span>
+              </span> */}
             </div>
             <div id={"collapse" + comment.id} className="accordion-body collapse">
             </div>
