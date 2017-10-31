@@ -14,11 +14,11 @@
 #
 
 class User < ApplicationRecord
-  # do we need index username?? should it be unique???
+
+	# validation part
 	validates :username, :password_digest, :session_token, presence: true
 	validates :email, uniqueness: true, presence: true
-	# validates :email, email_format: { message: "doesn't look like an email address" }
-  # or this format?? {minimum: 6, allow_nil: true}
+	validates :email, email_format: { message: "doesn't look like an email address" }
 	validates :password, length: {minimum: 6}, allow_nil: :true
 
 	#associations
