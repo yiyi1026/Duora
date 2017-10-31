@@ -43,13 +43,12 @@ class User < ApplicationRecord
 
 	after_initialize :ensure_session_token
 
-  #do we need it?
 	before_validation :ensure_session_token_uniqueness
 
   attr_reader :password
 
-	def password= password
-    @password = password
+	def password=(password)
+		@password = password
 		self.password_digest = BCrypt::Password.create(password)
 	end
 
