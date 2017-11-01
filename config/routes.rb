@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     resources :answers
     resources :topics
     resources :comments
-end
+  end
 
-#chaos
+  #chaos
   root "static_pages#root"
 
 end
