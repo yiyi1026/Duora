@@ -23,7 +23,7 @@ Questions are rendered in two different components: the QuestionIndex components
 ### Answers
 
 Each answer, which contains attributes to id, question_id, author_id, body, is referenced to a specific question. Each answer belongs to a question and an author.
-RichTestEditor is used to implemented creating answers upon clicking the toggle answer button with Modal effect.
+RichTextEditor is used to implemented creating answers upon clicking the toggle answer button with Modal effect.
 
 The React component structure for answers is similar as that of questions: the AnswerIndex component renders a list of Answers as subcomponents.
 
